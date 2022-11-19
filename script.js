@@ -3,6 +3,7 @@ const body = document.querySelector("body"),
     toggle = body.querySelector(".toggle");
 const toggleHeader = body.querySelector(".toggleHeader")
 const logoutpop = document.getElementById('popup');
+
 const addcoureback = document.getElementById('popupbackground');
 const addcoursebtn = document.getElementById('addcourse');
 const editcoureback = document.getElementById('editpopupbackground');
@@ -16,6 +17,13 @@ const editsubjectback = document.getElementById('subjectpopupbackground');
 const editsubjectbtn = document.getElementById('editsubject');
 const exsubject = document.getElementById('exsubject');
 const exeditsubject = document.getElementById('exeditsubject');
+
+const addSectionback = document.getElementById('popupbackgroundsection');
+const addSectionbtn = document.getElementById('addsection');
+const editSectionback = document.getElementById('sectionpopupbackground');
+const editSectiontbtn = document.getElementById('editsection');
+const exsection = document.getElementById('exsection');
+const exeditsection = document.getElementById('exeditsection');
 
 toggleHeader.addEventListener("click", () => {
     sidebar.classList.toggle("close");
@@ -34,6 +42,21 @@ window.onload = function () {
 }
 
 $(document).ready(function() {
+    /* add section */
+    $("#addsection").click(function() {
+        $("#popupbackgroundsection").show();
+    });
+    $("#exsection").click(function() {
+        $("#popupbackgroundsection").hide();
+    });
+
+    /* edit section */
+    $("#editsection").click(function() {
+        $("#sectionpopupbackground").show();
+    });
+    $("#exeditsection").click(function() {
+        $("#sectionpopupbackground").hide();
+    });
     /* add subject */
     $("#addsubject").click(function() {
         $("#popupbackgroundsubject").show();
@@ -91,6 +114,7 @@ function EditCourseFunction() {
     }
 }
 
+
 function AddSubjectFunction() {
     if (addsubjectback.style.display === "flex") {
         addsubjectback.style.display = "none";
@@ -104,5 +128,21 @@ function EditSubjectFunction() {
         editsubjectback.style.display = "none";
     } else {
         editsubjectback.style.display = "flex";
+    }
+}
+
+function AddSectionFunction() {
+    if (addSectionback.style.display === "flex") {
+        addSectionback.style.display = "none";
+    } else {
+        addSectionback.style.display = "flex";
+    }
+}
+
+function EditSectionFunction() {
+    if (editSectionback.style.display === "flex") {
+        editSectionback.style.display = "none";
+    } else {
+        editSectionback.style.display = "flex";
     }
 };
