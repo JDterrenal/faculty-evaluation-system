@@ -444,6 +444,11 @@ nav p img {
   vertical-align: middle;
   transition: 0.5s;
 }
+.student-picture{
+  max-width: 10em;
+  border-radius: 50%;
+
+}
 
 nav li {
   padding: 1em;
@@ -986,7 +991,12 @@ footer {
     max-width: 2em;
     height: 100%;
     max-height: 2em;
+  }
 
+  .student-picture{
+    max-width: 4em;
+    border-radius: 50%;
+    margin: 0;
   }
   .username1 {
     display: none;
@@ -1108,6 +1118,33 @@ footer {
   }
 
   .main-table tbody tr {
+    background-color: #f3f3f3;
+  }
+
+  /* user table resposive */
+  .user-table th{
+    display: none;
+  }
+  .user-table tr {
+    margin-bottom: 15px;
+  }
+
+  .user-table tbody tr td {
+    text-align: right;
+    padding-left: 40%;
+    position: relative;
+  }
+
+  .user-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    text-align: left;
+  }
+
+  .user-table tbody tr {
     background-color: #f3f3f3;
   }
 
