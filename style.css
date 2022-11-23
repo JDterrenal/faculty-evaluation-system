@@ -1067,6 +1067,7 @@ footer {
   .main-table,
   .main-table tbody,
   .main-table tr,
+  .main-table th,
   .main-table td {
     display: block;
 
@@ -1076,13 +1077,13 @@ footer {
     margin-bottom: 15px;
   }
 
-  .main-table tbody tr td {
+  .main-table tbody tr td th {
     text-align: right;
     padding-left: 50%;
     position: relative;
   }
 
-  .main-table td::before {
+  .main-table td th::before {
     content: attr(data-label);
     position: absolute;
     left: 0;
@@ -1112,13 +1113,13 @@ footer {
     margin-bottom: 15px;
   }
 
-  .student-table tbody tr td {
+  .student-table tbody tr td th {
     text-align: right;
     padding-left: 30%;
     position: relative;
   }
 
-  .student-table td::before {
+  .student-table td th::before {
     content: attr(data-label);
     position: absolute;
     left: 0;
