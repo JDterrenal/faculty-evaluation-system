@@ -60,7 +60,7 @@ function login() {
                 setCookies("FacultyEvaluationID", $_SESSION['login_id'], time() + 86400, "/", "facultyevaluation.elementfx.com");
                 setCookies("FacultyEvaluationPassword", $_SESSION['password'], time() + 86400, "/", "facultyevaluation.elementfx.com");
             } else {
-                echo '<br>Wrong ID or Password!';
+                echo 'Your ID or Password is incorrect!';
             }
         }
         else if ($loginas == "Student") {
@@ -84,7 +84,7 @@ function login() {
                 setCookies("FacultyEvaluationID", $_SESSION['login_id'], time() + 86400, "/", "facultyevaluation.elementfx.com");
                 setCookies("FacultyEvaluationPassword", $_SESSION['password'], time() + 86400, "/", "facultyevaluation.elementfx.com");
             } else {
-                echo '<br>Wrong ID or Password!';
+                echo 'Your ID or Password is incorrect!';
             }
         }
         else if ($loginas == "Faculty") {
@@ -108,10 +108,9 @@ function login() {
                 setCookies("FacultyEvaluationID", $_SESSION['login_id'], time() + 86400, "/", "facultyevaluation.elementfx.com");
                 setCookies("FacultyEvaluationPassword", $_SESSION['password'], time() + 86400, "/", "facultyevaluation.elementfx.com");
             } else {
-                echo '<br>Wrong ID or Password!';
+                echo 'Your ID or Password is incorrect!';
             }
         }
-        echo 'TITE!';
         mysqli_close($conn);
     }
 }
