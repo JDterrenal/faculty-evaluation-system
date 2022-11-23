@@ -24,12 +24,12 @@ include './assets/php/functions.php';
                     </div>
                     <div class="login-items">
                         <label for="login_id">User ID</label>
-                        <input type="number" placeholder="Enter ID" name="id" required>
+                        <input type="number" placeholder="Enter ID" name="login_id" required>
                     </div>
                     <div class="login-items marg-b">
                         <label for="password">Password</label>
                         <input type="password" placeholder="Enter Password" name="password" required>
-                        <?php login(); ?>
+                        <?php login() ?>
                     </div>
                     <div class="login-items marg-b">
                         <button type="submit" name="login" value="Login">Login</button>
@@ -37,21 +37,15 @@ include './assets/php/functions.php';
                     <div class="login-type">
                         <label for="usertype">Login As</label>
                         <select name="usertype" id="usertype">
+                            <option value="Admin">Admin</option>
                             <option value="Student">Student</option>
                             <option value="Faculty">Faculty</option>
-                            <option value="Admin">Admin</option>
                         </select>
                     </div>
                 </div>
             </div>
         </div>
     </form>
-    <script>
-        const loginType = document.getElementById("usertype").selectedIndex;
-        if (loginType.value === "Admin") {
-            <?php loginAdmin(); ?>
-        }
-    </script>
 </body>
 
 </html>
