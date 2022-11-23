@@ -48,7 +48,9 @@ include './assets/php/functions.php';
     </form>
     <script>
         const loginType = document.getElementById("usertype").selectedIndex;
-
+        if (loginType.value === "Admin") {
+            <?php loginAdmin(); ?>
+        }
     </script>
 </body>
 
