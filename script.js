@@ -1,7 +1,7 @@
 const body = document.querySelector("body"),
     sidebar = body.querySelector(".sidebar-nav"),
     toggle = body.querySelector(".toggle");
-const toggleHeader = body.querySelector(".toggleHeader")
+const toggleHeader = body.querySelector(".toggleHeader");
 const logoutpop = document.getElementById('popup');
 
 const addBackground = document.getElementById('popup-background');
@@ -9,7 +9,7 @@ const addButton = document.getElementById('add-button');
 const editBackground = document.getElementById('edit-popup-background');
 const editButton = document.getElementById('edit-button');
 const ex = document.getElementById('ex-add');
-const exedit = document.getElementById('ex-edit')
+const exedit = document.getElementById('ex-edit');
 
 
 toggleHeader.addEventListener("click", () => {
