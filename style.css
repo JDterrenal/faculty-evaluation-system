@@ -513,7 +513,7 @@ nav li:focus {
   width: 98%;
 }
 
-.courses-container {
+.page-container {
   margin: 0 auto;
   width: 98%;
 }
@@ -596,7 +596,7 @@ nav li:focus {
   overflow-y: scroll;
 }
 
-.courses-search-add {
+.main-search-add {
   width: 100%;
   display: flex;
 }
@@ -606,7 +606,7 @@ nav li:focus {
   display: flex;
 }
 
-.courses-search-add-top {
+.main-search-add-top {
   margin: .7em;
   width: 100%;
 }
@@ -616,7 +616,7 @@ nav li:focus {
   width: 100%;
 }
 
-.course-search-add-title {
+.main-search-add-title {
   font-size: 1.3rem;
   font-weight: 700;
 }
@@ -626,7 +626,7 @@ nav li:focus {
   font-weight: 700;
 }
 
-.courses-search {
+.main-search1 {
   margin: 0 3.5em;
   border: 1px solid #707070;
   padding: .3em;
@@ -636,7 +636,7 @@ nav li:focus {
   min-width: 16em;
 }
 
-.courses-search a {
+.main-search1 a {
   color: #707070;
 }
 
