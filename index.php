@@ -36,7 +36,7 @@ include './assets/php/functions.php';
                     </div>
                     <div class="login-type">
                         <label for="usertype">Login As</label>
-                        <select name="typeuser" id="usertype">
+                        <select name="usertype" id="usertype">
                             <option value="Student">Student</option>
                             <option value="Faculty">Faculty</option>
                             <option value="Admin">Admin</option>
@@ -46,6 +46,10 @@ include './assets/php/functions.php';
             </div>
         </div>
     </form>
+    <script>
+        const loginType = document.getElementById("usertype").selectedIndex;
+
+    </script>
 </body>
 
 </html>
