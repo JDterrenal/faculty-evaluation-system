@@ -18,6 +18,20 @@ body {
 }
 
 /* all buttons */
+.view {
+  padding: .5em;
+  background-color: #33ccff;
+  margin: .5em;
+  text-decoration: none;
+  color: #ffff;
+  font-weight: bold;
+}
+
+.view:hover,
+.view:focus {
+  background-color: #00bfff;
+}
+
 .delete {
   padding: .5em;
   background-color: #ff4d4d;
@@ -64,6 +78,7 @@ body {
 
 .main-table tbody tr td {
   border: 1px solid #ffff;
+  
 }
 
 .main-table thead tr {
@@ -75,7 +90,7 @@ body {
 
 .main-table th,
 .main-table td {
-  padding: 12px 15px;
+  padding: 12px 10px;
 }
 
 .main-table tbody tr {
