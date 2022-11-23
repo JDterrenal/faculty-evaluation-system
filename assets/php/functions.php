@@ -20,25 +20,28 @@ if (isset($_GET['logout'])) {
 }
 
 //Prevents going back on an expired session.
-function preventBack() {
+function preventBack()
+{
     if (!isset($_SESSION['login_id'])) {
         header("Location: index.php");
     }
 }
 
 //Login as Admin, Stundent or Faculty.
-function loginAs() {
+function loginAs()
+{
     if (isset($_POST['register'])) {
         $_SESSION['loginas'] = $_POST['loginas'];
     }
 }
 
 //This enables the login functionality for the system.
-function login() {
+function login()
+{
     include 'connection.php';
     global $loginas;
-    if (isset($_POST['login'])) {  
-        $loginas = $_SESSION['loginas']; 
+    if (isset($_POST['login'])) {
+        $loginas = $_SESSION['loginas'];
         if ($loginas == "Admin") {
             $login_id = $_POST['login_id'];
             $password = $_POST['password'];
@@ -62,8 +65,7 @@ function login() {
             } else {
                 echo 'Your ID or Password is incorrect!';
             }
-        }
-        else if ($loginas == "Student") {
+        } else if ($loginas == "Student") {
             $login_id = $_POST['login_id'];
             $password = $_POST['password'];
             $sql = "SELECT student_id, password, usertype FROM tb_login WHERE student_id='$login_id' AND password='$password' limit 1";
@@ -86,8 +88,7 @@ function login() {
             } else {
                 echo 'Your ID or Password is incorrect!';
             }
-        }
-        else if ($loginas == "Faculty") {
+        } else if ($loginas == "Faculty") {
             $login_id = $_POST['login_id'];
             $password = $_POST['password'];
             $sql = "SELECT faculty_id, password, usertype FROM tb_login WHERE faculty_id='$login_id' AND password='$password' limit 1";
@@ -115,8 +116,90 @@ function login() {
     }
 }
 
+function loginAdmin()
+{
+    include 'connection.php';
+    $login_id = $_POST['login_id'];
+    $password = $_POST['password'];
+    $sql = "SELECT login_id, password, usertype FROM tb_login WHERE login_id='$login_id' AND password='$password' limit 1";
+    $result = mysqli_query($conn, $sql) or die("Connection error!");
+    //Login Validation
+    if (mysqli_num_rows($result) == 1) {
+        $_SESSION['login_id'] = $_POST['login_id'];
+        $_SESSION['password'] = $_POST['password'];
+        $iden = "SELECT login_id, usertype FROM tb_login WHERE login_id='$login_id'";
+        $result = mysqli_query($conn, $iden);
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $login_id = $row["login_id"];
+            $usertype = $row["usertype"];
+        }
+        $_SESSION['login_id'] = $login_id;
+        $_SESSION['usertype'] = $usertype;
+        header("Location: dashboard.php");
+        setCookies("FacultyEvaluationID", $_SESSION['login_id'], time() + 86400, "/", "facultyevaluation.elementfx.com");
+        setCookies("FacultyEvaluationPassword", $_SESSION['password'], time() + 86400, "/", "facultyevaluation.elementfx.com");
+    } else {
+        echo 'Your ID or Password is incorrect!';
+    }
+}
+
+function loginStudent()
+{
+    include 'connection.php';
+    $login_id = $_POST['login_id'];
+    $password = $_POST['password'];
+    $sql = "SELECT student_id, password, usertype FROM tb_login WHERE student_id='$login_id' AND password='$password' limit 1";
+    $result = mysqli_query($conn, $sql) or die("Connection error!");
+    //Login Validation
+    if (mysqli_num_rows($result) == 1) {
+        $_SESSION['login_id'] = $_POST['login_id'];
+        $_SESSION['password'] = $_POST['password'];
+        $iden = "SELECT login_id, student_id, usertype FROM tb_login WHERE student_id='$login_id'";
+        $result = mysqli_query($conn, $iden);
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $login_id = $row["student_id"];
+            $usertype = $row["usertype"];
+        }
+        $_SESSION['login_id'] = $login_id;
+        $_SESSION['usertype'] = $usertype;
+        header("Location: dashboard.php");
+        setCookies("FacultyEvaluationID", $_SESSION['login_id'], time() + 86400, "/", "facultyevaluation.elementfx.com");
+        setCookies("FacultyEvaluationPassword", $_SESSION['password'], time() + 86400, "/", "facultyevaluation.elementfx.com");
+    } else {
+        echo 'Your ID or Password is incorrect!';
+    }
+}
+
+function loginFaculty()
+{
+    include 'connection.php';
+    $login_id = $_POST['login_id'];
+    $password = $_POST['password'];
+    $sql = "SELECT faculty_id, password, usertype FROM tb_login WHERE faculty_id='$login_id' AND password='$password' limit 1";
+    $result = mysqli_query($conn, $sql) or die("Connection error!");
+    //Login Validation
+    if (mysqli_num_rows($result) == 1) {
+        $_SESSION['login_id'] = $_POST['login_id'];
+        $_SESSION['password'] = $_POST['password'];
+        $iden = "SELECT login_id, faculty_id, usertype FROM tb_login WHERE faculty_id='$login_id'";
+        $result = mysqli_query($conn, $iden);
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $login_id = $row["faculty_id"];
+            $usertype = $row["usertype"];
+        }
+        $_SESSION['login_id'] = $login_id;
+        $_SESSION['usertype'] = $usertype;
+        header("Location: dashboard.php");
+        setCookies("FacultyEvaluationID", $_SESSION['login_id'], time() + 86400, "/", "facultyevaluation.elementfx.com");
+        setCookies("FacultyEvaluationPassword", $_SESSION['password'], time() + 86400, "/", "facultyevaluation.elementfx.com");
+    } else {
+        echo 'Your ID or Password is incorrect!';
+    }
+}
+
 //Enables cookies for the system.
-function setCookies() {
+function setCookies()
+{
     $login_id = $_SESSION['login_id'];
     $password = $_SESSION['password'];
     setcookie("FacultyEvaluationID", $login_id, time() + 86400, "/", "facultyevaluation.elementfx.com");
@@ -124,10 +207,11 @@ function setCookies() {
 }
 
 //This shows all of the items in the side menu of the website.
-function sidebarIdentify() {
+function sidebarIdentify()
+{
     $usertype = $_SESSION['usertype'];
     if ($usertype == 'Admin') {
-        echo'
+        echo '
         <a href="dashboard.php"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
         <a href="courses.php"><i class="fas fa-book"></i><span>Courses</span></a>
         <a href="subjects.php"><i class="fas fa-book-open"></i><span>Subjects</span></a>
@@ -139,7 +223,7 @@ function sidebarIdentify() {
         <a href="about.php"><i class="fas fa-info-circle"></i><span>About</span></a>
         ';
     } else if ($usertype == 'Student') {
-        echo'
+        echo '
         <a href="dashboard.php"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
         <a href="student_profile.php"><i class="fas fa-user"></i><span>Profile</span></a>
         <a href="student_subjects.php"><i class="fas fa-book-open"></i><span>Subjects</span></a>
@@ -147,7 +231,7 @@ function sidebarIdentify() {
         <a href="about.php"><i class="fas fa-info-circle"></i><span>About</span></a>
         ';
     } else if ($usertype == 'Faculty') {
-        echo'
+        echo '
         <a href="dashboard.php"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
         <a href="faculty_profile.php"><i class="fas fa-user"></i><span>Profile</span></a>
         <a href="faculty_sections.php"><i class="fas fa-table"></i><span>Sections</span></a>
@@ -160,7 +244,8 @@ function sidebarIdentify() {
 
 //------------------------------ Adding Records ------------------------------
 //Adds a new student in the record.
-function addStudent() {
+function addStudent()
+{
     if (isset($_POST['addstudent'])) {
         include 'connection.php';
         $firstname = $_POST['firstname'];
@@ -198,7 +283,8 @@ function addStudent() {
 }
 
 //Adds a new faculty member in the record.
-function addFaculty() {
+function addFaculty()
+{
     if (isset($_POST['addfaculty'])) {
         include 'connection.php';
         $firstname = $_POST['firstname'];
@@ -232,7 +318,8 @@ function addFaculty() {
 }
 
 //Adds a new evaluation in the record.
-function addEvaluation() {
+function addEvaluation()
+{
     if (isset($_POST['addevaluation'])) {
         include 'connection.php';
         $schoolyear = $_POST['schoolyear'];
@@ -253,7 +340,8 @@ function addEvaluation() {
 }
 
 //Adds a new course in the record.
-function addCourse() {
+function addCourse()
+{
     if (isset($_POST['addcourse'])) {
         include 'connection.php';
         $course_name = $_POST['course_name'];
@@ -271,45 +359,48 @@ function addCourse() {
 }
 
 //Adds a new subject in the record.
-function addSubjects() {
-  if (isset($_POST['addsubject'])) {
-      include 'connection.php';
-      $subject_name = $_POST['subject_name'];
+function addSubjects()
+{
+    if (isset($_POST['addsubject'])) {
+        include 'connection.php';
+        $subject_name = $_POST['subject_name'];
 
-      //Add Subject
-      $sql = "INSERT INTO tb_subjects (subject_id, subject_name) VALUES (null, '$subject_name')";
-      if (mysqli_query($conn, $sql)) {
-          echo "Subject Added!";
-          header('Location: subjects.php');
-      } else {
-          echo "Invalid input!";
-      }
-      mysqli_close($conn);
-  }
+        //Add Subject
+        $sql = "INSERT INTO tb_subjects (subject_id, subject_name) VALUES (null, '$subject_name')";
+        if (mysqli_query($conn, $sql)) {
+            echo "Subject Added!";
+            header('Location: subjects.php');
+        } else {
+            echo "Invalid input!";
+        }
+        mysqli_close($conn);
+    }
 }
 
 //Adds a new section in the record.
-function addSections() {
-  if (isset($_POST['addsection'])) {
-      include 'connection.php';  
-      $section_code = $_POST['section_code'];
-      $yearlevel = $_POST['yearlevel'];
-      $section_name = "$yearlevel$section_code";
+function addSections()
+{
+    if (isset($_POST['addsection'])) {
+        include 'connection.php';
+        $section_code = $_POST['section_code'];
+        $yearlevel = $_POST['yearlevel'];
+        $section_name = "$yearlevel$section_code";
 
-      //Add Section
-      $sql = "INSERT INTO tb_sections (section_id, section_name, section_code, yearlevel) VALUES (null, '$section_name', '$section_code', '$yearlevel')";
-      if (mysqli_query($conn, $sql)) {
-          echo "Section Added!";
-          header('Location: sections.php');
-      } else {
-          echo "Invalid input!";
-      }
-      mysqli_close($conn);
-  }
+        //Add Section
+        $sql = "INSERT INTO tb_sections (section_id, section_name, section_code, yearlevel) VALUES (null, '$section_name', '$section_code', '$yearlevel')";
+        if (mysqli_query($conn, $sql)) {
+            echo "Section Added!";
+            header('Location: sections.php');
+        } else {
+            echo "Invalid input!";
+        }
+        mysqli_close($conn);
+    }
 }
 //------------------------------ Editing Records ------------------------------
 //Student Edit and Confirmation
-function editStudent($edit_student_id) {
+function editStudent($edit_student_id)
+{
     include 'connection.php';
     global $edit_firstname, $edit_lastname, $edit_gender, $edit_yearlevel, $edit_contact_no, $edit_address, $edit_status, $edit_email;
     $sql = "SELECT firstname, lastname, email, gender, yearlevel, contact_no, address, status, photo FROM tb_students WHERE student_id='$edit_student_id'";
@@ -327,7 +418,8 @@ function editStudent($edit_student_id) {
     mysqli_close($conn);
 }
 
-function editStudentConf($edit_student_id) {
+function editStudentConf($edit_student_id)
+{
     include 'connection.php';
     global $edit_firstname, $edit_lastname, $edit_gender, $edit_yearlevel, $edit_contact_no, $edit_address, $edit_email, $edit_status, $edit_course_id, $edit_section_id;
     $edit_firstname = $_POST['firstname'];
@@ -352,7 +444,8 @@ function editStudentConf($edit_student_id) {
 }
 
 //Faculty Edit and Confirmation
-function editFaculty($edit_faculty_id) {
+function editFaculty($edit_faculty_id)
+{
     include 'connection.php';
     global $edit_firstname, $edit_lastname, $edit_gender, $edit_contact_no, $edit_address, $edit_email;
     $sql = "SELECT firstname, lastname, email, gender, contact_no, address, photo FROM tb_faculty WHERE faculty_id='$edit_faculty_id'";
@@ -368,7 +461,8 @@ function editFaculty($edit_faculty_id) {
     mysqli_close($conn);
 }
 
-function editFacultyConf($edit_faculty_id) {
+function editFacultyConf($edit_faculty_id)
+{
     include 'connection.php';
     global $edit_firstname, $edit_lastname, $edit_gender, $edit_yearlevel, $edit_contact_no, $edit_address, $edit_email, $edit_status;
     $edit_firstname = $_POST['firstname'];
@@ -389,7 +483,8 @@ function editFacultyConf($edit_faculty_id) {
 }
 
 // Edit confirmation for course
-function editCourse($edit_course_id) {
+function editCourse($edit_course_id)
+{
     include 'connection.php';
     global $edit_course_name;
     $sql = "SELECT course_name FROM tb_courses WHERE course_id='$edit_course_id'";
@@ -400,7 +495,8 @@ function editCourse($edit_course_id) {
     mysqli_close($conn);
 }
 
-function editCourseConf($edit_course_id) {
+function editCourseConf($edit_course_id)
+{
     include 'connection.php';
     global $edit_course_name;
     $edit_course_name = $_POST['course_name'];
@@ -417,7 +513,8 @@ function editCourseConf($edit_course_id) {
 }
 
 // Edit confirmation for subject
-function editSubject($edit_subject_id) {
+function editSubject($edit_subject_id)
+{
     include 'connection.php';
     global $edit_subject_name;
     $sql = "SELECT subject_name FROM tb_subjects WHERE subject_id='$edit_subject_id'";
@@ -428,7 +525,8 @@ function editSubject($edit_subject_id) {
     mysqli_close($conn);
 }
 
-function editSubjectConf($edit_subject_id) {
+function editSubjectConf($edit_subject_id)
+{
     include 'connection.php';
     global $edit_subject_name;
     $edit_subject_name = $_POST['subject_name'];
@@ -445,7 +543,8 @@ function editSubjectConf($edit_subject_id) {
 }
 
 // Edit confirmation for section
-function editSection($edit_section_id) {
+function editSection($edit_section_id)
+{
     include 'connection.php';
     global $edit_section_name, $edit_section_code, $edit_yearlevel;
     $sql = "SELECT section_name, section_code, yearlevel FROM tb_sections WHERE section_id='$edit_section_id'";
@@ -458,7 +557,8 @@ function editSection($edit_section_id) {
     mysqli_close($conn);
 }
 
-function editSectionConf($edit_section_id) {
+function editSectionConf($edit_section_id)
+{
     include 'connection.php';
     global $edit_section_name, $edit_section_code, $edit_yearlevel;
     $edit_section_name = $row["section_name"];
@@ -477,7 +577,8 @@ function editSectionConf($edit_section_id) {
 }
 
 //------------------------------ Deleting Records ------------------------------
-function enableDelete() {
+function enableDelete()
+{
     global $conn;
     //Delete Students
     if (isset($_GET['delete_student_id'])) {
@@ -499,38 +600,39 @@ function enableDelete() {
     }
     //Delete Subject
     if (isset($_GET['delete_subject_id'])) {
-      $delete_subject_id = $_GET['delete_subject_id'];
-      $sql = "DELETE FROM tb_subjects WHERE subject_id='$delete_subject_id'";
-      
-      mysqli_query($conn, $sql) or die("Connection error!");
-      header('location: subjects.php');
+        $delete_subject_id = $_GET['delete_subject_id'];
+        $sql = "DELETE FROM tb_subjects WHERE subject_id='$delete_subject_id'";
+
+        mysqli_query($conn, $sql) or die("Connection error!");
+        header('location: subjects.php');
     }
     //Delete Section
     if (isset($_GET['delete_section_id'])) {
-      $delete_section_id = $_GET['delete_section_id'];
-      $sql = "DELETE FROM tb_sections WHERE section_id='$delete_section_id'";
-      mysqli_query($conn, $sql) or die("Connection error!");
-      header('location: sections.php');
+        $delete_section_id = $_GET['delete_section_id'];
+        $sql = "DELETE FROM tb_sections WHERE section_id='$delete_section_id'";
+        mysqli_query($conn, $sql) or die("Connection error!");
+        header('location: sections.php');
     }
     //Delete Courses
     if (isset($_GET['delete_course_id'])) {
-      $delete_course_id = $_GET['delete_course_id'];
-      $sql = "DELETE FROM tb_courses WHERE course_id='$delete_course_id'";
-      mysqli_query($conn, $sql) or die("Connection error!");
-      header('location: courses.php');
+        $delete_course_id = $_GET['delete_course_id'];
+        $sql = "DELETE FROM tb_courses WHERE course_id='$delete_course_id'";
+        mysqli_query($conn, $sql) or die("Connection error!");
+        header('location: courses.php');
     }
     //Delete Evaluation
     if (isset($_GET['delete_evaluation_id'])) {
-      $delete_evaluation_id = $_GET['delete_evaluation_id'];
-      $sql = "DELETE FROM tb_evaluations WHERE evaluation_id='$delete_evaluation_id'";
-      mysqli_query($conn, $sql) or die("Connection error!");
-      header('location: evaluations.php');
+        $delete_evaluation_id = $_GET['delete_evaluation_id'];
+        $sql = "DELETE FROM tb_evaluations WHERE evaluation_id='$delete_evaluation_id'";
+        mysqli_query($conn, $sql) or die("Connection error!");
+        header('location: evaluations.php');
     }
 }
 
 //------------------------------ Showing Records ------------------------------
 //This shows all the subjects that are available in a table format.
-function showSubjects() {
+function showSubjects()
+{
     include 'connection.php';
     global $count;
     $sql = "SELECT subject_id, subject_name FROM tb_subjects ORDER BY subject_id";
@@ -539,7 +641,7 @@ function showSubjects() {
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $subject_id = $row["subject_id"];
         $subject_name = $row["subject_name"];
-        echo"
+        echo "
         <tr>
         <th data-title='Subject ID'>$subject_id</th>
         <th data-title='Subject Name'>$subject_name</th>
@@ -552,7 +654,8 @@ function showSubjects() {
 }
 
 //This shows all the sections that are available in a table format.
-function showSections() {
+function showSections()
+{
     include 'connection.php';
     global $count;
     $sql = "SELECT section_id, section_name, section_code, yearlevel FROM tb_sections ORDER BY section_id";
@@ -563,7 +666,7 @@ function showSections() {
         $section_name = $row["section_name"];
         $section_code = $row["section_code"];
         $yearlevel = $row["yearlevel"];
-        echo"
+        echo "
         <tr>
         <th data-title='Section ID'>$section_id</th>
         <th data-title='Section Name'>$section_name</th>
@@ -578,7 +681,8 @@ function showSections() {
 }
 
 //This shows all the evaluations that are available in a table format.
-function showEvaluations() {
+function showEvaluations()
+{
     include 'connection.php';
     global $count;
     $sql = "SELECT evaluation_id, schoolyear, semester, status, section_id FROM tb_evaluations ORDER BY evaluation_id";
@@ -590,7 +694,7 @@ function showEvaluations() {
         $semester = $row["semester"];
         $status = $row["status"];
         $section_id = $row["section_id"];
-        echo"
+        echo "
         <tr>
         <th data-title='Evaluation ID'>$evaluation_id</th>
         <th data-title='School Year'>$schoolyear</th>
@@ -606,7 +710,8 @@ function showEvaluations() {
 }
 
 //This shows all the feedbacks of the students in a table format.
-function showFeedback() {
+function showFeedback()
+{
     include 'connection.php';
     global $count;
     $sql = "SELECT feedback_id, question1, comment, rating, login_id FROM tb_feedback WHERE student_id = $student_id ORDER BY feedback_id";
@@ -618,7 +723,7 @@ function showFeedback() {
         $question_id = $row["question_id"];
         $student_id = $row["student_id"];
         $faculty_id = $row["faculty_id"];
-        echo"
+        echo "
         <tr>
         <th data-title='Feedback ID'>$feedback_id</th>
         <th data-title='Answer'>$answer</th>
@@ -634,7 +739,8 @@ function showFeedback() {
 }
 
 //This shows all the courses that are available in a table format.
-function showCourses() {
+function showCourses()
+{
     include 'connection.php';
     global $count;
     $sql = "SELECT course_id, course_name FROM tb_courses ORDER BY course_id";
@@ -643,7 +749,7 @@ function showCourses() {
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $course_id = $row["course_id"];
         $course_name = $row["course_name"];
-        echo"
+        echo "
         <tr>
         <th data-title='Course ID'>$course_id</th>
         <th data-title='Course Name'>$course_name</th>
@@ -656,7 +762,8 @@ function showCourses() {
 }
 
 //This shows all the faculty staff in a table format.
-function showFaculty() {
+function showFaculty()
+{
     include 'connection.php';
     global $count;
     $sql = "SELECT faculty_id, firstname, lastname, email, gender, contact_no, address, photo FROM tb_faculty ORDER BY faculty_id";
@@ -665,13 +772,13 @@ function showFaculty() {
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $faculty_id = $row["faculty_id"];
         $firstname = $row["firstname"];
-	    $lastname = $row["lastname"];
+        $lastname = $row["lastname"];
         $email = $row["email"];
         $gender = $row["gender"];
         $contact_no = $row["contact_no"];
-	    $address = $row["address"];
+        $address = $row["address"];
         $photo = $row["photo"];
-        echo"
+        echo "
         <tr>
         <th data-title='Faculty ID'>$faculty_id</th>
         <th data-title='First Name'>$firstname</th>
@@ -691,7 +798,8 @@ function showFaculty() {
 }
 
 //This shows all the students in a table format.
-function showStudents() {
+function showStudents()
+{
     include 'connection.php';
     global $count;
     $sql = "SELECT student_id, firstname, lastname, email, gender, yearlevel, contact_no, address, status, photo, course_id, section_id FROM tb_students ORDER BY student_id";
@@ -700,17 +808,17 @@ function showStudents() {
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $student_id = $row["student_id"];
         $firstname = $row["firstname"];
-	    $lastname = $row["lastname"];
+        $lastname = $row["lastname"];
         $email = $row["email"];
         $gender = $row["gender"];
         $yearlevel = $row["yearlevel"];
         $contact_no = $row["contact_no"];
-	    $address = $row["address"];
-	    $status = $row["status"];
+        $address = $row["address"];
+        $status = $row["status"];
         $photo = $row["photo"];
-	    $course_id = $row["course_id"];
+        $course_id = $row["course_id"];
         $section_id = $row["section_id"];
-        echo"
+        echo "
         <tr>
         <th data-title='Student ID'>$student_id</th>
         <th data-title='First Name'>$firstname</th>
@@ -734,7 +842,8 @@ function showStudents() {
 }
 
 //This shows all the accounts in the database.
-function showAccounts() {
+function showAccounts()
+{
     include 'connection.php';
     global $count;
     $sql = "SELECT login_id, student_id, faculty_id, password, usertype FROM tb_login ORDER BY login_id";
@@ -746,7 +855,7 @@ function showAccounts() {
         $faculty_id = $row["faculty_id"];
         $password = $row["password"];
         $usertype = $row["usertype"];
-        echo"
+        echo "
         <tr>
         <th data-title='Login ID'>$login_id</th>
         <th data-title='Student ID'>$student_id</th>
@@ -763,7 +872,8 @@ function showAccounts() {
 
 //------------------------------ Searching Records ------------------------------
 //Search courses functionality
-function searchCourses() {
+function searchCourses()
+{
     include 'connection.php';
     global $count;
     $sql = "SELECT course_id, course_name FROM tb_courses ORDER BY course_id";
@@ -772,7 +882,7 @@ function searchCourses() {
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $course_id = $row["course_id"];
         $course_name = $row["course_name"];
-        echo"
+        echo "
         <tr>
         <th data-title='Course ID'>$course_id</th>
         <th data-title='Course Name'>$course_name</th>
@@ -818,7 +928,8 @@ function changePhotoValidation()
 }
 
 //Changes student photo.
-function changePhotoStudent($filename) {
+function changePhotoStudent($filename)
+{
     include 'connection.php';
     $photo = $filename;
     $login_id = $_SESSION['login_id'];
@@ -833,7 +944,8 @@ function changePhotoStudent($filename) {
 }
 
 //Changes faculty photo.
-function changePhotoFaculty($filename) {
+function changePhotoFaculty($filename)
+{
     include 'connection.php';
     $photo = $filename;
     $login_id = $_SESSION['login_id'];
@@ -849,34 +961,40 @@ function changePhotoFaculty($filename) {
 
 //------------------------------ Combo Box Content ------------------------------
 //Courses Combo Box
-function cbCourse() {
+function cbCourse()
+{
     include 'connection.php';
     $sql = "SELECT course_id, course_name FROM tb_courses";
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $course_id = $row["course_id"];
         $course_name = $row["course_name"];
-        echo"
-            <option value='$course_id'"; if ($edit_course_id == "$course_id") {
-                echo 'selected="selected"';
-            } echo "'>$course_name</option>
+        echo "
+            <option value='$course_id'";
+        if ($edit_course_id == "$course_id") {
+            echo 'selected="selected"';
+        }
+        echo "'>$course_name</option>
         '";
     }
     mysqli_close($conn);
 }
 
 //Sections Combo Box
-function cbSection() {
+function cbSection()
+{
     include 'connection.php';
     $sql = "SELECT section_id, section_name FROM tb_sections";
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $section_id = $row["section_id"];
         $section_name = $row["section_name"];
-        echo"
-            <option value='$section_id'"; if ($edit_section_id == "$section_id") {
-                echo 'selected="selected"';
-            } echo "'>$section_name</option>
+        echo "
+            <option value='$section_id'";
+        if ($edit_section_id == "$section_id") {
+            echo 'selected="selected"';
+        }
+        echo "'>$section_name</option>
         '";
     }
     mysqli_close($conn);
@@ -884,89 +1002,97 @@ function cbSection() {
 
 //------------------------------ Dashboard Statistics ------------------------------
 //Subject Count
-function subjectCount() {
+function subjectCount()
+{
     include 'connection.php';
     global $count;
     $sql = "SELECT subject_id, subject_name FROM tb_subjects";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
-    echo"$count";
+    echo "$count";
     mysqli_close($conn);
 }
 
 //Section Count
-function sectionCount() {
+function sectionCount()
+{
     include 'connection.php';
     global $count;
     $sql = "SELECT section_id, section_name, section_code, yearlevel FROM tb_sections";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
-    echo"$count";
+    echo "$count";
     mysqli_close($conn);
 }
 
 //Evaluation Count
-function evaluationCount() {
+function evaluationCount()
+{
     include 'connection.php';
     global $count;
     $sql = "SELECT evaluation_id, schoolyear, semester, status, section_id FROM tb_evaluations";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
-    echo"$count";
+    echo "$count";
     mysqli_close($conn);
 }
 
 //Feedback Count
-function feedbackCount() {
+function feedbackCount()
+{
     include 'connection.php';
     global $count;
     $sql = "SELECT feedback_id, question1, comment, rating, login_id FROM tb_feedback WHERE student_id = $student_id ORDER BY feedback_id";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
-    echo"$count";
+    echo "$count";
     mysqli_close($conn);
 }
 
 //Course Count
-function courseCount() {
+function courseCount()
+{
     include 'connection.php';
     global $count;
     $sql = "SELECT course_id, course_name FROM tb_courses ORDER BY course_id";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
-    echo"$count";
+    echo "$count";
     mysqli_close($conn);
 }
 
 //Faculty Count
-function facultyCount() {
+function facultyCount()
+{
     include 'connection.php';
     global $count;
     $sql = "SELECT faculty_id, firstname, lastname, email, gender, contact_no, address, photo FROM tb_faculty ORDER BY faculty_id";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
-    echo"$count";
+    echo "$count";
     mysqli_close($conn);
 }
 
 //Student Count
-function studentCount() {
+function studentCount()
+{
     include 'connection.php';
     global $count;
     $sql = "SELECT student_id, firstname, lastname, email, gender, yearlevel, contact_no, address, status, photo, course_id, section_id FROM tb_students ORDER BY student_id";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
-    echo"$count";
+    echo "$count";
     mysqli_close($conn);
 }
 
 //Accounts Count
-function accountsCount() {
+function accountsCount()
+{
     include 'connection.php';
     global $count;
     $sql = "SELECT login_id, student_id, faculty_id, password, usertype FROM tb_login ORDER BY login_id";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
-    echo"$count";
+    echo "$count";
     mysqli_close($conn);
 }
