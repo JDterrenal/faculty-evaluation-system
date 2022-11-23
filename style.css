@@ -153,6 +153,7 @@ h2 {
   width: 100%;
   margin-bottom: 3px;
   outline: none ;
+  
 }
 
 .login-items label {
@@ -195,6 +196,12 @@ h2 {
 
 .login-type select {
   padding: 0.4rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .marg-b {
