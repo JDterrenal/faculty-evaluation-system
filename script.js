@@ -4,14 +4,13 @@ const body = document.querySelector("body"),
 const toggleHeader = body.querySelector(".toggleHeader")
 const logoutpop = document.getElementById('popup');
 
-const addcoureback = document.getElementById('popupbackground');
-const addcoursebtn = document.getElementById('addcourse');
-const editcoureback = document.getElementById('editpopupbackground');
-const editcoursebtn = document.getElementById('editcourse');
-const ex = document.getElementById('ex');
-const exedit = document.getElementById('exedit')
+const addBackground = document.getElementById('popup-background');
+const addButton = document.getElementById('add-button');
+const editBackground = document.getElementById('edit-popup-background');
+const editButton = document.getElementById('edit-button');
+const ex = document.getElementById('ex-add');
+const exedit = document.getElementById('ex-edit')
 
-const addsubjectback = document.getElementById('popupbackgroundsubject');
 const addsubjectbtn = document.getElementById('addsubject');
 const editsubjectback = document.getElementById('subjectpopupbackground');
 const editsubjectbtn = document.getElementById('editsubject');
@@ -56,91 +55,19 @@ window.onload = function () {
 }
 
 $(document).ready(function() {
-    /* add faculty */
-    $("#addfaculty").click(function() {
-        $("#popupbackgroundfaculty").show();
+    /* add  */
+    $("#add-button").click(function() {
+        $("#popup-background").show();
     });
-    $("#exfaculty").click(function() {
-        $("#popupbackgroundfaculty").hide();
-    });
-
-    /* edit faculty */
-    $("#editfaculty").click(function() {
-        $("#facultypopupbackground").show();
-    });
-    $("#exeditfaculty").click(function() {
-        $("#facultypopupbackground").hide();
-    });
-    /* add student */
-    $("#addstudent").click(function() {
-        $("#popupbackgroundstudent").show();
-    });
-    $("#exstudent").click(function() {
-        $("#popupbackgroundstudent").hide();
+    $("#ex-add").click(function() {
+        $("#popup-background").hide();
     });
 
-    /* edit student */
-    $("#editstudent").click(function() {
-        $("#studentpopupbackground").show();
-    });
-    $("#exeditstudent").click(function() {
-        $("#studentpopupbackground").hide();
-    });
-    /* add section */
-    $("#addsection").click(function() {
-        $("#popupbackgroundsection").show();
-    });
-    $("#exsection").click(function() {
-        $("#popupbackgroundsection").hide();
-    });
-
-    /* edit section */
-    $("#editsection").click(function() {
-        $("#sectionpopupbackground").show();
-    });
-    $("#exeditsection").click(function() {
-        $("#sectionpopupbackground").hide();
-    });
-    /* add subject */
-    $("#addsubject").click(function() {
-        $("#popupbackgroundsubject").show();
-    });
-    $("#exsubject").click(function() {
-        $("#popupbackgroundsubject").hide();
-    });
-
-    /* edit subject */
-    $("#editsubject").click(function() {
-        $("#subjectpopupbackground").show();
-    });
-    $("#exeditsubject").click(function() {
-        $("#subjectpopupbackground").hide();
-    });
-
-    /* add course */
-    $("#addcourse").click(function() {
-        $("#popupbackground").show();
-    });
-    $("#ex").click(function() {
-        $("#popupbackground").hide();
-    });
-
-    /* edit course */
-    $("#editcourse").click(function() {
-        $("#editpopupbackground").show();
-    });
-    $("#exedit").click(function() {
-        $("#editpopupbackground").hide();
+    /* edit  */
+    $("#ex-edit").click(function() {
+        $("#edit-popup-background").hide();
     });
 });
-
-function AddCourseFunction() {
-    if (addcoureback.style.display === "flex") {
-        addcoureback.style.display = "none";
-    } else {
-        addcoureback.style.display = "flex";
-    }
-}
 
 function LogOutFunction() {
     if (logoutpop.style.display === "block") {
@@ -150,75 +77,19 @@ function LogOutFunction() {
     }
 }
 
-function EditCourseFunction() {
-    if (editcoureback.style.display === "flex") {
-        editcoureback.style.display = "none";
+function AddFunction() {
+    if (addBackground.style.display === "flex") {
+        addBackground.style.display = "none";
     } else {
-        editcoureback.style.display = "flex";
+        addBackground.style.display = "flex";
     }
 }
 
 
-function AddSubjectFunction() {
-    if (addsubjectback.style.display === "flex") {
-        addsubjectback.style.display = "none";
+function EditFunction() {
+    if (editBackground.style.display === "flex") {
+        editBackground.style.display = "none";
     } else {
-        addsubjectback.style.display = "flex";
-    }
-}
-
-function EditSubjectFunction() {
-    if (editsubjectback.style.display === "flex") {
-        editsubjectback.style.display = "none";
-    } else {
-        editsubjectback.style.display = "flex";
-    }
-}
-
-function AddSectionFunction() {
-    if (addSectionback.style.display === "flex") {
-        addSectionback.style.display = "none";
-    } else {
-        addSectionback.style.display = "flex";
-    }
-}
-
-function EditSectionFunction() {
-    if (editSectionback.style.display === "flex") {
-        editSectionback.style.display = "none";
-    } else {
-        editSectionback.style.display = "flex";
-    }
-}
-
-function AddStudentFunction() {
-    if (addStudentback.style.display === "flex") {
-        addStudentback.style.display = "none";
-    } else {
-        addStudentback.style.display = "flex";
-    }
-}
-
-function EditStudentFunction() {
-    if (editStudentback.style.display === "flex") {
-        editStudentback.style.display = "none";
-    } else {
-        editStudentback.style.display = "flex";
-    }
-}
-
-function AddFacultyFunction() {
-    if (addFacultyback.style.display === "flex") {
-        addFacultyback.style.display = "none";
-    } else {
-        addFacultyback.style.display = "flex";
-    }
-}
-
-function EditFacultyFunction() {
-    if (editFacultyback.style.display === "flex") {
-        editFacultyback.style.display = "none";
-    } else {
-        editFacultyback.style.display = "flex";
+        editBackground.style.display = "flex";
     }
 };

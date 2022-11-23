@@ -114,7 +114,7 @@
 							<input type="text" placeholder="Search" class="main-search">
 						</div>
 						<div class="courses-add">
-							<a class="add-course" id="addcourse" onclick="AddCourseFunction()">Add Course</a>
+							<a class="add-course" id="add-course" onclick="AddFunction()">Add Course</a>
 						</div>
 						<div class="courses-table-container">
 							<table class="main-table">
@@ -129,31 +129,31 @@
 									<tr>
 										<td data-label="ID">qwe</td>
 										<td data-label="Course">qwe</td>
-										<td data-label="Operation"><a class="edit" id="editcourse" onclick="EditCourseFunction()"><i class="fas fa-edit"></i> Edit</a></td>
+										<td data-label="Operation"><a class="edit" id="edit-button" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
 									</tr>
 									<tr>
 										<td data-label="ID">qwe</td>
 										<td data-label="Course">qwe</td>
-										<td data-label="Operation"><a class="edit" id="editcourse" onclick="EditCourseFunction()"><i class="fas fa-edit"></i> Edit</a></td>
+										<td data-label="Operation"><a class="edit" id="edit-button" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
 									</tr>
 									<tr>
 										<td data-label="ID">qwe</td>
 										<td data-label="Course">qwe</td>
-										<td data-label="Operation"><a class="edit" id="editcourse" onclick="EditCourseFunction()"><i class="fas fa-edit"></i> Edit</a></td>
+										<td data-label="Operation"><a class="edit" id="edit-button" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
 									</tr>
 									<tr>
 										<td data-label="ID">qwe</td>
 										<td data-label="Course">qwe</td>
-										<td data-label="Operation"><a class="edit" id="editcourse" onclick="EditCourseFunction()"><i class="fas fa-edit"></i> Edit</a></td>
+										<td data-label="Operation"><a class="edit" id="edit-button" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
 									</tr>
 									<tr>
 										<td data-label="ID">qwe</td>
 										<td data-label="Course">qwe</td>
-										<td data-label="Operation"><a class="edit" id="editcourse" onclick="EditCourseFunction()"><i class="fas fa-edit"></i> Edit</a></td>
+										<td data-label="Operation"><a class="edit" id="edit-button" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
 									</tr>
 								</tbody>
@@ -199,11 +199,11 @@
 	<!--------popup add course ------------>
 
 	<form action=courses.php method=post>
-		<div class="popup-background" id="popupbackground">
+		<div class="popup-background" id="popup-background">
 			<div class="popup-addcourse">
 				<div class="popup-addcourse-top">
 					<p class="popup-addcourse-title"><i class="fas fa-plus"></i> ADD COURSE</p>
-					<i class="fas fa-times ex" id="ex"></i>
+					<i class="fas fa-times ex" id="ex-add"></i>
 				</div>
 				<div class="popup-addcourse-middle">
 					<p class="course-name">Course Name</p>
@@ -220,11 +220,11 @@
 	<!--------popup edit course ------------>
 
 	<form action=courses.php method=post>
-		<div class="popup-background-edit" id="editpopupbackground">
+		<div class="popup-background-edit" id="edit-popup-background">
 			<div class="popup-addcourse">
 				<div class="popup-addcourse-top">
 					<p class="popup-addcourse-title"><i class="fas fa-edit"></i> EDIT COURSE</p>
-					<i class="fas fa-times ex" id="exedit"></i>
+					<i class="fas fa-times ex" id="ex-edit"></i>
 				</div>
 				<div class="popup-addcourse-middle">
 					<p class="course-name">Course Name</p>
