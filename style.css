@@ -938,7 +938,7 @@ footer {
 .studentcon1{
   display: flex;
   align-items: center;
-  width: 10em;
+  max-width: 10em;
 }
 
 .editcourse-name-tbx {
