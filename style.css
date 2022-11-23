@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -110,6 +115,62 @@ body {
 
 .main-table tbody tr:hover {
   background-color: #e1e1e1;
+}
+
+/* ========== login form =========*/
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: linear-gradient(to bottom right, #00bfff, rgb(164, 165, 165));
+}
+
+.login-box {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 0.3rem;
+  width: 100%;
+  max-width: 24rem;
+  margin: 1rem;
+  background-color: #FFF;
+}
+
+.login-content {
+  padding: 2rem;
+}
+
+.login-items {
+  margin: 0.3rem 0rem;
+  
+}
+.login-items input[type=text], input[type=password]{
+  height: 2.7rem;
+  font-size: 15px;
+  border-style: hidden hidden solid;
+  width: 100%;
+  margin-bottom: 3px;
+  outline: none ;
+}
+
+.login-items label {
+  font-size: 19px;
+}
+
+.login-items select {
+  font-size: 17px;
+  margin-top: 5px;
+
+}
+
+.login-items button {
+  font-size: 19px;
+  margin: 0 auto;
+  width: 100%;
+  height: 2.3rem;
+  text-align: center;
+  border-style: hidden;
+  background-color: #00bfff;
+  color: #FFFFFF;
 }
 
 /* */
