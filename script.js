@@ -11,32 +11,6 @@ const editButton = document.getElementById('edit-button');
 const ex = document.getElementById('ex-add');
 const exedit = document.getElementById('ex-edit')
 
-const addsubjectbtn = document.getElementById('addsubject');
-const editsubjectback = document.getElementById('subjectpopupbackground');
-const editsubjectbtn = document.getElementById('editsubject');
-const exsubject = document.getElementById('exsubject');
-const exeditsubject = document.getElementById('exeditsubject');
-
-const addSectionback = document.getElementById('popupbackgroundsection');
-const addSectionbtn = document.getElementById('addsection');
-const editSectionback = document.getElementById('sectionpopupbackground');
-const editSectiontbtn = document.getElementById('editsection');
-const exsection = document.getElementById('exsection');
-const exeditsection = document.getElementById('exeditsection');
-
-const addStudentback = document.getElementById('popupbackgroundstudent');
-const addStudentbtn = document.getElementById('addstudent');
-const editStudentback = document.getElementById('studentpopupbackground');
-const editStudentbtn = document.getElementById('editstudent');
-const exstudent = document.getElementById('exstudent');
-const exeditstudent = document.getElementById('exeditstudent');
-
-const addFacultyback = document.getElementById('popupbackgroundfaculty');
-const addFacultybtn = document.getElementById('addfaculty');
-const editFacultyback = document.getElementById('facultypopupbackground');
-const editFacultybtn = document.getElementById('editfaculty');
-const exfaculty = document.getElementById('exfaculty');
-const exeditfaculty = document.getElementById('exeditfaculty');
 
 toggleHeader.addEventListener("click", () => {
     sidebar.classList.toggle("close");
