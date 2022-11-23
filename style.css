@@ -146,8 +146,7 @@ h2 {
   margin: 0.3rem 0rem;
 }
 
-.login-items input[type=number],
-input[type=password] {
+.login-items input[type=number], input[type=password]{
   height: 2.7rem;
   font-size: 15px;
   border-style: hidden hidden solid;
