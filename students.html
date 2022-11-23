@@ -115,8 +115,8 @@
 						<div class="courses-add">
 							<a class="add-course" id="addstudent" onclick="AddStudentFunction()">Add Section</a>
 						</div>
-						<div class="courses-table-container">
-							<table class="main-table">
+						<div class="student-table-container">
+							<table class="student-table">
 								<thead>
 									<tr>
 										<th>ID</th>
@@ -130,22 +130,24 @@
                                         <th>STATUS</th>
                                         <th>PHOTO</th>
                                         <th>COURSE ID</th>
+										<th>SECTION ID</th>
                                         <th colspan="3">OPERATION</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
 										<td data-label="ID">qwe</td>
-										<td data-label="FIRST NAME"></td>
-                                        <td data-label="LAST NAME"></td>
-                                        <td data-label="EMAIL"></td>
-                                        <td data-label="GENDER"></td>
-                                        <td data-label="YEAR LEVEL"></td>
-                                        <td data-label="CONTACT NUMBER"></td>
-                                        <td data-label="ADDRESS"></td>
-                                        <td data-label="STATUS"></td>
+										<td data-label="FIRST NAME">John Derick</td>
+                                        <td data-label="LAST NAME">Terrenal</td>
+                                        <td data-label="EMAIL">johnderickramosterrenal@gmail.com</td>
+                                        <td data-label="GENDER">Male</td>
+                                        <td data-label="YEAR LEVEL">3rd year</td>
+                                        <td data-label="CONTACT NUMBER">09156937727</td>
+                                        <td data-label="ADDRESS">valenzuela</td>
+                                        <td data-label="STATUS">enrolled</td>
                                         <td data-label="PHOTO"></td>
-                                        <td data-label="COURSE ID"></td>
+                                        <td data-label="COURSE ID">qwe</td>
+										<td data-label="SECTION ID">qweqr</td>
 										<td data-label="Operation"><a class="edit" id="editstudent" onclick="EditStudentFunction()"><i class="fas fa-edit"></i> Edit</a></td>
                                         <td data-label="Operation"><a href="#" class="view"><i class="fas fa-eye"></i> View</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
@@ -162,6 +164,7 @@
                                         <td data-label="STATUS"></td>
                                         <td data-label="PHOTO"></td>
                                         <td data-label="COURSE ID"></td>
+										<td data-label="SECTION ID"></td>
 										<td data-label="Operation"><a class="edit" id="editstudent" onclick="EditStudentFunction()"><i class="fas fa-edit"></i> Edit</a></td>
                                         <td data-label="Operation"><a href="#" class="view"><i class="fas fa-eye"></i> View</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
@@ -178,6 +181,7 @@
                                         <td data-label="STATUS"></td>
                                         <td data-label="PHOTO"></td>
                                         <td data-label="COURSE ID"></td>
+										<td data-label="SECTION ID"></td>
 										<td data-label="Operation"><a class="edit" id="editstudent" onclick="EditStudentFunction()"><i class="fas fa-edit"></i> Edit</a></td>
                                         <td data-label="Operation"><a href="#" class="view"><i class="fas fa-eye"></i> View</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
@@ -194,6 +198,7 @@
                                         <td data-label="STATUS"></td>
                                         <td data-label="PHOTO"></td>
                                         <td data-label="COURSE ID"></td>
+										<td data-label="SECTION ID"></td>
 										<td data-label="Operation"><a class="edit" id="editstudent" onclick="EditStudentFunction()"><i class="fas fa-edit"></i> Edit</a></td>
                                         <td data-label="Operation"><a href="#" class="view"><i class="fas fa-eye"></i> View</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
@@ -210,6 +215,7 @@
                                         <td data-label="STATUS"></td>
                                         <td data-label="PHOTO"></td>
                                         <td data-label="COURSE ID"></td>
+										<td data-label="SECTION ID"></td>
 										<td data-label="Operation"><a class="edit" id="editstudent" onclick="EditStudentFunction()"><i class="fas fa-edit"></i> Edit</a></td>
                                         <td data-label="Operation"><a href="#" class="view"><i class="fas fa-eye"></i> View</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
@@ -254,22 +260,45 @@
 		
 	</div>
 
-	<!--------popup add subject ------------>
+	<!--------popup add student ------------>
 
 	<form action=add_course.php method=post>
 		<div class="popup-backgroundsubject" id="popupbackgroundstudent">
-			<div class="popup-addcourse">
+			<div class="popup-addstudent">
 				<div class="popup-addcourse-top">
 					<p class="popup-addcourse-title"><i class="fas fa-plus"></i> ADD STUDENT</p>
 					<i class="fas fa-times ex" id="exstudent"></i>
 				</div>
-				<div class="popup-addcourse-middle">
-					<p class="course-name">Section Name</p>
-					<input type="text" placeholder="Section name" class="course-name-tbx">
-					<a class="addcourse"><i class="fas fa-plus"></i> Add Section</a>
-				</div>
-				<div class="popup-addcourse-bottom">
-					<p class="quotes">Change is the end result of all true learning.  -Leo Buscaglia</p>
+				<div class="popup-student-middle">
+					<p class="course-name">Student Name</p>
+					<input type="text" id="firstname" name="firstname" placeholder="First name"> 
+					<input type="text" id="lastname" name="lastname" placeholder="Last name">
+					<p class="course-name">Adress</p>
+					<input type="text" id="address" name="address" placeholder="Address">
+					<p class="course-name">Contact Number</p>
+					<input type="number" id="contact_no" name="contact_no" placeholder="Contact Number">
+					<p class="course-name">Gender</p>
+					<input type="radio" id="male" name="gender" value="Male">
+					<label for="male">Male</label>
+					<input type="radio" id="female" name="gender" value="Female">
+					<label for="female">Female</label>
+					<a class="addcourse"><i class="fas fa-plus"></i> Add Student</a>
+					<p class="course-name">Email</p>
+					<input type="text" id="email" name="email" placeholder="Email">
+					<p class="course-name">year Level</p>
+					<select name="yearlevel" required>
+						<option value = "1">1st Year</option>
+                        <option value = "2">2nd Year</option>
+					    <option value = "3">3rd Year</option>
+                        <option value = "4">4th Year</option>
+					    <option value = "5">5th Year</option>
+					</select>
+					<p class="course-name">Status</p>
+					<select name="status" required>
+						<option value = "Enrolled">Enrolled</option>
+						<option value = "Not Enrolled">Not Enrolled</option>
+					</select>
+
 				</div>
 			</div>
 		</div>
@@ -278,19 +307,16 @@
 	<!--------popup edit subject ------------>
 
 	<form action=add_course.php method=post>
-		<div class="popup-background-edit" id="sectionpopupbackground">
+		<div class="popup-background-edit" id="studentpopupbackground">
 			<div class="popup-addcourse">
 				<div class="popup-addcourse-top">
-					<p class="popup-addcourse-title"><i class="fas fa-edit"></i> EDIT SECTION</p>
-					<i class="fas fa-times ex" id="exeditsection"></i>
+					<p class="popup-addcourse-title"><i class="fas fa-edit"></i> EDIT STUDENT</p>
+					<i class="fas fa-times ex" id="exeditstudent"></i>
 				</div>
 				<div class="popup-addcourse-middle">
-					<p class="course-name">Section Name</p>
-					<input type="text" placeholder="Section name" class="editcourse-name-tbx">
-					<a class="editcourse"><i class="fas fa-edit"></i> Edit Section</a>
-				</div>
-				<div class="popup-addcourse-bottom">
-					<p class="quotes">Change is the end result of all true learning.  -Leo Buscaglia</p>
+					<p class="course-name">Student Name</p>
+					<input type="text" placeholder="Student name" class="editcourse-name-tbx">
+					<a class="editcourse"><i class="fas fa-edit"></i> Edit Student</a>
 				</div>
 			</div>
 		</div>

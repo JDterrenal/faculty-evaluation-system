@@ -25,6 +25,13 @@ const editSectiontbtn = document.getElementById('editsection');
 const exsection = document.getElementById('exsection');
 const exeditsection = document.getElementById('exeditsection');
 
+const addStudentback = document.getElementById('popupbackgroundstudent');
+const addStudentbtn = document.getElementById('addstudent');
+const editStudentback = document.getElementById('studentpopupbackground');
+const editStudentbtn = document.getElementById('editstudent');
+const exstudent = document.getElementById('exstudent');
+const exeditstudent = document.getElementById('exeditstudent');
+
 toggleHeader.addEventListener("click", () => {
     sidebar.classList.toggle("close");
 })
@@ -42,6 +49,21 @@ window.onload = function () {
 }
 
 $(document).ready(function() {
+    /* add student */
+    $("#addstudent").click(function() {
+        $("#popupbackgroundstudent").show();
+    });
+    $("#exstudent").click(function() {
+        $("#popupbackgroundstudent").hide();
+    });
+
+    /* edit student */
+    $("#editstudent").click(function() {
+        $("#studentpopupbackground").show();
+    });
+    $("#exeditstudent").click(function() {
+        $("#studentpopupbackground").hide();
+    });
     /* add section */
     $("#addsection").click(function() {
         $("#popupbackgroundsection").show();
@@ -144,5 +166,21 @@ function EditSectionFunction() {
         editSectionback.style.display = "none";
     } else {
         editSectionback.style.display = "flex";
+    }
+}
+
+function AddStudentFunction() {
+    if (addStudentback.style.display === "flex") {
+        addStudentback.style.display = "none";
+    } else {
+        addStudentback.style.display = "flex";
+    }
+}
+
+function EditStudentFunction() {
+    if (editStudentback.style.display === "flex") {
+        editStudentback.style.display = "none";
+    } else {
+        editStudentback.style.display = "flex";
     }
 };
