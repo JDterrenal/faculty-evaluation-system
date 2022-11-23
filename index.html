@@ -16,15 +16,23 @@
                 <div class="login-content">
                     <div class="login-items">
                         <h2>Login</h2>
-                    </div>
+                    </div><br>
                     <div class="login-items">
-                        <label for="uname"><b>Username</b></label>
+                        <label for="uname"><b>User ID</b></label><br>
                         <input type="text" placeholder="Enter Username" name="uname" required>
                     </div>
                     <div class="login-items">
-                        <label for="psw"><b>Password</b></label>
+                        <label for="psw"><b>Password</b></label><br>
                         <input type="password" placeholder="Enter Password" name="psw" required>
                     </div>
+                    <div class="login-items">
+                        <label for="psw"><b>Type</b></label><br>
+                        <select name="typeuser" id="type">
+                            <option value="Student">Student</option>
+                            <option value="Faculty">Faculty</option>
+                            <option value="Admin">Admin</option>
+                        </select>
+                    </div><br>
                     <div class="login-items">
                         <button type="submit">Login</button>
                     </div>
