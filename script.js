@@ -32,6 +32,13 @@ const editStudentbtn = document.getElementById('editstudent');
 const exstudent = document.getElementById('exstudent');
 const exeditstudent = document.getElementById('exeditstudent');
 
+const addFacultyback = document.getElementById('popupbackgroundfaculty');
+const addFacultybtn = document.getElementById('addfaculty');
+const editFacultyback = document.getElementById('facultypopupbackground');
+const editFacultybtn = document.getElementById('editfaculty');
+const exfaculty = document.getElementById('exfaculty');
+const exeditfaculty = document.getElementById('exeditfaculty');
+
 toggleHeader.addEventListener("click", () => {
     sidebar.classList.toggle("close");
 })
@@ -49,6 +56,21 @@ window.onload = function () {
 }
 
 $(document).ready(function() {
+    /* add faculty */
+    $("#addfaculty").click(function() {
+        $("#popupbackgroundfaculty").show();
+    });
+    $("#exfaculty").click(function() {
+        $("#popupbackgroundfaculty").hide();
+    });
+
+    /* edit faculty */
+    $("#editfaculty").click(function() {
+        $("#facultypopupbackground").show();
+    });
+    $("#exeditfaculty").click(function() {
+        $("#facultypopupbackground").hide();
+    });
     /* add student */
     $("#addstudent").click(function() {
         $("#popupbackgroundstudent").show();
@@ -182,5 +204,21 @@ function EditStudentFunction() {
         editStudentback.style.display = "none";
     } else {
         editStudentback.style.display = "flex";
+    }
+}
+
+function AddFacultyFunction() {
+    if (addFacultyback.style.display === "flex") {
+        addFacultyback.style.display = "none";
+    } else {
+        addFacultyback.style.display = "flex";
+    }
+}
+
+function EditFacultyFunction() {
+    if (editFacultyback.style.display === "flex") {
+        editFacultyback.style.display = "none";
+    } else {
+        editFacultyback.style.display = "flex";
     }
 };
