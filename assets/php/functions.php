@@ -111,6 +111,7 @@ function login() {
                 echo '<br>Wrong ID or Password!';
             }
         }
+        echo '<br>TITE!';
         mysqli_close($conn);
     }
 }
