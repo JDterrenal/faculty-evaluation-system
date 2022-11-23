@@ -29,8 +29,8 @@ include './assets/php/functions.php';
                     <div class="login-items marg-b">
                         <label for="password">Password</label>
                         <input type="password" placeholder="Enter Password" name="password" required>
+                        <?php login(); ?>
                     </div>
-                    <?php login(); ?>
                     <div class="login-items marg-b">
                         <button type="submit" name="login" value="Login">Login</button>
                     </div>
