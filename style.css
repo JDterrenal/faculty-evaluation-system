@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -111,6 +116,31 @@ body {
 .main-table tbody tr:hover {
   background-color: #e1e1e1;
 }
+
+/* ========== login form =========*/
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 0.3rem;
+  width: 100%;
+  max-width: 30rem;
+  margin: 1rem;
+}
+
+.login-content {
+  padding: 2rem;
+}
+
+.login-items {
+  margin: 0.3rem 0rem;
+}
+
 
 /* */
 
