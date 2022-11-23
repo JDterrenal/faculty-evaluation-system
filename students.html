@@ -136,24 +136,7 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td data-label="ID">qwe</td>
-										<td data-label="FIRST NAME">John Derick</td>
-                                        <td data-label="LAST NAME">Terrenal</td>
-                                        <td data-label="EMAIL">johnderickramosterrenal@gmail.com</td>
-                                        <td data-label="GENDER">Male</td>
-                                        <td data-label="YEAR LEVEL">3rd year</td>
-                                        <td data-label="CONTACT NUMBER">09156937727</td>
-                                        <td data-label="ADDRESS">valenzuela</td>
-                                        <td data-label="STATUS">enrolled</td>
-                                        <td data-label="PHOTO"></td>
-                                        <td data-label="COURSE ID">qwe</td>
-										<td data-label="SECTION ID">qweqr</td>
-										<td data-label="Operation"><a class="edit" id="editstudent" onclick="EditStudentFunction()"><i class="fas fa-edit"></i> Edit</a></td>
-                                        <td data-label="Operation"><a href="#" class="view"><i class="fas fa-eye"></i> View</a></td>
-										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
-									</tr>
-									<tr>
-										<td data-label="ID">qwe</td>
+										<td data-label="ID"></td>
 										<td data-label="FIRST NAME"></td>
                                         <td data-label="LAST NAME"></td>
                                         <td data-label="EMAIL"></td>
@@ -170,7 +153,7 @@
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
 									</tr>
 									<tr>
-										<td data-label="ID">qwe</td>
+										<td data-label="ID"></td>
 										<td data-label="FIRST NAME"></td>
                                         <td data-label="LAST NAME"></td>
                                         <td data-label="EMAIL"></td>
@@ -187,7 +170,7 @@
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
 									</tr>
 									<tr>
-										<td data-label="ID">qwe</td>
+										<td data-label="ID"></td>
 										<td data-label="FIRST NAME"></td>
                                         <td data-label="LAST NAME"></td>
                                         <td data-label="EMAIL"></td>
@@ -204,7 +187,24 @@
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
 									</tr>
 									<tr>
-										<td data-label="ID">qwe</td>
+										<td data-label="ID"></td>
+										<td data-label="FIRST NAME"></td>
+                                        <td data-label="LAST NAME"></td>
+                                        <td data-label="EMAIL"></td>
+                                        <td data-label="GENDER"></td>
+                                        <td data-label="YEAR LEVEL"></td>
+                                        <td data-label="CONTACT NUMBER"></td>
+                                        <td data-label="ADDRESS"></td>
+                                        <td data-label="STATUS"></td>
+                                        <td data-label="PHOTO"></td>
+                                        <td data-label="COURSE ID"></td>
+										<td data-label="SECTION ID"></td>
+										<td data-label="Operation"><a class="edit" id="editstudent" onclick="EditStudentFunction()"><i class="fas fa-edit"></i> Edit</a></td>
+                                        <td data-label="Operation"><a href="#" class="view"><i class="fas fa-eye"></i> View</a></td>
+										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
+									</tr>
+									<tr>
+										<td data-label="ID"></td>
 										<td data-label="FIRST NAME"></td>
                                         <td data-label="LAST NAME"></td>
                                         <td data-label="EMAIL"></td>
@@ -270,35 +270,62 @@
 					<i class="fas fa-times ex" id="exstudent"></i>
 				</div>
 				<div class="popup-student-middle">
-					<p class="course-name">Student Name</p>
-					<input type="text" id="firstname" name="firstname" placeholder="First name"> 
-					<input type="text" id="lastname" name="lastname" placeholder="Last name">
-					<p class="course-name">Adress</p>
-					<input type="text" id="address" name="address" placeholder="Address">
-					<p class="course-name">Contact Number</p>
-					<input type="number" id="contact_no" name="contact_no" placeholder="Contact Number">
-					<p class="course-name">Gender</p>
-					<input type="radio" id="male" name="gender" value="Male">
-					<label for="male">Male</label>
-					<input type="radio" id="female" name="gender" value="Female">
-					<label for="female">Female</label>
+					<div class="boxx">
+						<p class="student-P">Student Name</p>
+						<div class="studentcon">
+							<input type="text" id="firstname" name="firstname" placeholder="First name" >
+							<input type="text" id="lastname" name="lastname" placeholder="Last name">
+						</div>
+					</div>
+					<div class="boxx">
+						<p class="student-P">Adress</p>
+						<div class="studentcon">
+							<input type="text" id="address" name="address" placeholder="Address">
+						</div>
+					</div>
+					<div class="boxx">
+						<p class="student-P">Contact Number</p>
+						<div class="studentcon">
+							<input type="number" id="contact_no" name="contact_no" placeholder="Contact Number">
+						</div>
+					</div>
+					<div class="boxx">
+						<p class="student-P">Gender</p>
+						<div class="studentcon1">
+							<input type="radio" id="male" name="gender" value="Male">Male
+							<input type="radio" id="female" name="gender" value="Female">Female
+						</div>
+					</div>
+					<div class="boxx">
+						<p class="student-P">Email</p>
+						<div class="studentcon">
+							<input type="text" id="email" name="email" placeholder="Email">
+						</div>
+					</div>
+					<div class="boxx">
+						<p class="student-P">year Level</p>
+						<div class="studentcon">
+							<select name="yearlevel" required>
+								<option value = "1">1st Year</option>
+								<option value = "2">2nd Year</option>
+								<option value = "3">3rd Year</option>
+								<option value = "4">4th Year</option>
+								<option value = "5">5th Year</option>
+							</select>
+						</div>
+					</div>
+					<div class="boxx">
+						<p class="student-P">Status</p>
+						<div class="studentcon">
+							<select name="status" required>
+								<option value = "Enrolled">Enrolled</option>
+								<option value = "Not Enrolled">Not Enrolled</option>
+							</select>
+						</div>
+					</div>
+					<div class="studentcon">
 					<a class="addcourse"><i class="fas fa-plus"></i> Add Student</a>
-					<p class="course-name">Email</p>
-					<input type="text" id="email" name="email" placeholder="Email">
-					<p class="course-name">year Level</p>
-					<select name="yearlevel" required>
-						<option value = "1">1st Year</option>
-                        <option value = "2">2nd Year</option>
-					    <option value = "3">3rd Year</option>
-                        <option value = "4">4th Year</option>
-					    <option value = "5">5th Year</option>
-					</select>
-					<p class="course-name">Status</p>
-					<select name="status" required>
-						<option value = "Enrolled">Enrolled</option>
-						<option value = "Not Enrolled">Not Enrolled</option>
-					</select>
-
+				</div>
 				</div>
 			</div>
 		</div>

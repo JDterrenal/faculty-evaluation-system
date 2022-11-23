@@ -142,7 +142,7 @@ body {
 
 .student-table th,
 .student-table td {
-  padding: 12px 15px;
+  padding: 1em 15px;
 }
 
 .student-table tbody tr {
@@ -828,7 +828,7 @@ footer {
   width: 100%;
   height: 100%;
   max-width: 30em;
-  max-height: 40em;
+  max-height: 45em;
   min-width: 20em;
   border-radius: 6px;
   background: #ffff;
@@ -893,14 +893,22 @@ footer {
 .popup-student-middle {
   background: #ffff;
   width: 100%;
-  max-height: 55em;
-  height: 100%;
+  max-height: 40em;
   display: flex;
+  height: 100%;
+  justify-content: center;
   flex-direction: column;
 }
 
+
 .course-name {
   margin-left: 1em;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+.student-P{
+  margin-left: .5em;
+  margin-bottom: .1em;
   font-weight: 700;
   font-size: 1.2em;
 }
@@ -916,13 +924,21 @@ footer {
 .popup-student-middle input[type=text],
 .popup-student-middle input[type=number],
 .popup-student-middle select[name=yearlevel],
-.popup-student-middle select[name=status]{
-  margin-left: 1em;
-  margin-right: 1em;
-  margin-top: -1em;
-  margin-bottom: 1em;
+.popup-student-middle select[name=status],
+.popup-student-middle input[type=radio]{
+  width: 100%;
   font-weight: 700;
   font-size: 1em;
+  margin: .5em;
+
+}
+.studentcon{
+  display: flex;
+  justify-content: center;
+}
+.studentcon1{
+  display: flex;
+  justify-content: space-around;
 }
 
 .editcourse-name-tbx {
@@ -1122,7 +1138,6 @@ footer {
     content: attr(data-label);
     position: absolute;
     left: 0;
-    
     padding-left: 15px;
     text-align: left;
   }
