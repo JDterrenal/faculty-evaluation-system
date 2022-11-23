@@ -27,21 +27,13 @@ function preventBack()
     }
 }
 
-//Login as Admin, Stundent or Faculty.
-function loginAs()
-{
-    if (isset($_POST['register'])) {
-        $_SESSION['loginas'] = $_POST['loginas'];
-    }
-}
-
 //This enables the login functionality for the system.
 function login()
 {
     include 'connection.php';
-    global $loginas;
+    $_SESSION['usertype'] = $_POST['usertype'];
+    $loginas = $_SESSION['usertype'];
     if (isset($_POST['login'])) {
-        $loginas = $_SESSION['loginas'];
         if ($loginas == "Admin") {
             $login_id = $_POST['login_id'];
             $password = $_POST['password'];
@@ -63,7 +55,7 @@ function login()
                 setCookies("FacultyEvaluationID", $_SESSION['login_id'], time() + 86400, "/", "facultyevaluation.elementfx.com");
                 setCookies("FacultyEvaluationPassword", $_SESSION['password'], time() + 86400, "/", "facultyevaluation.elementfx.com");
             } else {
-                echo 'Your ID or Password is incorrect!';
+                echo 'Your ID or Password is incorrect! a';
             }
         } else if ($loginas == "Student") {
             $login_id = $_POST['login_id'];
@@ -86,7 +78,7 @@ function login()
                 setCookies("FacultyEvaluationID", $_SESSION['login_id'], time() + 86400, "/", "facultyevaluation.elementfx.com");
                 setCookies("FacultyEvaluationPassword", $_SESSION['password'], time() + 86400, "/", "facultyevaluation.elementfx.com");
             } else {
-                echo 'Your ID or Password is incorrect!';
+                echo 'Your ID or Password is incorrect! s';
             }
         } else if ($loginas == "Faculty") {
             $login_id = $_POST['login_id'];
@@ -109,91 +101,10 @@ function login()
                 setCookies("FacultyEvaluationID", $_SESSION['login_id'], time() + 86400, "/", "facultyevaluation.elementfx.com");
                 setCookies("FacultyEvaluationPassword", $_SESSION['password'], time() + 86400, "/", "facultyevaluation.elementfx.com");
             } else {
-                echo 'Your ID or Password is incorrect!';
+                echo 'Your ID or Password is incorrect! f';
             }
         }
         mysqli_close($conn);
-    }
-}
-
-function loginAdmin()
-{
-    include 'connection.php';
-    $login_id = $_POST['login_id'];
-    $password = $_POST['password'];
-    $sql = "SELECT login_id, password, usertype FROM tb_login WHERE login_id='$login_id' AND password='$password' limit 1";
-    $result = mysqli_query($conn, $sql) or die("Connection error!");
-    //Login Validation
-    if (mysqli_num_rows($result) == 1) {
-        $_SESSION['login_id'] = $_POST['login_id'];
-        $_SESSION['password'] = $_POST['password'];
-        $iden = "SELECT login_id, usertype FROM tb_login WHERE login_id='$login_id'";
-        $result = mysqli_query($conn, $iden);
-        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            $login_id = $row["login_id"];
-            $usertype = $row["usertype"];
-        }
-        $_SESSION['login_id'] = $login_id;
-        $_SESSION['usertype'] = $usertype;
-        header("Location: dashboard.php");
-        setCookies("FacultyEvaluationID", $_SESSION['login_id'], time() + 86400, "/", "facultyevaluation.elementfx.com");
-        setCookies("FacultyEvaluationPassword", $_SESSION['password'], time() + 86400, "/", "facultyevaluation.elementfx.com");
-    } else {
-        echo 'Your ID or Password is incorrect!';
-    }
-}
-
-function loginStudent()
-{
-    include 'connection.php';
-    $login_id = $_POST['login_id'];
-    $password = $_POST['password'];
-    $sql = "SELECT student_id, password, usertype FROM tb_login WHERE student_id='$login_id' AND password='$password' limit 1";
-    $result = mysqli_query($conn, $sql) or die("Connection error!");
-    //Login Validation
-    if (mysqli_num_rows($result) == 1) {
-        $_SESSION['login_id'] = $_POST['login_id'];
-        $_SESSION['password'] = $_POST['password'];
-        $iden = "SELECT login_id, student_id, usertype FROM tb_login WHERE student_id='$login_id'";
-        $result = mysqli_query($conn, $iden);
-        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            $login_id = $row["student_id"];
-            $usertype = $row["usertype"];
-        }
-        $_SESSION['login_id'] = $login_id;
-        $_SESSION['usertype'] = $usertype;
-        header("Location: dashboard.php");
-        setCookies("FacultyEvaluationID", $_SESSION['login_id'], time() + 86400, "/", "facultyevaluation.elementfx.com");
-        setCookies("FacultyEvaluationPassword", $_SESSION['password'], time() + 86400, "/", "facultyevaluation.elementfx.com");
-    } else {
-        echo 'Your ID or Password is incorrect!';
-    }
-}
-
-function loginFaculty()
-{
-    include 'connection.php';
-    $login_id = $_POST['login_id'];
-    $password = $_POST['password'];
-    $sql = "SELECT faculty_id, password, usertype FROM tb_login WHERE faculty_id='$login_id' AND password='$password' limit 1";
-    $result = mysqli_query($conn, $sql) or die("Connection error!");
-    //Login Validation
-    if (mysqli_num_rows($result) == 1) {
-        $_SESSION['login_id'] = $_POST['login_id'];
-        $_SESSION['password'] = $_POST['password'];
-        $iden = "SELECT login_id, faculty_id, usertype FROM tb_login WHERE faculty_id='$login_id'";
-        $result = mysqli_query($conn, $iden);
-        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            $login_id = $row["faculty_id"];
-            $usertype = $row["usertype"];
-        }
-        $_SESSION['login_id'] = $login_id;
-        $_SESSION['usertype'] = $usertype;
-        header("Location: dashboard.php");
-        setCookies("FacultyEvaluationID", $_SESSION['login_id'], time() + 86400, "/", "facultyevaluation.elementfx.com");
-        setCookies("FacultyEvaluationPassword", $_SESSION['password'], time() + 86400, "/", "facultyevaluation.elementfx.com");
-    } else {
-        echo 'Your ID or Password is incorrect!';
     }
 }
 
