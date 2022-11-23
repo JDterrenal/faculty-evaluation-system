@@ -1130,7 +1130,11 @@ footer {
   .student-table tbody tr {
     background-color: #f3f3f3;
   }
- 
+  .student-table-container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
 
   .edit,
   .delete,
