@@ -114,10 +114,10 @@
 							<a><i class="fas fa-search"></i></a>
 							<input type="text" placeholder="Search" class="main-search">
 						</div>
-						<div class="courses-add">
-							<a class="add-course" onclick="AddFunction()">Add Evaluation</a>
+						<div class="main-add">
+							<a class="add-main" onclick="AddFunction()">Add Evaluation</a>
 						</div>
-						<div class="courses-table-container">
+						<div class="main-table-container">
 							<table class="main-table">
 								<thead>
 									<tr>
@@ -213,18 +213,15 @@
 
 	<form action=evaluations.php method=post>
 		<div class="popup-background" id="popup-background">
-			<div class="popup-addcourse">
-				<div class="popup-addcourse-top">
-					<p class="popup-addcourse-title"><i class="fas fa-plus"></i> ADD EVALUTAION</p>
+			<div class="popup-add">
+				<div class="popup-add-top">
+					<p class="popup-add-title"><i class="fas fa-plus"></i> ADD EVALUTAION</p>
 					<i class="fas fa-times ex" id="ex-add"></i>
 				</div>
-				<div class="popup-addcourse-middle">
-					<p class="course-name">Evaluation Name</p>
+				<div class="popup-add-middle">
+					<p class="label1">Evaluation Name</p>
 					<input type="text" placeholder="Evaluation name" class="course-name-tbx">
-					<a class="addcourse"><i class="fas fa-plus"></i> Add Evaluation</a>
-				</div>
-				<div class="popup-addevaluation-bottom">
-					<p class="quotes">Change is the end result of all true learning.  -Leo Buscaglia</p>
+					<a class="addbtn"><i class="fas fa-plus"></i> Add Evaluation</a>
 				</div>
 			</div>
 		</div>
@@ -234,18 +231,15 @@
 
 	<form action=evaluations.php method=post>
 		<div class="popup-background-edit" id="edit-popup-background">
-			<div class="popup-addcourse">
-				<div class="popup-addcourse-top">
-					<p class="popup-addcourse-title"><i class="fas fa-edit"></i> EDIT EVALUATION</p>
+			<div class="popup-add">
+				<div class="popup-add-top">
+					<p class="popup-add-title"><i class="fas fa-edit"></i> EDIT EVALUATION</p>
 					<i class="fas fa-times ex" id="ex-edit"></i>
 				</div>
-				<div class="popup-addcourse-middle">
-					<p class="course-name">Evaluation Name</p>
+				<div class="popup-add-middle">
+					<p class="label1">Evaluation Name</p>
 					<input type="text" placeholder="Evaluation" class="editcourse-name-tbx">
-					<a class="editcourse"><i class="fas fa-edit"></i> Edit Evaluation</a>
-				</div>
-				<div class="popup-addcourse-bottom">
-					<p class="quotes">Change is the end result of all true learning.  -Leo Buscaglia</p>
+					<a class="editbtn"><i class="fas fa-edit"></i> Edit Evaluation</a>
 				</div>
 			</div>
 		</div>

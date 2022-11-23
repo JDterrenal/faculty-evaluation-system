@@ -586,7 +586,7 @@ nav li:focus {
   display: flex;
 }
 
-.courses-table-container {
+.main-table-container {
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -640,12 +640,12 @@ nav li:focus {
   color: #707070;
 }
 
-.courses-add {
+.main-add {
   margin: 1.5em 3.5em;
 
 }
 
-.add-course {
+.add-main {
   padding: .5em;
   background-color: #707070;
   color: white;
@@ -812,7 +812,7 @@ footer {
   display: none;
 }
 
-.popup-addcourse {
+.popup-add {
   margin-top: 5em;
   width: 100%;
   height: 100%;
@@ -833,7 +833,7 @@ footer {
   background: #ffff;
 }
 
-.popup-addcourse-top {
+.popup-add-top {
   background: #d0d0d0;
   width: 100%;
   display: flex;
@@ -844,7 +844,7 @@ footer {
   align-items: center;
 }
 
-.popup-addcourse-title {
+.popup-add-title {
   margin-left: 1em;
   font-size: 1.3em;
   font-weight: 1000;
@@ -880,7 +880,7 @@ footer {
   cursor: pointer;
 }
 
-.popup-addcourse-middle {
+.popup-add-middle {
   background: #ffff;
   width: 100%;
   max-height: 18em;
@@ -900,7 +900,7 @@ footer {
 }
 
 
-.course-name {
+.label1 {
   margin-left: 1em;
   font-weight: 700;
   font-size: 1.2em;
@@ -950,7 +950,7 @@ footer {
   font-size: 1em;
 }
 
-.addcourse {
+.addbtn {
   background-color: #707070;
   margin: 0 1em;
   font-weight: 700;
@@ -962,7 +962,7 @@ footer {
   color: #ffff;
 }
 
-.editcourse {
+.editbtn {
   background-color: #707070;
   margin: 0 1em;
   font-weight: 700;
