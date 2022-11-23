@@ -73,7 +73,9 @@ Overall, the project expects the system to result in better teaching through the
 **B. Project activities and work plan**
  
  ![](RackMultipart20221123-1-fsbi48_html_b8a275325a68c5cd.png)
+ 
  _Table 1 Work Plan_
+ 
  This table shows the overall progression of the project proposal towards completion.
 
 **C. Project Beneficiaries**
@@ -94,7 +96,9 @@ The group used Trello to monitor the project and keep the focus directed to the 
 **Trello Board (Project Development Phase)**
 
 ![](RackMultipart20221123-1-fsbi48_html_2062af4b515f308c.png)
+
 _Figure 1 Project Development_
+
 Used to keep track of what needs to be done in the project, what's currently being worked on, and what's already finished. Trello Board is useful for monitoring what the team is currently working on. There is also an Activity Log which helps monitor what changes have been made towards the project and what time the changes have been made.
 
 **V. BUDGET**
@@ -129,11 +133,15 @@ The budget used during the development of the project proposal is as follows:
 **Login Process ERD**
 
 ![](RackMultipart20221123-1-fsbi48_html_692bc5251668a9a3.png)
+
 _Figure 2 Login Process ERD_
+
 This shows the tables and the login process used by the system. The data of the login table will be used to store all the data in which users will use to login their accounts. The student and faculty table will provide the details of the students and teachers on their profile, this includes school details and personal information such as name and address.
 
 **System Process Flowchart**
 
 ![](RackMultipart20221123-1-fsbi48_html_ee73bad0f8039d36.png)
+
 _Figure 3 System Process Flowchart_
+
 This flowchart shows how the system works during login, where the users will be directed towards, and what the students, the teachers, and the admin will be able to do once they are logged in the system.
