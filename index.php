@@ -30,8 +30,9 @@ include './assets/php/functions.php';
                         <label for="password">Password</label>
                         <input type="password" placeholder="Enter Password" name="password" required>
                     </div>
+                    <?php login(); ?>
                     <div class="login-items marg-b">
-                        <button type="submit">Login</button>
+                        <button type="submit" name="login" value="Login">Login</button>
                     </div>
                     <div class="login-type">
                         <label for="usertype">Login As</label>
