@@ -335,15 +335,68 @@
 
 	<form action=add_course.php method=post>
 		<div class="popup-background-edit" id="studentpopupbackground">
-			<div class="popup-addcourse">
+			<div class="popup-addstudent">
 				<div class="popup-addcourse-top">
 					<p class="popup-addcourse-title"><i class="fas fa-edit"></i> EDIT STUDENT</p>
 					<i class="fas fa-times ex" id="exeditstudent"></i>
 				</div>
-				<div class="popup-addcourse-middle">
-					<p class="course-name">Student Name</p>
-					<input type="text" placeholder="Student name" class="editcourse-name-tbx">
-					<a class="editcourse"><i class="fas fa-edit"></i> Edit Student</a>
+				<div class="popup-student-middle">
+					<div class="boxx">
+						<p class="student-P">Student Name</p>
+						<div class="studentcon">
+							<input type="text" id="firstname" name="firstname" placeholder="First name" >
+							<input type="text" id="lastname" name="lastname" placeholder="Last name">
+						</div>
+					</div>
+					<div class="boxx">
+						<p class="student-P">Adress</p>
+						<div class="studentcon">
+							<input type="text" id="address" name="address" placeholder="Address">
+						</div>
+					</div>
+					<div class="boxx">
+						<p class="student-P">Contact Number</p>
+						<div class="studentcon">
+							<input type="number" id="contact_no" name="contact_no" placeholder="Contact Number">
+						</div>
+					</div>
+					<div class="boxx">
+						<p class="student-P">Gender</p>
+						<div class="studentcon1">
+							<input type="radio" id="male" name="gender" value="Male"><label for="male">Male</label>
+							<input type="radio" id="female" name="gender" value="Female"><label for="female">Female</label>
+						</div>
+					</div>
+					<div class="boxx">
+						<p class="student-P">Email</p>
+						<div class="studentcon">
+							<input type="text" id="email" name="email" placeholder="Email">
+						</div>
+					</div>
+					<div class="boxx">
+						<p class="student-P">year Level</p>
+						<div class="studentcon">
+							<select name="yearlevel" required>
+								<option value = "1">1st Year</option>
+								<option value = "2">2nd Year</option>
+								<option value = "3">3rd Year</option>
+								<option value = "4">4th Year</option>
+								<option value = "5">5th Year</option>
+							</select>
+						</div>
+					</div>
+					<div class="boxx">
+						<p class="student-P">Status</p>
+						<div class="studentcon">
+							<select name="status" required>
+								<option value = "Enrolled">Enrolled</option>
+								<option value = "Not Enrolled">Not Enrolled</option>
+							</select>
+						</div>
+					</div>
+					<div class="studentcon">
+					<a class="addcourse"><i class="fas fa-edit"></i> Edit Student</a>
+				</div>
 				</div>
 			</div>
 		</div>
