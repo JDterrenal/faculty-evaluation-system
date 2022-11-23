@@ -19,7 +19,7 @@
                     </div>
                     <div class="login-items">
                         <label for="id">User ID</label>
-                        <input type="text" placeholder="Enter Username" name="id" required>
+                        <input type="number" placeholder="Enter ID" name="id" required>
                     </div>
                     <div class="login-items marg-b">
                         <label for="password">Password</label>
