@@ -113,7 +113,7 @@
 							<input type="text" placeholder="Search" class="main-search">
 						</div>
 						<div class="courses-add">
-							<a class="add-course" id="addfaculty" onclick="AddFacultyFunction()">Add Faculty</a>
+							<a class="add-course" id="addfaculty" onclick="AddFunction()">Add Faculty</a>
 						</div>
 						<div class="student-table-container">
 							<table class="student-table">
@@ -140,7 +140,7 @@
                                         <td data-label="CONTACT NUMBER"></td>
                                         <td data-label="ADDRESS"></td>
                                         <td data-label="PHOTO"></td>
-										<td data-label="Operation"><a class="edit" id="editfaculty" onclick="EditFacultyFunction()"><i class="fas fa-edit"></i> Edit</a></td>
+										<td data-label="Operation"><a class="edit" id="editfaculty" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
                                         <td data-label="Operation"><a href="#" class="view"><i class="fas fa-eye"></i> View</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
 									</tr>
@@ -153,7 +153,7 @@
                                         <td data-label="CONTACT NUMBER"></td>
                                         <td data-label="ADDRESS"></td>
                                         <td data-label="PHOTO"></td>
-										<td data-label="Operation"><a class="edit" id="editfaculty" onclick="EditFacultyFunction()"><i class="fas fa-edit"></i> Edit</a></td>
+										<td data-label="Operation"><a class="edit" id="editfaculty" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
                                         <td data-label="Operation"><a href="#" class="view"><i class="fas fa-eye"></i> View</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
 									</tr>
@@ -166,7 +166,7 @@
                                         <td data-label="CONTACT NUMBER"></td>
                                         <td data-label="ADDRESS"></td>
                                         <td data-label="PHOTO"></td>
-										<td data-label="Operation"><a class="edit" id="editfaculty" onclick="EditFacultyFunction()"><i class="fas fa-edit"></i> Edit</a></td>
+										<td data-label="Operation"><a class="edit" id="editfaculty" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
                                         <td data-label="Operation"><a href="#" class="view"><i class="fas fa-eye"></i> View</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
 									</tr>
@@ -179,7 +179,7 @@
                                         <td data-label="CONTACT NUMBER"></td>
                                         <td data-label="ADDRESS"></td>
                                         <td data-label="PHOTO"></td>
-										<td data-label="Operation"><a class="edit" id="editfaculty" onclick="EditFacultyFunction()"><i class="fas fa-edit"></i> Edit</a></td>
+										<td data-label="Operation"><a class="edit" id="editfaculty" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
                                         <td data-label="Operation"><a href="#" class="view"><i class="fas fa-eye"></i> View</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
 									</tr>
@@ -192,7 +192,7 @@
                                         <td data-label="CONTACT NUMBER"></td>
                                         <td data-label="ADDRESS"></td>
                                         <td data-label="PHOTO"></td>
-										<td data-label="Operation"><a class="edit" id="editfaculty" onclick="EditFacultyFunction()"><i class="fas fa-edit"></i> Edit</a></td>
+										<td data-label="Operation"><a class="edit" id="editfaculty" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
                                         <td data-label="Operation"><a href="#" class="view"><i class="fas fa-eye"></i> View</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
 									</tr>
@@ -236,10 +236,10 @@
 		
 	</div>
 
-	<!--------popup add student ------------>
+	<!--------popup add ------------>
 
 	<form action=add_course.php method=post>
-		<div class="popup-backgroundsubject" id="popupbackgroundfaculty">
+		<div class="popup-backgroundsubject" id="popup-background">
 			<div class="popup-addstudent">
 				<div class="popup-addcourse-top">
 					<p class="popup-addcourse-title"><i class="fas fa-plus"></i> ADD FACULTY</p>
@@ -286,10 +286,10 @@
 		</div>
 	</form>
 
-	<!--------popup edit subject ------------>
+	<!--------popup edit ------------>
 
 	<form action=add_course.php method=post>
-		<div class="popup-background-edit" id="facultypopupbackground">
+		<div class="popup-background-edit" id="edit-popup-background">
 			<div class="popup-addstudent">
 				<div class="popup-addcourse-top">
 					<p class="popup-addcourse-title"><i class="fas fa-edit"></i> EDIT FACULTY</p>

@@ -85,7 +85,7 @@
 							<input type="text" placeholder="Search" class="main-search">
 						</div>
 						<div class="courses-add">
-							<a class="add-course" id="addcourse" onclick="AddEvaluationFunction()">Add Evaluation</a>
+							<a class="add-course" onclick="AddFunction()">Add Evaluation</a>
 						</div>
 						<div class="courses-table-container">
 							<table class="main-table">
@@ -104,7 +104,7 @@
 										<td data-label="School Year">qwe</td>
 										<td data-label="Semester">qwe</td>
 										<td data-label="Section ID">qwe</td>
-										<td data-label="Operation"><a class="edit" id="editevaluation" onclick="EditEvaluationFunction()"><i class="fas fa-edit"></i> Edit</a></td>
+										<td data-label="Operation"><a class="edit" id="editevaluation" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
 									</tr>
 									<tr>
@@ -112,7 +112,7 @@
 										<td data-label="School Year">qwe</td>
 										<td data-label="Semester">qwe</td>
 										<td data-label="Section ID">qwe</td>
-										<td data-label="Operation"><a class="edit" id="editevaluation" onclick="EditEvaluationFunction()"><i class="fas fa-edit"></i> Edit</a></td>
+										<td data-label="Operation"><a class="edit" id="editevaluation" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
 									</tr>
 									<tr>
@@ -120,7 +120,7 @@
 										<td data-label="School Year">qwe</td>
 										<td data-label="Semester">qwe</td>
 										<td data-label="Section ID">qwe</td>
-										<td data-label="Operation"><a class="edit" id="editevaluation" onclick="EditEvaluationFunction()"><i class="fas fa-edit"></i> Edit</a></td>
+										<td data-label="Operation"><a class="edit" id="editevaluation" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
 									</tr>
 									<tr>
@@ -128,7 +128,7 @@
 										<td data-label="School Year">qwe</td>
 										<td data-label="Semester">qwe</td>
 										<td data-label="Section ID">qwe</td>
-										<td data-label="Operation"><a class="edit" id="editevaluation" onclick="EditEvaluationFunction()"><i class="fas fa-edit"></i> Edit</a></td>
+										<td data-label="Operation"><a class="edit" id="editevaluation" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
 									</tr>
 									<tr>
@@ -136,7 +136,7 @@
 										<td data-label="School Year">qwe</td>
 										<td data-label="Semester">qwe</td>
 										<td data-label="Section ID">qwe</td>
-										<td data-label="Operation"><a class="edit" id="editevaluation" onclick="EditEvaluationFunction()"><i class="fas fa-edit"></i> Edit</a></td>
+										<td data-label="Operation"><a class="edit" id="editevaluation" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
 									</tr>
 								</tbody>
@@ -182,7 +182,7 @@
 	<!--------popup add evaluation ------------>
 
 	<form action=evaluations.php method=post>
-		<div class="popup-background" id="popupbackground">
+		<div class="popup-background" id="popup-background">
 			<div class="popup-addcourse">
 				<div class="popup-addcourse-top">
 					<p class="popup-addcourse-title"><i class="fas fa-plus"></i> ADD EVALUTAION</p>
@@ -203,7 +203,7 @@
 	<!--------popup edit evaluation ------------>
 
 	<form action=evaluations.php method=post>
-		<div class="popup-background-edit" id="editpopupbackground">
+		<div class="popup-background-edit" id="edit-popup-background">
 			<div class="popup-addcourse">
 				<div class="popup-addcourse-top">
 					<p class="popup-addcourse-title"><i class="fas fa-edit"></i> EDIT EVALUATION</p>
