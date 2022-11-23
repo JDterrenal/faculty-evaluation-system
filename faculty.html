@@ -68,7 +68,7 @@
 	<div class= "main-container">
 		<main>
 			<div class="container-main">
-				<div class="courses-container"><h1><i class="fas fa-chalkboard-teacher"> Faculty</i></h1>
+				<div class="page-container"><h1><i class="fas fa-chalkboard-teacher"> Faculty</i></h1>
 					<hr>
 					<div class="user-info">
 						<div class="user-content">
@@ -102,18 +102,18 @@
 					</div>
 					
 					<div class="main-content">
-						<div class="courses-search-add">
-							<div class="courses-search-add-top">
-								<p class="course-search-add-title"><i class="fas fa-search"></i> Search and add here!</p>
+						<div class="main-search-add">
+							<div class="main-search-add-top">
+								<p class="main-search-add-title"><i class="fas fa-search"></i> Search and add here!</p>
 								<hr>
 							</div>
 						</div>
-						<div class="courses-search">
+						<div class="main-search1">
 							<a><i class="fas fa-search"></i></a>
 							<input type="text" placeholder="Search" class="main-search">
 						</div>
-						<div class="courses-add">
-							<a class="add-course" id="add-button" onclick="AddFunction()">Add Faculty</a>
+						<div class="main-add">
+							<a class="add-main" id="add-button" onclick="AddFunction()">Add Faculty</a>
 						</div>
 						<div class="student-table-container">
 							<table class="student-table">
@@ -241,8 +241,8 @@
 	<form action=add_course.php method=post>
 		<div class="popup-backgroundsubject" id="popup-background">
 			<div class="popup-addstudent">
-				<div class="popup-addcourse-top">
-					<p class="popup-addcourse-title"><i class="fas fa-plus"></i> ADD FACULTY</p>
+				<div class="popup-add-top">
+					<p class="popup-add-title"><i class="fas fa-plus"></i> ADD FACULTY</p>
 					<i class="fas fa-times ex" id="ex-add"></i>
 				</div>
 				<div class="popup-student-middle">
@@ -279,7 +279,7 @@
 						</div>
 					</div>
 					<div class="studentcon">
-					<a class="addcourse"><i class="fas fa-plus"></i> Add Faculty</a>
+					<a class="addbtn"><i class="fas fa-plus"></i> Add Faculty</a>
 				</div>
 				</div>
 			</div>
@@ -291,8 +291,8 @@
 	<form action=add_course.php method=post>
 		<div class="popup-background-edit" id="edit-popup-background">
 			<div class="popup-addstudent">
-				<div class="popup-addcourse-top">
-					<p class="popup-addcourse-title"><i class="fas fa-edit"></i> EDIT FACULTY</p>
+				<div class="popup-add-top">
+					<p class="popup-add-title"><i class="fas fa-edit"></i> EDIT FACULTY</p>
 					<i class="fas fa-times ex" id="ex-edit"></i>
 				</div>
 				<div class="popup-student-middle">
@@ -329,7 +329,7 @@
 						</div>
 					</div>
 					<div class="studentcon">
-					<a class="addcourse"><i class="fas fa-edit"></i> Edit Faculty</a>
+					<a class="addbtn"><i class="fas fa-edit"></i> Edit Faculty</a>
 				</div>
 				</div>
 			</div>
