@@ -659,7 +659,7 @@ nav li:focus {
   cursor: pointer;
 }
 
-.courses-main-content {
+.main-content {
   border-top: 3px solid #000000;
   margin: 1em auto;
   width: 100%;
