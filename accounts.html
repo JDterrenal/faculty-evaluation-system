@@ -131,8 +131,8 @@
                                         <td data-label="Faculty ID">qwe</td>
 										<td data-label="Password">qwe</td>
                                         <td data-label="User Type">qwe</td>
-                                        <td data-label="Operation"><a class="view" id="viewsubject" onclick="ViewSubjectFunction()"><i class="fas fa-edit"></i> View</a></td>
-										<td data-label="Operation"><a class="edit" id="editsubject" onclick="EditSubjectFunction()"><i class="fas fa-edit"></i> Edit</a></td>
+                                        <td data-label="Operation"><a class="view" id="viewsubject" onclick="ViewFunction()"><i class="fas fa-edit"></i> View</a></td>
+										<td data-label="Operation"><a class="edit" id="editsubject" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
 										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
 									</tr>
 								</tbody>
@@ -157,7 +157,7 @@
 
 	<!-------- popup logout ---------->
 	
-	<div class="popup-logout pop" id="popup">
+	<div class="popup-logout pop" id="popup-background">
 		<div class="popup-logout-first">
 			<img src="img/p.jpg" alt="" class="popup-profile">
 			<p class="popup-name">Last, First, MI</p>
@@ -178,7 +178,7 @@
 	<!--------popup edit subject ------------>
 
 	<form action=accounts.php method=post>
-		<div class="popup-background-edit" id="subjectpopupbackground">
+		<div class="popup-background-edit" id="edit-popup-background">
 			<div class="popup-addcourse">
 				<div class="popup-addcourse-top">
 					<p class="popup-addcourse-title"><i class="fas fa-edit"></i> EDIT ACCOUNTS</p>
