@@ -1,6 +1,6 @@
 <?php
-include ""
-
+include './assets/php/connection.php';
+include './assets/php/functions.php';
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ include ""
                         <h2>Login</h2>
                     </div>
                     <div class="login-items">
-                        <label for="id">User ID</label>
+                        <label for="login_id">User ID</label>
                         <input type="number" placeholder="Enter ID" name="id" required>
                     </div>
                     <div class="login-items marg-b">
