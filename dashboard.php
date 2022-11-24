@@ -26,7 +26,7 @@ include './assets/php/functions.php';
 			</div>
 			<div class="right">
 				<a class="usernamee" ><img src="images/p.jpg" alt="" class="profile" id="popup-btn" onclick="LogOutFunction()"></a>
-				<a class="username1" id="popup-btn" onclick="LogOutFunction()">User Name</a>
+				<a class="username1" id="popup-btn" onclick="LogOutFunction()"><?php echo $_SESSION['username'] ?></a>
 			</div>
 		</div>
 	</header>
@@ -49,7 +49,7 @@ include './assets/php/functions.php';
 			<div class="menu-bar">
 				<div class="menu">
 						<nav>
-							<p><a href="#" class="username"><img src="images/p.jpg" alt="" class="profile-side"><span>First Name</span></a></p>
+							<p><a href="#" class="username"><img src="images/p.jpg" alt="" class="profile-side"><span><?php echo $_SESSION['username'] ?></span></a></p>
 							<ul>
 								<?php sidebarIdentify(); ?>
 							</ul>
@@ -67,7 +67,7 @@ include './assets/php/functions.php';
 					<hr>
 					<div class="columns">
 						<div class="col1">
-							<p>Logged in as <?php echo $_SESSION['usertype'] ?>!</p>
+							<p>Welcome <?php echo $_SESSION['username'] ?>!</p>
 							<div class="anouncement">
 								<p class="acad-year">Academic Year: 2021-2022</p>
 								<p class="eval-status">Evaluation Status: On-going</p>
@@ -155,7 +155,7 @@ include './assets/php/functions.php';
 						</div>
 					</div>
 					<div class="columns">
-						<div class="col4"><p>bruh</p></div>
+						<div class="col4"><p></p></div>
 					</div>
 				</div>
 			</div>
