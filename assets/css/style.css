@@ -6,6 +6,7 @@ body {
   font-family: arial;
 }
 
+h1,
 h2 {
   margin: 0;
   padding: 0;
@@ -376,6 +377,26 @@ header {
 
 .toggleHeader {
   display: none;
+}
+
+/* 404 Page */
+.container-404 {
+  text-align: center;
+  color: #36454F;
+  margin: 0 1em;
+}
+
+.container-404 i {
+  margin-top: 5%;
+}
+
+.container-404 h1 {
+  font-size: 7rem;
+  font-weight: 900;
+}
+
+.container-404 h2 {
+  font-size: 2rem;
 }
 
 /* para sa nav-bar sa taas */
