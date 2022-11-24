@@ -23,11 +23,11 @@ include './assets/php/functions.php';
                     </div>
                     <div class="login-items">
                         <label for="login_id">User ID</label>
-                        <input type="number" placeholder="Enter ID" name="login_id" required>
+                        <input type="number" placeholder="Enter ID" name="login_id">
                     </div>
                     <div class="login-items marg-b">
                         <label for="password">Password</label>
-                        <input type="password" placeholder="Enter Password" name="password" required>
+                        <input type="password" placeholder="Enter Password" name="password">
                         <?php login() ?>
                     </div>
                     <div class="login-items marg-b">
