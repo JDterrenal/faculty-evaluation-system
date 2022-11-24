@@ -112,32 +112,32 @@ function sidebarIdentify()
     $usertype = $_SESSION['usertype'];
     if ($usertype == 'Admin') {
         echo '
-        <a href="dashboard.php"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-        <a href="courses.php"><i class="fas fa-book"></i><span>Courses</span></a>
-        <a href="subjects.php"><i class="fas fa-book-open"></i><span>Subjects</span></a>
-        <a href="sections.php"><i class="fas fa-table"></i><span>Sections</span></a>
-        <a href="students.php"><i class="fas fa-user"></i><span>Students</span></a>
-        <a href="faculty.php"><i class="fas fa-chalkboard-teacher"></i><span>Faculty</span></a>
-        <a href="accounts.php"><i class="fas fa-users"></i><span>Accounts</span></a>
-        <a href="evaluations.php"><i class="fas fa-calendar-check"></i><span>Evaluations</span></a>
-        <a href="about.php"><i class="fas fa-info-circle"></i><span>About</span></a>
+        <li><a href="dashboard.php"><i class="fas fa-desktop i"></i><span>Dashboard</span></a></li>
+        <li><a href="courses.php"><i class="fas fa-book i"></i><span>Courses</span></a></li>
+        <li><a href="subjects.php"><i class="fas fa-book-open i"></i><span>Subjects</span></a></li>
+        <li><a href="sections.php"><i class="fas fa-table i"></i><span>Sections</span></a></li>
+        <li><a href="students.php"><i class="fas fa-user i"></i><span>Students</span></a></li>
+        <li><a href="faculty.php"><i class="fas fa-chalkboard-teacher i"></i><span>Faculty</span></a></li>
+        <li><a href="accounts.php"><i class="fas fa-users i"></i><span>Accounts</span></a></li>
+        <li><a href="evaluations.php"><i class="fas fa-calendar-check i"></i><span>Evaluations</span></a></li>
+        <li><a href="about.php"><i class="fas fa-info-circle i"></i><span>About</span></a></li>
         ';
     } else if ($usertype == 'Student') {
         echo '
-        <a href="dashboard.php"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-        <a href="student_profile.php"><i class="fas fa-user"></i><span>Profile</span></a>
-        <a href="student_subjects.php"><i class="fas fa-book-open"></i><span>Subjects</span></a>
-        <a href="student_faculty.php"><i class="fas fa-chalkboard-teacher"></i><span>Faculty</span></a>
-        <a href="about.php"><i class="fas fa-info-circle"></i><span>About</span></a>
+        <li><a href="dashboard.php"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
+        <li><a href="student_profile.php"><i class="fas fa-user"></i><span>Profile</span></a></li>
+        <li><a href="student_subjects.php"><i class="fas fa-book-open"></i><span>Subjects</span></a></li>
+        <li><a href="student_faculty.php"><i class="fas fa-chalkboard-teacher"></i><span>Faculty</span></a></li>
+        <li><a href="about.php"><i class="fas fa-info-circle"></i><span>About</span></a></li>
         ';
     } else if ($usertype == 'Faculty') {
         echo '
-        <a href="dashboard.php"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-        <a href="faculty_profile.php"><i class="fas fa-user"></i><span>Profile</span></a>
-        <a href="faculty_sections.php"><i class="fas fa-table"></i><span>Sections</span></a>
-        <a href="faculty_subjects.php"><i class="fas fa-book-open"></i><span>Subjects</span></a>
-        <a href="faculty_students.php"><i class="fas fa-users"></i><span>Students</span></a>
-        <a href="about.php"><i class="fas fa-info-circle"></i><span>About</span></a>
+        <li><a href="dashboard.php"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
+        <li><a href="faculty_profile.php"><i class="fas fa-user"></i><span>Profile</span></a></li>
+        <li><a href="faculty_sections.php"><i class="fas fa-table"></i><span>Sections</span></a></li>
+        <li><a href="faculty_subjects.php"><i class="fas fa-book-open"></i><span>Subjects</span></a></li>
+        <li><a href="faculty_students.php"><i class="fas fa-users"></i><span>Students</span></a></li>
+        <li><a href="about.php"><i class="fas fa-info-circle"></i><span>About</span></a></li>
         ';
     }
 }
