@@ -1,5 +1,4 @@
 <?php
-ob_start();
 session_start();
 
 //Logout
@@ -20,11 +19,8 @@ if (isset($_GET['logout'])) {
 }
 
 //Prevents going back on an expired session.
-function preventBack()
-{
-    if (!isset($_SESSION['login_id'])) {
-        header("Location: index.php");
-    }
+if (!isset($_SESSION['login_id'])) {
+    header("Location: index.php");
 }
 
 //This enables the login functionality for the system.
