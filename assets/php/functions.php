@@ -32,9 +32,9 @@ function login()
 {
     include 'connection.php';
     $_SESSION['usertype'] = $_POST['usertype'];
-    $loginas = $_SESSION['usertype'];
+    $usertype = $_SESSION['usertype'];
     if (isset($_POST['login'])) {
-        if ($loginas == "Admin") {
+        if ($usertype == "Admin") {
             $login_id = $_POST['login_id'];
             $password = $_POST['password'];
             $sql = "SELECT login_id, password, usertype FROM tb_login WHERE login_id='$login_id' AND password='$password' limit 1";
@@ -53,7 +53,7 @@ function login()
             } else {
                 echo 'Your ID or Password is incorrect!';
             }
-        } else if ($loginas == "Student") {
+        } else if ($usertype == "Student") {
             $login_id = $_POST['login_id'];
             $password = $_POST['password'];
             $sql = "SELECT student_id, password, usertype FROM tb_login WHERE student_id='$login_id' AND password='$password' limit 1";
@@ -72,7 +72,7 @@ function login()
             } else {
                 echo 'Your ID or Password is incorrect!';
             }
-        } else if ($loginas == "Faculty") {
+        } else if ($usertype == "Faculty") {
             $login_id = $_POST['login_id'];
             $password = $_POST['password'];
             $sql = "SELECT faculty_id, password, usertype FROM tb_login WHERE faculty_id='$login_id' AND password='$password' limit 1";
@@ -96,14 +96,40 @@ function login()
     }
 }
 
-//Enables cookies for the system.
+//Processes all the sessions and cookies upon login.
 function loginSession($login_id, $usertype)
 {
     $_SESSION['login_id'] = $login_id;
     $_SESSION['usertype'] = $usertype;
+    fetchUsername($login_id, $usertype);
     header("Location: dashboard.php");
     setcookie("FacultyEvaluationID", $_SESSION['login_id'], time() + 86400, "/", "facultyevaluation.elementfx.com");
     setcookie("FacultyEvaluationPassword", $_SESSION['password'], time() + 86400, "/", "facultyevaluation.elementfx.com");
+}
+
+function fetchUsername($login_id, $usertype) {
+    include "connection.php";
+    if ($usertype == "Admin") {
+        $_SESSION['username'] = "Admin";
+    } else if ($usertype == "Student") {
+        $sql = "SELECT firstname, lastname FROM tb_students WHERE student_id='$login_id'";
+        $result = mysqli_query($conn, $sql);
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $firstname = $row["firstname"];
+            $lastname = $row["lastname"];
+        }
+        $_SESSION['username'] = "$firstname $lastname";
+        mysqli_close($conn);
+    } else if ($usertype == "Faculty") {
+        $sql = "SELECT firstname, lastname FROM tb_faculty WHERE faculty_id='$login_id'";
+        $result = mysqli_query($conn, $sql);
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $firstname = $row["firstname"];
+            $lastname = $row["lastname"];
+        }
+        $_SESSION['username'] = "$firstname $lastname";
+        mysqli_close($conn);
+    }
 }
 
 //This shows all of the items in the side menu of the website.
@@ -124,20 +150,20 @@ function sidebarIdentify()
         ';
     } else if ($usertype == 'Student') {
         echo '
-        <li><a href="dashboard.php"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
-        <li><a href="student_profile.php"><i class="fas fa-user"></i><span>Profile</span></a></li>
-        <li><a href="student_subjects.php"><i class="fas fa-book-open"></i><span>Subjects</span></a></li>
-        <li><a href="student_faculty.php"><i class="fas fa-chalkboard-teacher"></i><span>Faculty</span></a></li>
-        <li><a href="about.php"><i class="fas fa-info-circle"></i><span>About</span></a></li>
+        <li><a href="dashboard.php"><i class="fas fa-desktop i"></i><span>Dashboard</span></a></li>
+        <li><a href="student_profile.php"><i class="fas fa-user i"></i><span>Profile</span></a></li>
+        <li><a href="student_subjects.php"><i class="fas fa-book-open i"></i><span>Subjects</span></a></li>
+        <li><a href="student_faculty.php"><i class="fas fa-chalkboard-teacher i"></i><span>Faculty</span></a></li>
+        <li><a href="about.php"><i class="fas fa-info-circle i"></i><span>About</span></a></li>
         ';
     } else if ($usertype == 'Faculty') {
         echo '
         <li><a href="dashboard.php"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
-        <li><a href="faculty_profile.php"><i class="fas fa-user"></i><span>Profile</span></a></li>
-        <li><a href="faculty_sections.php"><i class="fas fa-table"></i><span>Sections</span></a></li>
-        <li><a href="faculty_subjects.php"><i class="fas fa-book-open"></i><span>Subjects</span></a></li>
-        <li><a href="faculty_students.php"><i class="fas fa-users"></i><span>Students</span></a></li>
-        <li><a href="about.php"><i class="fas fa-info-circle"></i><span>About</span></a></li>
+        <li><a href="faculty_profile.php"><i class="fas fa-user i"></i><span>Profile</span></a></li>
+        <li><a href="faculty_sections.php"><i class="fas fa-table i"></i><span>Sections</span></a></li>
+        <li><a href="faculty_subjects.php"><i class="fas fa-book-open i"></i><span>Subjects</span></a></li>
+        <li><a href="faculty_students.php"><i class="fas fa-users i"></i><span>Students</span></a></li>
+        <li><a href="about.php"><i class="fas fa-info-circle i"></i><span>About</span></a></li>
         ';
     }
 }
