@@ -1,3 +1,7 @@
+<?php
+include './assets/php/functions.php';
+?>
+
 <html>
 <head>
 <meta charset="utf-8">
