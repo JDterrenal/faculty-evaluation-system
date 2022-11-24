@@ -1,4 +1,5 @@
 <?php
+session_start();
 include './assets/php/functions.php';
 ?>
 
@@ -74,7 +75,7 @@ include './assets/php/functions.php';
 					<hr>
 					<div class="columns">
 						<div class="col1">
-							Welcome Administrator!
+							<p>Logged in as <?php echo $_SESSION['usertype'] ?>!</p>
 							<div class="anouncement">
 								<p class="acad-year">Academic Year: 2021-2022</p>
 								<p class="eval-status">Evaluation Status: On-going</p>
