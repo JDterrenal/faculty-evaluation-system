@@ -19,11 +19,11 @@
 				<i class='fas fa-bars toggleHeader'></i>
 			</div>
 			<div class="right">
-				<a class="usernamee" ><img src="img/p.jpg" alt="" class="profile" id="popup-btn" onclick="LogOutFunction()"></a>
+				<a class="usernamee" ><img src="images/p.jpg" alt="" class="profile" id="popup-btn" onclick="LogOutFunction()"></a>
 				<a class="username1" id="popup-btn" onclick="LogOutFunction()">User Name</a>
 			</div>
 		</div>
-	</header>	
+	</header>
 
 	<!-------- sidebar ---------->
 
@@ -31,22 +31,19 @@
 			<nav>
 				<div class="sidebar">
 					<div class="sidebar-logo">
-						<a href="#"><img src="img/p.jpg" alt="" class="logo"></a>
+						<a href="#"><img src="images/p.jpg" alt="" class="logo"></a>
 					</div>
-					
 					<div class="sidebar-name">
 						<span class="sidebar-name1">System Plus </span>
 						<span class="sidebar-name1">College Caloocan</span>
 					</div>
 				</div>
-				
-				
 				<i class='fas fa-bars toggle'></i>
 			</nav>
 			<div class="menu-bar">
 				<div class="menu">
 						<nav>
-							<p><a href="#" class="username"><img src="img/p.jpg" alt="" class="profile-side"><span>First Name</span></a></p>
+							<p><a href="#" class="username"><img src="images/p.jpg" alt="" class="profile-side"><span>First Name</span></a></p>
 							<ul>
 								<li><a href="dashboard.php"><i class="fas fa-desktop i"></i><span>Dashboard</span></a></li>
 								<li><a href="courses.php"><i class="fas fa-book i"></i><span>Courses</span></a></li>
@@ -62,7 +59,6 @@
 				</div>
 			</div>
 		</div>
-	
 	<!-------- main content ---------->
 
 	<div class= "main-container">
@@ -100,7 +96,6 @@
 							</table>
 						</div>
 					</div>
-					
 					<div class="main-content">
 						<div class="main-search-add">
 							<div class="main-search-add-top">
@@ -152,11 +147,8 @@
 			</div>
 		</footer>
 	</div>
-	
 	<!--================= popups ===================-->
-
 	<!-------- popup logout ---------->
-	
 	<div class="popup-logout pop" id="popup-background">
 		<div class="popup-logout-first">
 			<img src="img/p.jpg" alt="" class="popup-profile">
@@ -172,7 +164,6 @@
 			<a href="#" class="popup-profile-button">Profile</a>
 			<a href="#" class="popup-profile-logout">Sign out</a>
 		</div>
-		
 	</div>
 
 	<!--------popup edit subject ------------>
@@ -192,8 +183,6 @@
 			</div>
 		</div>
 	</form>
-	
-	
 	<script src="script.js"></script>
 </body>
 </html>

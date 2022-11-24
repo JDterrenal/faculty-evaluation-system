@@ -20,11 +20,11 @@
 				<i class='fas fa-bars toggleHeader'></i>
 			</div>
 			<div class="right">
-				<a class="usernamee" ><img src="img/p.jpg" alt="" class="profile" id="popup-btn" onclick="LogOutFunction()"></a>
+				<a class="usernamee" ><img src="images/p.jpg" alt="" class="profile" id="popup-btn" onclick="LogOutFunction()"></a>
 				<a class="username1" id="popup-btn" onclick="LogOutFunction()">User Name</a>
 			</div>
 		</div>
-	</header>	
+	</header>
 
 	<!-------- sidebar ---------->
 
@@ -32,22 +32,19 @@
 			<nav>
 				<div class="sidebar">
 					<div class="sidebar-logo">
-						<a href="#"><img src="img/p.jpg" alt="" class="logo"></a>
+						<a href="#"><img src="images/p.jpg" alt="" class="logo"></a>
 					</div>
-					
 					<div class="sidebar-name">
 						<span class="sidebar-name1">System Plus </span>
 						<span class="sidebar-name1">College Caloocan</span>
 					</div>
 				</div>
-				
-				
 				<i class='fas fa-bars toggle'></i>
 			</nav>
 			<div class="menu-bar">
 				<div class="menu">
 						<nav>
-							<p><a href="#" class="username"><img src="img/p.jpg" alt="" class="profile-side"><span>First Name</span></a></p>
+							<p><a href="#" class="username"><img src="images/p.jpg" alt="" class="profile-side"><span>First Name</span></a></p>
 							<ul>
 								<li><a href="dashboard.php"><i class="fas fa-desktop i"></i><span>Dashboard</span></a></li>
 								<li><a href="courses.php"><i class="fas fa-book i"></i><span>Courses</span></a></li>
@@ -63,9 +60,9 @@
 				</div>
 			</div>
 		</div>
-	
-	<!-------- main content ---------->
 
+	<!-------- main content ---------->
+	
 	<div class= "main-container">
 		<main>
 			<div class="container-main">

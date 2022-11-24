@@ -37,9 +37,9 @@ include './assets/php/functions.php';
                     <div class="login-type">
                         <label for="usertype">Login As</label>
                         <select name="usertype" id="usertype">
-                            <option value="Admin">Admin</option>
                             <option value="Student">Student</option>
                             <option value="Faculty">Faculty</option>
+                            <option value="Admin">Admin</option>
                         </select>
                     </div>
                 </div>
