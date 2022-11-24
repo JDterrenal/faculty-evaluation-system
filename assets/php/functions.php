@@ -15,8 +15,8 @@ if (isset($_GET['logout'])) {
         unset($_COOKIE['FacultyEvaluationPassword']);
         setcookie("FacultyEvaluationPassword", null, 1, "/", "facultyevaluation.elementfx.com");
     }
-    return true;
     session_destroy();
+    return true;
 }
 
 //Prevents going back on an expired session.
