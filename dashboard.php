@@ -86,7 +86,7 @@ include './assets/php/functions.php';
 						<div class="col2">
 							<div class="stat-cont">
 								<div class="col-left">
-									<h1>0</h1>
+									<h1><?php echo accountsCount() ?></h1>
 									<p class="stat">Total Users</p>
 								</div>
 								<div class="col-right"><i class="fas fa-user"></i></div>
@@ -95,7 +95,7 @@ include './assets/php/functions.php';
 						<div class="col3">
 							<div class="stat-cont">
 								<div class="col-left">
-									<h1>0</h1>
+									<h1><?php echo courseCount() ?></h1>
 									<p class="stat">Total Course</p>
 								</div>
 								<div class="col-right"><i class="fas fa-book"></i></div>
@@ -106,7 +106,7 @@ include './assets/php/functions.php';
 						<div class="col2">
 							<div class="stat-cont">
 								<div class="col-left">
-									<h1>0</h1>
+									<h1><?php echo subjectCount() ?></h1>
 									<p class="stat">Total Subjects</p>
 								</div>
 								<div class="col-right"><i class="fas fa-book-open"></i></div>
@@ -115,7 +115,7 @@ include './assets/php/functions.php';
 						<div class="col3">
 							<div class="stat-cont">
 								<div class="col-left">
-									<h1>0</h1>
+									<h1><?php echo sectionCount() ?></h1>
 									<p class="stat">Total Sections</p>
 								</div>
 								<div class="col-right"><i class="fas fa-table"></i></div>
@@ -126,7 +126,7 @@ include './assets/php/functions.php';
 						<div class="col2">
 							<div class="stat-cont">
 								<div class="col-left">
-									<h1>0</h1>
+									<h1><?php echo studentCount() ?></h1>
 									<p class="stat">Total Students</p>
 								</div>
 								<div class="col-right"><i class="fas fa-user"></i></div>
@@ -135,7 +135,7 @@ include './assets/php/functions.php';
 						<div class="col3">
 							<div class="stat-cont">
 								<div class="col-left">
-									<h1>0</h1>
+									<h1><?php echo facultyCount() ?></h1>
 									<p class="stat">Total Faculty</p>
 								</div>
 								<div class="col-right"><i class="fas fa-chalkboard-teacher"></i></div>
@@ -146,7 +146,7 @@ include './assets/php/functions.php';
 						<div class="col2">
 							<div class="stat-cont">
 							<div class="col-left">
-								<h1>0</h1>
+								<h1><?php echo accountsCount() ?></h1>
 								<p class="stat">Total Accounts</p>
 							</div>
 							<div class="col-right"><i class="fas fa-users"></i></div>
@@ -155,7 +155,7 @@ include './assets/php/functions.php';
 						<div class="col3">
 							<div class="stat-cont">
 								<div class="col-left">
-									<h1>0</h1>
+									<h1><?php echo evaluationCount() ?></h1>
 									<p class="stat">Total Evaluations</p>
 								</div>
 								<div class="col-right"><i class="fas fa-calendar-check"></i></div>
@@ -163,7 +163,7 @@ include './assets/php/functions.php';
 						</div>
 					</div>
 					<div class="columns">
-						<div class="col4"><p>tite</p><p>tite</p></div>
+						<div class="col4"><p>bruh</p></div>
 					</div>
 				</div>
 			</div>
