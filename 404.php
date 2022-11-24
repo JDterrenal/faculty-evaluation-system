@@ -7,7 +7,7 @@ preventBack();
 <head>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard | Faculty Evaluation</title>
+  <title>Faculty Evaluation</title>
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="icon" href="images/logo.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -63,8 +63,12 @@ preventBack();
 	<div class= "main-container">
 		<main>
 			<div class="container-main">
-				<h1>404 Not Found</h1>
-                <h3>Page Doesn't Exist</h3>
+                <div class="container-404">
+                    <i class="fas fa-sad-cry fa-10x"></i>
+                    <h1>404</h1>
+                    <h2>Page Not Found</h2>
+                    <h3>Uh oh, the page you are trying to access does not exist.</h3>
+                </div>
 			</div>
 		</main>
 
