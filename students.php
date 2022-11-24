@@ -1,6 +1,6 @@
 <?php
-session_start();
 include './assets/php/functions.php';
+preventBack();
 ?>
 
 <html>

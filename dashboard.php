@@ -1,5 +1,6 @@
 <?php
 include './assets/php/functions.php';
+preventBack();
 ?>
 
 <html>
@@ -50,7 +51,7 @@ include './assets/php/functions.php';
 						<nav>
 							<p><a href="#" class="username"><img src="images/p.jpg" alt="" class="profile-side"><span><?php echo $_SESSION['username'] ?></span></a></p>
 							<ul>
-								<?php sidebarIdentify(); ?>
+								<?php sidebarIdentify() ?>
 							</ul>
 						</nav>
 				</div>
@@ -196,3 +197,4 @@ include './assets/php/functions.php';
 	<script src="./assets/js/script.js"></script>
 </body>
 </html>
+
