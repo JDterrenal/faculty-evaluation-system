@@ -188,7 +188,7 @@ include './assets/php/functions.php';
 		</div>
 		<div class="popup-logout-last">
 			<a href="#" class="popup-profile-button">Profile</a>
-			<a href="#" class="popup-profile-logout">Sign out</a>
+			<a href="?logout=true" class="popup-profile-logout">Sign out</a>
 		</div>
 		
 	</div>
