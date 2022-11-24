@@ -101,13 +101,13 @@ function loginSession($login_id, $usertype)
 {
     $_SESSION['login_id'] = $login_id;
     $_SESSION['usertype'] = $usertype;
-    fetchUsername($login_id, $usertype);
+    fetchUserInfo($login_id, $usertype);
     header("Location: dashboard.php");
     setcookie("FacultyEvaluationID", $_SESSION['login_id'], time() + 86400, "/", "facultyevaluation.elementfx.com");
     setcookie("FacultyEvaluationPassword", $_SESSION['password'], time() + 86400, "/", "facultyevaluation.elementfx.com");
 }
 
-function fetchUsername($login_id, $usertype) {
+function fetchUserInfo($login_id, $usertype) {
     include "connection.php";
     if ($usertype == "Admin") {
         $_SESSION['username'] = "Admin";
