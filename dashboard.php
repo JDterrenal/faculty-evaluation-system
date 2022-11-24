@@ -178,8 +178,8 @@ preventBack();
 	<div class="popup-logout pop" id="popup">
 		<div class="popup-logout-first">
 			<img src="images/p.jpg" alt="" class="popup-profile">
-			<p class="popup-name">Last, First, MI</p>
-			<p class="popup-student-number">146583967</p>
+			<p class="popup-name"><?php echo $_SESSION['username'] ?></p>
+			<p class="popup-student-number"><?php echo $_SESSION['login_id'] ?></p>
 		</div>
 		<div class="popup-logout-middle">
 			<a href="#" class="popup-middle1">qwe</a>
