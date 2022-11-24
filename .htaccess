@@ -1,4 +1,4 @@
 Options -Indexes
 RewriteEngine on
 AllowOverride All
-ErrorDocument 404 http://facultyevaluation.elementfx.com/404notfound.php
+ErrorDocument 404 http://facultyevaluation.elementfx.com/404.php
