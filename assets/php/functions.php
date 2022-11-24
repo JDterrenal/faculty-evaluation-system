@@ -49,11 +49,7 @@ function login()
                     $login_id = $row["login_id"];
                     $usertype = $row["usertype"];
                 }
-                $_SESSION['login_id'] = $login_id;
-                $_SESSION['usertype'] = $usertype;
-                header("Location: dashboard.php");
-                setCookies("FacultyEvaluationID", $_SESSION['login_id'], time() + 86400, "/", "facultyevaluation.elementfx.com");
-                setCookies("FacultyEvaluationPassword", $_SESSION['password'], time() + 86400, "/", "facultyevaluation.elementfx.com");
+                loginSession($login_id, $usertype);
             } else {
                 echo 'Your ID or Password is incorrect!';
             }
@@ -72,11 +68,7 @@ function login()
                     $login_id = $row["student_id"];
                     $usertype = $row["usertype"];
                 }
-                $_SESSION['login_id'] = $login_id;
-                $_SESSION['usertype'] = $usertype;
-                header("Location: dashboard.php");
-                setCookies("FacultyEvaluationID", $_SESSION['login_id'], time() + 86400, "/", "facultyevaluation.elementfx.com");
-                setCookies("FacultyEvaluationPassword", $_SESSION['password'], time() + 86400, "/", "facultyevaluation.elementfx.com");
+                loginSession($login_id, $usertype);
             } else {
                 echo 'Your ID or Password is incorrect!';
             }
@@ -95,11 +87,7 @@ function login()
                     $login_id = $row["faculty_id"];
                     $usertype = $row["usertype"];
                 }
-                $_SESSION['login_id'] = $login_id;
-                $_SESSION['usertype'] = $usertype;
-                header("Location: dashboard.php");
-                setCookies("FacultyEvaluationID", $_SESSION['login_id'], time() + 86400, "/", "facultyevaluation.elementfx.com");
-                setCookies("FacultyEvaluationPassword", $_SESSION['password'], time() + 86400, "/", "facultyevaluation.elementfx.com");
+                loginSession($login_id, $usertype);
             } else {
                 echo 'Your ID or Password is incorrect!';
             }
@@ -109,12 +97,13 @@ function login()
 }
 
 //Enables cookies for the system.
-function setCookies()
+function loginSession($login_id, $usertype)
 {
-    $login_id = $_SESSION['login_id'];
-    $password = $_SESSION['password'];
-    setcookie("FacultyEvaluationID", $login_id, time() + 86400, "/", "facultyevaluation.elementfx.com");
-    setcookie("FacultyEvaluationPassword", $password, time() + 86400, "/", "facultyevaluation.elementfx.com");
+    $_SESSION['login_id'] = $login_id;
+    $_SESSION['usertype'] = $usertype;
+    header("Location: dashboard.php");
+    setcookie("FacultyEvaluationID", $_SESSION['login_id'], time() + 86400, "/", "facultyevaluation.elementfx.com");
+    setcookie("FacultyEvaluationPassword", $_SESSION['password'], time() + 86400, "/", "facultyevaluation.elementfx.com");
 }
 
 //This shows all of the items in the side menu of the website.
