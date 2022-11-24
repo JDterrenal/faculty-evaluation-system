@@ -81,7 +81,7 @@
 							<table class="user-table">
 								<tbody>
 									<tr>
-                                        <td rowspan="4" scope="row" style="text-align: center; padding-left: 5px;"><img src="img/p.jpg" class="student-picture"></td>
+                                        <td rowspan="4" scope="row" style="text-align: center; padding-left: 5px;"><img src="images/p.jpg" class="student-picture"></td>
 										<th>Name</th>
 										<td data-label="First Name">John Derick ramos Terrenal</td>
 									</tr>
@@ -206,7 +206,7 @@
 	
 	<div class="popup-logout pop" id="popup">
 		<div class="popup-logout-first">
-			<img src="img/p.jpg" alt="" class="popup-profile">
+			<img src="images/p.jpg" alt="" class="popup-profile">
 			<p class="popup-name">Last, First, MI</p>
 			<p class="popup-student-number">146583967</p>
 		</div>

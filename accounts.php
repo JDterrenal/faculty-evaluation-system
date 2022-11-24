@@ -151,7 +151,7 @@
 	<!-------- popup logout ---------->
 	<div class="popup-logout pop" id="popup-background">
 		<div class="popup-logout-first">
-			<img src="img/p.jpg" alt="" class="popup-profile">
+			<img src="images/p.jpg" alt="" class="popup-profile">
 			<p class="popup-name">Last, First, MI</p>
 			<p class="popup-student-number">146583967</p>
 		</div>
