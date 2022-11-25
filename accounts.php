@@ -1,6 +1,7 @@
 <?php
 include './assets/php/functions.php';
 preventBack();
+enableDelete()
 ?>
 
 <html>
