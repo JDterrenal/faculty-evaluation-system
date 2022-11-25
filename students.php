@@ -260,7 +260,7 @@ enableDelete();
 					<div class="boxx">
 						<p class="student-P">Student Picture</p>
 						<div class="studentcon">
-						<img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side">
+						<img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side-pop">
 						</div>
 						<div class="studentcon">
 							<input type="file" name="fileToUpload" id="fileToUpload">
