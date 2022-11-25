@@ -971,6 +971,7 @@ footer {
   min-width: 20em;
   border-radius: 6px;
   background: #ffff;
+  overflow-y: scroll;
 }
 
 .popup-add-top {
