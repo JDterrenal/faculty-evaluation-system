@@ -525,7 +525,7 @@ function editSectionConf($edit_section_id)
 //------------------------------ Deleting Records ------------------------------
 function enableDelete()
 {
-    global $conn;
+    include 'connection.php';
     //Delete Students
     if (isset($_GET['delete_student_id'])) {
         $delete_student_id = $_GET['delete_student_id'];
@@ -766,21 +766,21 @@ function showStudents()
         $section_id = $row["section_id"];
         echo "
         <tr>
-        <th data-title='Student ID'>$student_id</th>
-        <th data-title='First Name'>$firstname</th>
-	    <th data-title='Last Name'>$lastname</th>
-        <th data-title='Email'>$email</th>
-        <th data-title='Gender'>$gender</th>
-        <th data-title='Year Level'>$yearlevel</th>
-        <th data-title='Contact Number'>$contact_no</th>
-	    <th data-title='Address'>$address</th>
-	    <th data-title='Status'>$status</th>
-        <th data-title='Photo'><img src='images/uploads/$photo' width=50px height=50px></th>
-	    <th data-title='Course ID'>$course_id</th>
-	    <th data-title='Section ID'>$section_id</th>
-        <th data-title='View'><a href='student_profile.php?view_student_id=$student_id' class='btn'>View</a></th>
-        <th data-title='Edit'><a href='students.php?edit_student_id=$student_id' class='btn'>Edit</a></th>
-        <th data-title='Delete'><a onclick='javascript:confirmationDelete($(this));return false;' href='students.php?delete_student_id=$student_id' class='btn'>Delete</a></th>
+        <td data-label='ID'>$student_id</td>
+        <td data-label='FIRST NAME'>$firstname</td>
+        <td data-label='LAST NAME'>$lastname</td>
+        <td data-label='EMAIL'>$email</td>
+        <td data-label='GENDER'>$gender</td>
+        <td data-label='YEAR LEVEL'>$yearlevel</td>
+        <td data-label='CONTACT NUMBER'>$contact_no</td>
+        <td data-label='ADDRESS'>$address</td>
+        <td data-label='STATUS'>$status</td>
+        <td data-label='PHOTO'><img src='/images/uploads/$photo' width=50px height=50px></td>
+        <td data-label='COURSE ID'>$course_id</td>
+        <td data-label='SECTION ID'>$section_id</td>
+        <td data-label='Operation'><a href='#' class='view'><i class='fas fa-eye'></i> View</a></td>
+        <td data-label='Operation'><a class='edit' id='editstudent' onclick='EditFunction()'><i class='fas fa-edit'></i>Edit</a></td>
+        <td data-label='Operation'><a href='students.php?delete_student_id=$student_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a></td>
         </tr>
         ";
     }
