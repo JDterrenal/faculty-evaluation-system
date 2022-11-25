@@ -1059,7 +1059,7 @@ footer {
 .popup-student-middle {
   background: #ffff;
   width: 100%;
-  padding-top: 5em;
+  margin-top: 5em;
   max-height: 40em;
   display: flex;
   height: 100%;
