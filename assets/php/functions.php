@@ -111,22 +111,26 @@ function fetchUserInfo($login_id, $usertype) {
     if ($usertype == "Admin") {
         $_SESSION['username'] = "Admin";
     } else if ($usertype == "Student") {
-        $sql = "SELECT firstname, lastname FROM tb_students WHERE student_id='$login_id'";
+        $sql = "SELECT firstname, lastname, photo FROM tb_students WHERE student_id='$login_id'";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $firstname = $row["firstname"];
             $lastname = $row["lastname"];
+            $photo = $row["photo"];
         }
         $_SESSION['username'] = "$firstname $lastname";
+        $_SESSION['photo'] = "$photo";
         mysqli_close($conn);
     } else if ($usertype == "Faculty") {
-        $sql = "SELECT firstname, lastname FROM tb_faculty WHERE faculty_id='$login_id'";
+        $sql = "SELECT firstname, lastname, photo FROM tb_faculty WHERE faculty_id='$login_id'";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $firstname = $row["firstname"];
             $lastname = $row["lastname"];
+            $photo = $row["photo"];
         }
         $_SESSION['username'] = "$firstname $lastname";
+        $_SESSION['photo'] = "$photo";
         mysqli_close($conn);
     }
 }
