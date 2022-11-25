@@ -296,6 +296,9 @@ function addCourse()
         $sql = "INSERT INTO tb_courses (course_id, course_name) VALUES (null, '$course_name')";
         if (mysqli_query($conn, $sql)) {
             echo "Course Added!";
+            ?><script type="text/javascript">
+            window.location = "/assets/php/loader.php";
+            </script><?php
         } else {
             echo "Invalid input!";
         }

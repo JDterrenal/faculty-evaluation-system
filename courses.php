@@ -167,7 +167,7 @@ enableDelete();
 
 	<!--------popup add course ------------>
 
-	<form action=loader.php method=post>
+	<form action="courses.php" method="post">
 		<div class="popup-background" id="popup-background">
 			<div class="popup-add">
 				<div class="popup-add-top">
@@ -176,7 +176,7 @@ enableDelete();
 				</div>
 				<div class="popup-add-middle">
 					<p class="label1">Course Name</p>
-					<input type="text" name="course_name" placeholder="Course Name" class="course-name-tbx">
+					<input type="text" name="course_name" placeholder="Course Name" class="course-name-tbx" required>
 					<?php addCourse() ?>
 					<button type="submit" name="addcourse" class="addbtn"><i class="fas fa-plus"></i> Add Course</button>
 				</div>
@@ -186,7 +186,7 @@ enableDelete();
 
 	<!--------popup edit course ------------>
 
-	<form action=loader.php method=post>
+	<form action="courses.php" method="post">
 		<div class="popup-background-edit" id="edit-popup-background">
 			<div class="popup-add">
 				<div class="popup-add-top">
