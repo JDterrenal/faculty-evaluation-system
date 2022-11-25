@@ -604,18 +604,20 @@ function showSections()
 {
     include 'connection.php';
     global $count;
-    $sql = "SELECT section_id, section_name, section_code FROM tb_sections ORDER BY section_id";
+    $sql = "SELECT section_id, section_name, section_code, yearlevel FROM tb_sections ORDER BY section_id";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $section_id = $row["section_id"];
         $section_name = $row["section_name"];
         $section_code = $row["section_code"];
+        $yearlevel = $row["yearlevel"];
         echo "
         <tr>
         <td data-label='ID'>$section_id</td>
         <td data-label='Section Name'>$section_name</td>
         <td data-label='Section Code'>$section_code</td>
+        <td data-label='Section Code'>$yearlevel</td>
         <td data-label='Operation'><a class='edit' id='editsubject' onclick='EditFunction()'><i class='fas fa-edit'></i> Edit</a></td>
         <td data-label='Operation'><a href='sections.php?delete_section_id=$section_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a></td>
         </tr>
