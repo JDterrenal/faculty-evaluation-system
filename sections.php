@@ -124,41 +124,7 @@ preventBack();
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td data-label="ID">qwe</td>
-										<td data-label="Section Name">Section Name</td>
-                                        <td data-label="Section Code">Section Code</td>
-										<td data-label="Operation"><a class="edit" id="editsubject" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
-										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
-									</tr>
-									<tr>
-										<td data-label="ID">qwe</td>
-										<td data-label="Section Name">Section Name</td>
-                                        <td data-label="Section Code">Section Code</td>
-										<td data-label="Operation"><a class="edit" id="editsubject" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
-										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
-									</tr>
-									<tr>
-										<td data-label="ID">qwe</td>
-										<td data-label="Section Name">Section Name</td>
-                                        <td data-label="Section Code">Section Code</td>
-										<td data-label="Operation"><a class="edit" id="editsubject" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
-										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
-									</tr>
-									<tr>
-										<td data-label="ID">qwe</td>
-										<td data-label="Section Name">Section Name</td>
-                                        <td data-label="Section Code">Section Code</td>
-										<td data-label="Operation"><a class="edit" id="editsubject" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
-										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
-									</tr>
-									<tr>
-										<td data-label="ID">qwe</td>
-										<td data-label="Section Name">Section Name</td>
-                                        <td data-label="Section Code">Section Code</td>
-										<td data-label="Operation"><a class="edit" id="editsubject" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
-										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
-									</tr>
+									<?php showSections() ?>
 								</tbody>
 							</table>
 						</div>
@@ -237,5 +203,6 @@ preventBack();
 	
 	
 	<script src="./assets/js/script.js"></script>
+	<script src="./assets/js/deleteConfirmation.js"></script>
 </body>
 </html>

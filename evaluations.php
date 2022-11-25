@@ -121,51 +121,13 @@ preventBack();
 										<th>ID</th>
 										<th>School Year</th>
 										<th>Semester</th>
+										<th>Status</th>
 										<th>Section ID</th>
 										<th colspan="2">Operation</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td data-label="ID">qwe</td>
-										<td data-label="School Year">qwe</td>
-										<td data-label="Semester">qwe</td>
-										<td data-label="Section ID">qwe</td>
-										<td data-label="Operation"><a class="edit" id="editevaluation" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
-										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
-									</tr>
-									<tr>
-										<td data-label="ID">qwe</td>
-										<td data-label="School Year">qwe</td>
-										<td data-label="Semester">qwe</td>
-										<td data-label="Section ID">qwe</td>
-										<td data-label="Operation"><a class="edit" id="editevaluation" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
-										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
-									</tr>
-									<tr>
-										<td data-label="ID">qwe</td>
-										<td data-label="School Year">qwe</td>
-										<td data-label="Semester">qwe</td>
-										<td data-label="Section ID">qwe</td>
-										<td data-label="Operation"><a class="edit" id="editevaluation" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
-										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
-									</tr>
-									<tr>
-										<td data-label="ID">qwe</td>
-										<td data-label="School Year">qwe</td>
-										<td data-label="Semester">qwe</td>
-										<td data-label="Section ID">qwe</td>
-										<td data-label="Operation"><a class="edit" id="editevaluation" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
-										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
-									</tr>
-									<tr>
-										<td data-label="ID">qwe</td>
-										<td data-label="School Year">qwe</td>
-										<td data-label="Semester">qwe</td>
-										<td data-label="Section ID">qwe</td>
-										<td data-label="Operation"><a class="edit" id="editevaluation" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
-										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
-									</tr>
+									<?php showEvaluations() ?>
 								</tbody>
 							</table>
 						</div>
@@ -244,5 +206,6 @@ preventBack();
 	
 	
 	<script src="./assets/js/script.js"></script>
+	<script src="./assets/js/deleteConfirmation.js"></script>
 </body>
 </html>
