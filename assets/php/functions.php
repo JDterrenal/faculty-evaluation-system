@@ -589,10 +589,10 @@ function showSubjects()
         $subject_name = $row["subject_name"];
         echo "
         <tr>
-        <th data-title='Subject ID'>$subject_id</th>
-        <th data-title='Subject Name'>$subject_name</th>
-        <th data-title='Edit'><a href='subjects.php?edit_subject_id=$subject_id' class='btn'>Edit</a></th>
-        <th data-title='Delete'><a onclick='javascript:confirmationDelete($(this));return false;' href='subjects.php?delete_subject_id=$subject_id' class='btn'>Delete</a></th>
+        <td data-label='ID'>$subject_id</td>
+        <td data-label='Subject'>$subject_name</td>
+        <td data-label='Operation'><a class='edit' id='editsubject' onclick='EditFunction()'><i class='fas fa-edit'></i> Edit</a></td>
+        <td data-label='Operation'><a href='subjects.php?delete_subject_id=$subject_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a></td>
         </tr>
         ";
     }
@@ -604,22 +604,20 @@ function showSections()
 {
     include 'connection.php';
     global $count;
-    $sql = "SELECT section_id, section_name, section_code, yearlevel FROM tb_sections ORDER BY section_id";
+    $sql = "SELECT section_id, section_name, section_code FROM tb_sections ORDER BY section_id";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $section_id = $row["section_id"];
         $section_name = $row["section_name"];
         $section_code = $row["section_code"];
-        $yearlevel = $row["yearlevel"];
         echo "
         <tr>
-        <th data-title='Section ID'>$section_id</th>
-        <th data-title='Section Name'>$section_name</th>
-        <th data-title='Section Code'>$section_code</th>
-        <th data-title='Yearlevel'>$yearlevel</th>
-        <th data-title='Edit'><a href='sections.php?edit_section_id=$section_id' class='btn'>Edit</a></th>
-        <th data-title='Delete'><a onclick='javascript:confirmationDelete($(this));return false;' href='sections.php?delete_section_id=$section_id' class='btn'>Delete</a></th>
+        <td data-label='ID'>$section_id</td>
+        <td data-label='Section Name'>$section_name</td>
+        <td data-label='Section Code'>$section_code</td>
+        <td data-label='Operation'><a class='edit' id='editsubject' onclick='EditFunction()'><i class='fas fa-edit'></i> Edit</a></td>
+        <td data-label='Operation'><a href='sections.php?delete_section_id=$section_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a></td>
         </tr>
         ";
     }
@@ -642,13 +640,13 @@ function showEvaluations()
         $section_id = $row["section_id"];
         echo "
         <tr>
-        <th data-title='Evaluation ID'>$evaluation_id</th>
-        <th data-title='School Year'>$schoolyear</th>
-        <th data-title='Semester'>$semester</th>
-        <th data-title='Status'>$status</th>
-        <th data-title='Course'>$section_id</th>
-        <th data-title='Edit'><a href='evaluations.php?edit_evaluation_id=$evaluation_id' class='btn'>Edit</a></th>
-        <th data-title='Delete'><a onclick='javascript:confirmationDelete($(this));return false;' href='evaluations.php?delete_evaluation_id=$evaluation_id' class='btn'>Delete</a></th>
+        <td data-label='ID'>$evaluation_id</td>
+        <td data-label='School Year'>$schoolyear</td>
+        <td data-label='Semester'>$semester</td>
+        <td data-label='Status'>$status</td>
+        <td data-label='Section ID'>$section_id</td>
+        <td data-label='Operation'><a class='edit' id='editevaluation' onclick='EditFunction()'><i class='fas fa-edit'></i> Edit</a></td>
+        <td data-label='Operation'><a href='evaluations.php?delete_evaluation_id=$evaluation_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a></td>
         </tr>
         ";
     }
@@ -697,10 +695,10 @@ function showCourses()
         $course_name = $row["course_name"];
         echo "
         <tr>
-        <th data-title='Course ID'>$course_id</th>
-        <th data-title='Course Name'>$course_name</th>
-        <th data-title='Edit'><a href='courses.php?edit_course_id=$course_id' class='btn'>Edit</a></th>
-        <th data-title='Delete'><a onclick='javascript:confirmationDelete($(this));return false;' href='courses.php?delete_course_id=$course_id' class='btn'>Delete</a></th>
+        <td data-label='ID'>$course_id</td>
+        <td data-label='Course'>$course_name</td>
+        <td data-label='Operation'><a class='edit' id='edit-button' onclick='EditFunction()'><i class='fas fa-edit'></i> Edit</a></td>
+        <td data-label='Operation'><a href='courses.php?delete_course_id=$course_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a></td>
         </tr>
         ";
     }
@@ -726,17 +724,17 @@ function showFaculty()
         $photo = $row["photo"];
         echo "
         <tr>
-        <th data-title='Faculty ID'>$faculty_id</th>
-        <th data-title='First Name'>$firstname</th>
-	    <th data-title='Last Name'>$lastname</th>
-        <th data-title='Email'>$email</th>
-        <th data-title='Gender'>$gender</th>
-        <th data-title='Contact Number'>$contact_no</th>
-	    <th data-title='Address'>$address</th>
-        <th data-title='Photo'><img src='images/uploads/$photo' width=50px height=50px></th>
-        <th data-title='View'><a href='faculty.php?view_faculty_id=$faculty_id' class='btn'>View</a></th>
-        <th data-title='Edit'><a href='faculty.php?edit_faculty_id=$faculty_id' class='btn'>Edit</a></th>
-        <th data-title='Delete'><a onclick='javascript:confirmationDelete($(this));return false;' href='faculty.php?delete_faculty_id=$faculty_id' class='btn'>Delete</a></th>
+        <td data-label='ID'>$faculty_id</td>
+        <td data-label='FIRST NAME'>$firstname</td>
+        <td data-label='LAST NAME'>$lastname</td>
+        <td data-label='EMAIL'>$email</td>
+        <td data-label='GENDER'>$gender</td>
+        <td data-label='CONTACT NUMBER'>$contact_no</td>
+        <td data-label='ADDRESS'>$address</td>
+        <td data-label='PHOTO'><img src='/images/uploads/$photo' width=50px height=50px></td>
+        <td data-label='Operation'><a class='edit' id='edit-button' onclick='EditFunction()'><i class='fas fa-edit'></i> Edit</a></td>
+        <td data-label='Operation'><a href='#' class='view'><i class='fas fa-eye'></i> View</a></td>
+        <td data-label='Operation'><a href='faculty.php?delete_faculty_id=$faculty_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a></td>
         </tr>
         ";
     }
