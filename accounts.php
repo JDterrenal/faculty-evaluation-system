@@ -118,14 +118,7 @@ preventBack();
 								</thead>
 								<tbody>
 									<tr>
-										<td data-label="ID">qwe</td>
-										<td data-label="Student ID">qwe</td>
-                                        <td data-label="Faculty ID">qwe</td>
-										<td data-label="Password">qwe</td>
-                                        <td data-label="User Type">qwe</td>
-                                        <td data-label="Operation"><a class="view" id="viewsubject" onclick="ViewFunction()"><i class="fas fa-edit"></i> View</a></td>
-										<td data-label="Operation"><a class="edit" id="editsubject" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
-										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
+										<?php showAccounts() ?>
 									</tr>
 								</tbody>
 							</table>
