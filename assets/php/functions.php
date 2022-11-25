@@ -296,7 +296,8 @@ function addCourse()
         $sql = "INSERT INTO tb_courses (course_id, course_name) VALUES (null, '$course_name')";
         if (mysqli_query($conn, $sql)) {
             echo "Course Added!";
-            header('Location: '.$_SERVER['REQUEST_URI']);
+            header('Refresh: 0');
+            exit();
         } else {
             echo "Invalid input!";
         }
@@ -564,7 +565,8 @@ function enableDelete()
         $delete_course_id = $_GET['delete_course_id'];
         $sql = "DELETE FROM tb_courses WHERE course_id='$delete_course_id'";
         mysqli_query($conn, $sql) or die("Connection error!");
-        header('location: courses.php');
+        header('Refresh: 0');
+        exit();
     }
     //Delete Evaluation
     if (isset($_GET['delete_evaluation_id'])) {
