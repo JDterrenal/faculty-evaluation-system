@@ -128,71 +128,7 @@ preventBack();
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td data-label="ID"></td>
-										<td data-label="FIRST NAME"></td>
-                                        <td data-label="LAST NAME"></td>
-                                        <td data-label="EMAIL"></td>
-                                        <td data-label="GENDER"></td>
-                                        <td data-label="CONTACT NUMBER"></td>
-                                        <td data-label="ADDRESS"></td>
-                                        <td data-label="PHOTO"></td>
-										<td data-label="Operation"><a class="edit" id="edit-button" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
-                                        <td data-label="Operation"><a href="#" class="view"><i class="fas fa-eye"></i> View</a></td>
-										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
-									</tr>
-									<tr>
-										<td data-label="ID"></td>
-										<td data-label="FIRST NAME"></td>
-                                        <td data-label="LAST NAME"></td>
-                                        <td data-label="EMAIL"></td>
-                                        <td data-label="GENDER"></td>
-                                        <td data-label="CONTACT NUMBER"></td>
-                                        <td data-label="ADDRESS"></td>
-                                        <td data-label="PHOTO"></td>
-										<td data-label="Operation"><a class="edit" id="edit-button" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
-                                        <td data-label="Operation"><a href="#" class="view"><i class="fas fa-eye"></i> View</a></td>
-										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
-									</tr>
-									<tr>
-										<td data-label="ID"></td>
-										<td data-label="FIRST NAME"></td>
-                                        <td data-label="LAST NAME"></td>
-                                        <td data-label="EMAIL"></td>
-                                        <td data-label="GENDER"></td>
-                                        <td data-label="CONTACT NUMBER"></td>
-                                        <td data-label="ADDRESS"></td>
-                                        <td data-label="PHOTO"></td>
-										<td data-label="Operation"><a class="edit" id="edit-button" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
-                                        <td data-label="Operation"><a href="#" class="view"><i class="fas fa-eye"></i> View</a></td>
-										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
-									</tr>
-									<tr>
-										<td data-label="ID"></td>
-										<td data-label="FIRST NAME"></td>
-                                        <td data-label="LAST NAME"></td>
-                                        <td data-label="EMAIL"></td>
-                                        <td data-label="GENDER"></td>
-                                        <td data-label="CONTACT NUMBER"></td>
-                                        <td data-label="ADDRESS"></td>
-                                        <td data-label="PHOTO"></td>
-										<td data-label="Operation"><a class="edit" id="edit-button" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
-                                        <td data-label="Operation"><a href="#" class="view"><i class="fas fa-eye"></i> View</a></td>
-										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
-									</tr>
-									<tr>
-										<td data-label="ID"></td>
-										<td data-label="FIRST NAME"></td>
-                                        <td data-label="LAST NAME"></td>
-                                        <td data-label="EMAIL"></td>
-                                        <td data-label="GENDER"></td>
-                                        <td data-label="CONTACT NUMBER"></td>
-                                        <td data-label="ADDRESS"></td>
-                                        <td data-label="PHOTO"></td>
-										<td data-label="Operation"><a class="edit" id="edit-button" onclick="EditFunction()"><i class="fas fa-edit"></i> Edit</a></td>
-                                        <td data-label="Operation"><a href="#" class="view"><i class="fas fa-eye"></i> View</a></td>
-										<td data-label="Operation"><a href="#" class="delete"><i class="fas fa-trash"></i> Delete</a></td>
-									</tr>
+									<?php showFaculty() ?>
 								</tbody>
 							</table>
 						</div>
