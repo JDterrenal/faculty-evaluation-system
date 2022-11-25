@@ -320,5 +320,6 @@ enableDelete();
 	
 	
 	<script src="./assets/js/script.js"></script>
+	<script src="./assets/js/deleteConfirmation.js"></script>
 </body>
 </html>
