@@ -195,7 +195,8 @@ enableDelete();
 				<div class="popup-add-middle">
 					<p class="label1">Course Name</p>
 					<input type="text" name="edit_course_name" placeholder="Course name" class="editcourse-name-tbx">
-					<button type="submit" name="addcourse" class="editbtn"><i class="fas fa-edit"></i> Edit Course</button>
+					<?php addCourse() ?>
+					<button type="submit" name="editcourse" class="editbtn"><i class="fas fa-edit"></i> Edit Course</button>
 				</div>
 			</div>
 		</div>
