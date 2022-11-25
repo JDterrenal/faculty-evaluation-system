@@ -13,7 +13,7 @@ h2 {
 }
 
 /* all inputs */
-popup-student-middle input[type=submit]{
+.popup-student-middle input[type=submit]{
   background-color: #707070;
   cursor: pointer;
   color: #ffff;
