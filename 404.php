@@ -25,7 +25,7 @@ preventBack();
 				<i class='fas fa-bars toggleHeader'></i>
 			</div>
 			<div class="right">
-				<a class="usernamee" ><img src="images/p.jpg" alt="" class="profile" id="popup-btn" onclick="LogOutFunction()"></a>
+				<a class="usernamee" ><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile" id="popup-btn" onclick="LogOutFunction()"></a>
 				<a class="username1" id="popup-btn" onclick="LogOutFunction()"><?php echo $_SESSION['username'] ?></a>
 			</div>
 		</div>
@@ -37,7 +37,7 @@ preventBack();
 			<nav>
 				<div class="sidebar">
 					<div class="sidebar-logo">
-						<a href="#"><img src="images/p.jpg" alt="" class="logo"></a>
+						<a href="#"><img src="./images/systems-plus-computer-college-logo.png" alt="" class="logo"></a>
 					</div>
 					<div class="sidebar-name">
 						<span class="sidebar-name1">System Plus </span>
@@ -49,7 +49,7 @@ preventBack();
 			<div class="menu-bar">
 				<div class="menu">
 						<nav>
-							<p><a href="#" class="username"><img src="images/p.jpg" alt="" class="profile-side"><span><?php echo $_SESSION['username'] ?></span></a></p>
+							<p><a href="#" class="username"><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side"><span><?php echo $_SESSION['username'] ?></span></a></p>
 							<ul>
 								<?php sidebarIdentify() ?>
 							</ul>
@@ -88,7 +88,7 @@ preventBack();
 	
 	<div class="popup-logout pop" id="popup">
 		<div class="popup-logout-first">
-			<img src="images/p.jpg" alt="" class="popup-profile">
+			<img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="popup-profile">
 			<p class="popup-name">Last, First, MI</p>
 			<p class="popup-student-number">146583967</p>
 		</div>

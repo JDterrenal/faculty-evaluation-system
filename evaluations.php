@@ -25,7 +25,7 @@ preventBack();
 				<i class='fas fa-bars toggleHeader'></i>
 			</div>
 			<div class="right">
-				<a class="usernamee" ><img src="images/p.jpg" alt="" class="profile" id="popup-btn" onclick="LogOutFunction()"></a>
+				<a class="usernamee" ><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile" id="popup-btn" onclick="LogOutFunction()"></a>
 				<a class="username1" id="popup-btn" onclick="LogOutFunction()">User Name</a>
 			</div>
 		</div>
@@ -37,7 +37,7 @@ preventBack();
 			<nav>
 				<div class="sidebar">
 					<div class="sidebar-logo">
-						<a href="#"><img src="images/p.jpg" alt="" class="logo"></a>
+						<a href="#"><img src="./images/systems-plus-computer-college-logo.png" alt="" class="logo"></a>
 					</div>
 					
 					<div class="sidebar-name">
@@ -52,7 +52,7 @@ preventBack();
 			<div class="menu-bar">
 				<div class="menu">
 						<nav>
-							<p><a href="#" class="username"><img src="images/p.jpg" alt="" class="profile-side"><span>First Name</span></a></p>
+							<p><a href="#" class="username"><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side"><span>First Name</span></a></p>
 							<ul>
 								<li><a href="dashboard.php"><i class="fas fa-desktop i"></i><span>Dashboard</span></a></li>
 								<li><a href="courses.php"><i class="fas fa-book i"></i><span>Courses</span></a></li>
@@ -198,7 +198,7 @@ preventBack();
 	
 	<div class="popup-logout pop" id="popup">
 		<div class="popup-logout-first">
-			<img src="images/p.jpg" alt="" class="popup-profile">
+			<img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="popup-profile">
 			<p class="popup-name">Last, First, MI</p>
 			<p class="popup-student-number">146583967</p>
 		</div>

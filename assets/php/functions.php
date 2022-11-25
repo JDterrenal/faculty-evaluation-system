@@ -110,6 +110,7 @@ function fetchUserInfo($login_id, $usertype) {
     include "connection.php";
     if ($usertype == "Admin") {
         $_SESSION['username'] = "Admin";
+        $_SESSION['photo'] = "admin.jpg";
     } else if ($usertype == "Student") {
         $sql = "SELECT firstname, lastname, photo FROM tb_students WHERE student_id='$login_id'";
         $result = mysqli_query($conn, $sql);
