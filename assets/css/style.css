@@ -13,10 +13,19 @@ h2 {
 }
 
 /* all inputs */
+popup-student-middle input[type=submit]{
+  background-color: #707070;
+  cursor: pointer;
+  color: #ffff;
+  font-size: 1rem;
+  border: none;
+}
+
 input[type=file]::file-selector-button{
   background-color: #707070;
   color: white;
   font-size: 1rem;
+  border: none;
 }
 
 input[type=file]::file-selector-button:hover {
@@ -1107,7 +1116,7 @@ footer {
   background-color: #707070;
   margin: 0 1em;
   font-weight: 700;
-  font-size: 1em;
+  font-size: 1rem;
   padding: .5em;
   border-radius: 5px;
   text-align: center;
