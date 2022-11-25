@@ -1001,7 +1001,6 @@ footer {
 }
 
 .popup-add-top {
-  margin-bottom: .5em;
   background: #d0d0d0;
   width: 100%;
   display: flex;
@@ -1060,7 +1059,7 @@ footer {
 .popup-student-middle {
   background: #ffff;
   width: 100%;
-  padding-top: 4em;
+  padding-top: 5em;
   max-height: 40em;
   display: flex;
   height: 100%;
