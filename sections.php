@@ -25,7 +25,7 @@ preventBack();
 			</div>
 			<div class="right">
 				<a class="usernamee" ><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile" id="popup-btn" onclick="LogOutFunction()"></a>
-				<a class="username1" id="popup-btn" onclick="LogOutFunction()">User Name</a>
+				<a class="username1" id="popup-btn" onclick="LogOutFunction()"><?php echo $_SESSION['username'] ?></a>
 			</div>
 		</div>
 	</header>	
@@ -51,7 +51,7 @@ preventBack();
 			<div class="menu-bar">
 				<div class="menu">
 						<nav>
-							<p><a href="#" class="username"><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side"><span>First Name</span></a></p>
+							<p><a href="#" class="username"><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side"><span><?php echo $_SESSION['username'] ?></span></a></p>
 							<ul>
 								<?php sidebarIdentify() ?>
 							</ul>
@@ -184,8 +184,8 @@ preventBack();
 	<div class="popup-logout pop" id="popup">
 		<div class="popup-logout-first">
 			<img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="popup-profile">
-			<p class="popup-name">Last, First, MI</p>
-			<p class="popup-student-number">146583967</p>
+			<p class="popup-name"><?php echo $_SESSION['username'] ?></p>
+			<p class="popup-student-number"><?php echo $_SESSION['login_id'] ?></p>
 		</div>
 		<div class="popup-logout-middle">
 			<a href="#" class="popup-middle1">qwe</a>
