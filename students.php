@@ -275,6 +275,18 @@ enableDelete();
 						</div>
 					</div>
 					<div class="boxx">
+						<p class="student-P">Course</p>
+						<div class="studentcon">
+							<input type="text" id="course" name="course" placeholder="Course">
+						</div>
+					</div>
+					<div class="boxx">
+						<p class="student-P">Section</p>
+						<div class="studentcon">
+							<input type="text" id="section" name="section" placeholder="Section">
+						</div>
+					</div>
+					<div class="boxx">
 						<p class="student-P">Adress</p>
 						<div class="studentcon">
 							<input type="text" id="address" name="address" placeholder="Address">
