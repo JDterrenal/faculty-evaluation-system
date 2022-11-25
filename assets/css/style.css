@@ -22,12 +22,17 @@ h2 {
   padding: .5em;
 }
 
+.popup-student-middle input[type=submit]:hover{
+  background-color: #d0d0d0;
+}
+
 input[type=file]::file-selector-button{
   background-color: #707070;
   color: white;
   font-size: 1rem;
   border: none;
   padding: .5em;
+  cursor: pointer;
 }
 
 input[type=file]::file-selector-button:hover {
