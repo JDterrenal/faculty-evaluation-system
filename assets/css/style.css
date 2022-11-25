@@ -974,6 +974,7 @@ footer {
 }
 
 .popup-add-top {
+  margin-bottom: .5em;
   background: #d0d0d0;
   width: 100%;
   display: flex;
