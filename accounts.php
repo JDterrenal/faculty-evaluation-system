@@ -4,16 +4,18 @@ preventBack();
 ?>
 
 <html>
+
 <head>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accounts | Faculty Evaluation</title>
-  <link rel="icon" href="images/logo.png" type="image/x-icon" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
-  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-  <link rel="stylesheet" href="./assets/css/style.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Accounts | Faculty Evaluation</title>
+	<link rel="icon" href="images/logo.png" type="image/x-icon" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+	<link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
 
 	<!-------- navbar top ---------->
@@ -24,7 +26,7 @@ preventBack();
 				<i class='fas fa-bars toggleHeader'></i>
 			</div>
 			<div class="right">
-				<a class="usernamee" ><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile" id="popup-btn" onclick="LogOutFunction()"></a>
+				<a class="usernamee"><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile" id="popup-btn" onclick="LogOutFunction()"></a>
 				<a class="username1" id="popup-btn" onclick="LogOutFunction()">User Name</a>
 			</div>
 		</div>
@@ -32,42 +34,43 @@ preventBack();
 
 	<!-------- sidebar ---------->
 
-		<div class="sidebar-nav close">
-			<nav>
-				<div class="sidebar">
-					<div class="sidebar-logo">
-						<a href="#"><img src="./images/systems-plus-computer-college-logo.png" alt="" class="logo"></a>
-					</div>
-					<div class="sidebar-name">
-						<span class="sidebar-name1">Systems Plus</span>
-						<span class="sidebar-name1">College Caloocan</span>
-					</div>
+	<div class="sidebar-nav close">
+		<nav>
+			<div class="sidebar">
+				<div class="sidebar-logo">
+					<a href="#"><img src="./images/systems-plus-computer-college-logo.png" alt="" class="logo"></a>
 				</div>
-				<i class='fas fa-bars toggle'></i>
-			</nav>
-			<div class="menu-bar">
-				<div class="menu">
-						<nav>
-							<p><a href="#" class="username"><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side"><span>First Name</span></a></p>
-							<ul>
-								<?php sidebarIdentify() ?>
-							</ul>
-						</nav>
+				<div class="sidebar-name">
+					<span class="sidebar-name1">Systems Plus</span>
+					<span class="sidebar-name1">College Caloocan</span>
 				</div>
 			</div>
+			<i class='fas fa-bars toggle'></i>
+		</nav>
+		<div class="menu-bar">
+			<div class="menu">
+				<nav>
+					<p><a href="#" class="username"><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side"><span>First Name</span></a></p>
+					<ul>
+						<?php sidebarIdentify() ?>
+					</ul>
+				</nav>
+			</div>
 		</div>
+	</div>
 	<!-------- main content ---------->
 
-	<div class= "main-container">
+	<div class="main-container">
 		<main>
 			<div class="container-main">
-				<div class="page-container"><h1><i class="fas fa-book-open"> Accounts</i></h1>
+				<div class="page-container">
+					<h1><i class="fas fa-book-open"> Accounts</i></h1>
 					<hr>
 					<div class="user-info">
 						<div class="user-content">
 							<div class="user-info-title">
-									<p class="user-title"><i class="fas fa-user"></i> User Information!</p>
-									<hr>
+								<p class="user-title"><i class="fas fa-user"></i> User Information!</p>
+								<hr>
 							</div>
 						</div>
 						<div class="user-nfo-content">
@@ -110,9 +113,9 @@ preventBack();
 									<tr>
 										<th>ID</th>
 										<th>Student ID</th>
-                                        <th>Faculty ID</th>
-                                        <th>Password</th>
-                                        <th>Usertype</th>
+										<th>Faculty ID</th>
+										<th>Password</th>
+										<th>Usertype</th>
 										<th colspan="3">Operation</th>
 									</tr>
 								</thead>
@@ -126,7 +129,7 @@ preventBack();
 			</div>
 		</main>
 
-	<!-------- footer ---------->
+		<!-------- footer ---------->
 
 		<footer>
 			<div class="container-footer">
@@ -172,5 +175,7 @@ preventBack();
 		</div>
 	</form>
 	<script src="./assets/js/script.js"></script>
+	<script src="./assets/js/deleteConfirmation.js"></script>
 </body>
+
 </html>
