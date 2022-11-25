@@ -186,7 +186,7 @@ enableDelete();
 					<i class="fas fa-times ex" id="ex-add"></i>
 				</div>
 				<div class="popup-student-middle">
-				<div class="boxx">
+					<div class="boxx">
 						<p class="student-P">Student Picture</p>
 						<div class="studentcon">
 						<img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side-pop">
@@ -216,14 +216,7 @@ enableDelete();
 						</div>
 					</div>
 					<div class="boxx">
-						<p class="student-P">Student Name</p>
-						<div class="studentcon">
-							<input type="text" id="firstname" name="firstname" placeholder="First name" >
-							<input type="text" id="lastname" name="lastname" placeholder="Last name">
-						</div>
-					</div>
-					<div class="boxx">
-						<p class="student-P">Address</p>
+						<p class="student-P">Adress</p>
 						<div class="studentcon">
 							<input type="text" id="address" name="address" placeholder="Address">
 						</div>
