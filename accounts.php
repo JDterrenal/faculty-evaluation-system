@@ -117,9 +117,7 @@ preventBack();
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<?php showAccounts() ?>
-									</tr>
+									<?php showAccounts() ?>
 								</tbody>
 							</table>
 						</div>

@@ -19,8 +19,8 @@ if (isset($_GET['logout'])) {
 }
 
 //Do nothing
-function relax() {
-    ;
+function relax()
+{;
 }
 
 //Prevents going back on an expired session.
@@ -34,7 +34,8 @@ function preventBack()
 }
 
 //Auto Login if there is an existing session.
-function autoLogin() {
+function autoLogin()
+{
     if (isset($_SESSION['login_id'])) {
         header("Location: dashboard.php");
         exit();
@@ -121,7 +122,8 @@ function loginSession($login_id, $usertype)
     setcookie("FacultyEvaluationPassword", $_SESSION['password'], time() + 86400, "/", "facultyevaluation.elementfx.com");
 }
 
-function fetchUserInfo($login_id, $usertype) {
+function fetchUserInfo($login_id, $usertype)
+{
     include "connection.php";
     if ($usertype == "Admin") {
         $_SESSION['username'] = "Admin";
@@ -800,6 +802,7 @@ function showAccounts()
         $password = $row["password"];
         $usertype = $row["usertype"];
         echo "
+        <tr>
         <td data-label='ID'>$login_id</td>
         <td data-label='Student ID'>$student_id</td>
         <td data-label='Faculty ID'>$faculty_id</td>
@@ -808,6 +811,7 @@ function showAccounts()
         <td data-label='Operation'><a href='accounts.php?view_login_id=$login_id' class='view' id='viewsubject' onclick='ViewFunction()'><i class='fas fa-edit'></i> View</a></td>
         <td data-label='Operation'><a href='accounts.php?edit_login_id=$login_id' class='edit' id='editsubject' onclick='EditFunction()'><i class='fas fa-edit'></i> Edit</a></td>
         <td data-label='Operation'><a href='accounts.php?delete_login_id=$login_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a></td>
+        <tr>
         ";
     }
     mysqli_close($conn);
