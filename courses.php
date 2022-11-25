@@ -41,7 +41,7 @@ preventBack();
 					</div>
 					
 					<div class="sidebar-name">
-						<span class="sidebar-name1">System Plus </span>
+						<span class="sidebar-name1">Systems Plus</span>
 						<span class="sidebar-name1">College Caloocan</span>
 					</div>
 				</div>
