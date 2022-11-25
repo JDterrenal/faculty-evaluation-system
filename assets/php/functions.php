@@ -288,15 +288,15 @@ function addEvaluation()
 //Adds a new course in the record.
 function addCourse()
 {
-    if (isset($_GET['addcourse'])) {
+    if (isset($_POST['addcourse'])) {
         include 'connection.php';
-        $course_name = $_GET['course_name'];
+        $course_name = $_POST['course_name'];
 
         //Add Course
         $sql = "INSERT INTO tb_courses (course_id, course_name) VALUES (null, '$course_name')";
         if (mysqli_query($conn, $sql)) {
             echo "Course Added!";
-            header('Location: courses.php');
+            header('Location: /assets/php/loader.php');
         } else {
             echo "Invalid input!";
         }
