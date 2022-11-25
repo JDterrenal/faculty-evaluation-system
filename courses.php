@@ -167,7 +167,7 @@ enableDelete();
 
 	<!--------popup add course ------------>
 
-	<form action=courses.php method=post>
+	<form action=courses.php method=get>
 		<div class="popup-background" id="popup-background">
 			<div class="popup-add">
 				<div class="popup-add-top">
@@ -176,8 +176,8 @@ enableDelete();
 				</div>
 				<div class="popup-add-middle">
 					<p class="label1">Course Name</p>
-					<input type="text" placeholder="Course name" class="course-name-tbx">
-					<a class="addbtn"><i class="fas fa-plus"></i> Add Course</a>
+					<input type="text" name="course_name" placeholder="Course Name" class="course-name-tbx">
+					<a href="?addcourse=true" class="addbtn"><i class="fas fa-plus"></i> Add Course</a>
 				</div>
 			</div>
 		</div>
@@ -185,7 +185,7 @@ enableDelete();
 
 	<!--------popup edit course ------------>
 
-	<form action=courses.php method=post>
+	<form action=courses.php method=get>
 		<div class="popup-background-edit" id="edit-popup-background">
 			<div class="popup-add">
 				<div class="popup-add-top">
@@ -194,8 +194,8 @@ enableDelete();
 				</div>
 				<div class="popup-add-middle">
 					<p class="label1">Course Name</p>
-					<input type="text" placeholder="Course name" class="editcourse-name-tbx">
-					<a class="editbtn"><i class="fas fa-edit"></i> Edit Course</a>
+					<input type="text" name="edit_course_name" placeholder="Course name" class="editcourse-name-tbx">
+					<a href="addcourse" class="editbtn"><i class="fas fa-edit"></i> Edit Course</a>
 				</div>
 			</div>
 		</div>
