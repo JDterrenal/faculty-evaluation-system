@@ -54,15 +54,7 @@ preventBack();
 						<nav>
 							<p><a href="#" class="username"><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side"><span>First Name</span></a></p>
 							<ul>
-								<li><a href="dashboard.php"><i class="fas fa-desktop i"></i><span>Dashboard</span></a></li>
-								<li><a href="courses.php"><i class="fas fa-book i"></i><span>Courses</span></a></li>
-								<li><a href="subjects.php"><i class="fas fa-book-open i"></i><span>Subjects</span></a></li>
-								<li><a href="sections.php"><i class="fas fa-table i"></i><span>Sections</span></a></li>
-								<li><a href="students.php"><i class="fas fa-user i"></i><span>Students</span></a></li>
-								<li><a href="faculty.php"><i class="fas fa-chalkboard-teacher i"></i><span>Faculty</span></a></li>
-								<li><a href="accounts.php"><i class="fas fa-users i"></i><span>Accounts</span></a></li>
-								<li><a href="evaluations.php"><i class="fas fa-calendar-check i"></i><span>Evaluations</span></a></li>
-								<li><a href="about.php"><i class="fas fa-info-circle i"></i><span>About</span></a></li>
+								<?php sidebarIdentify() ?>
 							</ul>
 						</nav>
 				</div>
