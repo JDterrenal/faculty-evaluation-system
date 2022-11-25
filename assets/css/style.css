@@ -13,6 +13,17 @@ h2 {
 }
 
 /* all inputs */
+input[type=file]::file-selector-button{
+  background-color: #707070;
+  color: white;
+  font-size: 1rem;
+}
+
+input[type=file]::file-selector-button:hover {
+  background-color: #d0d0d0;
+}
+
+
 .main-search {
   border: none;
   font-size: 1rem;
@@ -1069,7 +1080,7 @@ footer {
 .popup-student-middle input[type=radio]{
   width: 100%;
   font-weight: 700;
-  font-size: 1em;
+  font-size: 1rem;
   margin: .5em;
 
 }
