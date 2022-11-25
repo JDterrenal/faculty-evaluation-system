@@ -167,7 +167,7 @@ enableDelete();
 
 	<!--------popup add course ------------>
 
-	<form action=courses.php method=post>
+	<form action=loader.php method=post>
 		<div class="popup-background" id="popup-background">
 			<div class="popup-add">
 				<div class="popup-add-top">
@@ -186,7 +186,7 @@ enableDelete();
 
 	<!--------popup edit course ------------>
 
-	<form action=courses.php method=post>
+	<form action=loader.php method=post>
 		<div class="popup-background-edit" id="edit-popup-background">
 			<div class="popup-add">
 				<div class="popup-add-top">
