@@ -800,15 +800,14 @@ function showAccounts()
         $password = $row["password"];
         $usertype = $row["usertype"];
         echo "
-        <tr>
-        <th data-title='Login ID'>$login_id</th>
-        <th data-title='Student ID'>$student_id</th>
-        <th data-title='Faculty ID'>$faculty_id</th>
-        <th data-title='Password'>$password</th>
-        <th data-title='User Type'>$usertype</th>
-        <th data-title='Edit'><a href='accounts.php?edit_login_id=$login_id' class='btn'>Edit</a></th>
-        <th data-title='Delete'><a onclick='javascript:confirmationDelete($(this));return false;' href='accounts.php?delete_login_id=$login_id' class='btn'>Delete</a></th>
-        </tr>
+        <td data-label='ID'>$login_id</td>
+        <td data-label='Student ID'>$student_id</td>
+        <td data-label='Faculty ID'>$faculty_id</td>
+        <td data-label='Password'>$password</td>
+        <td data-label='User Type'>$usertype</td>
+        <td data-label='Operation'><a href='accounts.php?view_login_id=$login_id' class='view' id='viewsubject' onclick='ViewFunction()'><i class='fas fa-edit'></i> View</a></td>
+        <td data-label='Operation'><a href='accounts.php?edit_login_id=$login_id' class='edit' id='editsubject' onclick='EditFunction()'><i class='fas fa-edit'></i> Edit</a></td>
+        <td data-label='Operation'><a href='accounts.php?delete_login_id=$login_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a></td>
         ";
     }
     mysqli_close($conn);
