@@ -971,7 +971,6 @@ footer {
   min-width: 20em;
   border-radius: 6px;
   background: #ffff;
-  overflow-y: scroll;
 }
 
 .popup-add-top {
@@ -1038,6 +1037,7 @@ footer {
   height: 100%;
   justify-content: center;
   flex-direction: column;
+  overflow-y: scroll;
 }
 
 
