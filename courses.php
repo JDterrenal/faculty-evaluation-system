@@ -177,6 +177,7 @@ enableDelete();
 				<div class="popup-add-middle">
 					<p class="label1">Course Name</p>
 					<input type="text" name="course_name" placeholder="Course Name" class="course-name-tbx">
+					<?php addCourse() ?>
 					<button type="submit" name="addcourse" class="addbtn"><i class="fas fa-plus"></i> Add Course</button>
 				</div>
 			</div>
@@ -195,7 +196,6 @@ enableDelete();
 				<div class="popup-add-middle">
 					<p class="label1">Course Name</p>
 					<input type="text" name="edit_course_name" placeholder="Course name" class="editcourse-name-tbx">
-					<?php addCourse() ?>
 					<button type="submit" name="editcourse" class="editbtn"><i class="fas fa-edit"></i> Edit Course</button>
 				</div>
 			</div>
