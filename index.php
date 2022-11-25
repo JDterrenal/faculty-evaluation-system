@@ -1,5 +1,6 @@
 <?php
 include './assets/php/functions.php';
+autoLogin();
 ?>
 
 <!DOCTYPE html>

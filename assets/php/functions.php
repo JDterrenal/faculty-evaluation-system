@@ -18,11 +18,26 @@ if (isset($_GET['logout'])) {
     return true;
 }
 
+//Do nothing
+function relax() {
+    ;
+}
+
 //Prevents going back on an expired session.
 function preventBack()
 {
     if (!isset($_SESSION['login_id'])) {
+        session_destroy();
         header("Location: index.php");
+        exit();
+    }
+}
+
+//Auto Login if there is an existing session.
+function autoLogin() {
+    if (isset($_SESSION['login_id'])) {
+        header("Location: dashboard.php");
+        exit();
     }
 }
 
@@ -139,8 +154,7 @@ function fetchUserInfo($login_id, $usertype) {
 //This shows all of the items in the side menu of the website.
 function sidebarIdentify()
 {
-    $usertype = $_SESSION['usertype'];
-    if ($usertype == 'Admin') {
+    if ($_SESSION['usertype'] == 'Admin') {
         echo '
         <li><a href="dashboard.php"><i class="fas fa-desktop i"></i><span>Dashboard</span></a></li>
         <li><a href="courses.php"><i class="fas fa-book i"></i><span>Courses</span></a></li>
@@ -152,7 +166,7 @@ function sidebarIdentify()
         <li><a href="evaluations.php"><i class="fas fa-calendar-check i"></i><span>Evaluations</span></a></li>
         <li><a href="about.php"><i class="fas fa-info-circle i"></i><span>About</span></a></li>
         ';
-    } else if ($usertype == 'Student') {
+    } else if ($_SESSION['usertype'] == 'Student') {
         echo '
         <li><a href="dashboard.php"><i class="fas fa-desktop i"></i><span>Dashboard</span></a></li>
         <li><a href="student_profile.php"><i class="fas fa-user i"></i><span>Profile</span></a></li>
@@ -160,7 +174,7 @@ function sidebarIdentify()
         <li><a href="student_faculty.php"><i class="fas fa-chalkboard-teacher i"></i><span>Faculty</span></a></li>
         <li><a href="about.php"><i class="fas fa-info-circle i"></i><span>About</span></a></li>
         ';
-    } else if ($usertype == 'Faculty') {
+    } else if ($_SESSION['usertype'] == 'Faculty') {
         echo '
         <li><a href="dashboard.php"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
         <li><a href="faculty_profile.php"><i class="fas fa-user i"></i><span>Profile</span></a></li>

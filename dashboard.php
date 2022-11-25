@@ -67,7 +67,7 @@ preventBack();
 					<hr>
 					<div class="columns">
 						<div class="col1">
-							<p>Welcome <?php echo $_SESSION['username'] ?>!</p>
+							<p>Welcome <?php echo $_SESSION['usertype'] ?>!</p>
 							<div class="anouncement">
 								<p class="acad-year">Academic Year: 2021-2022</p>
 								<p class="eval-status">Evaluation Status: On-going</p>
