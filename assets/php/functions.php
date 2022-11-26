@@ -431,11 +431,11 @@ function editFacultyConf($edit_faculty_id)
 }
 
 // Edit confirmation for course
-function editCourse($edit_course_id)
+function editCourseShow($edit_id)
 {
     include 'connection.php';
     global $edit_course_name;
-    $sql = "SELECT course_name FROM tb_courses WHERE course_id='$edit_course_id'";
+    $sql = "SELECT course_name FROM tb_courses WHERE course_id='$edit_id'";
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $edit_course_name = $row["course_name"];
@@ -443,16 +443,18 @@ function editCourse($edit_course_id)
     mysqli_close($conn);
 }
 
-function editCourseConf($edit_course_id)
+function editCourseConf($edit_id)
 {
     include 'connection.php';
-    global $edit_course_name;
-    $edit_course_name = $_POST['course_name'];
+    $edit_id = $_POST['edit_id'];
+    $edit_course_name = $_POST['edit_course_name'];
 
-    if (isset($_POST['courseEdit'])) {
-        $sql = "UPDATE tb_courses SET course_name='$edit_course_name' WHERE course_id='$edit_course_id'";
+    if (isset($_POST['editcourse'])) {
+        $sql = "UPDATE tb_courses SET course_name='$edit_course_name' WHERE course_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
-            header('Location: courses.php');
+            ?><script type="text/javascript">
+            window.location = "/assets/php/loader.php";
+            </script><?php
         } else {
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         }
@@ -562,9 +564,9 @@ function enableDelete()
         header('location: sections.php');
     }
     //Delete Courses
-    if (isset($_GET['delete_course_id'])) {
-        $delete_course_id = $_GET['delete_course_id'];
-        $sql = "DELETE FROM tb_courses WHERE course_id='$delete_course_id'";
+    if (isset($_GET['delete_id'])) {
+        $delete_id = $_GET['delete_id'];
+        $sql = "DELETE FROM tb_courses WHERE course_id='$delete_id'";
         mysqli_query($conn, $sql) or die("Connection error!");
         header('Location: courses.php');
     }
@@ -695,14 +697,14 @@ function showCourses()
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $course_id = $row["course_id"];
+        $primary_id = $row["course_id"];
         $course_name = $row["course_name"];
         echo "
         <tr>
-        <td data-label='ID'>$course_id</td>
+        <td data-label='ID'>$primary_id</td>
         <td data-label='Course'>$course_name</td>
         <td data-label='Operation'><a class='edit' id='edit-button' onclick='EditFunction_course()'><i class='fas fa-edit'></i> Edit</a></td>
-        <td data-label='Operation'><a href='courses.php?delete_course_id=$course_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a></td>
+        <td data-label='Operation'><a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a></td>
         </tr>
         ";
     }
