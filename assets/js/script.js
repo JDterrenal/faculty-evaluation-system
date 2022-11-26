@@ -59,7 +59,6 @@ function AddFunction() {
     }
 }
 
-
 function EditFunction() {
     if (editBackground.style.display === "flex") {
         editBackground.style.display = "none";
