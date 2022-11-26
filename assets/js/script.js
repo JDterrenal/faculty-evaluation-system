@@ -73,7 +73,7 @@ function EditFunction_course() {
     if (editBackground.style.display === "flex") {
         editBackground.style.display = "none";
     } else {
-        editBackground.style.display = "flex";
         $("#edit_course_name").val("testing");
+        editBackground.style.display = "flex";
     }
 }
