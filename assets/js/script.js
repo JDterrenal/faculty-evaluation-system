@@ -59,10 +59,21 @@ function AddFunction() {
     }
 }
 
+// General Edit Function
 function EditFunction() {
     if (editBackground.style.display === "flex") {
         editBackground.style.display = "none";
     } else {
         editBackground.style.display = "flex";
+    }
+}
+
+// Specific Edit Function
+function EditFunction_course() {
+    if (editBackground.style.display === "flex") {
+        editBackground.style.display = "none";
+    } else {
+        editBackground.style.display = "flex";
+        $("#edit_course_name").val("testing");
     }
 }
