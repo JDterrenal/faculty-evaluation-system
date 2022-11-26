@@ -202,8 +202,8 @@ enableDelete();
 		</div>
 	</form>
 	
-	
 	<script src="./assets/js/script.js"></script>
 	<script src="./assets/js/deleteConfirmation.js"></script>
+	<script src="./assets/js/loadData_courses.js"></script>
 </body>
 </html>
