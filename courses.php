@@ -112,7 +112,7 @@ enableDelete();
 									<tr>
 										<th>ID</th>
 										<th>Course</th>
-										<th colspan="3">Operation</th>
+										<th>Operation</th>
 									</tr>
 								</thead>
 								<tbody>
