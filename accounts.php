@@ -1,7 +1,6 @@
 <?php
 include './assets/php/functions.php';
 preventBack();
-enableDelete();
 ?>
 
 <html>
@@ -176,7 +175,6 @@ enableDelete();
 		</div>
 	</form>
 	<script src="./assets/js/script.js"></script>
-	<script src="./assets/js/deleteConfirmation.js"></script>
 </body>
 
 </html>

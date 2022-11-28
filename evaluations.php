@@ -1,7 +1,7 @@
 <?php
 include './assets/php/functions.php';
 preventBack();
-enableDelete();
+enableDelete_evaluations();
 ?>
 
 <html>

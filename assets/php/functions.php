@@ -501,7 +501,7 @@ function editSectionConf($edit_section_id)
 }
 
 //------------------------------ Deleting Records ------------------------------
-function enableDelete()
+function enableDelete_students()
 {
     include 'connection.php';
     //Delete Students
@@ -513,6 +513,11 @@ function enableDelete()
         mysqli_query($conn, $sql2) or die("Connection error!");
         header('location: students.php');
     }
+}
+
+function enableDelete_faculty()
+{
+    include 'connection.php';
     //Delete Faculty
     if (isset($_GET['delete_id'])) {
         $delete_id = $_GET['delete_faculty_id'];
@@ -522,21 +527,36 @@ function enableDelete()
         mysqli_query($conn, $sql2) or die("Connection error!");
         header('location: faculty.php');
     }
+}
+
+function enableDelete_subjects()
+{
+    include 'connection.php';
     //Delete Subject
     if (isset($_GET['delete_id'])) {
-        $delete_id = $_GET['delete_subject_id'];
+        $delete_id = $_GET['delete_id'];
         $sql = "DELETE FROM tb_subjects WHERE subject_id='$delete_id'";
 
         mysqli_query($conn, $sql) or die("Connection error!");
         header('location: subjects.php');
     }
+}
+
+function enableDelete_sections()
+{
+    include 'connection.php';
     //Delete Section
     if (isset($_GET['delete_id'])) {
-        $delete_id = $_GET['delete_section_id'];
+        $delete_id = $_GET['delete_id'];
         $sql = "DELETE FROM tb_sections WHERE section_id='$delete_id'";
         mysqli_query($conn, $sql) or die("Connection error!");
         header('location: sections.php');
     }
+}
+
+function enableDelete_courses()
+{
+    include 'connection.php';
     //Delete Courses
     if (isset($_GET['delete_id'])) {
         $delete_id = $_GET['delete_id'];
@@ -544,9 +564,14 @@ function enableDelete()
         mysqli_query($conn, $sql) or die("Connection error!");
         header('Location: courses.php');
     }
+}
+
+function enableDelete_evaluations()
+{
+    include 'connection.php';
     //Delete Evaluation
     if (isset($_GET['delete_id'])) {
-        $delete_id = $_GET['delete_evaluation_id'];
+        $delete_id = $_GET['delete_id'];
         $sql = "DELETE FROM tb_evaluations WHERE evaluation_id='$delete_id'";
         mysqli_query($conn, $sql) or die("Connection error!");
         header('location: evaluations.php');
