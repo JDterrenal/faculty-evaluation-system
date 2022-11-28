@@ -37,7 +37,7 @@ preventBack();
 			<nav>
 				<div class="sidebar">
 					<div class="sidebar-logo">
-						<a href="#"><img src="./images/systems-plus-computer-college-logo.png" alt="" class="logo"></a>
+						<a href="./dashboard.php"><img src="./images/systems-plus-computer-college-logo.png" alt="" class="logo"></a>
 					</div>
 					<div class="sidebar-name">
 						<span class="sidebar-name1">Systems Plus</span>
@@ -49,7 +49,7 @@ preventBack();
 			<div class="menu-bar">
 				<div class="menu">
 						<nav>
-							<p><a href="#" class="username"><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side"><span><?php echo $_SESSION['username'] ?></span></a></p>
+							<p><a href="./assets/php/directProfile.php" class="username"><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side"><span><?php echo $_SESSION['username'] ?></span></a></p>
 							<ul>
 								<?php sidebarIdentify() ?>
 							</ul>
@@ -187,7 +187,7 @@ preventBack();
 			<a href="#" class="popup-middle3">qwe</a>
 		</div>
 		<div class="popup-logout-last">
-			<a href="#" class="popup-profile-button">Profile</a>
+			<a href="./assets/php/directProfile.php" class="popup-profile-button">Profile</a>
 			<a href="?logout=true" class="popup-profile-logout">Sign out</a>
 		</div>
 		
