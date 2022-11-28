@@ -689,9 +689,11 @@ function showCourses()
         <tr>
         <td data-label='ID'>$primary_id</td>
         <td data-label='Course'>$course_name</td>
-        <td data-label='Operation'><a class='view view-course'><i class='fas fa-eye'></i> View</a></td>
-        <td data-label='Operation'><a class='edit edit-course'><i class='fas fa-edit'></i> Edit</a></td>
-        <td data-label='Operation'><a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a></td>
+        <td data-label='Operation'>
+        <a class='view view-course'><i class='fas fa-eye'></i> View</a>
+        <a class='edit edit-course'><i class='fas fa-edit'></i> Edit</a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
+        </td>
         </tr>
         ";
     }
