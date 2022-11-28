@@ -80,11 +80,11 @@ enableDelete();
 							<table class="user-table">
 								<tbody>
 									<tr>
-										<th data-label="ID">ID</th>
+										<th>ID</th>
 										<td data-label="ID"></td>
 									</tr>
 									<tr>
-										<th data-label="Course">Course</th>
+										<th>Course</th>
 										<td data-label="Course"></td>
 									</tr>
 								<tbody>
@@ -112,7 +112,7 @@ enableDelete();
 									<tr>
 										<th>ID</th>
 										<th>Course</th>
-										<th colspan="2">Operation</th>
+										<th colspan="3">Operation</th>
 									</tr>
 								</thead>
 								<tbody>
