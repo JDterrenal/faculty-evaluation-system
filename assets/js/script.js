@@ -38,10 +38,10 @@ $(document).ready(function () {
         $("#popup-background").hide();
     });
 
-    // Specific Edit
+    /* === Specific Edit === */
+    // Course
     $(".edit.edit-course").on('click',function () {
         let currentRow = $(this).closest("tr");
-
         let col1 = currentRow.find("td:eq(0)").text();
         let col2 = currentRow.find("td:eq(1)").text();
         $("#edit_id").val(col1);
@@ -51,19 +51,40 @@ $(document).ready(function () {
         $("#edit-popup-background").show();
     });
 
-    // Exit edit
+    //Subject
+    $(".edit.edit-subject").on('click',function () {
+        let currentRow = $(this).closest("tr");
+        let col1 = currentRow.find("td:eq(0)").text();
+        let col2 = currentRow.find("td:eq(1)").text();
+        $("#edit_id").val(col1);
+        $("#edit_subject_name").val(col2);
+
+        editBackground.style.display = "flex";
+        $("#edit-popup-background").show();
+    });
+
+    // Exit Edit
     $("#ex-edit").click(function () {
         $("#edit-popup-background").hide();
     });
 
-    // Specific View
+    /* === Specific View === */
+    // Course
     $(".view.view-course").on('click',function () {
         let currentRow = $(this).closest("tr");
-
         let col1 = currentRow.find("td:eq(0)").text();
         let col2 = currentRow.find("td:eq(1)").text();
         $("[data-label='ID Info']").html(col1);
         $("[data-label='Course Info']").html(col2);
+    });
+
+    // Subject
+    $(".view.view-subject").on('click',function () {
+        let currentRow = $(this).closest("tr");
+        let col1 = currentRow.find("td:eq(0)").text();
+        let col2 = currentRow.find("td:eq(1)").text();
+        $("[data-label='ID Info']").html(col1);
+        $("[data-label='Subject Info']").html(col2);
     });
 });
 
