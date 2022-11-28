@@ -295,7 +295,6 @@ function addCourse()
         //Add Course
         $sql = "INSERT INTO tb_courses (course_id, course_name) VALUES (null, '$course_name')";
         if (mysqli_query($conn, $sql)) {
-            echo "Course Added!";
             ?><script type="text/javascript">
             window.location = "/assets/php/loader.php";
             </script><?php
@@ -307,7 +306,7 @@ function addCourse()
 }
 
 //Adds a new subject in the record.
-function addSubjects()
+function addSubject()
 {
     if (isset($_POST['addsubject'])) {
         include 'connection.php';
@@ -326,7 +325,7 @@ function addSubjects()
 }
 
 //Adds a new section in the record.
-function addSections()
+function addSection()
 {
     if (isset($_POST['addsection'])) {
         include 'connection.php';
@@ -337,14 +336,16 @@ function addSections()
         //Add Section
         $sql = "INSERT INTO tb_sections (section_id, section_name, section_code, yearlevel) VALUES (null, '$section_name', '$section_code', '$yearlevel')";
         if (mysqli_query($conn, $sql)) {
-            echo "Section Added!";
-            header('Location: sections.php');
+            ?><script type="text/javascript">
+            window.location = "/assets/php/loader.php";
+            </script><?php
         } else {
             echo "Invalid input!";
         }
         mysqli_close($conn);
     }
 }
+
 //------------------------------ Editing Records ------------------------------
 //Student Edit and Confirmation
 function editStudent($edit_student_id)
@@ -449,26 +450,13 @@ function editCourse()
 }
 
 // Edit confirmation for subject
-function editSubject($edit_subject_id)
+function editSubject()
 {
-    include 'connection.php';
-    global $edit_subject_name;
-    $sql = "SELECT subject_name FROM tb_subjects WHERE subject_id='$edit_subject_id'";
-    $result = mysqli_query($conn, $sql);
-    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $edit_subject_name = $row["subject_name"];
-    }
-    mysqli_close($conn);
-}
-
-function editSubjectConf($edit_subject_id)
-{
-    include 'connection.php';
-    global $edit_subject_name;
-    $edit_subject_name = $_POST['subject_name'];
-
-    if (isset($_POST['subjectEdit'])) {
-        $sql = "UPDATE tb_subjects SET subject_name='$edit_subject_name' WHERE subject_id='$edit_subject_id'";
+    if (isset($_POST['editsubject'])) {
+        include 'connection.php';
+        $edit_id = $_POST['edit_id'];
+        $edit_subject_name = $_POST['subject_name'];
+        $sql = "UPDATE tb_subjects SET subject_name='$edit_subject_name' WHERE subject_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
             header('Location: subjects.php');
         } else {
@@ -517,35 +505,35 @@ function enableDelete()
 {
     include 'connection.php';
     //Delete Students
-    if (isset($_GET['delete_student_id'])) {
-        $delete_student_id = $_GET['delete_student_id'];
-        $sql = "DELETE FROM tb_students WHERE student_id='$delete_student_id'";
-        $sql2 = "DELETE FROM tb_login WHERE student_id='$delete_student_id'";
+    if (isset($_GET['delete_id'])) {
+        $delete_id = $_GET['delete_id'];
+        $sql = "DELETE FROM tb_students WHERE student_id='$delete_id'";
+        $sql2 = "DELETE FROM tb_login WHERE student_id='$delete_id'";
         mysqli_query($conn, $sql) or die("Connection error!");
         mysqli_query($conn, $sql2) or die("Connection error!");
         header('location: students.php');
     }
     //Delete Faculty
-    if (isset($_GET['delete_faculty_id'])) {
-        $delete_faculty_id = $_GET['delete_faculty_id'];
-        $sql = "DELETE FROM tb_faculty WHERE faculty_id='$delete_faculty_id'";
-        $sql2 = "DELETE FROM tb_login WHERE faculty_id='$delete_faculty_id'";
+    if (isset($_GET['delete_id'])) {
+        $delete_id = $_GET['delete_faculty_id'];
+        $sql = "DELETE FROM tb_faculty WHERE faculty_id='$delete_id'";
+        $sql2 = "DELETE FROM tb_login WHERE faculty_id='$delete_id'";
         mysqli_query($conn, $sql) or die("Connection error!");
         mysqli_query($conn, $sql2) or die("Connection error!");
         header('location: faculty.php');
     }
     //Delete Subject
-    if (isset($_GET['delete_subject_id'])) {
-        $delete_subject_id = $_GET['delete_subject_id'];
-        $sql = "DELETE FROM tb_subjects WHERE subject_id='$delete_subject_id'";
+    if (isset($_GET['delete_id'])) {
+        $delete_id = $_GET['delete_subject_id'];
+        $sql = "DELETE FROM tb_subjects WHERE subject_id='$delete_id'";
 
         mysqli_query($conn, $sql) or die("Connection error!");
         header('location: subjects.php');
     }
     //Delete Section
-    if (isset($_GET['delete_section_id'])) {
-        $delete_section_id = $_GET['delete_section_id'];
-        $sql = "DELETE FROM tb_sections WHERE section_id='$delete_section_id'";
+    if (isset($_GET['delete_id'])) {
+        $delete_id = $_GET['delete_section_id'];
+        $sql = "DELETE FROM tb_sections WHERE section_id='$delete_id'";
         mysqli_query($conn, $sql) or die("Connection error!");
         header('location: sections.php');
     }
@@ -557,9 +545,9 @@ function enableDelete()
         header('Location: courses.php');
     }
     //Delete Evaluation
-    if (isset($_GET['delete_evaluation_id'])) {
-        $delete_evaluation_id = $_GET['delete_evaluation_id'];
-        $sql = "DELETE FROM tb_evaluations WHERE evaluation_id='$delete_evaluation_id'";
+    if (isset($_GET['delete_id'])) {
+        $delete_id = $_GET['delete_evaluation_id'];
+        $sql = "DELETE FROM tb_evaluations WHERE evaluation_id='$delete_id'";
         mysqli_query($conn, $sql) or die("Connection error!");
         header('location: evaluations.php');
     }
@@ -575,14 +563,17 @@ function showSubjects()
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $subject_id = $row["subject_id"];
+        $primary_id = $row["subject_id"];
         $subject_name = $row["subject_name"];
         echo "
         <tr>
-        <td data-label='ID'>$subject_id</td>
+        <td data-label='ID'>$primary_id</td>
         <td data-label='Subject'>$subject_name</td>
-        <td data-label='Operation'><a class='edit' id='editsubject' onclick='EditFunction()'><i class='fas fa-edit'></i> Edit</a></td>
-        <td data-label='Operation'><a href='subjects.php?delete_subject_id=$subject_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a></td>
+        <td data-label='Operation'>
+        <a href='#view-info' class='view view-subject'><i class='fas fa-eye'></i> View</a>
+        <a class='edit edit-subject'><i class='fas fa-edit'></i> Edit</a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
+        </td>
         </tr>
         ";
     }
@@ -598,18 +589,21 @@ function showSections()
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $section_id = $row["section_id"];
+        $primary_id = $row["section_id"];
         $section_name = $row["section_name"];
         $section_code = $row["section_code"];
         $yearlevel = $row["yearlevel"];
         echo "
         <tr>
-        <td data-label='ID'>$section_id</td>
+        <td data-label='ID'>$primary_id</td>
         <td data-label='Section Name'>$section_name</td>
         <td data-label='Section Code'>$section_code</td>
-        <td data-label='Section Code'>$yearlevel</td>
-        <td data-label='Operation'><a class='edit' id='editsubject' onclick='EditFunction()'><i class='fas fa-edit'></i> Edit</a></td>
-        <td data-label='Operation'><a href='sections.php?delete_section_id=$section_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a></td>
+        <td data-label='Year Level'>$yearlevel</td>
+        <td data-label='Operation'>
+        <a href='#view-info' class='view view-section'><i class='fas fa-eye'></i> View</a>
+        <a class='edit edit-section'><i class='fas fa-edit'></i> Edit</a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
+        </td>
         </tr>
         ";
     }
@@ -690,7 +684,7 @@ function showCourses()
         <td data-label='ID'>$primary_id</td>
         <td data-label='Course'>$course_name</td>
         <td data-label='Operation'>
-        <a class='view view-course'><i class='fas fa-eye'></i> View</a>
+        <a href='#view-info' class='view view-course'><i class='fas fa-eye'></i> View</a>
         <a class='edit edit-course'><i class='fas fa-edit'></i> Edit</a>
         <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
         </td>
