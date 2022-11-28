@@ -81,11 +81,11 @@ enableDelete();
 								<tbody>
 									<tr>
 										<th>ID</th>
-										<td data-label="ID"></td>
+										<td data-label="ID Info"></td>
 									</tr>
 									<tr>
 										<th>Course</th>
-										<td data-label="Course"></td>
+										<td data-label="Course Info"></td>
 									</tr>
 								<tbody>
 							</table>
