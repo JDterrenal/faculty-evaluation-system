@@ -72,7 +72,7 @@ enableDelete();
 					<div class="user-info">
 						<div class="user-content">
 							<div class="user-info-title">
-									<p class="user-title"><i class="fas fa-user"></i> User Information!</p>
+									<p class="user-title"><i class="fas fa-user"></i> Information!</p>
 									<hr>
 							</div>
 						</div>
@@ -80,20 +80,12 @@ enableDelete();
 							<table class="user-table">
 								<tbody>
 									<tr>
-										<th data-label="Name">Name</th>
-										<td data-label="Name">J.D. Roger</td>
-									</tr>
-									<tr>
-										<th data-label="usertyp">User Type</th>
-										<td data-label="User Type">Chainsaw Devil</td>
+										<th data-label="ID">ID</th>
+										<td data-label="ID"></td>
 									</tr>
 									<tr>
 										<th data-label="Course">Course</th>
-										<td data-label="Course">Shinigami</td>
-									</tr>
-									<tr>
-										<th data-label="Student ID">Student ID</th>
-										<td data-label="Student ID">202011808</td>
+										<td data-label="Course"></td>
 									</tr>
 								<tbody>
 							</table>
@@ -112,7 +104,7 @@ enableDelete();
 							<input type="text" placeholder="Search" class="main-search">
 						</div>
 						<div class="main-add">
-							<a class="add-main" id="add-button" onclick="AddFunction()">Add Course</a>
+							<a class="add-main" id="add-button">Add Course</a>
 						</div>
 						<div class="main-table-container">
 							<table class="main-table">
