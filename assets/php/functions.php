@@ -216,8 +216,9 @@ function addStudent()
             }
             $sql3 = "INSERT INTO tb_login (login_id, student_id, faculty_id, password, usertype) VALUES (null, $sid_value, null, '$lastname$contact_no', 'Student')";
             if (mysqli_query($conn, $sql3)) {
-                echo "Student Added!";
-                header('Location: students.php');
+                ?><script type="text/javascript">
+                window.location = "/assets/php/loader.php";
+                </script><?php
             } else {
                 echo "Invalid Input!";
             }
@@ -251,8 +252,9 @@ function addFaculty()
             }
             $sql3 = "INSERT INTO tb_login (login_id, student_id, faculty_id, password, usertype) VALUES (null, null, $fid_value, '$lastname$contact_no', 'Faculty')";
             if (mysqli_query($conn, $sql3)) {
-                echo "Faculty Added!";
-                header('Location: faculty.php');
+                ?><script type="text/javascript">
+                window.location = "/assets/php/loader.php";
+                </script><?php
             } else {
                 echo "Invalid Input!";
             }
@@ -276,8 +278,9 @@ function addEvaluation()
         //Add Evaluation
         $sql = "INSERT INTO tb_evaluations (evaluation_id, schoolyear, semester, status, section_id) VALUES (null, '$schoolyear', '$semester', '$status', '$section_id')";
         if (mysqli_query($conn, $sql)) {
-            echo "Evaluation Added!";
-            header('Location: evaluations.php');
+            ?><script type="text/javascript">
+            window.location = "/assets/php/loader.php";
+            </script><?php
         } else {
             echo "Invalid input!";
         }
@@ -315,8 +318,9 @@ function addSubject()
         //Add Subject
         $sql = "INSERT INTO tb_subjects (subject_id, subject_name) VALUES (null, '$subject_name')";
         if (mysqli_query($conn, $sql)) {
-            echo "Subject Added!";
-            header('Location: subjects.php');
+            ?><script type="text/javascript">
+            window.location = "/assets/php/loader.php";
+            </script><?php
         } else {
             echo "Invalid input!";
         }
@@ -455,10 +459,12 @@ function editSubject()
     if (isset($_POST['editsubject'])) {
         include 'connection.php';
         $edit_id = $_POST['edit_id'];
-        $edit_subject_name = $_POST['subject_name'];
+        $edit_subject_name = $_POST['edit_subject_name'];
         $sql = "UPDATE tb_subjects SET subject_name='$edit_subject_name' WHERE subject_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
-            header('Location: subjects.php');
+            ?><script type="text/javascript">
+            window.location = "/assets/php/loader.php";
+            </script><?php
         } else {
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         }
