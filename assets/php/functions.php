@@ -430,26 +430,12 @@ function editFacultyConf($edit_faculty_id)
     }
 }
 
-// Edit confirmation for course
-function editCourseShow($edit_id)
+function editCourse()
 {
-    include 'connection.php';
-    global $edit_course_name;
-    $sql = "SELECT course_name FROM tb_courses WHERE course_id='$edit_id'";
-    $result = mysqli_query($conn, $sql);
-    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $edit_course_name = $row["course_name"];
-    }
-    mysqli_close($conn);
-}
-
-function editCourseConf($edit_id)
-{
-    include 'connection.php';
-    $edit_id = $_POST['edit_id'];
-    $edit_course_name = $_POST['edit_course_name'];
-
     if (isset($_POST['editcourse'])) {
+        include 'connection.php';
+        $edit_id = $_POST['edit_id'];
+        $edit_course_name = $_POST['edit_course_name'];
         $sql = "UPDATE tb_courses SET course_name='$edit_course_name' WHERE course_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
             ?><script type="text/javascript">
