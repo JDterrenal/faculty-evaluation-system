@@ -73,9 +73,10 @@ function EditFunction_course() {
     if (editBackground.style.display === "flex") {
         editBackground.style.display = "none";
     } else {
-        let currentRow = $(this).closest("tr");
-        let col1 = currentRow.find("td:eq(0)").html();
-        let col2 = currentRow.find("td:eq(1)").html();
+        var currentRow = $(this).closest("tr");
+        var col1 = currentRow.find("data-label='ID'").html();
+        var col2 = currentRow.find("data-label='Course'").html();
+        alert(col1 + "\n" + col2)
         $("#edit_id").val(col1);
         $("#edit_course_name").val(col2);
         editBackground.style.display = "flex";
