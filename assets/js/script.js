@@ -29,7 +29,7 @@ window.onload = function () {
 }
 
 $(document).ready(function () {
-    // add
+    // Add
     $("#add-button").click(function () {
         addBackground.style.display = "flex";
         $("#popup-background").show();
@@ -38,7 +38,7 @@ $(document).ready(function () {
         $("#popup-background").hide();
     });
 
-    // specific edit function
+    // Specific Edit
     $(".edit.edit-course").on('click',function () {
         let currentRow = $(this).closest("tr");
 
@@ -51,9 +51,19 @@ $(document).ready(function () {
         $("#edit-popup-background").show();
     });
 
-    // exit edit
+    // Exit edit
     $("#ex-edit").click(function () {
         $("#edit-popup-background").hide();
+    });
+
+    // Specific View
+    $(".view.view-course").on('click',function () {
+        let currentRow = $(this).closest("tr");
+
+        let col1 = currentRow.find("td:eq(0)").text();
+        let col2 = currentRow.find("td:eq(1)").text();
+        $("[data-label='ID']").html(col1);
+        $("[data-label='Course']").html(col2);
     });
 });
 
