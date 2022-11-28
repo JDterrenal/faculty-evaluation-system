@@ -37,7 +37,7 @@ enableDelete_subjects();
 			<nav>
 				<div class="sidebar">
 					<div class="sidebar-logo">
-						<a href="#"><img src="./images/systems-plus-computer-college-logo.png" alt="" class="logo"></a>
+						<a href="./dashboard.php"><img src="./images/systems-plus-computer-college-logo.png" alt="" class="logo"></a>
 					</div>
 					
 					<div class="sidebar-name">
