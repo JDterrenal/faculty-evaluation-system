@@ -51,6 +51,7 @@ input[type=file]::file-selector-button:hover {
 
 /* all buttons */
 .view {
+  display: inline-block;
   padding: .5em;
   background-color: #33ccff;
   margin: .5em;
@@ -66,6 +67,7 @@ input[type=file]::file-selector-button:hover {
 }
 
 .delete {
+  display: inline-block;
   padding: .5em;
   background-color: #ff4d4d;
   margin: .5em;
@@ -81,6 +83,7 @@ input[type=file]::file-selector-button:hover {
 }
 
 .edit {
+  display: inline-block;
   padding: .5em;
   background-color: #4dff4d;
   margin: .5em;
