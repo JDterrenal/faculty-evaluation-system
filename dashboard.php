@@ -154,9 +154,6 @@ preventBack();
 							</div>
 						</div>
 					</div>
-					<div class="columns">
-						<div class="col4"><p></p></div>
-					</div>
 				</div>
 			</div>
 		</main>
