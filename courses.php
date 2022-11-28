@@ -197,6 +197,7 @@ enableDelete();
 					<input type="hidden" name="edit_id" id="edit_id">
 					<p class="label1">Course Name</p>
 					<input type="text" name="edit_course_name" id="edit_course_name" placeholder="Course Name" class="editcourse-name-tbx" required>
+					<?php editCourse() ?>
 					<button type="submit" name="editcourse" class="editbtn"><i class="fas fa-edit"></i> Edit Course</button>
 				</div>
 			</div>
