@@ -29,15 +29,29 @@ window.onload = function () {
 }
 
 $(document).ready(function () {
-    /* add  */
+    // add
     $("#add-button").click(function () {
+        addBackground.style.display = "flex";
         $("#popup-background").show();
     });
     $("#ex-add").click(function () {
         $("#popup-background").hide();
     });
 
-    /* edit  */
+    // specific edit function
+    $(".edit.edit-course").on('click',function () {
+        let currentRow = $(this).closest("tr");
+
+        let col1 = currentRow.find("td:eq(0)").text();
+        let col2 = currentRow.find("td:eq(1)").text();
+        $("#edit_id").val(col1);
+        $("#edit_course_name").val(col2);
+
+        editBackground.style.display = "flex";
+        $("#edit-popup-background").show();
+    });
+
+    // exit edit
     $("#ex-edit").click(function () {
         $("#edit-popup-background").hide();
     });
@@ -48,37 +62,5 @@ function LogOutFunction() {
         logoutpop.style.display = "none";
     } else {
         logoutpop.style.display = "block";
-    }
-}
-
-function AddFunction() {
-    if (addBackground.style.display === "flex") {
-        addBackground.style.display = "none";
-    } else {
-        addBackground.style.display = "flex";
-    }
-}
-
-// General Edit Function
-function EditFunction() {
-    if (editBackground.style.display === "flex") {
-        editBackground.style.display = "none";
-    } else {
-        editBackground.style.display = "flex";
-    }
-}
-
-// Specific Edit Function
-function EditFunction_course() {
-    if (editBackground.style.display === "flex") {
-        editBackground.style.display = "none";
-    } else {
-        var currentRow = $(this).closest("tr");
-        var col1 = currentRow.find("data-label='ID'").html();
-        var col2 = currentRow.find("data-label='Course'").html();
-        alert(col1 + "\n" + col2)
-        $("#edit_id").val(col1);
-        $("#edit_course_name").val(col2);
-        editBackground.style.display = "flex";
     }
 }
