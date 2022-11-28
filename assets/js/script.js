@@ -62,8 +62,8 @@ $(document).ready(function () {
 
         let col1 = currentRow.find("td:eq(0)").text();
         let col2 = currentRow.find("td:eq(1)").text();
-        $("[data-label='ID']").html(col1);
-        $("[data-label='Course']").html(col2);
+        $("[data-label='ID Info']").html(col1);
+        $("[data-label='Course Info']").html(col2);
     });
 });
 
