@@ -28,17 +28,17 @@ window.onload = function () {
     }
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     /* add  */
-    $("#add-button").click(function() {
+    $("#add-button").click(function () {
         $("#popup-background").show();
     });
-    $("#ex-add").click(function() {
+    $("#ex-add").click(function () {
         $("#popup-background").hide();
     });
 
     /* edit  */
-    $("#ex-edit").click(function() {
+    $("#ex-edit").click(function () {
         $("#edit-popup-background").hide();
     });
 });
@@ -73,7 +73,11 @@ function EditFunction_course() {
     if (editBackground.style.display === "flex") {
         editBackground.style.display = "none";
     } else {
-        $("#edit_course_name").val("testing");
+        var currentRow = $(this).closest("tr");
+        var col1 = currentRow.find("td:eq(0)").html();
+        var col2 = currentRow.find("td:eq(1)").html();
+        $("#edit_id").val(col1);
+        $("#edit_course_name").val(col2);
         editBackground.style.display = "flex";
     }
 }
