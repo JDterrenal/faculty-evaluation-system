@@ -746,9 +746,8 @@ nav li:focus {
 }
 
 .main-table-container {
-  margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .student-table-container {
