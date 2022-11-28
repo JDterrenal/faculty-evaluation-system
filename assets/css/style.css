@@ -57,6 +57,7 @@ input[type=file]::file-selector-button:hover {
   text-decoration: none;
   color: #ffff;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .view:hover,
@@ -71,6 +72,7 @@ input[type=file]::file-selector-button:hover {
   text-decoration: none;
   color: #ffff;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .delete:hover,
