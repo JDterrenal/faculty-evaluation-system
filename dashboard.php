@@ -190,12 +190,10 @@ preventBack();
 			<a href="./assets/php/directProfile.php" class="popup-profile-button">Profile</a>
 			<a href="?logout=true" class="popup-profile-logout">Sign out</a>
 		</div>
-		
 	</div>
 	
 	
 	<script src="./assets/js/script.js"></script>
-	<script src="./assets/js/deleteConfirmation.js"></script>
 </body>
 </html>
 

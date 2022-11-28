@@ -65,12 +65,12 @@ enableDelete();
 	<div class= "main-container">
 		<main>
 			<div class="container-main">
-				<div class="page-container"><h1><i class="fas fa-book"> Courses</i></h1>
+				<div class="page-container"><h1><i class="fas fa-book" id="view-info"> Courses</i></h1>
 					<hr>
 					<div class="user-info">
 						<div class="user-content">
 							<div class="user-info-title">
-									<p class="user-title"><i class="fas fa-user"></i> Information!</p>
+									<p class="user-title"><i class="fas fa-user"></i>Information!</p>
 									<hr>
 							</div>
 						</div>
@@ -152,7 +152,6 @@ enableDelete();
 			<a href="./assets/php/directProfile.php" class="popup-profile-button">Profile</a>
 			<a href="?logout=true" class="popup-profile-logout">Sign out</a>
 		</div>
-		
 	</div>
 
 	<!--------popup add course ------------>

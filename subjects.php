@@ -51,12 +51,12 @@ enableDelete();
 			</nav>
 			<div class="menu-bar">
 				<div class="menu">
-						<nav>
-							<p><a href="#" class="username"><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side"><span><?php echo $_SESSION['username'] ?></span></a></p>
-							<ul>
-								<?php sidebarIdentify() ?>
-							</ul>
-						</nav>
+					<nav>
+						<p><a href="./assets/php/directProfile.php" class="username"><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side"><span><?php echo $_SESSION['username'] ?></span></a></p>
+						<ul>
+							<?php sidebarIdentify() ?>
+						</ul>
+					</nav>
 				</div>
 			</div>
 		</div>
@@ -66,33 +66,25 @@ enableDelete();
 	<div class= "main-container">
 		<main>
 			<div class="container-main">
-				<div class="page-container"><h1><i class="fas fa-book-open"> Subjects</i></h1>
+				<div class="page-container"><h1><i class="fas fa-book-open" id="view-info"> Subjects</i></h1>
 					<hr>
 					<div class="user-info">
 						<div class="user-content">
 							<div class="user-info-title">
-									<p class="user-title"><i class="fas fa-user"></i> User Information!</p>
+									<p class="user-title"><i class="fas fa-user"></i>Information!</p>
 									<hr>
 							</div>
 						</div>
 						<div class="user-nfo-content">
-							<table class="user-table">
+						<table class="user-table">
 								<tbody>
 									<tr>
-										<th data-label="Name">Name</th>
-										<td data-label="Name">Tite</td>
+										<th>ID</th>
+										<td data-label="ID Info"></td>
 									</tr>
 									<tr>
-										<th data-label="usertyp">User Type</th>
-										<td data-label="User Type">Tite</td>
-									</tr>
-									<tr>
-										<th data-label="Course">Course</th>
-										<td data-label="Course">Tite</td>
-									</tr>
-									<tr>
-										<th data-label="Student ID">Student ID</th>
-										<td data-label="Student ID">Tite</td>
+										<th>Subject</th>
+										<td data-label="Subject Info"></td>
 									</tr>
 								<tbody>
 							</table>
@@ -111,7 +103,7 @@ enableDelete();
 							<input type="text" placeholder="Search" class="main-search">
 						</div>
 						<div class="main-add">
-							<a class="add-main" id="addsubject" onclick="AddFunction()">Add Subject</a>
+							<a class="add-main" id="add-button">Add Subject</a>
 						</div>
 						<div class="main-table-container">
 							<table class="main-table">
@@ -119,7 +111,7 @@ enableDelete();
 									<tr>
 										<th>ID</th>
 										<th>Subject</th>
-										<th colspan="2">Operation</th>
+										<th>Operation</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -158,15 +150,15 @@ enableDelete();
 			<a href="#" class="popup-middle3">qwe</a>
 		</div>
 		<div class="popup-logout-last">
-			<a href="#" class="popup-profile-button">Profile</a>
-			<a href="#" class="popup-profile-logout">Sign out</a>
+			<a href="./assets/php/directProfile.php" class="popup-profile-button">Profile</a>
+			<a href="?logout=true" class="popup-profile-logout">Sign out</a>
 		</div>
 		
 	</div>
 
 	<!--------popup add subject ------------>
 
-	<form action=add_subject.php method=post>
+	<form action=subjects.php method=post>
 		<div class="popup-backgroundsubject" id="popup-background">
 			<div class="popup-add">
 				<div class="popup-add-top">
@@ -175,8 +167,9 @@ enableDelete();
 				</div>
 				<div class="popup-add-middle">
 					<p class="label1">Subject Name</p>
-					<input type="text" placeholder="Subject name" class="course-name-tbx">
-					<a class="addbtn"><i class="fas fa-plus"></i> Add Subject</a>
+					<input type="text" name="subject_name" placeholder="Subject Name" class="course-name-tbx" required>
+					<?php addSubject() ?>
+					<button type="submit" name="addsubject" class="addbtn"><i class="fas fa-plus"></i> Add Subject</button>
 				</div>
 			</div>
 		</div>
@@ -184,7 +177,7 @@ enableDelete();
 
 	<!--------popup edit subject ------------>
 
-	<form action=add_course.php method=post>
+	<form action=subjects.php method=post>
 		<div class="popup-background-edit" id="edit-popup-background">
 			<div class="popup-add">
 				<div class="popup-add-top">
@@ -192,14 +185,15 @@ enableDelete();
 					<i class="fas fa-times ex" id="ex-edit"></i>
 				</div>
 				<div class="popup-add-middle">
+					<input type="hidden" name="edit_id" id="edit_id">
 					<p class="label1">Subject Name</p>
-					<input type="text" placeholder="Subject name" class="editcourse-name-tbx">
-					<a class="editbtn"><i class="fas fa-edit"></i> Edit Subject</a>
+					<input type="text" name="edit_subject_name" id="edit_subject_name" placeholder="Subject Name" class="editcourse-name-tbx" required>
+					<?php editSubject() ?>
+					<button type="submit" name="editsubject" class="editbtn"><i class="fas fa-edit"></i> Edit Subject</button>
 				</div>
 			</div>
 		</div>
 	</form>
-	
 	
 	<script src="./assets/js/script.js"></script>
 	<script src="./assets/js/deleteConfirmation.js"></script>
