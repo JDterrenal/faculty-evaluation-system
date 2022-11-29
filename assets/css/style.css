@@ -1162,6 +1162,10 @@ footer {
 @media(max-width: 1180px) {
 
   /* resposive navbar sa taas */
+  .sidebar-nav {
+    width: 19rem;
+  }
+
   .profile-side {
     width: 100%;
     max-width: 2em;
