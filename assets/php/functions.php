@@ -473,30 +473,15 @@ function editSubject()
 }
 
 // Edit confirmation for section
-function editSection($edit_section_id)
+function editSection()
 {
-    include 'connection.php';
-    global $edit_section_name, $edit_section_code, $edit_yearlevel;
-    $sql = "SELECT section_name, section_code, yearlevel FROM tb_sections WHERE section_id='$edit_section_id'";
-    $result = mysqli_query($conn, $sql);
-    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $edit_section_name = $row["section_name"];
-        $edit_section_code = $row["section_code"];
-        $edit_yearlevel = $row["yearlevel"];
-    }
-    mysqli_close($conn);
-}
-
-function editSectionConf($edit_section_id)
-{
-    include 'connection.php';
-    global $edit_section_name, $edit_section_code, $edit_yearlevel;
-    $edit_section_name = $row["section_name"];
-    $edit_section_code = $row["section_code"];
-    $edit_yearlevel = $row["yearlevel"];
-
-    if (isset($_POST['sectionEdit'])) {
-        $sql = "UPDATE tb_sections SET section_name='$edit_section_name', section_code='$edit_section_code', yearlevel='$edit_yearlevel' WHERE section_id='$edit_section_id'";
+    if (isset($_POST['editsection'])) {
+        include 'connection.php';
+        $edit_id = $_POST['edit_id'];
+        $edit_section_code = $_POST['edit_section_code'];
+        $edit_yearlevel = $_POST['edit_yearlevel'];
+        $edit_section_name = "$edit_yearlevel$edit_section_code";
+        $sql = "UPDATE tb_sections SET section_name='$edit_section_name', section_code='$edit_section_code', yearlevel='$edit_yearlevel' WHERE section_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
             header('Location: sections.php');
         } else {
@@ -934,13 +919,7 @@ function cbCourse()
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $course_id = $row["course_id"];
         $course_name = $row["course_name"];
-        echo "
-            <option value='$course_id'";
-        if ($edit_course_id == "$course_id") {
-            echo 'selected="selected"';
-        }
-        echo "'>$course_name</option>
-        '";
+        echo "<option value='$course_id'>$course_name</option>";
     }
     mysqli_close($conn);
 }
@@ -954,13 +933,7 @@ function cbSection()
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $section_id = $row["section_id"];
         $section_name = $row["section_name"];
-        echo "
-            <option value='$section_id'";
-        if ($edit_section_id == "$section_id") {
-            echo 'selected="selected"';
-        }
-        echo "'>$section_name</option>
-        '";
+        echo "<option value='$section_id'>$section_name</option>";
     }
     mysqli_close($conn);
 }

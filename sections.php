@@ -37,20 +37,20 @@ enableDelete_sections();
 							<table class="user-table">
 								<tbody>
 									<tr>
-										<th data-label="Name">Name</th>
-										<td data-label="Name">Tite</td>
+										<th>ID</th>
+										<td data-label="ID Info"></td>
 									</tr>
 									<tr>
-										<th data-label="usertyp">User Type</th>
-										<td data-label="User Type">Tite</td>
+										<th>Section Name</th>
+										<td data-label="Section Name Info"></td>
 									</tr>
 									<tr>
-										<th data-label="Course">Course</th>
-										<td data-label="Course">Tite</td>
+										<th>Section Code</th>
+										<td data-label="Section Code Info"></td>
 									</tr>
 									<tr>
-										<th data-label="Student ID">Student ID</th>
-										<td data-label="Student ID">Tite</td>
+										<th>Year Level</th>
+										<td data-label="Year Level Info"></td>
 									</tr>
 								<tbody>
 							</table>
@@ -69,7 +69,7 @@ enableDelete_sections();
 							<input type="text" placeholder="Search" class="main-search">
 						</div>
 						<div class="main-add">
-							<a class="add-main" id="addsection" onclick="AddFunction()">Add Section</a>
+							<a class="add-main" id="add-button">Add Section</a>
 						</div>
 						<div class="main-table-container">
 							<table class="main-table">
@@ -79,7 +79,7 @@ enableDelete_sections();
 										<th>Section Name</th>
                                         <th>Section Code</th>
                                         <th>Year Level</th>
-										<th colspan="2">Operation</th>
+										<th>Operation</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -101,7 +101,7 @@ enableDelete_sections();
 	<?php include './assets/php/popupLogout.php' ?>ss
 
 	<!--------popup add section ------------>
-	<form action=add_course.php method=post>
+	<form action="sections.php" method="post">
 		<div class="popup-backgroundsubject" id="popup-background">
 			<div class="popup-add">
 				<div class="popup-add-top">
@@ -109,16 +109,32 @@ enableDelete_sections();
 					<i class="fas fa-times ex" id="ex-add"></i>
 				</div>
 				<div class="popup-add-middle">
-					<p class="label1">Section Name</p>
-					<input type="text" placeholder="Section name" class="course-name-tbx">
-					<a class="addbtn"><i class="fas fa-plus"></i> Add Section</a>
+					<p class="label1">Section Code</p>
+					<select name="section_code" required>
+						<option value="A">A</option>
+						<option value="B">B</option>
+						<option value="C">C</option>
+						<option value="D">D</option>
+						<option value="E">E</option>
+						<option value="F">F</option>
+					</select>
+					<p class="label1">Year Level</p>
+					<select name="yearlevel" required>
+						<option value="1">1st Year</option>
+						<option value="2">2nd Year</option>
+						<option value="3">3rd Year</option>
+						<option value="4">4th Year</option>
+						<option value="5">5th Year</option>
+					</select>
+					<?php addSection() ?>
+					<button type="submit" name="addsection" class="addbtn"><i class="fas fa-plus"></i> Add Section</button>
 				</div>
 			</div>
 		</div>
 	</form>
 
-	<!--------popup edit subject ------------>
-	<form action=add_course.php method=post>
+	<!--------popup edit section ------------>
+	<form action="sections.php" method="post">
 		<div class="popup-background-edit" id="edit-popup-background">
 			<div class="popup-add">
 				<div class="popup-add-top">
@@ -126,9 +142,26 @@ enableDelete_sections();
 					<i class="fas fa-times ex" id="ex-edit"></i>
 				</div>
 				<div class="popup-add-middle">
-					<p class="label1">Section Name</p>
-					<input type="text" placeholder="Section name" class="editcourse-name-tbx">
-					<a class="editbtn"><i class="fas fa-edit"></i> Edit Section</a>
+					<input type="hidden" name="edit_id" id="edit_id">
+					<p class="label1">Section Code</p>
+					<select name="edit_section_code" id="edit_section_code" required>
+						<option value="A">A</option>
+						<option value="B">B</option>
+						<option value="C">C</option>
+						<option value="D">D</option>
+						<option value="E">E</option>
+						<option value="F">F</option>
+					</select>
+					<p class="label1">Year Level</p>
+					<select name="edit_yearlevel" id="edit_yearlevel" required>
+						<option value="1">1st Year</option>
+						<option value="2">2nd Year</option>
+						<option value="3">3rd Year</option>
+						<option value="4">4th Year</option>
+						<option value="5">5th Year</option>
+					</select>
+					<?php ?>
+					<button type="submit" name="editsection" class="editbtn"><i class="fas fa-plus"></i> Edit Section</button>
 				</div>
 			</div>
 		</div>
