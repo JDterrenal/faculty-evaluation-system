@@ -16,50 +16,8 @@ enableDelete_faculty();
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-
-	<!-------- navbar top ---------->
-
-	<header>
-		<div class="container-nav">
-			<div class="left">
-				<i class='fas fa-bars toggleHeader'></i>
-			</div>
-			<div class="right">
-				<a class="usernamee" ><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile" id="popup-btn" onclick="LogOutFunction()"></a>
-				<a class="username1" id="popup-btn" onclick="LogOutFunction()"><?php echo $_SESSION['username'] ?></a>
-			</div>
-		</div>
-	</header>	
-
-	<!-------- sidebar ---------->
-
-		<div class="sidebar-nav close">
-			<nav>
-				<div class="sidebar">
-					<div class="sidebar-logo">
-						<a href="#"><img src="./images/systems-plus-computer-college-logo.png" alt="" class="logo"></a>
-					</div>
-					
-					<div class="sidebar-name">
-						<span class="sidebar-name1">Systems Plus</span>
-						<span class="sidebar-name1">College Caloocan</span>
-					</div>
-				</div>
-				
-				
-				<i class='fas fa-bars toggle'></i>
-			</nav>
-			<div class="menu-bar">
-				<div class="menu">
-						<nav>
-							<p><a href="#" class="username"><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side"><span><?php echo $_SESSION['username'] ?></span></a></p>
-							<ul>
-								<?php sidebarIdentify() ?>
-							</ul>
-						</nav>
-				</div>
-			</div>
-		</div>
+	<!------ navigation and side bar ------->
+	<?php include './assets/php/navigation.php' ?>
 	
 	<!-------- main content ---------->
 
@@ -138,37 +96,13 @@ enableDelete_faculty();
 			</div>
 		</main>
 
-	<!-------- footer ---------->
-
-		<footer>
-			<div class="container-footer">
-				<p class="footer-text"><span>Copyright © 2022 System Plus College Caloocan</span> All rights reserved.</p>
-				<p class="footer-text2"><span>Version</span> 1.0</p>
-			</div>
-		</footer>
+		<!-------- footer ---------->
+		<?php include './assets/php/footer.php' ?>
 	</div>
 	
 	<!--================= popups ===================-->
-
 	<!-------- popup logout ---------->
-	
-	<div class="popup-logout pop" id="popup">
-		<div class="popup-logout-first">
-			<img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="popup-profile">
-			<p class="popup-name"><?php echo $_SESSION['username'] ?></p>
-			<p class="popup-student-number"><?php echo $_SESSION['login_id'] ?></p>
-		</div>
-		<div class="popup-logout-middle">
-			<a href="#" class="popup-middle1">qwe</a>
-			<a href="#" class="popup-middle2">qwe</a>
-			<a href="#" class="popup-middle3">qwe</a>
-		</div>
-		<div class="popup-logout-last">
-			<a href="#" class="popup-profile-button">Profile</a>
-			<a href="#" class="popup-profile-logout">Sign out</a>
-		</div>
-		
-	</div>
+	<?php include './assets/php/popupLogout.php' ?>
 
 	<!--------popup add ------------>
 
@@ -181,14 +115,14 @@ enableDelete_faculty();
 				</div>
 				<div class="popup-student-middle">
 					<div class="boxx">
-						<p class="student-P">faculty Name</p>
+						<p class="student-P">Faculty Name</p>
 						<div class="studentcon">
 							<input type="text" id="firstname" name="firstname" placeholder="First name" >
 							<input type="text" id="lastname" name="lastname" placeholder="Last name">
 						</div>
 					</div>
 					<div class="boxx">
-						<p class="student-P">Adress</p>
+						<p class="student-P">Address</p>
 						<div class="studentcon">
 							<input type="text" id="address" name="address" placeholder="Address">
 						</div>
@@ -269,7 +203,6 @@ enableDelete_faculty();
 			</div>
 		</div>
 	</form>
-	
 	
 	<script src="./assets/js/script.js"></script>
 	<script src="./assets/js/deleteConfirmation.js"></script>
