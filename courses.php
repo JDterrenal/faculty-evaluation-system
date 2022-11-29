@@ -29,19 +29,19 @@ enableDelete_courses();
 					<div class="user-info">
 						<div class="user-content">
 							<div class="user-info-title">
-									<p class="user-title"><i class="fas fa-user"></i>Information!</p>
-									<hr>
+								<p class="user-title"><i class="fas fa-user"></i>Information!</p>
+								<hr>
 							</div>
 						</div>
 						<div class="user-nfo-content">
 							<table class="user-table">
 								<tbody>
 									<tr>
-										<th>ID</th>
+										<th>ID Info</th>
 										<td data-label="ID Info"></td>
 									</tr>
 									<tr>
-										<th>Course</th>
+										<th>Course Info</th>
 										<td data-label="Course Info"></td>
 									</tr>
 								<tbody>

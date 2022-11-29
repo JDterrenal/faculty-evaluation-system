@@ -24,7 +24,7 @@ enableDelete_sections();
 	<div class= "main-container">
 		<main>
 			<div class="container-main">
-				<div class="page-container"><h1><i class="fas fa-table"> Section</i></h1>
+				<div class="page-container"><h1><i class="fas fa-table" id="view-info"> Section</i></h1>
 					<hr>
 					<div class="user-info">
 						<div class="user-content">
@@ -37,19 +37,19 @@ enableDelete_sections();
 							<table class="user-table">
 								<tbody>
 									<tr>
-										<th>ID</th>
+										<th>ID Info</th>
 										<td data-label="ID Info"></td>
 									</tr>
 									<tr>
-										<th>Section Name</th>
+										<th>Section Name Info</th>
 										<td data-label="Section Name Info"></td>
 									</tr>
 									<tr>
-										<th>Section Code</th>
+										<th>Section Code Info</th>
 										<td data-label="Section Code Info"></td>
 									</tr>
 									<tr>
-										<th>Year Level</th>
+										<th>Year Level Info</th>
 										<td data-label="Year Level Info"></td>
 									</tr>
 								<tbody>
@@ -110,7 +110,7 @@ enableDelete_sections();
 				</div>
 				<div class="popup-add-middle">
 					<p class="label1">Section Code</p>
-					<select name="section_code" required>
+					<select name="section_code">
 						<option value="A">A</option>
 						<option value="B">B</option>
 						<option value="C">C</option>
@@ -119,7 +119,7 @@ enableDelete_sections();
 						<option value="F">F</option>
 					</select>
 					<p class="label1">Year Level</p>
-					<select name="yearlevel" required>
+					<select name="yearlevel">
 						<option value="1">1st Year</option>
 						<option value="2">2nd Year</option>
 						<option value="3">3rd Year</option>
@@ -144,7 +144,7 @@ enableDelete_sections();
 				<div class="popup-add-middle">
 					<input type="hidden" name="edit_id" id="edit_id">
 					<p class="label1">Section Code</p>
-					<select name="edit_section_code" id="edit_section_code" required>
+					<select name="edit_section_code" id="edit_section_code">
 						<option value="A">A</option>
 						<option value="B">B</option>
 						<option value="C">C</option>
@@ -153,14 +153,14 @@ enableDelete_sections();
 						<option value="F">F</option>
 					</select>
 					<p class="label1">Year Level</p>
-					<select name="edit_yearlevel" id="edit_yearlevel" required>
+					<select name="edit_yearlevel" id="edit_yearlevel">
 						<option value="1">1st Year</option>
 						<option value="2">2nd Year</option>
 						<option value="3">3rd Year</option>
 						<option value="4">4th Year</option>
 						<option value="5">5th Year</option>
 					</select>
-					<?php ?>
+					<?php editSection() ?>
 					<button type="submit" name="editsection" class="editbtn"><i class="fas fa-plus"></i> Edit Section</button>
 				</div>
 			</div>

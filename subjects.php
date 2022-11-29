@@ -36,11 +36,11 @@ enableDelete_subjects();
 						<table class="user-table">
 								<tbody>
 									<tr>
-										<th>ID</th>
+										<th>ID Info</th>
 										<td data-label="ID Info"></td>
 									</tr>
 									<tr>
-										<th>Subject</th>
+										<th>Subject Info</th>
 										<td data-label="Subject Info"></td>
 									</tr>
 								<tbody>
