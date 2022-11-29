@@ -388,7 +388,9 @@ function editStudentConf($edit_student_id)
     if (isset($_POST['studentEdit'])) {
         $sql = "UPDATE tb_students SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', yearlevel='$edit_yearlevel', contact_no='$edit_contact_no', address='$edit_address', status='$edit_status', course_id='$edit_course_id', section_id='$edit_section_id' WHERE student_id='$edit_student_id'";
         if (mysqli_query($conn, $sql)) {
-            header('Location: students.php');
+            ?><script type="text/javascript">
+            window.location = "/assets/php/loader.php";
+            </script><?php
         } else {
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         }
@@ -427,7 +429,9 @@ function editFacultyConf($edit_faculty_id)
     if (isset($_POST['facultyEdit'])) {
         $sql = "UPDATE tb_faculty SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', contact_no='$edit_contact_no', address='$edit_address' WHERE faculty_id='$edit_faculty_id'";
         if (mysqli_query($conn, $sql)) {
-            header('Location: faculty.php');
+            ?><script type="text/javascript">
+            window.location = "/assets/php/loader.php";
+            </script><?php
         } else {
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         }
@@ -483,7 +487,9 @@ function editSection()
         $edit_section_name = "$edit_yearlevel$edit_section_code";
         $sql = "UPDATE tb_sections SET section_name='$edit_section_name', section_code='$edit_section_code', yearlevel='$edit_yearlevel' WHERE section_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
-            header('Location: sections.php');
+            ?><script type="text/javascript">
+            window.location = "/assets/php/loader.php";
+            </script><?php
         } else {
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         }
