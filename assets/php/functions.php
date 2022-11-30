@@ -206,7 +206,7 @@ function addStudent()
         $section = $_POST['section_id'];
         
         if (!empty($_FILES['photo'])) {
-            addPhoto();
+            include './assets/php/uploadPhoto_add.php';
             $photo = $filename;
         } else {
             $photo = 'standard.png';
@@ -224,10 +224,10 @@ function addStudent()
             if (mysqli_query($conn, $sql3)) {
                 ?><script src="/assets/js/addAlert.js"></script><?php
             } else {
-                ?><script src="/assets/js/invalidAlert.js"></script><?php
+                ?><script src="/assets/js/errorAlert.js"></script><?php
             }
         } else {
-            ?><script src="/assets/js/invalidAlert.js"></script><?php
+            ?><script src="/assets/js/errorAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -258,10 +258,10 @@ function addFaculty()
             if (mysqli_query($conn, $sql3)) {
                 ?><script src="/assets/js/addAlert.js"></script><?php
             } else {
-                ?><script src="/assets/js/invalidAlert.js"></script><?php
+                ?><script src="/assets/js/errorAlert.js"></script><?php
             }
         } else {
-            ?><script src="/assets/js/invalidAlert.js"></script><?php
+            ?><script src="/assets/js/errorAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -282,7 +282,7 @@ function addEvaluation()
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/addAlert.js"></script><?php
         } else {
-            ?><script src="/assets/js/invalidAlert.js"></script><?php
+            ?><script src="/assets/js/errorAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -300,7 +300,7 @@ function addCourse()
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/addAlert.js"></script><?php
         } else {
-            ?><script src="/assets/js/invalidAlert.js"></script><?php
+            ?><script src="/assets/js/errorAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -320,7 +320,7 @@ function addSubject()
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/addAlert.js"></script><?php
         } else {
-            ?><script src="/assets/js/invalidAlert.js"></script><?php
+            ?><script src="/assets/js/errorAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -338,7 +338,7 @@ function addSection()
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/addAlert.js"></script><?php
         } else {
-            ?><script src="/assets/js/invalidAlert.js"></script><?php
+            ?><script src="/assets/js/errorAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -363,8 +363,8 @@ function editStudent()
         $edit_section_id = $_POST['edit_section_id'];
         $edit_photo = $_POST['edit_photo'];
 
-        editPhoto();
         if (!empty($_FILES['edit_photo'])) {
+            include './assets/php/uploadPhoto_edit.php';
             $sql = "UPDATE tb_students SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', yearlevel='$edit_yearlevel', contact_no='$edit_contact_no', address='$edit_address', status='$edit_status', photo='$edit_photo', course_id='$edit_course_id', section_id='$edit_section_id' WHERE student_id='$edit_id'";
         } else {
             $sql = "UPDATE tb_students SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', yearlevel='$edit_yearlevel', contact_no='$edit_contact_no', address='$edit_address', status='$edit_status', course_id='$edit_course_id', section_id='$edit_section_id' WHERE student_id='$edit_id'";
@@ -372,7 +372,7 @@ function editStudent()
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/editAlert.js"></script><?php
         } else {
-            ?><script src="/assets/js/invalidAlert.js"></script><?php
+            ?><script src="/assets/js/errorAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -411,7 +411,7 @@ function editFacultyConf($edit_faculty_id)
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/editAlert.js"></script><?php
         } else {
-            ?><script src="/assets/js/invalidAlert.js"></script><?php
+            ?><script src="/assets/js/errorAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -427,7 +427,7 @@ function editCourse()
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/editAlert.js"></script><?php
         } else {
-            ?><script src="/assets/js/invalidAlert.js"></script><?php
+            ?><script src="/assets/js/errorAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -447,7 +447,7 @@ function editSubject()
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/editAlert.js"></script><?php
         } else {
-            ?><script src="/assets/js/invalidAlert.js"></script><?php
+            ?><script src="/assets/js/errorAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -464,7 +464,7 @@ function editSection()
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/editAlert.js"></script><?php
         } else {
-            ?><script src="/assets/js/invalidAlert.js"></script><?php
+            ?><script src="/assets/js/errorAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -824,72 +824,6 @@ function searchCourses()
         <th data-title='Delete'><a onclick='javascript:confirmationDelete($(this));return false;' href='courses.php?delete_course_id=$course_id' class='btn'>Delete</a></th>
         </tr>
         ";
-    }
-    mysqli_close($conn);
-}
-
-//------------------------------ Image Upload Functionality ------------------------------
-//Identifies whether it's a student or a faculty member who is changing photos.
-function addPhoto()
-{
-    $dir = "/images/uploads/";
-    $filename = $_FILES['photo']['name'];
-    $file_tmp_name = $_FILES['photo']['tmp_name'];
-    $ext = array("jpg", "png", "jpeg", "bmp");
-    $split = explode('.', $filename);
-    $image_ext = strtolower(end($split));
-
-    if (in_array($image_ext, $ext)) {
-        move_uploaded_file($file_tmp_name, "$dir" . $filename);
-    } else {
-        ?><script src="/assets/js/invalidAlert.js"></script><?php
-    }
-}
-
-function editPhoto()
-{
-    $dir = "images/uploads/";
-    $filename = $_FILES['edit_photo']['name'];
-    $file_tmp_name = $_FILES['edit_photo']['tmp_name'];
-    $ext = array("jpg", "png", "jpeg", "bmp");
-    $split = explode('.', $filename);
-    $image_ext = strtolower(end($split));
-
-    if (in_array($image_ext, $ext)) {
-        move_uploaded_file($file_tmp_name, "$dir" . $filename);
-    } else {
-        ?><script src="/assets/js/invalidAlert.js"></script><?php
-    }
-}
-
-//Changes student photo.
-function changePhotoStudent($filename)
-{
-    include 'connection.php';
-    $photo = $filename;
-    $login_id = $_SESSION['login_id'];
-    $sql = "UPDATE tb_students SET photo='$photo' WHERE student_id='$login_id'";
-    if (mysqli_query($conn, $sql)) {
-        header('Location: profile.php');
-        echo "Profile Picture changed successfully!";
-    } else {
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-    }
-    mysqli_close($conn);
-}
-
-//Changes faculty photo.
-function changePhotoFaculty($filename)
-{
-    include 'connection.php';
-    $photo = $filename;
-    $login_id = $_SESSION['login_id'];
-    $sql = "UPDATE tb_faculty SET photo='$photo' WHERE tb_faculty='$login_id'";
-    if (mysqli_query($conn, $sql)) {
-        header('Location: profile.php');
-        echo "Profile Picture changed successfully!";
-    } else {
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
     }
     mysqli_close($conn);
 }
