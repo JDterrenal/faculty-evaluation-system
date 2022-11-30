@@ -37,20 +37,48 @@ enableDelete_students();
 							<table class="user-table">
 								<tbody>
 									<tr>
-										<th data-label="Name">Name</th>
-										<td data-label="Name">Tite</td>
+										<th>Photo Info</th>
+										<td data-label="Photo Info"></td>
 									</tr>
 									<tr>
-										<th data-label="usertyp">User Type</th>
-										<td data-label="User Type">Tite</td>
+										<th>ID Info</th>
+										<td data-label="ID Info"></td>
 									</tr>
 									<tr>
-										<th data-label="Course">Course</th>
-										<td data-label="Course">Tite</td>
+										<th>Full Name Info</th>
+										<td data-label="Full Name Info"></td>
 									</tr>
 									<tr>
-										<th data-label="Student ID">Student ID</th>
-										<td data-label="Student ID">Tite</td>
+										<th>Email Info</th>
+										<td data-label="Email Info"></td>
+									</tr>
+									<tr>
+										<th>Gender Info</th>
+										<td data-label="Gender Info"></td>
+									</tr>
+									<tr>
+										<th>Year Level Info</th>
+										<td data-label="Year Level Info"></td>
+									</tr>
+									<tr>
+										<th>Contact Number Info</th>
+										<td data-label="Contact Number Info"></td>
+									</tr>
+									<tr>
+										<th>Address Info</th>
+										<td data-label="Address Info"></td>
+									</tr>
+									<tr>
+										<th>Status Info</th>
+										<td data-label="Status Info"></td>
+									</tr>
+									<tr>
+										<th>Course ID Info</th>
+										<td data-label="Course ID Info"></td>
+									</tr>
+									<tr>
+										<th>Section ID Info</th>
+										<td data-label="Section ID Info"></td>
 									</tr>
 								<tbody>
 							</table>
@@ -69,25 +97,25 @@ enableDelete_students();
 							<input type="text" placeholder="Search" class="main-search">
 						</div>
 						<div class="main-add">
-							<a class="add-main" id="addstudent" onclick="AddFunction()">Add Student</a>
+							<a class="add-main" id="add-button">Add Student</a>
 						</div>
 						<div class="student-table-container">
 							<table class="student-table">
 								<thead>
 									<tr>
 										<th>ID</th>
-										<th>FIRST NAME</th>
-                                        <th>LAST NAME</th>
-                                        <th>EMAIL</th>
-                                        <th>GENDER</th>
-                                        <th>YEAR LEVEL</th>
-                                        <th>CONTACT NUMBER</th>
-                                        <th>ADDRESS</th>
-                                        <th>STATUS</th>
-                                        <th>PHOTO</th>
-                                        <th>COURSE ID</th>
-										<th>SECTION ID</th>
-                                        <th colspan="3">OPERATION</th>
+										<th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Email</th>
+                                        <th>Gender</th>
+                                        <th>Year Level</th>
+                                        <th>Contact Number</th>
+                                        <th>Address</th>
+                                        <th>Status</th>
+                                        <th>Photo</th>
+                                        <th>Course ID</th>
+										<th>Section ID</th>
+                                        <th>Operation</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -125,7 +153,7 @@ enableDelete_students();
 							<img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side-pop">
 						</div>
 						<div class="studentcon">
-							<input type="file" name="fileToUpload" id="fileToUpload">
+							<input type="file" id="photo" name="photo">
 						</div>
 					</div>
 					<div class="boxx">
@@ -219,10 +247,10 @@ enableDelete_students();
 					<div class="boxx">
 						<p class="student-P">Student Picture</p>
 						<div class="studentcon">
-							<img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side-pop">
+							<img id="edit_photo_output" src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side-pop">
 						</div>
 						<div class="studentcon">
-							<input type="file" name="fileToUpload" id="fileToUpload">
+							<input type="file" id="edit_photo" name="edit_photo">
 						</div>
 					</div>
 					<div class="boxx">
@@ -247,8 +275,8 @@ enableDelete_students();
 					<div class="boxx">
 						<p class="student-P">Gender</p>
 						<div class="studentcon1">
-							<input type="radio" class="edit_gender" name="edit_gender" value="Male" required><label for="male">Male</label>
-							<input type="radio" class="edit_gender" name="edit_gender" value="Female"><label for="female">Female</label>
+							<input type="radio" id="Male" name="edit_gender" value="Male" required><label for="male">Male</label>
+							<input type="radio" id="Female" name="edit_gender" value="Female"><label for="female">Female</label>
 						</div>
 					</div>
 					<div class="boxx">
