@@ -70,7 +70,7 @@ enableDelete_faculty();
 							<input type="text" placeholder="Search" class="main-search">
 						</div>
 						<div class="main-add">
-							<a class="add-main" id="add-button" onclick="AddFunction()">Add Faculty</a>
+							<a class="add-main" id="add-button">Add Faculty</a>
 						</div>
 						<div class="student-table-container">
 							<table class="student-table">
@@ -84,7 +84,7 @@ enableDelete_faculty();
                                         <th>CONTACT NUMBER</th>
                                         <th>ADDRESS</th>
                                         <th>PHOTO</th>
-                                        <th colspan="3">OPERATION</th>
+                                        <th>OPERATION</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -173,7 +173,7 @@ enableDelete_faculty();
 						</div>
 					</div>
 					<div class="boxx">
-						<p class="student-P">Adress</p>
+						<p class="student-P">Address</p>
 						<div class="studentcon">
 							<input type="text" id="address" name="address" placeholder="Address">
 						</div>
