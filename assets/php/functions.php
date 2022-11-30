@@ -325,12 +325,10 @@ function addSection()
 {
     if (isset($_POST['addsection'])) {
         include 'connection.php';
-        $section_code = $_POST['section_code'];
-        $yearlevel = $_POST['yearlevel'];
-        $section_name = "$yearlevel$section_code";
+        $section_name = $_POST['section_name'];
 
         //Add Section
-        $sql = "INSERT INTO tb_sections (section_id, section_name, section_code, yearlevel) VALUES (null, '$section_name', '$section_code', '$yearlevel')";
+        $sql = "INSERT INTO tb_sections (section_id, section_name) VALUES (null, '$section_name')";
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/addAlert.js"></script><?php
         } else {
@@ -467,10 +465,8 @@ function editSection()
     if (isset($_POST['editsection'])) {
         include 'connection.php';
         $edit_id = $_POST['edit_id'];
-        $edit_section_code = $_POST['edit_section_code'];
-        $edit_yearlevel = $_POST['edit_yearlevel'];
-        $edit_section_name = "$edit_yearlevel$edit_section_code";
-        $sql = "UPDATE tb_sections SET section_name='$edit_section_name', section_code='$edit_section_code', yearlevel='$edit_yearlevel' WHERE section_id='$edit_id'";
+        $edit_section_name = $_POST['edit_section_name'];
+        $sql = "UPDATE tb_sections SET section_name='$edit_section_name' WHERE section_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/editAlert.js"></script><?php
         } else {
@@ -601,14 +597,10 @@ function showSections()
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $primary_id = $row["section_id"];
         $section_name = $row["section_name"];
-        $section_code = $row["section_code"];
-        $yearlevel = $row["yearlevel"];
         echo "
         <tr>
         <td data-label='ID'>$primary_id</td>
-        <td data-label='Section Name'>$section_name</td>
-        <td data-label='Section Code'>$section_code</td>
-        <td data-label='Year Level'>$yearlevel</td>
+        <td data-label='Section'>$section_name</td>
         <td data-label='Operation'>
         <a href='#view-info' class='view view-section'><i class='fas fa-eye'></i> View</a>
         <a class='edit edit-section'><i class='fas fa-edit'></i> Edit</a>

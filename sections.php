@@ -42,16 +42,8 @@ enableDelete_sections();
 										<td data-label="ID Info"></td>
 									</tr>
 									<tr>
-										<th>Section Name Info</th>
+										<th>Section Info</th>
 										<td data-label="Section Name Info"></td>
-									</tr>
-									<tr>
-										<th>Section Code Info</th>
-										<td data-label="Section Code Info"></td>
-									</tr>
-									<tr>
-										<th>Year Level Info</th>
-										<td data-label="Year Level Info"></td>
 									</tr>
 								<tbody>
 							</table>
@@ -78,8 +70,6 @@ enableDelete_sections();
 									<tr>
 										<th>ID</th>
 										<th>Section Name</th>
-                                        <th>Section Code</th>
-                                        <th>Year Level</th>
 										<th>Operation</th>
 									</tr>
 								</thead>
@@ -110,23 +100,8 @@ enableDelete_sections();
 					<i class="fas fa-times ex" id="ex-add"></i>
 				</div>
 				<div class="popup-add-middle">
-					<p class="label1">Section Code</p>
-					<select name="section_code">
-						<option value="A">A</option>
-						<option value="B">B</option>
-						<option value="C">C</option>
-						<option value="D">D</option>
-						<option value="E">E</option>
-						<option value="F">F</option>
-					</select>
-					<p class="label1">Year Level</p>
-					<select name="yearlevel">
-						<option value="1">1st Year</option>
-						<option value="2">2nd Year</option>
-						<option value="3">3rd Year</option>
-						<option value="4">4th Year</option>
-						<option value="5">5th Year</option>
-					</select>
+					<p class="label1">Section Name</p>
+					<input type="text" name="section_name" placeholder="Section Name" class="course-name-tbx" required>
 					<?php addSection() ?>
 					<button type="submit" name="addsection" class="addbtn"><i class="fas fa-plus"></i> Add Section</button>
 				</div>
@@ -144,23 +119,8 @@ enableDelete_sections();
 				</div>
 				<div class="popup-add-middle">
 					<input type="hidden" name="edit_id" id="edit_id">
-					<p class="label1">Section Code</p>
-					<select name="edit_section_code" id="edit_section_code">
-						<option value="A">A</option>
-						<option value="B">B</option>
-						<option value="C">C</option>
-						<option value="D">D</option>
-						<option value="E">E</option>
-						<option value="F">F</option>
-					</select>
-					<p class="label1">Year Level</p>
-					<select name="edit_yearlevel" id="edit_yearlevel">
-						<option value="1">1st Year</option>
-						<option value="2">2nd Year</option>
-						<option value="3">3rd Year</option>
-						<option value="4">4th Year</option>
-						<option value="5">5th Year</option>
-					</select>
+					<p class="label1">Section Name</p>
+					<input type="text" name="edit_section_name" id="edit_section_name" placeholder="Section Name" class="course-name-tbx" required>
 					<?php editSection() ?>
 					<button type="submit" name="editsection" class="editbtn"><i class="fas fa-plus"></i> Edit Section</button>
 				</div>

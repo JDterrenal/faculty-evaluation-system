@@ -71,11 +71,9 @@ $(document).ready(function () {
     $(".edit.edit-section").on('click',function () {
         let currentRow = $(this).closest("tr");
         let col1 = currentRow.find("td:eq(0)").text();
-        let col2 = currentRow.find("td:eq(2)").text();
-        let col3 = currentRow.find("td:eq(3)").text();
+        let col2 = currentRow.find("td:eq(1)").text();
         $("#edit_id").val(col1);
-        $("#edit_section_code").val(col2);
-        $("#edit_year_level").val(col3);
+        $("#edit_section_name").val(col2);
 
         editBackground.style.display = "flex";
         $("#edit-popup-background").show();
@@ -114,12 +112,8 @@ $(document).ready(function () {
         let currentRow = $(this).closest("tr");
         let col1 = currentRow.find("td:eq(0)").text();
         let col2 = currentRow.find("td:eq(1)").text();
-        let col3 = currentRow.find("td:eq(2)").text();
-        let col4 = currentRow.find("td:eq(3)").text();
         $("[data-label='ID Info']").html(col1);
-        $("[data-label='Section Name Info']").html(col2);
-        $("[data-label='Section Code Info']").html(col3);
-        $("[data-label='Year Level Info']").html(col4);
+        $("[data-label='Section Info']").html(col2);
     });
 });
 
