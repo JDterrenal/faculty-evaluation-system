@@ -206,7 +206,7 @@ function addStudent()
         $section = $_POST['section_id'];
 
         addPhoto();
-        if (!empty($_FILES['edit_photo'])) {
+        if (!empty($_FILES['photo'])) {
             $photo = $filename;
         } else {
             $photo = 'standard.png';
@@ -369,7 +369,6 @@ function editStudent()
         } else {
             $sql = "UPDATE tb_students SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', yearlevel='$edit_yearlevel', contact_no='$edit_contact_no', address='$edit_address', status='$edit_status', course_id='$edit_course_id', section_id='$edit_section_id' WHERE student_id='$edit_id'";
         }
-
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/editAlert.js"></script><?php
         } else {
@@ -700,7 +699,7 @@ function showFaculty()
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $faculty_id = $row["faculty_id"];
+        $primary_id = $row["faculty_id"];
         $firstname = $row["firstname"];
         $lastname = $row["lastname"];
         $email = $row["email"];
@@ -710,7 +709,7 @@ function showFaculty()
         $photo = $row["photo"];
         echo "
         <tr>
-        <td data-label='ID'>$faculty_id</td>
+        <td data-label='ID'>$primary_id</td>
         <td data-label='FIRST NAME'>$firstname</td>
         <td data-label='LAST NAME'>$lastname</td>
         <td data-label='EMAIL'>$email</td>
@@ -718,9 +717,11 @@ function showFaculty()
         <td data-label='CONTACT NUMBER'>$contact_no</td>
         <td data-label='ADDRESS'>$address</td>
         <td data-label='PHOTO'><img src='/images/uploads/$photo' width=50px height=50px></td>
-        <td data-label='Operation'><a class='edit' id='edit-button' onclick='EditFunction()'><i class='fas fa-edit'></i> Edit</a></td>
-        <td data-label='Operation'><a href='#' class='view'><i class='fas fa-eye'></i> View</a></td>
-        <td data-label='Operation'><a href='faculty.php?delete_faculty_id=$faculty_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a></td>
+        <td data-label='Operation'>
+        <a href='#view-info' class='view view-faculty'><i class='fas fa-eye'></i> View</a>
+        <a class='edit edit-faculty'><i class='fas fa-edit'></i> Edit</a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
+        </td>
         </tr>
         ";
     }
@@ -766,7 +767,6 @@ function showStudents()
         <a href='#view-info' class='view view-student'><i class='fas fa-eye'></i> View</a>
         <a class='edit edit-student'><i class='fas fa-edit'></i> Edit</a>
         <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
-        </td>
         </td>
         </tr>
         ";
@@ -833,7 +833,7 @@ function searchCourses()
 function addPhoto()
 {
     if (!empty($_FILES['photo'])) {
-        $dir = "images/uploads/";
+        $dir = "/images/uploads/";
         $filename = $_FILES['photo']['name'];
         $file_tmp_name = $_FILES['photo']['tmp_name'];
         $ext = array("jpg", "png", "jpeg", "bmp");

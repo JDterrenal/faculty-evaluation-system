@@ -24,13 +24,13 @@ enableDelete_students();
 	<div class= "main-container">
 		<main>
 			<div class="container-main">
-				<div class="page-container"><h1><i class="fas fa-table"> Students</i></h1>
+				<div class="page-container"><h1><i class="fas fa-table" id="view-info"> Students</i></h1>
 					<hr>
 					<div class="user-info">
 						<div class="user-content">
 							<div class="user-info-title">
-									<p class="user-title"><i class="fas fa-user"></i> User Information!</p>
-									<hr>
+								<p class="user-title"><i class="fas fa-user"></i> Information!</p>
+								<hr>
 							</div>
 						</div>
 						<div class="user-nfo-content">
@@ -49,28 +49,8 @@ enableDelete_students();
 										<td data-label="Full Name Info"></td>
 									</tr>
 									<tr>
-										<th>Email Info</th>
-										<td data-label="Email Info"></td>
-									</tr>
-									<tr>
-										<th>Gender Info</th>
-										<td data-label="Gender Info"></td>
-									</tr>
-									<tr>
 										<th>Year Level Info</th>
 										<td data-label="Year Level Info"></td>
-									</tr>
-									<tr>
-										<th>Contact Number Info</th>
-										<td data-label="Contact Number Info"></td>
-									</tr>
-									<tr>
-										<th>Address Info</th>
-										<td data-label="Address Info"></td>
-									</tr>
-									<tr>
-										<th>Status Info</th>
-										<td data-label="Status Info"></td>
 									</tr>
 									<tr>
 										<th>Course ID Info</th>
@@ -139,7 +119,7 @@ enableDelete_students();
 	<?php include './assets/php/popupLogout.php' ?>
 
 	<!--------popup add student ------------>
-	<form action=add_course.php method=post>
+	<form action="students.php" method="post">
 		<div class="popup-backgroundsubject" id="popup-background">
 			<div class="popup-addstudent">
 				<div class="popup-add-top">
@@ -178,8 +158,8 @@ enableDelete_students();
 					<div class="boxx">
 						<p class="student-P">Gender</p>
 						<div class="studentcon1">
-							<input type="radio" name="gender" value="Male" required><label for="male">Male</label>
-							<input type="radio" name="gender" value="Female"><label for="female">Female</label>
+							<input type="radio" id="add_male" name="gender" value="Male" required><label for="add_male">Male</label>
+							<input type="radio" id="add_female" name="gender" value="Female"><label for="add_female">Female</label>
 						</div>
 					</div>
 					<div class="boxx">
@@ -235,7 +215,7 @@ enableDelete_students();
 	</form>
 
 	<!--------popup edit student ------------>
-	<form action=add_course.php method=post>
+	<form action="students.php" method="post">
 		<div class="popup-background-edit" id="edit-popup-background">
 			<div class="popup-addstudent">
 				<div class="popup-add-top">
@@ -275,8 +255,8 @@ enableDelete_students();
 					<div class="boxx">
 						<p class="student-P">Gender</p>
 						<div class="studentcon1">
-							<input type="radio" id="Male" name="edit_gender" value="Male" required><label for="male">Male</label>
-							<input type="radio" id="Female" name="edit_gender" value="Female"><label for="female">Female</label>
+							<input type="radio" id="Male" name="edit_gender" value="Male" required><label for="Male">Male</label>
+							<input type="radio" id="Female" name="edit_gender" value="Female"><label for="Female">Female</label>
 						</div>
 					</div>
 					<div class="boxx">
@@ -288,7 +268,7 @@ enableDelete_students();
 					<div class="boxx">
 						<p class="student-P">Year Level</p>
 						<div class="studentcon">
-							<select name="edit_yearlevel" required>
+							<select id="edit_yearlevel" name="edit_yearlevel" required>
 								<option value = "1">1st Year</option>
 								<option value = "2">2nd Year</option>
 								<option value = "3">3rd Year</option>
@@ -300,7 +280,7 @@ enableDelete_students();
 					<div class="boxx">
 						<p class="student-P">Course</p>
 						<div class="studentcon">
-							<select name="edit_course_id" required>
+							<select id="edit_course_id" name="edit_course_id" required>
 								<?php cbCourse() ?>
 							</select>
 						</div>
@@ -308,7 +288,7 @@ enableDelete_students();
 					<div class="boxx">
 						<p class="student-P">Section</p>
 						<div class="studentcon">
-							<select name="edit_section_id" required>
+							<select id="edit_section_id" name="edit_section_id" required>
 								<?php cbSection() ?>
 							</select>
 						</div>
@@ -316,7 +296,7 @@ enableDelete_students();
 					<div class="boxx">
 						<p class="student-P">Status</p>
 						<div class="studentcon">
-							<select name="edit_status" required>
+							<select id="edit_status" name="edit_status" required>
 								<option value = "Enrolled">Enrolled</option>
 								<option value = "Not Enrolled">Not Enrolled</option>
 							</select>

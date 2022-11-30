@@ -80,7 +80,7 @@ $(document).ready(function () {
     });
 
     //Student
-    $(".edit.edit-subject").on('click',function () {
+    $(".edit.edit-student").on('click',function () {
         let currentRow = $(this).closest("tr");
         let col1 = currentRow.find("td:eq(0)").text();
         let col2 = currentRow.find("td:eq(1)").text();
@@ -150,29 +150,19 @@ $(document).ready(function () {
     });
 
     // Student
-    $(".view.view-section").on('click',function () {
+    $(".view.view-student").on('click',function () {
         let currentRow = $(this).closest("tr");
         let col1 = currentRow.find("td:eq(0)").text();
         let col2 = currentRow.find("td:eq(1)").text();
         let col3 = currentRow.find("td:eq(2)").text();
-        let col4 = currentRow.find("td:eq(3)").text();
-        let col5 = currentRow.find("td:eq(4)").text();
         let col6 = currentRow.find("td:eq(5)").text();
-        let col7 = currentRow.find("td:eq(6)").text();
-        let col8 = currentRow.find("td:eq(7)").text();
-        let col9 = currentRow.find("td:eq(8)").text();
         let col10 = currentRow.find("td:eq(9)").text();
         let col11 = currentRow.find("td:eq(10)").text();
         let col12 = currentRow.find("td:eq(11)").text();
         $("[data-label='ID Photo']").html(col10);
         $("[data-label='ID Info']").html(col1);
         $("[data-label='Full Name Info']").html(col2 + " " + col3);
-        $("[data-label='Email Info']").html(col4);
-        $("[data-label='Gender Info']").html(col5);
         $("[data-label='Year Level Info']").html(col6);
-        $("[data-label='Contact Number Info']").html(col7);
-        $("[data-label='Address Info']").html(col8);
-        $("[data-label='Status Info']").html(col9);
         $("[data-label='Course ID Info']").html(col11);
         $("[data-label='Section ID Info']").html(col12);
     });
