@@ -204,10 +204,16 @@ function addStudent()
         $status = $_POST['status'];
         $course = $_POST['course_id'];
         $section = $_POST['section_id'];
-        $photo = 'standard.png';
+
+        addPhoto();
+        if (!empty($_FILES['edit_photo'])) {
+            $photo = $filename;
+        } else {
+            $photo = 'standard.png';
+        }
+        $sql = "INSERT INTO tb_students (student_id, firstname, lastname, email, gender, yearlevel, contact_no, address, status, photo, course_id, section_id) VALUES (null, '$firstname', '$lastname', '$email', '$gender', '$yearlevel', $contact_no, '$address', '$status', '$photo', '$course', '$section')";
 
         //Add Student
-        $sql = "INSERT INTO tb_students (student_id, firstname, lastname, email, gender, yearlevel, contact_no, address, status, photo, course_id, section_id) VALUES (null, '$firstname', '$lastname', '$email', '$gender', '$yearlevel', $contact_no, '$address', '$status', '$photo', '$course', '$section')";
         if (mysqli_query($conn, $sql)) {
             $sql2 = "SELECT student_id FROM tb_students ORDER BY student_id DESC LIMIT 1;";
             $result = mysqli_query($conn, $sql2);
@@ -340,41 +346,30 @@ function addSection()
 
 //------------------------------ Editing Records ------------------------------
 //Student Edit and Confirmation
-function editStudent($edit_student_id)
+function editStudent()
 {
-    include 'connection.php';
-    global $edit_firstname, $edit_lastname, $edit_gender, $edit_yearlevel, $edit_contact_no, $edit_address, $edit_status, $edit_email;
-    $sql = "SELECT firstname, lastname, email, gender, yearlevel, contact_no, address, status, photo FROM tb_students WHERE student_id='$edit_student_id'";
-    $result = mysqli_query($conn, $sql);
-    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $edit_firstname = $row["firstname"];
-        $edit_lastname = $row["lastname"];
-        $edit_email = $row["email"];
-        $edit_gender = $row["gender"];
-        $edit_yearlevel = $row["yearlevel"];
-        $edit_contact_no = $row["contact_no"];
-        $edit_address = $row["address"];
-        $edit_status = $row["status"];
-    }
-    mysqli_close($conn);
-}
+    if (isset($_POST['editstudent'])) {
+        include 'connection.php';
+        $edit_id = $_POST['edit_id'];
+        $edit_firstname = $_POST['edit_firstname'];
+        $edit_lastname = $_POST['edit_lastname'];
+        $edit_email = $_POST['edit_email'];
+        $edit_gender = $_POST['edit_gender'];
+        $edit_yearlevel = $_POST['edit_yearlevel'];
+        $edit_contact_no = $_POST['edit_contact_no'];
+        $edit_address = $_POST['edit_address'];
+        $edit_status = $_POST['edit_status'];
+        $edit_course_id = $_POST['edit_course_id'];
+        $edit_section_id = $_POST['edit_section_id'];
+        $edit_photo = $_POST['edit_photo'];
 
-function editStudentConf($edit_student_id)
-{
-    include 'connection.php';
-    global $edit_firstname, $edit_lastname, $edit_gender, $edit_yearlevel, $edit_contact_no, $edit_address, $edit_email, $edit_status, $edit_course_id, $edit_section_id;
-    $edit_firstname = $_POST['firstname'];
-    $edit_lastname = $_POST['lastname'];
-    $edit_email = $_POST['email'];
-    $edit_gender = $_POST['gender'];
-    $edit_yearlevel = $_POST['yearlevel'];
-    $edit_contact_no = $_POST['contact_no'];
-    $edit_address = $_POST['address'];
-    $edit_status = $_POST['status'];
-    $edit_course_id = $_POST['course_id'];
-    $edit_section_id = $_POST['section_id'];
-    if (isset($_POST['studentEdit'])) {
-        $sql = "UPDATE tb_students SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', yearlevel='$edit_yearlevel', contact_no='$edit_contact_no', address='$edit_address', status='$edit_status', course_id='$edit_course_id', section_id='$edit_section_id' WHERE student_id='$edit_student_id'";
+        editPhoto();
+        if (!empty($_FILES['edit_photo'])) {
+            $sql = "UPDATE tb_students SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', yearlevel='$edit_yearlevel', contact_no='$edit_contact_no', address='$edit_address', status='$edit_status', photo='$edit_photo', course_id='$edit_course_id', section_id='$edit_section_id' WHERE student_id='$edit_id'";
+        } else {
+            $sql = "UPDATE tb_students SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', yearlevel='$edit_yearlevel', contact_no='$edit_contact_no', address='$edit_address', status='$edit_status', course_id='$edit_course_id', section_id='$edit_section_id' WHERE student_id='$edit_id'";
+        }
+
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/editAlert.js"></script><?php
         } else {
@@ -741,7 +736,7 @@ function showStudents()
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $student_id = $row["student_id"];
+        $primary_id = $row["student_id"];
         $firstname = $row["firstname"];
         $lastname = $row["lastname"];
         $email = $row["email"];
@@ -755,7 +750,7 @@ function showStudents()
         $section_id = $row["section_id"];
         echo "
         <tr>
-        <td data-label='ID'>$student_id</td>
+        <td data-label='ID'>$primary_id</td>
         <td data-label='FIRST NAME'>$firstname</td>
         <td data-label='LAST NAME'>$lastname</td>
         <td data-label='EMAIL'>$email</td>
@@ -767,9 +762,12 @@ function showStudents()
         <td data-label='PHOTO'><img src='/images/uploads/$photo' width=50px height=50px></td>
         <td data-label='COURSE ID'>$course_id</td>
         <td data-label='SECTION ID'>$section_id</td>
-        <td data-label='Operation'><a href='#' class='view'><i class='fas fa-eye'></i> View</a></td>
-        <td data-label='Operation'><a class='edit' id='editstudent' onclick='EditFunction()'><i class='fas fa-edit'></i>Edit</a></td>
-        <td data-label='Operation'><a href='students.php?delete_student_id=$student_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a></td>
+        <td data-label='Operation'>
+        <a href='#view-info' class='view view-student'><i class='fas fa-eye'></i> View</a>
+        <a class='edit edit-student'><i class='fas fa-edit'></i> Edit</a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
+        </td>
+        </td>
         </tr>
         ";
     }
@@ -832,33 +830,38 @@ function searchCourses()
 
 //------------------------------ Image Upload Functionality ------------------------------
 //Identifies whether it's a student or a faculty member who is changing photos.
-function changePhotoValidation()
+function addPhoto()
 {
-    if (!empty($_FILES['upimg'])) {
+    if (!empty($_FILES['photo'])) {
         $dir = "images/uploads/";
-        $filename = $_FILES['upimg']['name'];
-        $file_tmp_name = $_FILES['upimg']['tmp_name'];
+        $filename = $_FILES['photo']['name'];
+        $file_tmp_name = $_FILES['photo']['tmp_name'];
         $ext = array("jpg", "png", "jpeg", "bmp");
         $split = explode('.', $filename);
         $image_ext = strtolower(end($split));
 
         if (in_array($image_ext, $ext)) {
             move_uploaded_file($file_tmp_name, "$dir" . $filename);
-            include 'connection.php';
-            $login_id = $_SESSION['login_id'];
-            $sql = "SELECT usertype FROM tb_students WHERE user_id='$login_id'";
-            $result = mysqli_query($conn, $sql);
-            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                $select_usertype = $row["usertype"];
-            }
-            if ($select_usertype == "Student") {
-                changePhotoStudent($filename);
-            } else if ($select_usertype == "Faculty") {
-                changePhotoFaculty($filename);
-            }
-            mysqli_close($conn);
         } else {
-            echo "Invalid file format.";
+            ?><script src="/assets/js/invalidAlert.js"></script><?php
+        }
+    }
+}
+
+function editPhoto()
+{
+    if (!empty($_FILES['edit_photo'])) {
+        $dir = "images/uploads/";
+        $filename = $_FILES['edit_photo']['name'];
+        $file_tmp_name = $_FILES['edit_photo']['tmp_name'];
+        $ext = array("jpg", "png", "jpeg", "bmp");
+        $split = explode('.', $filename);
+        $image_ext = strtolower(end($split));
+
+        if (in_array($image_ext, $ext)) {
+            move_uploaded_file($file_tmp_name, "$dir" . $filename);
+        } else {
+            ?><script src="/assets/js/invalidAlert.js"></script><?php
         }
     }
 }
