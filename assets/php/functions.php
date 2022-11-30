@@ -216,14 +216,12 @@ function addStudent()
             }
             $sql3 = "INSERT INTO tb_login (login_id, student_id, faculty_id, password, usertype) VALUES (null, $sid_value, null, '$lastname$contact_no', 'Student')";
             if (mysqli_query($conn, $sql3)) {
-                ?><script type="text/javascript">
-                window.location = "/assets/php/loader.php";
-                </script><?php
+                ?><script src="/assets/js/addAlert.js"></script><?php
             } else {
-                echo "Invalid Input!";
+                ?><script src="/assets/js/invalidAlert.js"></script><?php
             }
         } else {
-            echo "Invalid Input!";
+            ?><script src="/assets/js/invalidAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -252,14 +250,12 @@ function addFaculty()
             }
             $sql3 = "INSERT INTO tb_login (login_id, student_id, faculty_id, password, usertype) VALUES (null, null, $fid_value, '$lastname$contact_no', 'Faculty')";
             if (mysqli_query($conn, $sql3)) {
-                ?><script type="text/javascript">
-                window.location = "/assets/php/loader.php";
-                </script><?php
+                ?><script src="/assets/js/addAlert.js"></script><?php
             } else {
-                echo "Invalid Input!";
+                ?><script src="/assets/js/invalidAlert.js"></script><?php
             }
         } else {
-            echo "Invalid input!";
+            ?><script src="/assets/js/invalidAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -278,11 +274,9 @@ function addEvaluation()
         //Add Evaluation
         $sql = "INSERT INTO tb_evaluations (evaluation_id, schoolyear, semester, status, section_id) VALUES (null, '$schoolyear', '$semester', '$status', '$section_id')";
         if (mysqli_query($conn, $sql)) {
-            ?><script type="text/javascript">
-            window.location = "/assets/php/loader.php";
-            </script><?php
+            ?><script src="/assets/js/addAlert.js"></script><?php
         } else {
-            echo "Invalid input!";
+            ?><script src="/assets/js/invalidAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -298,11 +292,9 @@ function addCourse()
         //Add Course
         $sql = "INSERT INTO tb_courses (course_id, course_name) VALUES (null, '$course_name')";
         if (mysqli_query($conn, $sql)) {
-            ?><script type="text/javascript">
-            window.location = "/assets/php/loader.php";
-            </script><?php
+            ?><script src="/assets/js/addAlert.js"></script><?php
         } else {
-            echo "Invalid input!";
+            ?><script src="/assets/js/invalidAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -340,11 +332,9 @@ function addSection()
         //Add Section
         $sql = "INSERT INTO tb_sections (section_id, section_name, section_code, yearlevel) VALUES (null, '$section_name', '$section_code', '$yearlevel')";
         if (mysqli_query($conn, $sql)) {
-            ?><script type="text/javascript">
-            window.location = "/assets/php/loader.php";
-            </script><?php
+            ?><script src="/assets/js/addAlert.js"></script><?php
         } else {
-            echo "Invalid input!";
+            ?><script src="/assets/js/invalidAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -388,11 +378,9 @@ function editStudentConf($edit_student_id)
     if (isset($_POST['studentEdit'])) {
         $sql = "UPDATE tb_students SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', yearlevel='$edit_yearlevel', contact_no='$edit_contact_no', address='$edit_address', status='$edit_status', course_id='$edit_course_id', section_id='$edit_section_id' WHERE student_id='$edit_student_id'";
         if (mysqli_query($conn, $sql)) {
-            ?><script type="text/javascript">
-            window.location = "/assets/php/loader.php";
-            </script><?php
+            ?><script src="/assets/js/editAlert.js"></script><?php
         } else {
-            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+            ?><script src="/assets/js/invalidAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -429,11 +417,9 @@ function editFacultyConf($edit_faculty_id)
     if (isset($_POST['facultyEdit'])) {
         $sql = "UPDATE tb_faculty SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', contact_no='$edit_contact_no', address='$edit_address' WHERE faculty_id='$edit_faculty_id'";
         if (mysqli_query($conn, $sql)) {
-            ?><script type="text/javascript">
-            window.location = "/assets/php/loader.php";
-            </script><?php
+            ?><script src="/assets/js/editAlert.js"></script><?php
         } else {
-            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+            ?><script src="/assets/js/invalidAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -447,13 +433,9 @@ function editCourse()
         $edit_course_name = $_POST['edit_course_name'];
         $sql = "UPDATE tb_courses SET course_name='$edit_course_name' WHERE course_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
-            ?><script type="text/javascript">
-            window.location = "/assets/php/loader.php";
-            </script><?php
+            ?><script src="/assets/js/editAlert.js"></script><?php
         } else {
-            ?><script type="text/javascript">
-            swal("Invalid Input!");
-            </script><?php
+            ?><script src="/assets/js/invalidAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -490,14 +472,9 @@ function editSection()
         $edit_section_name = "$edit_yearlevel$edit_section_code";
         $sql = "UPDATE tb_sections SET section_name='$edit_section_name', section_code='$edit_section_code', yearlevel='$edit_yearlevel' WHERE section_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
-            ?><script type="text/javascript">
-                swal("Record Updated Successfully!");
-                window.location = "/assets/php/loader.php";
-            </script><?php
+            ?><script src="/assets/js/editAlert.js"></script><?php
         } else {
-            ?><script type="text/javascript">
-                swal("Invalid Input!");
-            </script><?php
+            ?><script src="/assets/js/invalidAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
