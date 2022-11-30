@@ -119,7 +119,7 @@ enableDelete_students();
 	<?php include './assets/php/popupLogout.php' ?>
 
 	<!--------popup add student ------------>
-	<form action="students.php" method="post">
+	<form action="students.php" method="post" enctype="multipart/form-data">
 		<div class="popup-backgroundsubject" id="popup-background">
 			<div class="popup-addstudent">
 				<div class="popup-add-top">
@@ -215,7 +215,7 @@ enableDelete_students();
 	</form>
 
 	<!--------popup edit student ------------>
-	<form action="students.php" method="post">
+	<form action="students.php" method="post" enctype="multipart/form-data">
 		<div class="popup-background-edit" id="edit-popup-background">
 			<div class="popup-addstudent">
 				<div class="popup-add-top">
