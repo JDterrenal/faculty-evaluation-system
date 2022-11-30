@@ -30,7 +30,7 @@ enableDelete_courses();
 					<div class="user-info">
 						<div class="user-content">
 							<div class="user-info-title">
-								<p class="user-title"><i class="fas fa-user"></i>Information!</p>
+								<p class="user-title"><i class="fas fa-user"></i> Information!</p>
 								<hr>
 							</div>
 						</div>

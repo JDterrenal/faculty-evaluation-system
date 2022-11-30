@@ -30,7 +30,7 @@ enableDelete_sections();
 					<div class="user-info">
 						<div class="user-content">
 							<div class="user-info-title">
-									<p class="user-title"><i class="fas fa-user"></i> User Information!</p>
+									<p class="user-title"><i class="fas fa-user"></i> Information!</p>
 									<hr>
 							</div>
 						</div>
@@ -43,7 +43,7 @@ enableDelete_sections();
 									</tr>
 									<tr>
 										<th>Section Info</th>
-										<td data-label="Section Name Info"></td>
+										<td data-label="Section Info"></td>
 									</tr>
 								<tbody>
 							</table>
