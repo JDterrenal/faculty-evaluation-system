@@ -205,11 +205,11 @@ function addStudent()
         $course = $_POST['course_id'];
         $section = $_POST['section_id'];
         
-        if (!empty($_FILES['photo'])) {
+        if (empty($_FILES['photo'])) {
+            $photo = 'standard.png';
+        } else {
             include './assets/php/uploadPhoto_add.php';
             $photo = $filename;
-        } else {
-            $photo = 'standard.png';
         }
         $sql = "INSERT INTO tb_students (student_id, firstname, lastname, email, gender, yearlevel, contact_no, address, status, photo, course_id, section_id) VALUES (null, '$firstname', '$lastname', '$email', '$gender', '$yearlevel', $contact_no, '$address', '$status', '$photo', '$course', '$section')";
 
@@ -361,13 +361,13 @@ function editStudent()
         $edit_status = $_POST['edit_status'];
         $edit_course_id = $_POST['edit_course_id'];
         $edit_section_id = $_POST['edit_section_id'];
-        $edit_photo = $_POST['edit_photo'];
 
-        if (!empty($_FILES['edit_photo'])) {
-            include './assets/php/uploadPhoto_edit.php';
-            $sql = "UPDATE tb_students SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', yearlevel='$edit_yearlevel', contact_no='$edit_contact_no', address='$edit_address', status='$edit_status', photo='$edit_photo', course_id='$edit_course_id', section_id='$edit_section_id' WHERE student_id='$edit_id'";
-        } else {
+        if (empty($_FILES['edit_photo'])) {
             $sql = "UPDATE tb_students SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', yearlevel='$edit_yearlevel', contact_no='$edit_contact_no', address='$edit_address', status='$edit_status', course_id='$edit_course_id', section_id='$edit_section_id' WHERE student_id='$edit_id'";
+        } else {
+            include './assets/php/uploadPhoto_edit.php';
+            $edit_photo = $filename;
+            $sql = "UPDATE tb_students SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', yearlevel='$edit_yearlevel', contact_no='$edit_contact_no', address='$edit_address', status='$edit_status', photo='$edit_photo', course_id='$edit_course_id', section_id='$edit_section_id' WHERE student_id='$edit_id'";
         }
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/editAlert.js"></script><?php
