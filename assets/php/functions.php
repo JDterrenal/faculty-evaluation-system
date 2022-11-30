@@ -204,9 +204,9 @@ function addStudent()
         $status = $_POST['status'];
         $course = $_POST['course_id'];
         $section = $_POST['section_id'];
-
-        addPhoto();
+        
         if (!empty($_FILES['photo'])) {
+            addPhoto();
             $photo = $filename;
         } else {
             $photo = 'standard.png';
@@ -760,7 +760,7 @@ function showStudents()
         <td data-label='CONTACT NUMBER'>$contact_no</td>
         <td data-label='ADDRESS'>$address</td>
         <td data-label='STATUS'>$status</td>
-        <td data-label='PHOTO'><img src='/images/uploads/$photo' width=50px height=50px></td>
+        <td data-label='PHOTO'><img src='/images/uploads/$photo' alt='' width=50px height=50px></td>
         <td data-label='COURSE ID'>$course_id</td>
         <td data-label='SECTION ID'>$section_id</td>
         <td data-label='Operation'>
@@ -832,37 +832,33 @@ function searchCourses()
 //Identifies whether it's a student or a faculty member who is changing photos.
 function addPhoto()
 {
-    if (!empty($_FILES['photo'])) {
-        $dir = "/images/uploads/";
-        $filename = $_FILES['photo']['name'];
-        $file_tmp_name = $_FILES['photo']['tmp_name'];
-        $ext = array("jpg", "png", "jpeg", "bmp");
-        $split = explode('.', $filename);
-        $image_ext = strtolower(end($split));
+    $dir = "/images/uploads/";
+    $filename = $_FILES['photo']['name'];
+    $file_tmp_name = $_FILES['photo']['tmp_name'];
+    $ext = array("jpg", "png", "jpeg", "bmp");
+    $split = explode('.', $filename);
+    $image_ext = strtolower(end($split));
 
-        if (in_array($image_ext, $ext)) {
-            move_uploaded_file($file_tmp_name, "$dir" . $filename);
-        } else {
-            ?><script src="/assets/js/invalidAlert.js"></script><?php
-        }
+    if (in_array($image_ext, $ext)) {
+        move_uploaded_file($file_tmp_name, "$dir" . $filename);
+    } else {
+        ?><script src="/assets/js/invalidAlert.js"></script><?php
     }
 }
 
 function editPhoto()
 {
-    if (!empty($_FILES['edit_photo'])) {
-        $dir = "images/uploads/";
-        $filename = $_FILES['edit_photo']['name'];
-        $file_tmp_name = $_FILES['edit_photo']['tmp_name'];
-        $ext = array("jpg", "png", "jpeg", "bmp");
-        $split = explode('.', $filename);
-        $image_ext = strtolower(end($split));
+    $dir = "images/uploads/";
+    $filename = $_FILES['edit_photo']['name'];
+    $file_tmp_name = $_FILES['edit_photo']['tmp_name'];
+    $ext = array("jpg", "png", "jpeg", "bmp");
+    $split = explode('.', $filename);
+    $image_ext = strtolower(end($split));
 
-        if (in_array($image_ext, $ext)) {
-            move_uploaded_file($file_tmp_name, "$dir" . $filename);
-        } else {
-            ?><script src="/assets/js/invalidAlert.js"></script><?php
-        }
+    if (in_array($image_ext, $ext)) {
+        move_uploaded_file($file_tmp_name, "$dir" . $filename);
+    } else {
+        ?><script src="/assets/js/invalidAlert.js"></script><?php
     }
 }
 
