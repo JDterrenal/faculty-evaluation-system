@@ -4,10 +4,7 @@ function confirmationDelete(anchor) {
         title: "Are you sure?",
         text: "This action cannot be reverted!",
         showCancelButton: true,
-        confirmButtonText: 'Delete it!',
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        reverseButtons: true
+        confirmButtonText: 'Delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire(
