@@ -56,14 +56,18 @@ $(document).ready(function () {
         let currentRow = $(this).closest("tr");
         let col1 = currentRow.find("td:eq(0)").text();
         let col2 = currentRow.find("td:eq(1)").text();
+        let col3 = currentRow.find("td:eq(2)").text();
+        let col4 = currentRow.find("td:eq(3)").text();
         $("#edit_id").val(col1);
-        $("#edit_subject_name").val(col2);
+        $("#edit_subject_code").val(col2);
+        $("#edit_subject_name").val(col3);
+        $("#edit_units").val(col4);
 
         editBackground.style.display = "flex";
         $("#edit-popup-background").show();
     });
 
-    //Subject
+    //Section
     $(".edit.edit-section").on('click',function () {
         let currentRow = $(this).closest("tr");
         let col1 = currentRow.find("td:eq(0)").text();
@@ -97,8 +101,12 @@ $(document).ready(function () {
         let currentRow = $(this).closest("tr");
         let col1 = currentRow.find("td:eq(0)").text();
         let col2 = currentRow.find("td:eq(1)").text();
+        let col3 = currentRow.find("td:eq(2)").text();
+        let col4 = currentRow.find("td:eq(3)").text();
         $("[data-label='ID Info']").html(col1);
-        $("[data-label='Subject Info']").html(col2);
+        $("[data-label='Subject Code Info']").html(col2);
+        $("[data-label='Subject Info']").html(col3);
+        $("[data-label='Units Info']").html(col4);
     });
 
     // Section
