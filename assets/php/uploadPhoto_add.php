@@ -8,7 +8,8 @@ $image_ext = strtolower(end($split));
 
 if (in_array($image_ext, $ext)) {
     move_uploaded_file($file_tmp_name, "$dir" . $filename);
+    $photo = $filename;
 } else {
-    ?><script src="/assets/js/errorAlert.js"></script><?php
+    $photo = 'standard.png';
 }
 ?>

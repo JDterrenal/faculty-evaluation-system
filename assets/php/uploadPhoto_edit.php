@@ -8,7 +8,12 @@ $image_ext = strtolower(end($split));
 
 if (in_array($image_ext, $ext)) {
     move_uploaded_file($file_tmp_name, "$dir" . $filename);
+    $edit_photo = $filename;
 } else {
-    ?><script src="/assets/js/errorAlert.js"></script><?php
+    $sql = "SELECT photo FROM tb_students WHERE student_id=$edit_id";
+    $result = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $edit_photo = $row["photo"];
+    }
 }
 ?>
