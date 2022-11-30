@@ -591,7 +591,7 @@ function showSections()
 {
     include 'connection.php';
     global $count;
-    $sql = "SELECT section_id, section_name, section_code, yearlevel FROM tb_sections ORDER BY section_id";
+    $sql = "SELECT section_id, section_name FROM tb_sections ORDER BY section_id";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
@@ -930,7 +930,7 @@ function subjectCount()
 {
     include 'connection.php';
     global $count;
-    $sql = "SELECT subject_id, subject_name FROM tb_subjects";
+    $sql = "SELECT subject_id, subject_code, subject_name, units FROM tb_subjects";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     echo "$count";
@@ -942,7 +942,7 @@ function sectionCount()
 {
     include 'connection.php';
     global $count;
-    $sql = "SELECT section_id, section_name, section_code, yearlevel FROM tb_sections";
+    $sql = "SELECT section_id, section_name FROM tb_sections";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     echo "$count";
