@@ -313,16 +313,16 @@ function addSubject()
 {
     if (isset($_POST['addsubject'])) {
         include 'connection.php';
+        $subject_code = $_POST['subject_code'];
         $subject_name = $_POST['subject_name'];
+        $units = $_POST['units'];
 
         //Add Subject
-        $sql = "INSERT INTO tb_subjects (subject_id, subject_name) VALUES (null, '$subject_name')";
+        $sql = "INSERT INTO tb_subjects (subject_id, subject_code, subject_name, units) VALUES (null, '$subject_code', '$subject_name', '$units')";
         if (mysqli_query($conn, $sql)) {
-            ?><script type="text/javascript">
-            window.location = "/assets/php/loader.php";
-            </script><?php
+            ?><script src="/assets/js/addAlert.js"></script><?php
         } else {
-            echo "Invalid input!";
+            ?><script src="/assets/js/invalidAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -451,7 +451,9 @@ function editCourse()
             window.location = "/assets/php/loader.php";
             </script><?php
         } else {
-            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+            ?><script type="text/javascript">
+            swal("Invalid Input!");
+            </script><?php
         }
         mysqli_close($conn);
     }
@@ -463,14 +465,15 @@ function editSubject()
     if (isset($_POST['editsubject'])) {
         include 'connection.php';
         $edit_id = $_POST['edit_id'];
+        $edit_subject_code = $_POST['edit_subject_code'];
         $edit_subject_name = $_POST['edit_subject_name'];
-        $sql = "UPDATE tb_subjects SET subject_name='$edit_subject_name' WHERE subject_id='$edit_id'";
+        $edit_units = $_POST['edit_units'];
+        
+        $sql = "UPDATE tb_subjects SET subject_code='$edit_subject_code', subject_name='$edit_subject_name', units='$edit_units' WHERE subject_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
-            ?><script type="text/javascript">
-            window.location = "/assets/php/loader.php";
-            </script><?php
+            ?><script src="/assets/js/editAlert.js"></script><?php
         } else {
-            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+            ?><script src="/assets/js/invalidAlert.js"></script><?php
         }
         mysqli_close($conn);
     }
@@ -488,10 +491,13 @@ function editSection()
         $sql = "UPDATE tb_sections SET section_name='$edit_section_name', section_code='$edit_section_code', yearlevel='$edit_yearlevel' WHERE section_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
             ?><script type="text/javascript">
-            window.location = "/assets/php/loader.php";
+                swal("Record Updated Successfully!");
+                window.location = "/assets/php/loader.php";
             </script><?php
         } else {
-            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+            ?><script type="text/javascript">
+                swal("Invalid Input!");
+            </script><?php
         }
         mysqli_close($conn);
     }
@@ -581,16 +587,21 @@ function showSubjects()
 {
     include 'connection.php';
     global $count;
-    $sql = "SELECT subject_id, subject_name FROM tb_subjects ORDER BY subject_id";
+    $sql = "SELECT subject_id, subject_code, subject_name, units FROM tb_subjects ORDER BY subject_id";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $primary_id = $row["subject_id"];
+        $subject_code = $row["subject_code"];
         $subject_name = $row["subject_name"];
+        $units = $row["units"];
+
         echo "
         <tr>
         <td data-label='ID'>$primary_id</td>
+        <td data-label='Subject Code'>$subject_code</td>
         <td data-label='Subject'>$subject_name</td>
+        <td data-label='Units'>$units</td>
         <td data-label='Operation'>
         <a href='#view-info' class='view view-subject'><i class='fas fa-eye'></i> View</a>
         <a class='edit edit-subject'><i class='fas fa-edit'></i> Edit</a>
