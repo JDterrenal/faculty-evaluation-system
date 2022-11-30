@@ -122,59 +122,46 @@ enableDelete_students();
 					<div class="boxx">
 						<p class="student-P">Student Picture</p>
 						<div class="studentcon">
-						<img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side-pop">
+							<img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side-pop">
 						</div>
 						<div class="studentcon">
 							<input type="file" name="fileToUpload" id="fileToUpload">
-							<input type="submit" value="Upload Image" name="submit">
 						</div>
 					</div>
 					<div class="boxx">
 						<p class="student-P">Student Name</p>
 						<div class="studentcon">
-							<input type="text" id="firstname" name="firstname" placeholder="First name" >
-							<input type="text" id="lastname" name="lastname" placeholder="Last name">
+							<input type="text" name="firstname" placeholder="First Name" required>
+							<input type="text" name="lastname" placeholder="Last Name" required>
 						</div>
 					</div>
 					<div class="boxx">
-						<p class="student-P">Course</p>
+						<p class="student-P">Address</p>
 						<div class="studentcon">
-							<input type="text" id="course" name="course" placeholder="Course">
-						</div>
-					</div>
-					<div class="boxx">
-						<p class="student-P">Section</p>
-						<div class="studentcon">
-							<input type="text" id="section" name="section" placeholder="Section">
-						</div>
-					</div>
-					<div class="boxx">
-						<p class="student-P">Adress</p>
-						<div class="studentcon">
-							<input type="text" id="address" name="address" placeholder="Address">
+							<input type="text" name="address" placeholder="Address" required>
 						</div>
 					</div>
 					<div class="boxx">
 						<p class="student-P">Contact Number</p>
 						<div class="studentcon">
-							<input type="number" id="contact_no" name="contact_no" placeholder="Contact Number">
+							<input type="number" name="contact_no" placeholder="Contact Number" required>
 						</div>
 					</div>
 					<div class="boxx">
 						<p class="student-P">Gender</p>
 						<div class="studentcon1">
-							<input type="radio" id="male" name="gender" value="Male"><label for="male">Male</label>
-							<input type="radio" id="female" name="gender" value="Female"><label for="female">Female</label>
+							<input type="radio" name="gender" value="Male" required><label for="male">Male</label>
+							<input type="radio" name="gender" value="Female"><label for="female">Female</label>
 						</div>
 					</div>
 					<div class="boxx">
 						<p class="student-P">Email</p>
 						<div class="studentcon">
-							<input type="text" id="email" name="email" placeholder="Email">
+							<input type="text" name="email" placeholder="Email" required>
 						</div>
 					</div>
 					<div class="boxx">
-						<p class="student-P">year Level</p>
+						<p class="student-P">Year Level</p>
 						<div class="studentcon">
 							<select name="yearlevel" required>
 								<option value = "1">1st Year</option>
@@ -182,6 +169,22 @@ enableDelete_students();
 								<option value = "3">3rd Year</option>
 								<option value = "4">4th Year</option>
 								<option value = "5">5th Year</option>
+							</select>
+						</div>
+					</div>
+					<div class="boxx">
+						<p class="student-P">Course</p>
+						<div class="studentcon">
+							<select name="course_id" required>
+								<?php cbCourse() ?>
+							</select>
+						</div>
+					</div>
+					<div class="boxx">
+						<p class="student-P">Section</p>
+						<div class="studentcon">
+							<select name="section_id" required>
+								<?php cbSection() ?>
 							</select>
 						</div>
 					</div>
@@ -194,9 +197,10 @@ enableDelete_students();
 							</select>
 						</div>
 					</div>
+					<?php addStudent() ?>
 					<div class="studentcon">
-					<a class="addbtn"><i class="fas fa-plus"></i> Add Student</a>
-				</div>
+						<button type="submit" name="addstudent" class="addbtn"><i class="fas fa-plus"></i> Add Student</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -211,64 +215,52 @@ enableDelete_students();
 					<i class="fas fa-times ex" id="ex-edit"></i>
 				</div>
 				<div class="popup-student-middle">
+					<input type="hidden" name="edit_id" id="edit_id">
 					<div class="boxx">
 						<p class="student-P">Student Picture</p>
 						<div class="studentcon">
-						<img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side-pop">
+							<img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side-pop">
 						</div>
 						<div class="studentcon">
 							<input type="file" name="fileToUpload" id="fileToUpload">
-							<input type="submit" value="Upload Image" name="submit">
 						</div>
 					</div>
 					<div class="boxx">
 						<p class="student-P">Student Name</p>
 						<div class="studentcon">
-							<input type="text" id="firstname" name="firstname" placeholder="First name" >
-							<input type="text" id="lastname" name="lastname" placeholder="Last name">
+							<input type="text" id="edit_firstname" name="edit_firstname" placeholder="First name" required>
+							<input type="text" id="edit_lastname" name="edit_lastname" placeholder="Last name" required>
 						</div>
 					</div>
 					<div class="boxx">
-						<p class="student-P">Course</p>
+						<p class="student-P">Address</p>
 						<div class="studentcon">
-							<input type="text" id="course" name="course" placeholder="Course">
-						</div>
-					</div>
-					<div class="boxx">
-						<p class="student-P">Section</p>
-						<div class="studentcon">
-							<input type="text" id="section" name="section" placeholder="Section">
-						</div>
-					</div>
-					<div class="boxx">
-						<p class="student-P">Adress</p>
-						<div class="studentcon">
-							<input type="text" id="address" name="address" placeholder="Address">
+							<input type="text" id="edit_address" name="edit_address" placeholder="Address" required>
 						</div>
 					</div>
 					<div class="boxx">
 						<p class="student-P">Contact Number</p>
 						<div class="studentcon">
-							<input type="number" id="contact_no" name="contact_no" placeholder="Contact Number">
+							<input type="number" id="edit_contact_no" name="edit_contact_no" placeholder="Contact Number" required>
 						</div>
 					</div>
 					<div class="boxx">
 						<p class="student-P">Gender</p>
 						<div class="studentcon1">
-							<input type="radio" id="male" name="gender" value="Male"><label for="male">Male</label>
-							<input type="radio" id="female" name="gender" value="Female"><label for="female">Female</label>
+							<input type="radio" class="edit_gender" name="edit_gender" value="Male" required><label for="male">Male</label>
+							<input type="radio" class="edit_gender" name="edit_gender" value="Female"><label for="female">Female</label>
 						</div>
 					</div>
 					<div class="boxx">
 						<p class="student-P">Email</p>
 						<div class="studentcon">
-							<input type="text" id="email" name="email" placeholder="Email">
+							<input type="text" id="edit_email" name="edit_email" placeholder="Email" required>
 						</div>
 					</div>
 					<div class="boxx">
-						<p class="student-P">year Level</p>
+						<p class="student-P">Year Level</p>
 						<div class="studentcon">
-							<select name="yearlevel" required>
+							<select name="edit_yearlevel" required>
 								<option value = "1">1st Year</option>
 								<option value = "2">2nd Year</option>
 								<option value = "3">3rd Year</option>
@@ -278,22 +270,38 @@ enableDelete_students();
 						</div>
 					</div>
 					<div class="boxx">
+						<p class="student-P">Course</p>
+						<div class="studentcon">
+							<select name="edit_course_id" required>
+								<?php cbCourse() ?>
+							</select>
+						</div>
+					</div>
+					<div class="boxx">
+						<p class="student-P">Section</p>
+						<div class="studentcon">
+							<select name="edit_section_id" required>
+								<?php cbSection() ?>
+							</select>
+						</div>
+					</div>
+					<div class="boxx">
 						<p class="student-P">Status</p>
 						<div class="studentcon">
-							<select name="status" required>
+							<select name="edit_status" required>
 								<option value = "Enrolled">Enrolled</option>
 								<option value = "Not Enrolled">Not Enrolled</option>
 							</select>
 						</div>
 					</div>
+					<?php editStudent() ?>
 					<div class="studentcon">
-					<a class="addbtn"><i class="fas fa-edit"></i> Edit Student</a>
-				</div>
+						<button type="submit" name="editstudent" class="editbtn"><i class="fas fa-edit"></i> Edit Student</button>
+					</div>
 				</div>
 			</div>
 		</div>
 	</form>
-	
 	
 	<script src="./assets/js/script.js"></script>
 	<script src="./assets/js/deleteConfirmation.js"></script>
