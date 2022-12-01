@@ -191,7 +191,7 @@ $(document).ready(function () {
     });
 
     // Faculty
-    $(".view.view-student").on('click',function () {
+    $(".view.view-faculty").on('click',function () {
         let currentRow = $(this).closest("tr");
         let col1 = currentRow.find("td:eq(0)").text();
         let col2 = currentRow.find("td:eq(1)").text();
