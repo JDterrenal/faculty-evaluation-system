@@ -714,7 +714,7 @@ function showFaculty()
         <td data-label='GENDER'>$gender</td>
         <td data-label='CONTACT NO.'>$contact_no</td>
         <td data-label='ADDRESS'>$address</td>
-        <td data-label='PHOTO'><img src='/images/uploads/$photo' width=50px height=50px></td>
+        <td data-label='PHOTO'><img src='/images/uploads/$photo' width=50px height=50px><span style='display: none;'>$photo</span></td>
         <td data-label='Operation'>
         <a href='#view-info' class='view view-faculty'><i class='fas fa-eye'></i> View</a>
         <a class='edit edit-faculty'><i class='fas fa-edit'></i> Edit</a>
@@ -758,7 +758,7 @@ function showStudents()
         <td data-label='CONTACT NO.'>$contact_no</td>
         <td data-label='ADDRESS'>$address</td>
         <td data-label='STATUS'>$status</td>
-        <td data-label='PHOTO'><img src='/images/uploads/$photo' alt='' width=50px height=50px></td>
+        <td data-label='PHOTO'><img src='/images/uploads/$photo' alt='' width=50px height=50px><span style='display: none;'>$photo</span></td>
         <td data-label='COURSE ID'>$course_id</td>
         <td data-label='SECTION ID'>$section_id</td>
         <td data-label='Operation'>
