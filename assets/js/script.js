@@ -91,7 +91,7 @@ $(document).ready(function () {
         let col7 = currentRow.find("td:eq(6)").text();
         let col8 = currentRow.find("td:eq(7)").text();
         let col9 = currentRow.find("td:eq(8)").text();
-        let col10 = currentRow.find("td:eq(9)").text();
+        let col10 = currentRow.find("td:eq(9)");
         let col11 = currentRow.find("td:eq(10)").text();
         let col12 = currentRow.find("td:eq(11)").text();
         let photo_src = $(col10).attr('src');
@@ -156,7 +156,7 @@ $(document).ready(function () {
         let col2 = currentRow.find("td:eq(1)").text();
         let col3 = currentRow.find("td:eq(2)").text();
         let col6 = currentRow.find("td:eq(5)").text();
-        let col10 = currentRow.find("td:eq(9)").text();
+        let col10 = currentRow.find("td:eq(9)");
         let col11 = currentRow.find("td:eq(10)").text();
         let col12 = currentRow.find("td:eq(11)").text();
         $("[data-label='ID Photo']").html(col10);

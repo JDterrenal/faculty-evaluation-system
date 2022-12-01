@@ -130,7 +130,7 @@ enableDelete_students();
 					<div class="boxx">
 						<p class="P">Student Picture</p>
 						<div class="userscon">
-							<img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side-pop">
+							<img src="./images/uploads/standard.png ?>" alt="" class="profile-side-pop">
 						</div>
 						<div class="userscon">
 							<input type="file" id="photo" name="photo">
@@ -227,7 +227,7 @@ enableDelete_students();
 					<div class="boxx">
 						<p class="P">Student Picture</p>
 						<div class="userscon">
-							<img id="edit_photo_output" src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side-pop">
+							<img id="edit_photo_output" src="./images/uploads/standard.png ?>" alt="" class="profile-side-pop">
 						</div>
 						<div class="userscon">
 							<input type="file" id="edit_photo" name="edit_photo">
