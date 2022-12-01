@@ -32,6 +32,7 @@ input[type=file]::file-selector-button{
   font-size: 1rem;
   border: none;
   padding: .5em;
+  margin: .5em;
   cursor: pointer;
 }
 
@@ -106,7 +107,7 @@ input[type=file]::file-selector-button:hover {
   overflow: hidden;
   margin: 1em 3em;
   width: 100%;
-  min-width: max-content;
+  table-layout: fixed;
 }
 
 .main-table thead tr th {
@@ -115,7 +116,6 @@ input[type=file]::file-selector-button:hover {
 
 .main-table tbody tr td {
   border: 1px solid #ffff;
-  
 }
 
 .main-table thead tr {
@@ -128,6 +128,7 @@ input[type=file]::file-selector-button:hover {
 .main-table th,
 .main-table td {
   padding: 12px 15px;
+
 }
 
 .main-table tbody tr {
@@ -1000,16 +1001,19 @@ footer {
   border-radius: 6px;
   background: #ffff;
 }
-.popup-addstudent {
-  margin-top: 1em;
+.popup-users {
+  margin-top: 5em;
   width: 100%;
   height: 100%;
-  max-height: 43em;
+  display: flex;
+  flex-direction: column;
+  max-height: 40em;
   max-width: 30em;
   min-width: 20em;
   border-radius: 6px;
   background: #ffff;
 }
+
 
 .popup-add-top {
   background: #d0d0d0;
@@ -1067,25 +1071,22 @@ footer {
   flex-direction: column;
   justify-content: center;
 }
-.popup-student-middle {
+.popup-users-middle {
   background: #ffff;
   width: 100%;
+  max-height: 35em;
   display: flex;
-  height: 100%;
-  padding-top: 6.5em;
   padding-bottom: .5em;
-  justify-content: center;
   flex-direction: column;
   overflow-y: scroll;
 }
-
 
 .label1 {
   margin-left: 1em;
   font-weight: 700;
   font-size: 1.2em;
 }
-.student-P{
+.P{
   margin-left: .5em;
   margin-bottom: .1em;
   font-weight: 700;
@@ -1100,22 +1101,28 @@ footer {
   font-weight: 700;
   font-size: 1em;
 }
-.popup-student-middle input[type=text],
-.popup-student-middle input[type=number],
-.popup-student-middle select[name=yearlevel],
-.popup-student-middle select[name=status],
-.popup-student-middle input[type=radio]{
+.popup-users-middle input[type=text],
+.popup-users-middle input[type=number],
+.popup-users-middle select[name=yearlevel],
+.popup-users-middle select[name=edit_course_id],
+.popup-users-middle select[name=section_id],
+.popup-users-middle select[name=edit_section_id],
+.popup-users-middle select[name=edit_yearlevel],
+.popup-users-middle select[name=edit_status],
+.popup-users-middle select[name=course_id],
+.popup-users-middle select[name=status],
+.popup-users-middle input[type=radio]{
   width: 100%;
   font-weight: 700;
   font-size: 1rem;
   margin: .5em;
 
 }
-.studentcon{
+.userscon{
   display: flex;
   justify-content: center;
 }
-.studentcon1{
+.userscon1{
   display: flex;
   align-items: center;
   max-width: 10em;
@@ -1140,6 +1147,7 @@ footer {
   text-align: center;
   cursor: pointer;
   color: #ffff;
+  border: none;
 }
 
 .editbtn {
@@ -1152,6 +1160,7 @@ footer {
   text-align: center;
   cursor: pointer;
   color: #ffff;
+  border: none;
 }
 
 
@@ -1274,7 +1283,7 @@ footer {
   .main-table tr,
   .main-table td {
     display: block;
-
+	
   }
 
   .main-table tr {

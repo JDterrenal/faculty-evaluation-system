@@ -109,45 +109,54 @@ enableDelete_faculty();
 
 	<form action=add_course.php method=post>
 		<div class="popup-backgroundsubject" id="popup-background">
-			<div class="popup-addstudent">
+			<div class="popup-users">
 				<div class="popup-add-top">
 					<p class="popup-add-title"><i class="fas fa-plus"></i> ADD FACULTY</p>
 					<i class="fas fa-times ex" id="ex-add"></i>
 				</div>
-				<div class="popup-student-middle">
+              	<div class="popup-users-middle">
 					<div class="boxx">
-						<p class="student-P">Faculty Name</p>
-						<div class="studentcon">
+						<p class="P">Student Picture</p>
+						<div class="userscon">
+							<img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side-pop">
+						</div>
+						<div class="userscon">
+							<input type="file" id="photo" name="photo">
+						</div>
+					</div>
+					<div class="boxx">
+						<p class="P">Faculty Name</p>
+						<div class="userscon">
 							<input type="text" id="firstname" name="firstname" placeholder="First name" >
 							<input type="text" id="lastname" name="lastname" placeholder="Last name">
 						</div>
 					</div>
 					<div class="boxx">
-						<p class="student-P">Address</p>
-						<div class="studentcon">
+						<p class="P">Address</p>
+						<div class="userscon">
 							<input type="text" id="address" name="address" placeholder="Address">
 						</div>
 					</div>
 					<div class="boxx">
-						<p class="student-P">Contact Number</p>
-						<div class="studentcon">
+						<p class="P">Contact Number</p>
+						<div class="userscon">
 							<input type="number" id="contact_no" name="contact_no" placeholder="Contact Number">
 						</div>
 					</div>
 					<div class="boxx">
-						<p class="student-P">Gender</p>
-						<div class="studentcon1">
+						<p class="P">Gender</p>
+						<div class="userscon1">
 							<input type="radio" id="male" name="gender" value="Male"><label for="male">Male</label>
 							<input type="radio" id="female" name="gender" value="Female"><label for="female">Female</label>
 						</div>
 					</div>
 					<div class="boxx">
-						<p class="student-P">Email</p>
-						<div class="studentcon">
+						<p class="P">Email</p>
+						<div class="userscon">
 							<input type="text" id="email" name="email" placeholder="Email">
 						</div>
 					</div>
-					<div class="studentcon">
+					<div class="userscon">
 					<a class="addbtn"><i class="fas fa-plus"></i> Add Faculty</a>
 				</div>
 				</div>
@@ -159,45 +168,45 @@ enableDelete_faculty();
 
 	<form action=add_course.php method=post>
 		<div class="popup-background-edit" id="edit-popup-background">
-			<div class="popup-addstudent">
+			<div class="popup-users">
 				<div class="popup-add-top">
 					<p class="popup-add-title"><i class="fas fa-edit"></i> EDIT FACULTY</p>
 					<i class="fas fa-times ex" id="ex-edit"></i>
 				</div>
-				<div class="popup-student-middle">
+				<div class="popup-users-middle">
 					<div class="boxx">
-						<p class="student-P">Faculty Name</p>
-						<div class="studentcon">
+						<p class="P">Faculty Name</p>
+						<div class="userscon">
 							<input type="text" id="firstname" name="firstname" placeholder="First name" >
 							<input type="text" id="lastname" name="lastname" placeholder="Last name">
 						</div>
 					</div>
 					<div class="boxx">
-						<p class="student-P">Address</p>
-						<div class="studentcon">
+						<p class="P">Address</p>
+						<div class="userscon">
 							<input type="text" id="address" name="address" placeholder="Address">
 						</div>
 					</div>
 					<div class="boxx">
-						<p class="student-P">Contact Number</p>
-						<div class="studentcon">
+						<p class="P">Contact Number</p>
+						<div class="userscon">
 							<input type="number" id="contact_no" name="contact_no" placeholder="Contact Number">
 						</div>
 					</div>
 					<div class="boxx">
-						<p class="student-P">Gender</p>
-						<div class="studentcon1">
+						<p class="P">Gender</p>
+						<div class="userscon1">
 							<input type="radio" id="male" name="gender" value="Male"><label for="male">Male</label>
 							<input type="radio" id="female" name="gender" value="Female"><label for="female">Female</label>
 						</div>
 					</div>
 					<div class="boxx">
-						<p class="student-P">Email</p>
-						<div class="studentcon">
+						<p class="P">Email</p>
+						<div class="userscon">
 							<input type="text" id="email" name="email" placeholder="Email">
 						</div>
 					</div>
-					<div class="studentcon">
+					<div class="userscon">
 					<a class="addbtn"><i class="fas fa-edit"></i> Edit Faculty</a>
 				</div>
 				</div>
