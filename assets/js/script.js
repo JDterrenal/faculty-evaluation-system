@@ -158,7 +158,7 @@ $(document).ready(function () {
         let col10 = currentRow.find("td:eq(9)").text();
         let col11 = currentRow.find("td:eq(10)").text();
         let col12 = currentRow.find("td:eq(11)").text();
-        $("[data-label='ID Photo']").html("<img id='edit_photo_output' src='./images/uploads/standard.png' alt='' class='profile-side-pop'>"+col10);
+        $("[data-label='Photo Info']").html("<img src='./images/uploads/"+col10+"' alt='' class='profile-side-pop'>");
         $("[data-label='ID Info']").html(col1);
         $("[data-label='Full Name Info']").html(col2 + " " + col3);
         $("[data-label='Year Level Info']").html(col6);
