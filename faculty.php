@@ -107,7 +107,7 @@ enableDelete_faculty();
 
 	<!--------popup add ------------>
 
-	<form action=add_course.php method=post>
+	<form action="faculty.php" method="post" enctype="multipart/form-data">
 		<div class="popup-background" id="popup-background">
 			<div class="popup-users">
 				<div class="popup-add-top">
@@ -127,38 +127,38 @@ enableDelete_faculty();
 					<div class="boxx">
 						<p class="P">Faculty Name</p>
 						<div class="userscon">
-							<input type="text" id="firstname" name="firstname" placeholder="First name" >
-							<input type="text" id="lastname" name="lastname" placeholder="Last name">
+							<input type="text" name="firstname" placeholder="First name" >
+							<input type="text" name="lastname" placeholder="Last name">
 						</div>
 					</div>
 					<div class="boxx">
 						<p class="P">Address</p>
 						<div class="userscon">
-							<input type="text" id="address" name="address" placeholder="Address">
+							<input type="text" name="address" placeholder="Address">
 						</div>
 					</div>
 					<div class="boxx">
 						<p class="P">Contact Number</p>
 						<div class="userscon">
-							<input type="number" id="contact_no" name="contact_no" placeholder="Contact Number">
+							<input type="number" name="contact_no" placeholder="Contact Number">
 						</div>
 					</div>
 					<div class="boxx">
 						<p class="P">Gender</p>
 						<div class="userscon1">
-							<input type="radio" id="male" name="gender" value="Male"><label for="male">Male</label>
-							<input type="radio" id="female" name="gender" value="Female"><label for="female">Female</label>
+							<input type="radio" id="add_male" name="gender" value="Male"><label for="add_male">Male</label>
+							<input type="radio" id="add_female" name="gender" value="Female"><label for="add_female">Female</label>
 						</div>
 					</div>
 					<div class="boxx">
 						<p class="P">Email</p>
 						<div class="userscon">
-							<input type="text" id="email" name="email" placeholder="Email">
+							<input type="text" name="email" placeholder="Email">
 						</div>
 					</div>
 					<div class="userscon">
-					<a class="addbtn"><i class="fas fa-plus"></i> Add Faculty</a>
-				</div>
+						<button type="submit" name="addfaculty" class="editbtn"><i class="fas fa-edit"></i> Add Faculty</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -166,7 +166,7 @@ enableDelete_faculty();
 
 	<!--------popup edit ------------>
 
-	<form action=add_course.php method=post>
+	<form action="faculty.php" method="post" enctype="multipart/form-data">
 		<div class="popup-background-edit" id="edit-popup-background">
 			<div class="popup-users">
 				<div class="popup-add-top">
@@ -174,41 +174,51 @@ enableDelete_faculty();
 					<i class="fas fa-times ex" id="ex-edit"></i>
 				</div>
 				<div class="popup-users-middle">
+					<input type="hidden" name="edit_id" id="edit_id">
+					<div class="boxx">
+						<p class="P">Faculty Picture</p>
+						<div class="userscon">
+							<img id="edit_photo_output" src="./images/uploads/standard.png" alt="" class="profile-side-pop">
+						</div>
+						<div class="userscon">
+							<input type="file" id="edit_photo" name="edit_photo">
+						</div>
+					</div>
 					<div class="boxx">
 						<p class="P">Faculty Name</p>
 						<div class="userscon">
-							<input type="text" id="firstname" name="firstname" placeholder="First name" >
-							<input type="text" id="lastname" name="lastname" placeholder="Last name">
+							<input type="text" id="edit_firstname" name="edit_firstname" placeholder="First name" >
+							<input type="text" id="edit_lastname" name="edit_lastname" placeholder="Last name">
 						</div>
 					</div>
 					<div class="boxx">
 						<p class="P">Address</p>
 						<div class="userscon">
-							<input type="text" id="address" name="address" placeholder="Address">
+							<input type="text" id="edit_address" name="edit_address" placeholder="Address">
 						</div>
 					</div>
 					<div class="boxx">
 						<p class="P">Contact Number</p>
 						<div class="userscon">
-							<input type="number" id="contact_no" name="contact_no" placeholder="Contact Number">
+							<input type="number" id="edit_contact_no" name="edit_contact_no" placeholder="Contact Number">
 						</div>
 					</div>
 					<div class="boxx">
 						<p class="P">Gender</p>
 						<div class="userscon1">
-							<input type="radio" id="male" name="gender" value="Male"><label for="male">Male</label>
-							<input type="radio" id="female" name="gender" value="Female"><label for="female">Female</label>
+							<input type="radio" id="Male" name="gender" value="Male"><label for="Male">Male</label>
+							<input type="radio" id="Female" name="gender" value="Female"><label for="Female">Female</label>
 						</div>
 					</div>
 					<div class="boxx">
 						<p class="P">Email</p>
 						<div class="userscon">
-							<input type="text" id="email" name="email" placeholder="Email">
+							<input type="text" id="edit_email" name="edit_email" placeholder="Email">
 						</div>
 					</div>
 					<div class="userscon">
-					<a class="addbtn"><i class="fas fa-edit"></i> Edit Faculty</a>
-				</div>
+						<button type="submit" name="editfaculty" class="editbtn"><i class="fas fa-edit"></i> Edit Faculty</button>
+					</div>
 				</div>
 			</div>
 		</div>
