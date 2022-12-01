@@ -210,9 +210,9 @@ function addStudent()
         } else {
             include './assets/php/uploadPhoto_add.php';
         }
-        $sql = "INSERT INTO tb_students (student_id, firstname, lastname, email, gender, yearlevel, contact_no, address, status, photo, course_id, section_id) VALUES (null, '$firstname', '$lastname', '$email', '$gender', '$yearlevel', $contact_no, '$address', '$status', '$photo', '$course', '$section')";
 
         //Add Student
+        $sql = "INSERT INTO tb_students (student_id, firstname, lastname, email, gender, yearlevel, contact_no, address, status, photo, course_id, section_id) VALUES (null, '$firstname', '$lastname', '$email', '$gender', '$yearlevel', $contact_no, '$address', '$status', '$photo', '$course', '$section')";
         if (mysqli_query($conn, $sql)) {
             $sql2 = "SELECT student_id FROM tb_students ORDER BY student_id DESC LIMIT 1;";
             $result = mysqli_query($conn, $sql2);
@@ -243,7 +243,12 @@ function addFaculty()
         $gender = $_POST['gender'];
         $contact_no = $_POST['contact_no'];
         $address = $_POST['address'];
-        $photo = 'standard.png';
+
+        if ($_FILES['photo'] == UPLOAD_ERR_NO_FILE) {
+            $photo = 'standard.png';
+        } else {
+            include './assets/php/uploadPhoto_add.php';
+        }
 
         //Add Faculty
         $sql = "INSERT INTO tb_faculty (faculty_id, firstname, lastname, email, gender, contact_no, address, photo) VALUES (null, '$firstname', '$lastname', '$email', '$gender', $contact_no, '$address', '$photo')";
@@ -360,11 +365,12 @@ function editStudent()
         $edit_status = $_POST['edit_status'];
         $edit_course_id = $_POST['edit_course_id'];
         $edit_section_id = $_POST['edit_section_id'];
+        $edit_photo = null;
 
         if ($_FILES['edit_photo'] == UPLOAD_ERR_NO_FILE) {
             $sql = "UPDATE tb_students SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', yearlevel='$edit_yearlevel', contact_no='$edit_contact_no', address='$edit_address', status='$edit_status', course_id='$edit_course_id', section_id='$edit_section_id' WHERE student_id='$edit_id'";
         } else {
-            include './assets/php/uploadPhoto_edit.php';
+            include './assets/php/uploadPhoto_edit_student.php';
             $sql = "UPDATE tb_students SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', yearlevel='$edit_yearlevel', contact_no='$edit_contact_no', address='$edit_address', status='$edit_status', photo='$edit_photo', course_id='$edit_course_id', section_id='$edit_section_id' WHERE student_id='$edit_id'";
         }
         if (mysqli_query($conn, $sql)) {
@@ -377,35 +383,25 @@ function editStudent()
 }
 
 //Faculty Edit and Confirmation
-function editFaculty($edit_faculty_id)
-{
-    include 'connection.php';
-    global $edit_firstname, $edit_lastname, $edit_gender, $edit_contact_no, $edit_address, $edit_email;
-    $sql = "SELECT firstname, lastname, email, gender, contact_no, address, photo FROM tb_faculty WHERE faculty_id='$edit_faculty_id'";
-    $result = mysqli_query($conn, $sql);
-    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $edit_firstname = $row["firstname"];
-        $edit_lastname = $row["lastname"];
-        $edit_email = $row["email"];
-        $edit_gender = $row["gender"];
-        $edit_contact_no = $row["contact_no"];
-        $edit_address = $row["address"];
-    }
-    mysqli_close($conn);
-}
-
-function editFacultyConf($edit_faculty_id)
-{
-    include 'connection.php';
-    global $edit_firstname, $edit_lastname, $edit_gender, $edit_yearlevel, $edit_contact_no, $edit_address, $edit_email, $edit_status;
-    $edit_firstname = $_POST['firstname'];
-    $edit_lastname = $_POST['lastname'];
-    $edit_email = $_POST['email'];
-    $edit_gender = $_POST['gender'];
-    $edit_contact_no = $_POST['contact_no'];
-    $edit_address = $_POST['address'];
-    if (isset($_POST['facultyEdit'])) {
-        $sql = "UPDATE tb_faculty SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', contact_no='$edit_contact_no', address='$edit_address' WHERE faculty_id='$edit_faculty_id'";
+function editFaculty()
+{  
+    if (isset($_POST['editfaculty'])) {
+        include 'connection.php';
+        $edit_id = $_POST['edit_id'];
+        $edit_firstname = $_POST['edit_firstname'];
+        $edit_lastname = $_POST['edit_lastname'];
+        $edit_email = $_POST['edit_email'];
+        $edit_gender = $_POST['edit_gender'];
+        $edit_contact_no = $_POST['edit_contact_no'];
+        $edit_address = $_POST['edit_address'];
+        $edit_photo = null;
+        
+        if ($_FILES['edit_photo'] == UPLOAD_ERR_NO_FILE) {
+            $sql = "UPDATE tb_faculty SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', contact_no='$edit_contact_no', address='$edit_address' WHERE faculty_id='$edit_id'";
+        } else {
+            include './assets/php/uploadPhoto_edit_faculty.php';
+            $sql = "UPDATE tb_faculty SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', contact_no='$edit_contact_no', address='$edit_address', photo='$edit_photo' WHERE faculty_id='$edit_id'";
+        }
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/editAlert.js"></script><?php
         } else {
