@@ -31,7 +31,7 @@ preventBack();
 					<div class="user-info">
 						<div class="user-content">
 							<div class="user-info-title">
-								<p class="user-title"><i class="fas fa-user"></i> User Information!</p>
+								<p class="user-title"><i class="fas fa-user"></i> Information!</p>
 								<hr>
 							</div>
 						</div>
@@ -39,20 +39,20 @@ preventBack();
 							<table class="user-table">
 								<tbody>
 									<tr>
-										<th data-label="Name">Name</th>
-										<td data-label="Name">Tite</td>
+										<th>Login ID Info</th>
+										<td data-label="Login ID Info"></td>
 									</tr>
 									<tr>
-										<th data-label="usertyp">User Type</th>
-										<td data-label="User Type">Tite</td>
+										<th>User ID Info</th>
+										<td data-label="User ID Info"></td>
 									</tr>
 									<tr>
-										<th data-label="Course">Course</th>
-										<td data-label="Course">Tite</td>
+										<th>Password Info</th>
+										<td data-label="Password Info"></td>
 									</tr>
 									<tr>
-										<th data-label="Student ID">Student ID</th>
-										<td data-label="Student ID">Tite</td>
+										<th>User Type Info</th>
+										<td data-label="User Type Info"></td>
 									</tr>
 								<tbody>
 							</table>
@@ -73,11 +73,10 @@ preventBack();
 							<table class="main-table">
 								<thead>
 									<tr>
-										<th>ID</th>
-										<th>Student ID</th>
-										<th>Faculty ID</th>
+										<th>Login ID</th>
+										<th>User ID</th>
 										<th>Password</th>
-										<th>Usertype</th>
+										<th>User Type</th>
 										<th>Operation</th>
 									</tr>
 								</thead>
@@ -107,9 +106,11 @@ preventBack();
 					<i class="fas fa-times ex" id="ex-edit"></i>
 				</div>
 				<div class="popup-add-middle">
+					<input type="hidden" name="edit_id" id="edit_id">
 					<p class="label1">Password</p>
-					<input type="password" placeholder="Password" class="popup-tbx">
-					<a class="editbtn"><i class="fas fa-edit"></i> Confirm Password</a>
+					<input type="password" id="edit_password" name="edit_password" placeholder="Password" class="popup-tbx">
+					<?php editAccount() ?>
+					<button type="submit" name="editaccount" class="editbtn"><i class="fas fa-edit"></i> Edit Password</button>
 				</div>
 			</div>
 		</div>

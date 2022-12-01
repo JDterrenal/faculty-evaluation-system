@@ -411,6 +411,22 @@ function editFaculty()
     }
 }
 
+function editAccount()
+{
+    if (isset($_POST['editaccount'])) {
+        include 'connection.php';
+        $edit_id = $_POST['edit_id'];
+        $edit_password = $_POST['edit_password'];
+        $sql = "UPDATE tb_login SET password='$edit_password' WHERE login_id='$edit_id'";
+        if (mysqli_query($conn, $sql)) {
+            ?><script src="/assets/js/editAlert.js"></script><?php
+        } else {
+            ?><script src="/assets/js/errorAlert.js"></script><?php
+        }
+        mysqli_close($conn);
+    }
+}
+
 function editCourse()
 {
     if (isset($_POST['editcourse'])) {
@@ -782,19 +798,33 @@ function showAccounts()
         $faculty_id = $row["faculty_id"];
         $password = $row["password"];
         $usertype = $row["usertype"];
-        echo "
-        <tr>
-        <td data-label='ID'>$primary_id</td>
-        <td data-label='Student ID'>$student_id</td>
-        <td data-label='Faculty ID'>$faculty_id</td>
-        <td data-label='Password'>$password</td>
-        <td data-label='User Type'>$usertype</td>
-        <td data-label='Operation'>
-        <a href='#view-info' class='view view-account'><i class='fas fa-eye'></i> View</a>
-        <a class='edit edit-account'><i class='fas fa-edit'></i> Edit</a>
-        </td>
-        </tr>
-        ";
+        if ($usertype == "Student") {
+            echo "
+            <tr>
+            <td data-label='Login ID'>$primary_id</td>
+            <td data-label='User ID'>$student_id</td>
+            <td data-label='Password'>$password</td>
+            <td data-label='User Type'>$usertype</td>
+            <td data-label='Operation'>
+            <a href='#view-info' class='view view-account'><i class='fas fa-eye'></i> View</a>
+            <a class='edit edit-account'><i class='fas fa-edit'></i> Edit</a>
+            </td>
+            </tr>
+            ";
+        } else if ($usertype == "Faculty") {
+            echo "
+            <tr>
+            <td data-label='Login ID'>$primary_id</td>
+            <td data-label='User ID'>$faculty_id</td>
+            <td data-label='Password'>$password</td>
+            <td data-label='User Type'>$usertype</td>
+            <td data-label='Operation'>
+            <a href='#view-info' class='view view-account'><i class='fas fa-eye'></i> View</a>
+            <a class='edit edit-account'><i class='fas fa-edit'></i> Edit</a>
+            </td>
+            </tr>
+            ";
+        } 
     }
     mysqli_close($conn);
 }
@@ -944,7 +974,7 @@ function accountsCount()
     global $count;
     $sql = "SELECT login_id, student_id, faculty_id, password, usertype FROM tb_login ORDER BY login_id";
     $result = mysqli_query($conn, $sql);
-    $count = mysqli_num_rows($result);
+    $count = mysqli_num_rows($result) - 1;
     echo "$count";
     mysqli_close($conn);
 }
