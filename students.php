@@ -165,7 +165,7 @@ enableDelete_students();
 					<div class="boxx">
 						<p class="P">Email</p>
 						<div class="userscon">
-							<input type="text" name="email" placeholder="Email" required>
+							<input type="email" name="email" placeholder="Email" required>
 						</div>
 					</div>
 					<div class="boxx">
@@ -262,7 +262,7 @@ enableDelete_students();
 					<div class="boxx">
 						<p class="P">Email</p>
 						<div class="userscon">
-							<input type="text" id="edit_email" name="edit_email" placeholder="Email" required>
+							<input type="email" id="edit_email" name="edit_email" placeholder="Email" required>
 						</div>
 					</div>
 					<div class="boxx">
