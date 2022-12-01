@@ -484,7 +484,7 @@ function enableDelete_faculty()
     include 'connection.php';
     //Delete Faculty
     if (isset($_GET['delete_id'])) {
-        $delete_id = $_GET['delete_faculty_id'];
+        $delete_id = $_GET['delete_id'];
         $sql = "DELETE FROM tb_faculty WHERE faculty_id='$delete_id'";
         $sql2 = "DELETE FROM tb_login WHERE faculty_id='$delete_id'";
         mysqli_query($conn, $sql) or die("Connection error!");
@@ -777,21 +777,22 @@ function showAccounts()
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $login_id = $row["login_id"];
+        $primary_id = $row["login_id"];
         $student_id = $row["student_id"];
         $faculty_id = $row["faculty_id"];
         $password = $row["password"];
         $usertype = $row["usertype"];
         echo "
         <tr>
-        <td data-label='ID'>$login_id</td>
+        <td data-label='ID'>$primary_id</td>
         <td data-label='Student ID'>$student_id</td>
         <td data-label='Faculty ID'>$faculty_id</td>
         <td data-label='Password'>$password</td>
         <td data-label='User Type'>$usertype</td>
-        <td data-label='Operation'><a href='accounts.php?view_login_id=$login_id' class='view' id='viewsubject' onclick='ViewFunction()'><i class='fas fa-eye'></i> View</a></td>
-        <td data-label='Operation'><a href='accounts.php?edit_login_id=$login_id' class='edit' id='editsubject' onclick='EditFunction()'><i class='fas fa-edit'></i> Edit</a></td>
-        <td data-label='Operation'><a href='accounts.php?delete_login_id=$login_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a></td>
+        <td data-label='Operation'>
+        <a href='#view-info' class='view view-account'><i class='fas fa-eye'></i> View</a>
+        <a class='edit edit-account'><i class='fas fa-edit'></i> Edit</a>
+        </td>
         </tr>
         ";
     }
