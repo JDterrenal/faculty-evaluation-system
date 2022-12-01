@@ -91,10 +91,9 @@ $(document).ready(function () {
         let col7 = currentRow.find("td:eq(6)").text();
         let col8 = currentRow.find("td:eq(7)").text();
         let col9 = currentRow.find("td:eq(8)").text();
-        let col10 = currentRow.find("td:eq(9)");
+        let col10 = currentRow.find("td:eq(9)").text();
         let col11 = currentRow.find("td:eq(10)").text();
         let col12 = currentRow.find("td:eq(11)").text();
-        let photo_src = $(col10).attr('src');
         $("#edit_id").val(col1);
         $("#edit_firstname").val(col2);
         $("#edit_lastname").val(col3);
@@ -106,7 +105,7 @@ $(document).ready(function () {
         $("#edit_status").val(col9).change();
         $("#edit_course_id").val(col11).change();
         $("#edit_section_id").val(col12).change();
-        $("#edit_photo_output").attr("src", photo_src);
+        $("#edit_photo_output").prop("src", "./images/uploads/" + col10);
 
         editBackground.style.display = "flex";
         $("#edit-popup-background").show();
@@ -156,10 +155,10 @@ $(document).ready(function () {
         let col2 = currentRow.find("td:eq(1)").text();
         let col3 = currentRow.find("td:eq(2)").text();
         let col6 = currentRow.find("td:eq(5)").text();
-        let col10 = currentRow.find("td:eq(9)");
+        let col10 = currentRow.find("td:eq(9)").text();
         let col11 = currentRow.find("td:eq(10)").text();
         let col12 = currentRow.find("td:eq(11)").text();
-        $("[data-label='ID Photo']").html(col10);
+        $("[data-label='ID Photo']").html("<img id='edit_photo_output' src='./images/uploads/standard.png' alt='' class='profile-side-pop'>"+col10);
         $("[data-label='ID Info']").html(col1);
         $("[data-label='Full Name Info']").html(col2 + " " + col3);
         $("[data-label='Year Level Info']").html(col6);
