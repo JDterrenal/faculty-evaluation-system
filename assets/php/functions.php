@@ -758,7 +758,7 @@ function showStudents()
         <td data-label='CONTACT NUMBER'>$contact_no</td>
         <td data-label='ADDRESS'>$address</td>
         <td data-label='STATUS'>$status</td>
-        <td data-label='PHOTO'><img src='/images/uploads/$photo' alt='' width=50px height=50px></td>
+        <td data-label='PHOTO'><img src='/images/uploads/$photo' alt='' width=50px height=50px><span style='display: none;'>$photo</span></td>
         <td data-label='COURSE ID'>$course_id</td>
         <td data-label='SECTION ID'>$section_id</td>
         <td data-label='Operation'>
