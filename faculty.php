@@ -38,20 +38,20 @@ enableDelete_faculty();
 							<table class="user-table">
 								<tbody>
 									<tr>
-										<th data-label="Name">Name</th>
-										<td data-label="Name">Tite</td>
+										<th>Photo Info</th>
+										<td data-label="Photo Info"></td>
 									</tr>
 									<tr>
-										<th data-label="usertyp">User Type</th>
-										<td data-label="User Type">Tite</td>
+										<th>ID Info</th>
+										<td data-label="ID Info"></td>
 									</tr>
 									<tr>
-										<th data-label="Course">Course</th>
-										<td data-label="Course">Tite</td>
+										<th>Full Name Info</th>
+										<td data-label="Full Name Info"></td>
 									</tr>
 									<tr>
-										<th data-label="Student ID">Student ID</th>
-										<td data-label="Student ID">Tite</td>
+										<th>Email Info</th>
+										<td data-label="Email Info"></td>
 									</tr>
 								<tbody>
 							</table>
@@ -77,14 +77,14 @@ enableDelete_faculty();
 								<thead>
 									<tr>
 										<th>ID</th>
-										<th>FIRST NAME</th>
-                                        <th>LAST NAME</th>
-                                        <th>EMAIL</th>
-                                        <th>GENDER</th>
-                                        <th>CONTACT NUMBER</th>
-                                        <th>ADDRESS</th>
-                                        <th>PHOTO</th>
-                                        <th>OPERATION</th>
+										<th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Email</th>
+                                        <th>Gender</th>
+                                        <th>Contact Number</th>
+                                        <th>Address</th>
+                                        <th>Photo</th>
+                                        <th>Operation</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -116,9 +116,9 @@ enableDelete_faculty();
 				</div>
               	<div class="popup-users-middle">
 					<div class="boxx">
-						<p class="P">Student Picture</p>
+						<p class="P">Faculty Picture</p>
 						<div class="userscon">
-							<img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" alt="" class="profile-side-pop">
+							<img src="./images/uploads/standard.png" alt="" class="profile-side-pop">
 						</div>
 						<div class="userscon">
 							<input type="file" id="photo" name="photo">
