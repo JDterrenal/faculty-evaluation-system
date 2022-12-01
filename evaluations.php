@@ -82,7 +82,7 @@ enableDelete_evaluations();
 										<th>Semester</th>
 										<th>Status</th>
 										<th>Section ID</th>
-										<th colspan="2">Operation</th>
+										<th>Operation</th>
 									</tr>
 								</thead>
 								<tbody>

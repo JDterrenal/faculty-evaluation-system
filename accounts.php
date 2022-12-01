@@ -78,7 +78,7 @@ preventBack();
 										<th>Faculty ID</th>
 										<th>Password</th>
 										<th>Usertype</th>
-										<th colspan="3">Operation</th>
+										<th>Operation</th>
 									</tr>
 								</thead>
 								<tbody>
