@@ -99,9 +99,7 @@ enableDelete_students();
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<?php showStudents() ?>
-									</tr>
+									<?php showStudents() ?>
 								</tbody>
 							</table>
 						</div>
