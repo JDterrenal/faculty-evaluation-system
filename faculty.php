@@ -206,8 +206,8 @@ enableDelete_faculty();
 					<div class="boxx">
 						<p class="P">Gender</p>
 						<div class="userscon1">
-							<input type="radio" id="Male" name="gender" value="Male"><label for="Male">Male</label>
-							<input type="radio" id="Female" name="gender" value="Female"><label for="Female">Female</label>
+							<input type="radio" id="Male" name="edit_gender" value="Male"><label for="Male">Male</label>
+							<input type="radio" id="Female" name="edit_gender" value="Female"><label for="Female">Female</label>
 						</div>
 					</div>
 					<div class="boxx">
