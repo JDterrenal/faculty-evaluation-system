@@ -1312,11 +1312,8 @@ footer {
 
   .user-table td::before {
     content: attr(data-label);
-    position: absolute;
-    left: 0;
-    width: 50%;
-    padding-left: 15px;
-    text-align: left;
+    float: left;
+
   }
 
   .user-table tbody tr {
