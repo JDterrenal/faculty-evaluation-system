@@ -120,7 +120,7 @@ enableDelete_students();
 
 	<!--------popup add student ------------>
 	<form action="students.php" method="post" enctype="multipart/form-data">
-		<div class="popup-backgroundsubject" id="popup-background">
+		<div class="popup-background" id="popup-background">
 			<div class="popup-users">
 				<div class="popup-add-top">
 					<p class="popup-add-title"><i class="fas fa-plus"></i> ADD STUDENT</p>
