@@ -972,17 +972,6 @@ footer {
   justify-content: center;
 }
 
-.popup-backgroundsubject {
-  background: rgba(0, 0, 0, 0.6);
-  width: 100%;
-  height: 100%;
-  top: 0;
-  margin: 0 auto;
-  position: fixed;
-  z-index: 100;
-  display: none;
-  justify-content: center;
-}
 
 .popup-background-edit {
   background: rgba(0, 0, 0, 0.6);
@@ -1030,7 +1019,6 @@ footer {
   flex-direction: column;
   max-height: 40em;
   max-width: 30em;
-  min-width: 20em;
   border-radius: 6px;
   background: #ffff;
 }
@@ -1306,14 +1294,12 @@ footer {
 
   .user-table tbody tr td {
     text-align: right;
-    padding-left: 40%;
     position: relative;
   }
 
   .user-table td::before {
     content: attr(data-label);
     float: left;
-
   }
 
   .user-table tbody tr {
@@ -1377,6 +1363,17 @@ footer {
   .popup-logout {
     max-width: 21rem;
     max-height: 22rem;
+  }
+
+  .popup-users {
+    margin-top: 4em;
+    height: 100%;
+    max-height: 30em;
+    max-width: 20em;
+  }
+
+  .popup-users-middle {
+    max-height: 25em;
   }
 
 }
