@@ -71,9 +71,8 @@ input[type=file]::file-selector-button:hover {
 /* all buttons */
 .view {
   display: inline-block;
-  padding: .5em;
+  padding: .4em;
   background-color: #33ccff;
-  margin: .5em;
   text-decoration: none;
   color: #ffff;
   font-weight: bold;
@@ -87,9 +86,8 @@ input[type=file]::file-selector-button:hover {
 
 .delete {
   display: inline-block;
-  padding: .5em;
+  padding: .4em;
   background-color: #ff4d4d;
-  margin: .5em;
   text-decoration: none;
   color: #ffff;
   font-weight: bold;
@@ -103,9 +101,8 @@ input[type=file]::file-selector-button:hover {
 
 .edit {
   display: inline-block;
-  padding: .5em;
+  padding: .4em;
   background-color: #4dff4d;
-  margin: .5em;
   text-decoration: none;
   color: #ffff;
   font-weight: bold;
@@ -126,7 +123,9 @@ input[type=file]::file-selector-button:hover {
   margin: 1em 3em;
   width: 100%;
   table-layout: fixed;
+  
 }
+
 
 .main-table thead tr th {
   border: 1px solid #ffff;
@@ -1063,25 +1062,9 @@ footer {
   padding: 0 .5em;
   cursor: pointer;
 }
-.exsubject{
-  margin-top: -2.3em;
-  border-radius: 0 6px 0 0;
-  font-size: 1.2em;
-  background-color: #ff4d4d;
-  color: #000000;
-  padding: 0 .5em;
-  cursor: pointer;
-}
 
-
-.exedit {
-  margin-top: -2.3em;
-  border-radius: 0 6px 0 0;
-  font-size: 1.2em;
-  background-color: #ff4d4d;
-  color: #000000;
-  padding: 0 .5em;
-  cursor: pointer;
+.ex:hover {
+  background-color: #ff1c1c;
 }
 
 .popup-add-middle {
@@ -1296,7 +1279,7 @@ footer {
 
   .main-table tbody tr td {
     text-align: right;
-    padding-left: 50%;
+    padding-left: 25%;
     position: relative;
   }
 
@@ -1359,7 +1342,7 @@ footer {
 
   .student-table tbody tr td {
     text-align: right;
-    padding-left: 30%;
+    padding-left: 250%;
     position: relative;
   }
 

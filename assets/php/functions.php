@@ -677,9 +677,10 @@ function showCourses()
         <tr>
         <td data-label='ID'>$primary_id</td>
         <td data-label='Course'>$course_name</td>
-        <td data-label='Operation'><a href='#view-info' class='view view-course'><i class='fas fa-eye'></i> View</a></td>
-        <td data-label='Operation'><a class='edit edit-course'><i class='fas fa-edit'></i> Edit</a></td>
-        <td data-label='Operation'><a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
+        <td data-label='Operation'>
+        <a href='#view-info' class='view view-course'><i class='fas fa-eye'></i> View</a>
+        <a class='edit edit-course'><i class='fas fa-edit'></i> Edit</a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
         </td>
         </tr>
         ";
@@ -714,9 +715,10 @@ function showFaculty()
         <td data-label='CONTACT NUMBER'>$contact_no</td>
         <td data-label='ADDRESS'>$address</td>
         <td data-label='PHOTO'><img src='/images/uploads/$photo' width=50px height=50px></td>
-        <td data-label='Operation'><a href='#view-info' class='view view-faculty'><i class='fas fa-eye'></i> View</a></td>
-        <td data-label='Operation'><a class='edit edit-faculty'><i class='fas fa-edit'></i> Edit</a></td>
-        <td data-label='Operation'><a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
+        <td data-label='Operation'>
+        <a href='#view-info' class='view view-faculty'><i class='fas fa-eye'></i> View</a>
+        <a class='edit edit-faculty'><i class='fas fa-edit'></i> Edit</a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
         </td>
         </tr>
         ";
@@ -760,9 +762,9 @@ function showStudents()
         <td data-label='COURSE ID'>$course_id</td>
         <td data-label='SECTION ID'>$section_id</td>
         <td data-label='Operation'>
-        <a href='#view-info' class='view view-student'><i class='fas fa-eye'></i> View</a></td>
-        <td data-label='Operation'><a class='edit edit-student'><i class='fas fa-edit'></i> Edit</a></td>
-        <td data-label='Operation'><a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
+        <a href='#view-info' class='view view-student'><i class='fas fa-eye'></i> View</a>
+        <a class='edit edit-student'><i class='fas fa-edit'></i> Edit</a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
         </td>
         </tr>
         ";
