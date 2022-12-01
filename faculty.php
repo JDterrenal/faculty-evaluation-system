@@ -108,7 +108,7 @@ enableDelete_faculty();
 	<!--------popup add ------------>
 
 	<form action=add_course.php method=post>
-		<div class="popup-backgroundsubject" id="popup-background">
+		<div class="popup-background" id="popup-background">
 			<div class="popup-users">
 				<div class="popup-add-top">
 					<p class="popup-add-title"><i class="fas fa-plus"></i> ADD FACULTY</p>

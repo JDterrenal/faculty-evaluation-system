@@ -93,7 +93,7 @@ enableDelete_sections();
 
 	<!--------popup add section ------------>
 	<form action="sections.php" method="post">
-		<div class="popup-backgroundsubject" id="popup-background">
+		<div class="popup-background" id="popup-background">
 			<div class="popup-add">
 				<div class="popup-add-top">
 					<p class="popup-add-title"><i class="fas fa-plus"></i> ADD SECTION</p>

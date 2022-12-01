@@ -102,7 +102,7 @@ enableDelete_subjects();
 
 	<!--------popup add subject ------------>
 	<form action=subjects.php method=post>
-		<div class="popup-backgroundsubject" id="popup-background">
+		<div class="popup-background" id="popup-background">
 			<div class="popup-add">
 				<div class="popup-add-top">
 					<p class="popup-add-title"><i class="fas fa-plus"></i> ADD SUBJECT</p>
@@ -132,18 +132,14 @@ enableDelete_subjects();
 				</div>
 				<div class="popup-add-middle">
 					<input type="hidden" name="edit_id" id="edit_id">
-					<div class="boxx">
 						<p class="label1">Subject Code</p>
 						<input type="text" name="edit_subject_code" id="edit_subject_code" placeholder="Subject Name" class="popup-tbx" required>
-					</div>
-					<div class="boxx">
+						
 						<p class="label1">Subject Name</p>
 						<input type="text" name="edit_subject_name" id="edit_subject_name" placeholder="Subject Name" class="popup-tbx" required>
-					</div>
-					<div class="boxx">
+						
 						<p class="label1">Units</p>
 						<input type="number" name="edit_units" id="edit_units" placeholder="Subject Name" class="popup-tbx" required>
-					</div>
 					<?php editSubject() ?>
 					<button type="submit" name="editsubject" class="editbtn"><i class="fas fa-edit"></i> Edit Subject</button>
 				</div>
