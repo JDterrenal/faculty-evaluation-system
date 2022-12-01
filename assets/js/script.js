@@ -111,6 +111,30 @@ $(document).ready(function () {
         $("#edit-popup-background").show();
     });
 
+    //Faculty
+    $(".edit.edit-faculty").on('click',function () {
+        let currentRow = $(this).closest("tr");
+        let col1 = currentRow.find("td:eq(0)").text();
+        let col2 = currentRow.find("td:eq(1)").text();
+        let col3 = currentRow.find("td:eq(2)").text();
+        let col4 = currentRow.find("td:eq(3)").text();
+        let col5 = currentRow.find("td:eq(4)").text();
+        let col6 = currentRow.find("td:eq(5)").text();
+        let col7 = currentRow.find("td:eq(6)").text();
+        let col8 = currentRow.find("td:eq(7)").text();
+        $("#edit_id").val(col1);
+        $("#edit_firstname").val(col2);
+        $("#edit_lastname").val(col3);
+        $("#edit_email").val(col4);
+        $("#"+col5).prop('checked', true)
+        $("#edit_contact_no").val(col6);
+        $("#edit_address").val(col7);
+        $("#edit_photo_output").prop("src", "./images/uploads/" + col8);
+
+        editBackground.style.display = "flex";
+        $("#edit-popup-background").show();
+    });
+
     // Exit Edit
     $("#ex-edit").click(function () {
         $("#edit-popup-background").hide();
@@ -164,6 +188,20 @@ $(document).ready(function () {
         $("[data-label='Year Level Info']").html(col6);
         $("[data-label='Course ID Info']").html(col11);
         $("[data-label='Section ID Info']").html(col12);
+    });
+
+    // Faculty
+    $(".view.view-student").on('click',function () {
+        let currentRow = $(this).closest("tr");
+        let col1 = currentRow.find("td:eq(0)").text();
+        let col2 = currentRow.find("td:eq(1)").text();
+        let col3 = currentRow.find("td:eq(2)").text();
+        let col4 = currentRow.find("td:eq(3)").text();
+        let col5 = currentRow.find("td:eq(7)").text();
+        $("[data-label='Photo Info']").html("<img src='./images/uploads/"+col5+"' alt='' class='profile-side-pop'>");
+        $("[data-label='ID Info']").html(col1);
+        $("[data-label='Full Name Info']").html(col2 + " " + col3);
+        $("[data-label='Email Info']").html(col4);
     });
 });
 
