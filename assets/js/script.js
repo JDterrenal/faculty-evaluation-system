@@ -139,7 +139,7 @@ $(document).ready(function () {
     $(".edit.edit-account").on('click',function () {
         let currentRow = $(this).closest("tr");
         let col1 = currentRow.find("td:eq(0)").text();
-        let col2 = currentRow.find("td:eq(2)").text();
+        let col2 = currentRow.find("td:eq(3)").text();
         $("#edit_id").val(col1);
         $("#edit_password").val(col2);
 
@@ -223,10 +223,12 @@ $(document).ready(function () {
         let col2 = currentRow.find("td:eq(1)").text();
         let col3 = currentRow.find("td:eq(2)").text();
         let col4 = currentRow.find("td:eq(3)").text();
+        let col5 = currentRow.find("td:eq(4)").text();
         $("[data-label='Login ID Info']").html(col1);
         $("[data-label='User ID Info']").html(col2);
-        $("[data-label='Password Info']").html(col3);
-        $("[data-label='User Type Info']").html(col4);
+        $("[data-label='Full Name Info']").html(col3);
+        $("[data-label='Password Info']").html(col4);
+        $("[data-label='User Type Info']").html(col5);
     });
 });
 

@@ -47,6 +47,10 @@ preventBack();
 										<td data-label="User ID Info"></td>
 									</tr>
 									<tr>
+										<th>Full Name Info</th>
+										<td data-label="Full Name Info"></td>
+									</tr>
+									<tr>
 										<th>Password Info</th>
 										<td data-label="Password Info"></td>
 									</tr>
@@ -75,6 +79,7 @@ preventBack();
 									<tr>
 										<th>Login ID</th>
 										<th>User ID</th>
+										<th>Full Name</th>
 										<th>Password</th>
 										<th>User Type</th>
 										<th>Operation</th>

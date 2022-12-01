@@ -789,7 +789,7 @@ function showAccounts()
 {
     include 'connection.php';
     global $count;
-    $sql = "SELECT login_id, student_id, faculty_id, password, usertype FROM tb_login ORDER BY login_id";
+    $sql = "SELECT login_id, student_id, faculty_id, password, usertype FROM tb_login ORDER BY usertype";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
@@ -799,10 +799,17 @@ function showAccounts()
         $password = $row["password"];
         $usertype = $row["usertype"];
         if ($usertype == "Student") {
+            $sql2 = "SELECT firstname, lastname FROM tb_students WHERE student_id = $student_id";
+            $result2 = mysqli_query($conn, $sql2);
+            while ($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) {
+                $firstname = $row["firstname"];
+                $lastname = $row["lastname"];
+            }
             echo "
             <tr>
             <td data-label='Login ID'>$primary_id</td>
             <td data-label='User ID'>$student_id</td>
+            <td data-label='Full Name'>$firstname $lastname</td>
             <td data-label='Password'>$password</td>
             <td data-label='User Type'>$usertype</td>
             <td data-label='Operation'>
@@ -812,10 +819,17 @@ function showAccounts()
             </tr>
             ";
         } else if ($usertype == "Faculty") {
+            $sql2 = "SELECT firstname, lastname FROM tb_faculty WHERE faculty_id = $faculty_id";
+            $result2 = mysqli_query($conn, $sql2);
+            while ($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) {
+                $firstname = $row["firstname"];
+                $lastname = $row["lastname"];
+            }
             echo "
             <tr>
             <td data-label='Login ID'>$primary_id</td>
             <td data-label='User ID'>$faculty_id</td>
+            <td data-label='Full Name'>$firstname $lastname</td>
             <td data-label='Password'>$password</td>
             <td data-label='User Type'>$usertype</td>
             <td data-label='Operation'>
