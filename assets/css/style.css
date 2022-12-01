@@ -13,6 +13,24 @@ h2 {
 }
 
 /* all inputs */
+.popup-users-middle input[type=text],
+.popup-users-middle input[type=number],
+.popup-users-middle select[name=yearlevel],
+.popup-users-middle select[name=edit_course_id],
+.popup-users-middle select[name=section_id],
+.popup-users-middle select[name=edit_section_id],
+.popup-users-middle select[name=edit_yearlevel],
+.popup-users-middle select[name=edit_status],
+.popup-users-middle select[name=course_id],
+.popup-users-middle select[name=status],
+.popup-users-middle input[type=radio]{
+  width: 100%;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: .5em;
+}
+
+
 .popup-student-middle input[type=submit]{
   background-color: #707070;
   cursor: pointer;
@@ -813,6 +831,10 @@ nav li:focus {
   cursor: pointer;
 }
 
+.add-main:hover {
+  background-color: #d0d0d0;
+}
+
 .add-subject {
   padding: .5em;
   background-color: #707070;
@@ -1093,7 +1115,7 @@ footer {
   font-size: 1.2em;
 }
 
-.course-name-tbx {
+.popup-tbx {
   margin-left: 1em;
   margin-right: 1em;
   margin-top: -1em;
@@ -1101,23 +1123,7 @@ footer {
   font-weight: 700;
   font-size: 1em;
 }
-.popup-users-middle input[type=text],
-.popup-users-middle input[type=number],
-.popup-users-middle select[name=yearlevel],
-.popup-users-middle select[name=edit_course_id],
-.popup-users-middle select[name=section_id],
-.popup-users-middle select[name=edit_section_id],
-.popup-users-middle select[name=edit_yearlevel],
-.popup-users-middle select[name=edit_status],
-.popup-users-middle select[name=course_id],
-.popup-users-middle select[name=status],
-.popup-users-middle input[type=radio]{
-  width: 100%;
-  font-weight: 700;
-  font-size: 1rem;
-  margin: .5em;
 
-}
 .userscon{
   display: flex;
   justify-content: center;
@@ -1126,15 +1132,6 @@ footer {
   display: flex;
   align-items: center;
   max-width: 10em;
-}
-
-.editcourse-name-tbx {
-  margin-left: 1em;
-  margin-right: 1em;
-  margin-top: -1em;
-  margin-bottom: 1em;
-  font-weight: 700;
-  font-size: 1em;
 }
 
 .addbtn {
@@ -1150,6 +1147,10 @@ footer {
   border: none;
 }
 
+.addbtn:hover {
+  background-color: #d0d0d0;
+}
+
 .editbtn {
   background-color: #707070;
   margin: 0 1em;
@@ -1163,6 +1164,9 @@ footer {
   border: none;
 }
 
+.editbtn:hover {
+  background-color: #d0d0d0;
+}
 
 
 /* ========== resposive =========*/

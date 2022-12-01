@@ -101,7 +101,7 @@ enableDelete_courses();
 				</div>
 				<div class="popup-add-middle">
 					<p class="label1">Course Name</p>
-					<input type="text" name="course_name" placeholder="Course Name" class="course-name-tbx" required>
+					<input type="text" name="course_name" placeholder="Course Name" class="popup-tbx" required>
 					<?php addCourse() ?>
 					<button type="submit" name="addcourse" class="addbtn"><i class="fas fa-plus"></i> Add Course</button>
 				</div>
@@ -120,7 +120,7 @@ enableDelete_courses();
 				<div class="popup-add-middle">
 					<input type="hidden" name="edit_id" id="edit_id">
 					<p class="label1">Course Name</p>
-					<input type="text" name="edit_course_name" id="edit_course_name" placeholder="Course Name" class="editcourse-name-tbx" required>
+					<input type="text" name="edit_course_name" id="edit_course_name" placeholder="Course Name" class="popup-tbx" required>
 					<?php editCourse() ?>
 					<button type="submit" name="editcourse" class="editbtn"><i class="fas fa-edit"></i> Edit Course</button>
 				</div>

@@ -101,7 +101,7 @@ enableDelete_sections();
 				</div>
 				<div class="popup-add-middle">
 					<p class="label1">Section Name</p>
-					<input type="text" name="section_name" placeholder="Section Name" class="course-name-tbx" required>
+					<input type="text" name="section_name" placeholder="Section Name" class="popup-tbx" required>
 					<?php addSection() ?>
 					<button type="submit" name="addsection" class="addbtn"><i class="fas fa-plus"></i> Add Section</button>
 				</div>
@@ -120,7 +120,7 @@ enableDelete_sections();
 				<div class="popup-add-middle">
 					<input type="hidden" name="edit_id" id="edit_id">
 					<p class="label1">Section Name</p>
-					<input type="text" name="edit_section_name" id="edit_section_name" placeholder="Section Name" class="course-name-tbx" required>
+					<input type="text" name="edit_section_name" id="edit_section_name" placeholder="Section Name" class="popup-tbx" required>
 					<?php editSection() ?>
 					<button type="submit" name="editsection" class="editbtn"><i class="fas fa-plus"></i> Edit Section</button>
 				</div>

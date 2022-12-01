@@ -108,7 +108,7 @@ preventBack();
 				</div>
 				<div class="popup-add-middle">
 					<p class="label1">Password</p>
-					<input type="password" placeholder="Password" class="editcourse-name-tbx">
+					<input type="password" placeholder="Password" class="popup-tbx">
 					<a class="editbtn"><i class="fas fa-edit"></i> Confirm Password</a>
 				</div>
 			</div>

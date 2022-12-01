@@ -113,7 +113,7 @@ enableDelete_evaluations();
 				</div>
 				<div class="popup-add-middle">
 					<p class="label1">Evaluation Name</p>
-					<input type="text" placeholder="Evaluation name" class="course-name-tbx">
+					<input type="text" placeholder="Evaluation name" class="popup-tbx">
 					<a class="addbtn"><i class="fas fa-plus"></i> Add Evaluation</a>
 				</div>
 			</div>
@@ -130,7 +130,7 @@ enableDelete_evaluations();
 				</div>
 				<div class="popup-add-middle">
 					<p class="label1">Evaluation Name</p>
-					<input type="text" placeholder="Evaluation" class="editcourse-name-tbx">
+					<input type="text" placeholder="Evaluation" class="popup-tbx">
 					<a class="editbtn"><i class="fas fa-edit"></i> Edit Evaluation</a>
 				</div>
 			</div>
