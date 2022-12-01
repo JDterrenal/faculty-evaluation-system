@@ -1279,7 +1279,7 @@ footer {
 
   .main-table tbody tr td {
     text-align: right;
-    padding-left: 25%;
+    padding-left: 50%;
     position: relative;
   }
 
@@ -1287,7 +1287,7 @@ footer {
     content: attr(data-label);
     position: absolute;
     left: 0;
-    width: 50%;
+    width: 40%;
     padding-left: 15px;
     text-align: left;
   }
@@ -1333,7 +1333,7 @@ footer {
   .student-table tr,
   .student-table td {
     display: block;
-
+    overflow: auto;
   }
 
   .student-table tr {
@@ -1342,7 +1342,7 @@ footer {
 
   .student-table tbody tr td {
     text-align: right;
-    padding-left: 250%;
+    padding-left: 50%;
     position: relative;
   }
 
@@ -1352,6 +1352,7 @@ footer {
     left: 0;
     padding-left: 15px;
     text-align: left;
+    width: 50%;
   }
 
   .student-table tbody tr {
