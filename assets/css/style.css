@@ -914,12 +914,14 @@ nav li:focus {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
   margin: .5em;
+  height: 30em;
 }
 
 .question-form-top{
   border-radius: 5px 5px 0 0;
   background-color: #707070;
   padding: .1em 1em;
+  height: 2em;
 }
 
 .question-form-title{
