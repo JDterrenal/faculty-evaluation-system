@@ -957,6 +957,7 @@ nav li:focus {
   background-color: #00bfff;
   margin: .5em;
   height: 100em;
+  padding: 1em;
 }
 
 /* footer */
