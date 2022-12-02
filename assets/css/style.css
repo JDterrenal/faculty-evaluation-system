@@ -903,6 +903,8 @@ nav li:focus {
 .question{
   font-size: 1rem;
   width: 100%;
+  max-height: 4rem;
+  height: 100%;
 }
 
 /* footer */
