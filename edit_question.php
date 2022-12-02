@@ -81,7 +81,6 @@ enableDelete_courses();
                                     </tbody>
                                     </table>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
