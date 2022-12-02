@@ -357,14 +357,14 @@ function addSecrel()
         $subject_code = $_POST['subject_code'];
         $faculty_id = $_POST['faculty_id'];
 
-        $fetch_subject_id = "SELECT subject_id FROM tb_subjects WHERE subject_code='$subject_code'";
+        $fetch_subject_id = "SELECT subject_id FROM tb_subjects WHERE subject_code = '$subject_code'";
         $result = mysqli_query($conn, $fetch_subject_id);
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $subject_id = $row["subject_id"];
         }
 
-        //Add Subject
-        $sql = "INSERT INTO tb_sectionsRelation (secrel_id, section_id, subject_id, faculty_id) VALUES (null, '$section_id', '$subject_id', '$faculty_id')";
+        //Add Subject to Sections
+        $sql = "INSERT INTO tb_sectionsRelation (secrel_id, section_id, subject_id, faculty_id) VALUES (null, $section_id, $subject_id, $faculty_id)";
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/addAlert.js"></script><?php
         } else {
@@ -590,9 +590,16 @@ function enableDelete_secrel()
     //Delete Evaluation
     if (isset($_GET['delete_id'])) {
         $delete_id = $_GET['delete_id'];
+
+        $sql_section_id = "SELECT section_id FROM tb_sectionsRelation WHERE secrel_id = $delete_id";
+        $result = mysqli_query($conn, $sql_section_id);
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $section_id = $row["section_id"];
+        }
+        
         $sql = "DELETE FROM tb_sectionsRelation WHERE secrel_id='$delete_id'";
         mysqli_query($conn, $sql) or die("Connection error!");
-        header('location: section_subjects.php');
+        header("location: section_subjects.php?section_id=$section_id");
     }
 }
 
@@ -1024,12 +1031,12 @@ function cbSection()
 function cbSubject()
 {
     include 'connection.php';
-    $sql = "SELECT subject_id, subject_name FROM tb_subjects";
+    $sql = "SELECT subject_code, subject_name FROM tb_subjects";
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $subject_id = $row["subject_id"];
+        $subject_code = $row["subject_code"];
         $subject_name = $row["subject_name"];
-        echo "<option value='$subject_id'>$subject_name</option>";
+        echo "<option value='$subject_code'>$subject_name</option>";
     }
     mysqli_close($conn);
 }
