@@ -975,7 +975,7 @@ nav li:focus {
 }
 
 .rating-legend-options{
-  border-left: 2px solid #000000;
+  border-left: 2px solid #d0d0d0;
   margin: .5em;
   font-size: 1rem;
   font-weight: bold;
