@@ -8,7 +8,7 @@ enableDelete_subjects();
 <head>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Subjects | Faculty Evaluation</title>
+  <title>Faculty Subjects | Faculty Evaluation</title>
   <link rel="icon" href="images/logo.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
@@ -24,7 +24,7 @@ enableDelete_subjects();
 	<div class= "main-container">
 		<main>
 			<div class="container-main">
-				<div class="page-container"><h1><i class="fas fa-book-open" id="view-info"> Student Subjects</i></h1>
+				<div class="page-container"><h1><i class="fas fa-book-open" id="view-info"> Faculty Subjects</i></h1>
 					<hr>
 					
 					<div class="main-content">
@@ -39,7 +39,7 @@ enableDelete_subjects();
 							<input type="text" placeholder="Search" class="main-search">
 						</div>
 						<div class="main-add">
-							<a class="add-main" id="add-button">Add Student Subject</a>
+							<a class="add-main" id="add-button">Add Faculty Subject</a>
 						</div>
 						<div class="main-table-container">
 							<table class="main-table">
@@ -47,7 +47,7 @@ enableDelete_subjects();
 									<tr>
 										<th>Subject Code</th>
 										<th>Subject</th>
-										<th>Faculty</th>
+										<th>Student</th>
 										<th>Operation</th>
 									</tr>
 								</thead>
@@ -55,7 +55,7 @@ enableDelete_subjects();
 									<tr>
 										<td data-label='Subject Code'>$subject_code</td>
 										<td data-label='Subject'>$subject_name</td>
-										<td data-label='Faculty'>$faculty_full</td>
+										<td data-label='Student'>$student_full</td>
 										<td data-label='Operation'>
 										<a class='edit edit-subject'><i class='fas fa-edit'></i> Edit</a>
 										<a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
