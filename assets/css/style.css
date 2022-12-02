@@ -964,7 +964,9 @@ nav li:focus {
   padding-right: 1em;
   display: flex;
 }
-
+.evaluation-question-content{
+  padding: 1em;
+}
 .rating-legend-box{
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border-left: 3px solid #000000;
