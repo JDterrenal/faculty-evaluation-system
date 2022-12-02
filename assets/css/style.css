@@ -921,6 +921,7 @@ nav li:focus {
   border-radius: 5px 5px 0 0;
   background-color: #707070;
   padding: .1em 1em;
+  height: 5em;
 }
 
 .question-form-title{
@@ -936,6 +937,7 @@ nav li:focus {
 
 .question-form-middle{
   padding: 1em;
+  height: 20em;
 }
 
 .question{
@@ -947,6 +949,7 @@ nav li:focus {
   padding: 1em;
   background-color: #e1e1e1;
   border-radius: 0 0 5px 5px;
+  height: 5em;
 }
 
 .evaluation-question{
