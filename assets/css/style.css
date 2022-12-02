@@ -955,6 +955,8 @@ nav li:focus {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   width: 70%;
   margin: .5em;
+  border-radius: 5px;
+  border-top: 3ps solid #000000;
 }
 
 .evaluation-question-top{
