@@ -1264,6 +1264,10 @@ footer {
     display: flex;
     flex-direction: column;
   }
+  .rating-legend-box{
+    display: flex;
+    flex-direction: column;
+  }
 
   /* resposive navbar sa taas */
   .sidebar-nav {
