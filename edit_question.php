@@ -32,7 +32,7 @@ enableDelete_courses();
                             <p class="question-form-title">Question Form</p>
                         </div>
                         <div class="question-form-middle">
-                            <p class="label">Question</p>
+                            <p class="label-question">Question</p>
                             <textarea class="question">Enter text here...</textarea>
                         </div>
                         <div class="question-form-bottom">
