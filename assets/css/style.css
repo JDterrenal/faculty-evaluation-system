@@ -12,6 +12,10 @@ h2 {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* all inputs */
 .popup-users-middle input[type=text],
 .popup-users-middle input[type=email],
