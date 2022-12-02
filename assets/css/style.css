@@ -940,6 +940,7 @@ nav li:focus {
 .question-form-bottom{
   padding: 1em;
   background-color: #e1e1e1;
+  border-radius: 0 0 5px 5px;
 }
 
 /* footer */
