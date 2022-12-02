@@ -45,6 +45,10 @@ enableDelete_courses();
 										<th>Course Info</th>
 										<td data-label="Course Info"></td>
 									</tr>
+									<tr>
+										<th>Students Count</th>
+										<td data-label="Students Count"></td>
+									</tr>
 								<tbody>
 							</table>
 						</div>
@@ -70,6 +74,7 @@ enableDelete_courses();
 									<tr>
 										<th>ID</th>
 										<th>Course</th>
+										<th>Students</th>
 										<th>Operation</th>
 									</tr>
 								</thead>
