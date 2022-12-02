@@ -182,6 +182,118 @@ enableDelete_courses();
                                             <td data-label='4'><input type="radio" name="likert" value="agree"></td>
                                             <td data-label='5'><input type="radio" name="likert" value="strong_agree"></td>
                                         <tr>
+                                        <tr>
+                                            <td>Maliit ang tite ni uriel</td>
+                                            <td data-label='1'><input type="radio" name="likert" value="strong_disagree"></td>
+                                            <td data-label='2'><input type="radio" name="likert" value="disagree"></td>
+                                            <td data-label='3'><input type="radio" name="likert" value="uncertain"></td>
+                                            <td data-label='4'><input type="radio" name="likert" value="agree"></td>
+                                            <td data-label='5'><input type="radio" name="likert" value="strong_agree"></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Maliit ang tite ni uriel</td>
+                                            <td data-label='1'><input type="radio" name="likert" value="strong_disagree"></td>
+                                            <td data-label='2'><input type="radio" name="likert" value="disagree"></td>
+                                            <td data-label='3'><input type="radio" name="likert" value="uncertain"></td>
+                                            <td data-label='4'><input type="radio" name="likert" value="agree"></td>
+                                            <td data-label='5'><input type="radio" name="likert" value="strong_agree"></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Maliit ang tite ni uriel</td>
+                                            <td data-label='1'><input type="radio" name="likert" value="strong_disagree"></td>
+                                            <td data-label='2'><input type="radio" name="likert" value="disagree"></td>
+                                            <td data-label='3'><input type="radio" name="likert" value="uncertain"></td>
+                                            <td data-label='4'><input type="radio" name="likert" value="agree"></td>
+                                            <td data-label='5'><input type="radio" name="likert" value="strong_agree"></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Maliit ang tite ni uriel</td>
+                                            <td data-label='1'><input type="radio" name="likert" value="strong_disagree"></td>
+                                            <td data-label='2'><input type="radio" name="likert" value="disagree"></td>
+                                            <td data-label='3'><input type="radio" name="likert" value="uncertain"></td>
+                                            <td data-label='4'><input type="radio" name="likert" value="agree"></td>
+                                            <td data-label='5'><input type="radio" name="likert" value="strong_agree"></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Maliit ang tite ni uriel</td>
+                                            <td data-label='1'><input type="radio" name="likert" value="strong_disagree"></td>
+                                            <td data-label='2'><input type="radio" name="likert" value="disagree"></td>
+                                            <td data-label='3'><input type="radio" name="likert" value="uncertain"></td>
+                                            <td data-label='4'><input type="radio" name="likert" value="agree"></td>
+                                            <td data-label='5'><input type="radio" name="likert" value="strong_agree"></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Maliit ang tite ni uriel</td>
+                                            <td data-label='1'><input type="radio" name="likert" value="strong_disagree"></td>
+                                            <td data-label='2'><input type="radio" name="likert" value="disagree"></td>
+                                            <td data-label='3'><input type="radio" name="likert" value="uncertain"></td>
+                                            <td data-label='4'><input type="radio" name="likert" value="agree"></td>
+                                            <td data-label='5'><input type="radio" name="likert" value="strong_agree"></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Maliit ang tite ni uriel</td>
+                                            <td data-label='1'><input type="radio" name="likert" value="strong_disagree"></td>
+                                            <td data-label='2'><input type="radio" name="likert" value="disagree"></td>
+                                            <td data-label='3'><input type="radio" name="likert" value="uncertain"></td>
+                                            <td data-label='4'><input type="radio" name="likert" value="agree"></td>
+                                            <td data-label='5'><input type="radio" name="likert" value="strong_agree"></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Maliit ang tite ni uriel</td>
+                                            <td data-label='1'><input type="radio" name="likert" value="strong_disagree"></td>
+                                            <td data-label='2'><input type="radio" name="likert" value="disagree"></td>
+                                            <td data-label='3'><input type="radio" name="likert" value="uncertain"></td>
+                                            <td data-label='4'><input type="radio" name="likert" value="agree"></td>
+                                            <td data-label='5'><input type="radio" name="likert" value="strong_agree"></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Maliit ang tite ni uriel</td>
+                                            <td data-label='1'><input type="radio" name="likert" value="strong_disagree"></td>
+                                            <td data-label='2'><input type="radio" name="likert" value="disagree"></td>
+                                            <td data-label='3'><input type="radio" name="likert" value="uncertain"></td>
+                                            <td data-label='4'><input type="radio" name="likert" value="agree"></td>
+                                            <td data-label='5'><input type="radio" name="likert" value="strong_agree"></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Maliit ang tite ni uriel</td>
+                                            <td data-label='1'><input type="radio" name="likert" value="strong_disagree"></td>
+                                            <td data-label='2'><input type="radio" name="likert" value="disagree"></td>
+                                            <td data-label='3'><input type="radio" name="likert" value="uncertain"></td>
+                                            <td data-label='4'><input type="radio" name="likert" value="agree"></td>
+                                            <td data-label='5'><input type="radio" name="likert" value="strong_agree"></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Maliit ang tite ni uriel</td>
+                                            <td data-label='1'><input type="radio" name="likert" value="strong_disagree"></td>
+                                            <td data-label='2'><input type="radio" name="likert" value="disagree"></td>
+                                            <td data-label='3'><input type="radio" name="likert" value="uncertain"></td>
+                                            <td data-label='4'><input type="radio" name="likert" value="agree"></td>
+                                            <td data-label='5'><input type="radio" name="likert" value="strong_agree"></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Maliit ang tite ni uriel</td>
+                                            <td data-label='1'><input type="radio" name="likert" value="strong_disagree"></td>
+                                            <td data-label='2'><input type="radio" name="likert" value="disagree"></td>
+                                            <td data-label='3'><input type="radio" name="likert" value="uncertain"></td>
+                                            <td data-label='4'><input type="radio" name="likert" value="agree"></td>
+                                            <td data-label='5'><input type="radio" name="likert" value="strong_agree"></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Maliit ang tite ni uriel</td>
+                                            <td data-label='1'><input type="radio" name="likert" value="strong_disagree"></td>
+                                            <td data-label='2'><input type="radio" name="likert" value="disagree"></td>
+                                            <td data-label='3'><input type="radio" name="likert" value="uncertain"></td>
+                                            <td data-label='4'><input type="radio" name="likert" value="agree"></td>
+                                            <td data-label='5'><input type="radio" name="likert" value="strong_agree"></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Maliit ang tite ni uriel</td>
+                                            <td data-label='1'><input type="radio" name="likert" value="strong_disagree"></td>
+                                            <td data-label='2'><input type="radio" name="likert" value="disagree"></td>
+                                            <td data-label='3'><input type="radio" name="likert" value="uncertain"></td>
+                                            <td data-label='4'><input type="radio" name="likert" value="agree"></td>
+                                            <td data-label='5'><input type="radio" name="likert" value="strong_agree"></td>
+                                        <tr>
                                     </tbody>
                                     </table>
                                 </div>
