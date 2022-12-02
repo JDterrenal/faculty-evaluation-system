@@ -965,6 +965,18 @@ nav li:focus {
   display: flex;
 }
 
+.rating-legend-box{
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-left: 3px solid #000000;
+  width: 100%;
+  display: flex;
+}
+
+.rating-legend-options{
+  border-top: 3px solid #000000;
+  margin: .5em;
+}
+
 /* footer */
 .container-footer {
   margin: 0 auto;
