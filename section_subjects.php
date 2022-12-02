@@ -91,7 +91,7 @@ $section_id = $_GET["section_id"];
 		<div class="popup-background" id="popup-background">
 			<div class="popup-add">
 				<div class="popup-add-top">
-					<p class="popup-add-title"><i class="fas fa-plus"></i> ADD STUDENT SUBJECT</p>
+					<p class="popup-add-title"><i class="fas fa-plus"></i> ADD SUBJECT</p>
 					<i class="fas fa-times ex" id="ex-add"></i>
 				</div>
 				<div class="popup-add-middle">
@@ -119,7 +119,7 @@ $section_id = $_GET["section_id"];
 		<div class="popup-background-edit" id="edit-popup-background">
 			<div class="popup-add">
 				<div class="popup-add-top">
-					<p class="popup-add-title"><i class="fas fa-edit"></i> EDIT STUDENT SUBJECT</p>
+					<p class="popup-add-title"><i class="fas fa-edit"></i> EDIT SUBJECT</p>
 					<i class="fas fa-times ex" id="ex-edit"></i>
 				</div>
 				<div class="popup-add-middle">
