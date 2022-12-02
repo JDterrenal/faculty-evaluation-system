@@ -14,6 +14,7 @@ h2 {
 
 /* all inputs */
 .popup-users-middle input[type=text],
+.popup-users-middle input[type=email],
 .popup-users-middle input[type=number],
 .popup-users-middle select[name=yearlevel],
 .popup-users-middle select[name=edit_course_id],

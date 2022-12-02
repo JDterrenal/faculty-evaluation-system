@@ -210,9 +210,9 @@ function addStudent()
         } else {
             include './assets/php/uploadPhoto_add.php';
         }
-        $sql = "INSERT INTO tb_students (student_id, firstname, lastname, email, gender, yearlevel, contact_no, address, status, photo, course_id, section_id) VALUES (null, '$firstname', '$lastname', '$email', '$gender', '$yearlevel', $contact_no, '$address', '$status', '$photo', '$course', '$section')";
 
         //Add Student
+        $sql = "INSERT INTO tb_students (student_id, firstname, lastname, email, gender, yearlevel, contact_no, address, status, photo, course_id, section_id) VALUES (null, '$firstname', '$lastname', '$email', '$gender', '$yearlevel', $contact_no, '$address', '$status', '$photo', '$course', '$section')";
         if (mysqli_query($conn, $sql)) {
             $sql2 = "SELECT student_id FROM tb_students ORDER BY student_id DESC LIMIT 1;";
             $result = mysqli_query($conn, $sql2);
@@ -243,7 +243,12 @@ function addFaculty()
         $gender = $_POST['gender'];
         $contact_no = $_POST['contact_no'];
         $address = $_POST['address'];
-        $photo = 'standard.png';
+
+        if ($_FILES['photo'] == UPLOAD_ERR_NO_FILE) {
+            $photo = 'standard.png';
+        } else {
+            include './assets/php/uploadPhoto_add.php';
+        }
 
         //Add Faculty
         $sql = "INSERT INTO tb_faculty (faculty_id, firstname, lastname, email, gender, contact_no, address, photo) VALUES (null, '$firstname', '$lastname', '$email', '$gender', $contact_no, '$address', '$photo')";
@@ -360,11 +365,12 @@ function editStudent()
         $edit_status = $_POST['edit_status'];
         $edit_course_id = $_POST['edit_course_id'];
         $edit_section_id = $_POST['edit_section_id'];
+        $edit_photo = null;
 
         if ($_FILES['edit_photo'] == UPLOAD_ERR_NO_FILE) {
             $sql = "UPDATE tb_students SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', yearlevel='$edit_yearlevel', contact_no='$edit_contact_no', address='$edit_address', status='$edit_status', course_id='$edit_course_id', section_id='$edit_section_id' WHERE student_id='$edit_id'";
         } else {
-            include './assets/php/uploadPhoto_edit.php';
+            include './assets/php/uploadPhoto_edit_student.php';
             $sql = "UPDATE tb_students SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', yearlevel='$edit_yearlevel', contact_no='$edit_contact_no', address='$edit_address', status='$edit_status', photo='$edit_photo', course_id='$edit_course_id', section_id='$edit_section_id' WHERE student_id='$edit_id'";
         }
         if (mysqli_query($conn, $sql)) {
@@ -377,35 +383,41 @@ function editStudent()
 }
 
 //Faculty Edit and Confirmation
-function editFaculty($edit_faculty_id)
-{
-    include 'connection.php';
-    global $edit_firstname, $edit_lastname, $edit_gender, $edit_contact_no, $edit_address, $edit_email;
-    $sql = "SELECT firstname, lastname, email, gender, contact_no, address, photo FROM tb_faculty WHERE faculty_id='$edit_faculty_id'";
-    $result = mysqli_query($conn, $sql);
-    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $edit_firstname = $row["firstname"];
-        $edit_lastname = $row["lastname"];
-        $edit_email = $row["email"];
-        $edit_gender = $row["gender"];
-        $edit_contact_no = $row["contact_no"];
-        $edit_address = $row["address"];
+function editFaculty()
+{  
+    if (isset($_POST['editfaculty'])) {
+        include 'connection.php';
+        $edit_id = $_POST['edit_id'];
+        $edit_firstname = $_POST['edit_firstname'];
+        $edit_lastname = $_POST['edit_lastname'];
+        $edit_email = $_POST['edit_email'];
+        $edit_gender = $_POST['edit_gender'];
+        $edit_contact_no = $_POST['edit_contact_no'];
+        $edit_address = $_POST['edit_address'];
+        $edit_photo = null;
+        
+        if ($_FILES['edit_photo'] == UPLOAD_ERR_NO_FILE) {
+            $sql = "UPDATE tb_faculty SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', contact_no='$edit_contact_no', address='$edit_address' WHERE faculty_id='$edit_id'";
+        } else {
+            include './assets/php/uploadPhoto_edit_faculty.php';
+            $sql = "UPDATE tb_faculty SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', contact_no='$edit_contact_no', address='$edit_address', photo='$edit_photo' WHERE faculty_id='$edit_id'";
+        }
+        if (mysqli_query($conn, $sql)) {
+            ?><script src="/assets/js/editAlert.js"></script><?php
+        } else {
+            ?><script src="/assets/js/errorAlert.js"></script><?php
+        }
+        mysqli_close($conn);
     }
-    mysqli_close($conn);
 }
 
-function editFacultyConf($edit_faculty_id)
+function editAccount()
 {
-    include 'connection.php';
-    global $edit_firstname, $edit_lastname, $edit_gender, $edit_yearlevel, $edit_contact_no, $edit_address, $edit_email, $edit_status;
-    $edit_firstname = $_POST['firstname'];
-    $edit_lastname = $_POST['lastname'];
-    $edit_email = $_POST['email'];
-    $edit_gender = $_POST['gender'];
-    $edit_contact_no = $_POST['contact_no'];
-    $edit_address = $_POST['address'];
-    if (isset($_POST['facultyEdit'])) {
-        $sql = "UPDATE tb_faculty SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', contact_no='$edit_contact_no', address='$edit_address' WHERE faculty_id='$edit_faculty_id'";
+    if (isset($_POST['editaccount'])) {
+        include 'connection.php';
+        $edit_id = $_POST['edit_id'];
+        $edit_password = $_POST['edit_password'];
+        $sql = "UPDATE tb_login SET password='$edit_password' WHERE login_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/editAlert.js"></script><?php
         } else {
@@ -488,7 +500,7 @@ function enableDelete_faculty()
     include 'connection.php';
     //Delete Faculty
     if (isset($_GET['delete_id'])) {
-        $delete_id = $_GET['delete_faculty_id'];
+        $delete_id = $_GET['delete_id'];
         $sql = "DELETE FROM tb_faculty WHERE faculty_id='$delete_id'";
         $sql2 = "DELETE FROM tb_login WHERE faculty_id='$delete_id'";
         mysqli_query($conn, $sql) or die("Connection error!");
@@ -777,27 +789,56 @@ function showAccounts()
 {
     include 'connection.php';
     global $count;
-    $sql = "SELECT login_id, student_id, faculty_id, password, usertype FROM tb_login ORDER BY login_id";
+    $sql = "SELECT login_id, student_id, faculty_id, password, usertype FROM tb_login ORDER BY usertype";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $login_id = $row["login_id"];
+        $primary_id = $row["login_id"];
         $student_id = $row["student_id"];
         $faculty_id = $row["faculty_id"];
         $password = $row["password"];
         $usertype = $row["usertype"];
-        echo "
-        <tr>
-        <td data-label='ID'>$login_id</td>
-        <td data-label='Student ID'>$student_id</td>
-        <td data-label='Faculty ID'>$faculty_id</td>
-        <td data-label='Password'>$password</td>
-        <td data-label='User Type'>$usertype</td>
-        <td data-label='Operation'><a href='accounts.php?view_login_id=$login_id' class='view' id='viewsubject' onclick='ViewFunction()'><i class='fas fa-eye'></i> View</a></td>
-        <td data-label='Operation'><a href='accounts.php?edit_login_id=$login_id' class='edit' id='editsubject' onclick='EditFunction()'><i class='fas fa-edit'></i> Edit</a></td>
-        <td data-label='Operation'><a href='accounts.php?delete_login_id=$login_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a></td>
-        </tr>
-        ";
+        if ($usertype == "Student") {
+            $sql2 = "SELECT firstname, lastname FROM tb_students WHERE student_id = $student_id";
+            $result2 = mysqli_query($conn, $sql2);
+            while ($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) {
+                $firstname = $row["firstname"];
+                $lastname = $row["lastname"];
+            }
+            echo "
+            <tr>
+            <td data-label='Login ID'>$primary_id</td>
+            <td data-label='User ID'>$student_id</td>
+            <td data-label='Full Name'>$firstname $lastname</td>
+            <td data-label='Password'>$password</td>
+            <td data-label='User Type'>$usertype</td>
+            <td data-label='Operation'>
+            <a href='#view-info' class='view view-account'><i class='fas fa-eye'></i> View</a>
+            <a class='edit edit-account'><i class='fas fa-edit'></i> Edit</a>
+            </td>
+            </tr>
+            ";
+        } else if ($usertype == "Faculty") {
+            $sql2 = "SELECT firstname, lastname FROM tb_faculty WHERE faculty_id = $faculty_id";
+            $result2 = mysqli_query($conn, $sql2);
+            while ($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) {
+                $firstname = $row["firstname"];
+                $lastname = $row["lastname"];
+            }
+            echo "
+            <tr>
+            <td data-label='Login ID'>$primary_id</td>
+            <td data-label='User ID'>$faculty_id</td>
+            <td data-label='Full Name'>$firstname $lastname</td>
+            <td data-label='Password'>$password</td>
+            <td data-label='User Type'>$usertype</td>
+            <td data-label='Operation'>
+            <a href='#view-info' class='view view-account'><i class='fas fa-eye'></i> View</a>
+            <a class='edit edit-account'><i class='fas fa-edit'></i> Edit</a>
+            </td>
+            </tr>
+            ";
+        } 
     }
     mysqli_close($conn);
 }
@@ -947,7 +988,7 @@ function accountsCount()
     global $count;
     $sql = "SELECT login_id, student_id, faculty_id, password, usertype FROM tb_login ORDER BY login_id";
     $result = mysqli_query($conn, $sql);
-    $count = mysqli_num_rows($result);
+    $count = mysqli_num_rows($result) - 1;
     echo "$count";
     mysqli_close($conn);
 }

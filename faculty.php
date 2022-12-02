@@ -25,12 +25,12 @@ enableDelete_faculty();
 	<div class= "main-container">
 		<main>
 			<div class="container-main">
-				<div class="page-container"><h1><i class="fas fa-chalkboard-teacher"> Faculty</i></h1>
+				<div class="page-container"><h1><i class="fas fa-chalkboard-teacher" id="view-info"> Faculty</i></h1>
 					<hr>
 					<div class="user-info">
 						<div class="user-content">
 							<div class="user-info-title">
-									<p class="user-title"><i class="fas fa-user"></i> User Information!</p>
+									<p class="user-title"><i class="fas fa-user"></i> Information!</p>
 									<hr>
 							</div>
 						</div>
@@ -127,8 +127,8 @@ enableDelete_faculty();
 					<div class="boxx">
 						<p class="P">Faculty Name</p>
 						<div class="userscon">
-							<input type="text" name="firstname" placeholder="First name" >
-							<input type="text" name="lastname" placeholder="Last name">
+							<input type="text" name="firstname" placeholder="First Name" >
+							<input type="text" name="lastname" placeholder="Last Name">
 						</div>
 					</div>
 					<div class="boxx">
@@ -153,9 +153,10 @@ enableDelete_faculty();
 					<div class="boxx">
 						<p class="P">Email</p>
 						<div class="userscon">
-							<input type="text" name="email" placeholder="Email">
+							<input type="email" name="email" placeholder="Email">
 						</div>
 					</div>
+					<?php addFaculty() ?>
 					<div class="userscon">
 						<button type="submit" name="addfaculty" class="editbtn"><i class="fas fa-edit"></i> Add Faculty</button>
 					</div>
@@ -165,7 +166,6 @@ enableDelete_faculty();
 	</form>
 
 	<!--------popup edit ------------>
-
 	<form action="faculty.php" method="post" enctype="multipart/form-data">
 		<div class="popup-background-edit" id="edit-popup-background">
 			<div class="popup-users">
@@ -187,8 +187,8 @@ enableDelete_faculty();
 					<div class="boxx">
 						<p class="P">Faculty Name</p>
 						<div class="userscon">
-							<input type="text" id="edit_firstname" name="edit_firstname" placeholder="First name" >
-							<input type="text" id="edit_lastname" name="edit_lastname" placeholder="Last name">
+							<input type="text" id="edit_firstname" name="edit_firstname" placeholder="First Name" >
+							<input type="text" id="edit_lastname" name="edit_lastname" placeholder="Last Name">
 						</div>
 					</div>
 					<div class="boxx">
@@ -206,16 +206,17 @@ enableDelete_faculty();
 					<div class="boxx">
 						<p class="P">Gender</p>
 						<div class="userscon1">
-							<input type="radio" id="Male" name="gender" value="Male"><label for="Male">Male</label>
-							<input type="radio" id="Female" name="gender" value="Female"><label for="Female">Female</label>
+							<input type="radio" id="Male" name="edit_gender" value="Male"><label for="Male">Male</label>
+							<input type="radio" id="Female" name="edit_gender" value="Female"><label for="Female">Female</label>
 						</div>
 					</div>
 					<div class="boxx">
 						<p class="P">Email</p>
 						<div class="userscon">
-							<input type="text" id="edit_email" name="edit_email" placeholder="Email">
+							<input type="email" id="edit_email" name="edit_email" placeholder="Email">
 						</div>
 					</div>
+					<?php editFaculty() ?>
 					<div class="userscon">
 						<button type="submit" name="editfaculty" class="editbtn"><i class="fas fa-edit"></i> Edit Faculty</button>
 					</div>
