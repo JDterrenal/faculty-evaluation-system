@@ -19,7 +19,7 @@
                 <a href="./dashboard.php"><img src="./images/systems-plus-computer-college-logo.png" alt="" class="logo"></a>
             </div>
             <div class="sidebar-name">
-                <span class="sidebar-name1">Systems Plus</span>
+                <span class="sidebar-name1">Harvard University</span>
                 <span class="sidebar-name1">College Caloocan</span>
             </div>
         </div>
