@@ -1,7 +1,6 @@
 <?php
 include './assets/php/functions.php';
 preventBack();
-enableDelete_subjects();
 ?>
 
 <html>
