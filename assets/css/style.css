@@ -201,7 +201,6 @@ input[type=file]::file-selector-button:hover {
   border-collapse: collapse;
   font-size: 1rem;
   border-radius: 5px 5px 0 0;
-  margin: 1em 3em;
   width: 100%;
 }
 
