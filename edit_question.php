@@ -40,6 +40,11 @@ enableDelete_courses();
                             <a class='cancel'>Cancel</a>
                         </div>
                     </div>
+
+                    <div class="evaluation-question">
+                    <h1><i class="fas fa-book" id="view-info"> Courses</i></h1>
+                    <hr>
+                    </div>
 				</div>
 			</div>
 		</main>
