@@ -50,8 +50,8 @@ enableDelete_sections();
 										<td data-label="Students Count"></td>
 									</tr>
 									<tr>
-										<th>Operation</th>
-										<td data-label="Operation"></td>
+										<th>Operation Info</th>
+										<td data-label="Operation Info"></td>
 									</tr>
 								<tbody>
 							</table>
