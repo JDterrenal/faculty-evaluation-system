@@ -590,9 +590,16 @@ function enableDelete_secrel()
     //Delete Evaluation
     if (isset($_GET['delete_id'])) {
         $delete_id = $_GET['delete_id'];
+
+        $sql_section_id = "SELECT section_id FROM tb_sectionsRelation WHERE secrel_id = $delete_id";
+        $result = mysqli_query($conn, $sql_section_id);
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $section_id = $row["section_id"];
+        }
+        
         $sql = "DELETE FROM tb_sectionsRelation WHERE secrel_id='$delete_id'";
         mysqli_query($conn, $sql) or die("Connection error!");
-        header('location: section_subjects.php');
+        header("location: section_subjects.php?section_id=$section_id");
     }
 }
 
