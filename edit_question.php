@@ -33,7 +33,7 @@ enableDelete_courses();
                         </div>
                         <div class="question-form-middle">
                             <p class="label-question">Question</p>
-                            <textarea class="question">Enter text here...</textarea>
+                            <textarea class="question"></textarea>
                         </div>
                         <div class="question-form-bottom">
                             <a class='save'>Save</a>
