@@ -892,11 +892,12 @@ nav li:focus {
 }
 
 .question-form-middle{
+  padding: 1em;
   background-color: #ff0707;
 }
 
 .question{
-  margin: 1em auto;
+  margin: 2 auto;
   font-size: 1rem;
   width: 100%;
 }
