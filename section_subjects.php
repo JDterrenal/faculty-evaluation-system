@@ -87,7 +87,7 @@ $section_id = $_GET["section_id"];
 	<?php include './assets/php/popupLogout.php' ?>
 
 	<!--------popup add subject ------------>
-	<form action=subjects.php method=post>
+	<form action="section_subjects.php" method="post">
 		<div class="popup-background" id="popup-background">
 			<div class="popup-add">
 				<div class="popup-add-top">
@@ -115,7 +115,7 @@ $section_id = $_GET["section_id"];
 	</form>
 
 	<!--------popup edit subject ------------>
-	<form action=subjects.php method=post>
+	<form action="section_subjects.php" method="post">
 		<div class="popup-background-edit" id="edit-popup-background">
 			<div class="popup-add">
 				<div class="popup-add-top">
