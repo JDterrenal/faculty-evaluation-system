@@ -954,10 +954,7 @@ nav li:focus {
 .evaluation-question{
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   width: 70%;
-  background-color: #00bfff;
   margin: .5em;
-  height: 100em;
-  padding: 1em;
 }
 
 /* footer */
