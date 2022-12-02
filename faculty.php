@@ -158,7 +158,7 @@ enableDelete_faculty();
 					</div>
 					<?php addFaculty() ?>
 					<div class="userscon">
-						<button type="submit" name="addfaculty" class="editbtn"><i class="fas fa-edit"></i> Add Faculty</button>
+						<button type="submit" name="addfaculty" class="addbtn"><i class="fas fa-edit"></i> Add Faculty</button>
 					</div>
 				</div>
 			</div>
