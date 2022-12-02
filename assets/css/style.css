@@ -728,7 +728,7 @@ nav li:focus {
 }
 
 .edit-question{
-  margin: 0 auto;
+  margin: 0;
   width: 98%;
   display: flex;
 }
