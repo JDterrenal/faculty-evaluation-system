@@ -24,7 +24,8 @@ h2 {
 .popup-users-middle select[name=edit_status],
 .popup-users-middle select[name=course_id],
 .popup-users-middle select[name=status],
-.popup-users-middle input[type=radio]{
+.popup-users-middle input[type=radio],
+.popup-users-middle option{
   width: 100%;
   font-weight: 700;
   font-size: 1rem;
