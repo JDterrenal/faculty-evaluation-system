@@ -891,9 +891,13 @@ nav li:focus {
   font-size: 1.2rem;
 }
 
+.label-question{
+  font-size: 1rem;
+  font-weight: 700;
+}
+
 .question-form-middle{
   padding: 1em;
-  background-color: #ff0707;
 }
 
 .question{
