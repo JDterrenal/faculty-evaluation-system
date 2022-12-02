@@ -69,7 +69,7 @@ enableDelete_courses();
                                     </li>
                                     <li>
                                         <input type="radio" name="likert" value="strong_agree">
-                                        <label>Neutral</label>
+                                        <label>UNCERTAIN</label>
                                     </li>
                                     <li>
                                         <input type="radio" name="likert" value="disagree">
