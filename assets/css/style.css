@@ -914,7 +914,7 @@ nav li:focus {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
   margin: .5em;
-  max-height: 10em;
+  max-height: 30em;
 }
 
 .question-form-top{
