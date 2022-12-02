@@ -1,7 +1,7 @@
 <?php
 include './assets/php/functions.php';
 preventBack();
-$section_id = $_SESSION["section_id"];
+$section_id = $_GET["section_id"];
 ?>
 
 <html>
@@ -50,12 +50,13 @@ $section_id = $_SESSION["section_id"];
 							<input type="text" placeholder="Search" class="main-search">
 						</div>
 						<div class="main-add">
-							<a class="add-main" id="add-button">Add Student Subject</a>
+							<a class="add-main" id="add-button">Add Subject</a>
 						</div>
 						<div class="main-table-container">
 							<table class="main-table">
 								<thead>
 									<tr>
+										<th>ID</th>
 										<th>Subject Code</th>
 										<th>Subject</th>
 										<th>Faculty</th>
@@ -63,15 +64,7 @@ $section_id = $_SESSION["section_id"];
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td data-label='Subject Code'>$subject_code</td>
-										<td data-label='Subject'>$subject_name</td>
-										<td data-label='Faculty'>$faculty_full</td>
-										<td data-label='Operation'>
-										<a class='edit edit-subject'><i class='fas fa-edit'></i> Edit</a>
-										<a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
-										</td>
-									</tr>
+									<?php showSectionsRelation($section_id) ?>
 								</tbody>
 							</table>
 						</div>

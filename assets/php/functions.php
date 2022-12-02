@@ -864,9 +864,10 @@ function showSectionsRelation($section_id)
         $subject_id = $row["subject_id"];
         $faculty_id = $row["faculty_id"];
         //Get Subject Name
-        $sql_subject = "SELECT subject_name FROM tb_subjects WHERE subject_id = $subject_id";
+        $sql_subject = "SELECT subject_code, subject_name FROM tb_subjects WHERE subject_id = $subject_id";
         $result_subject = mysqli_query($conn, $sql_subject);
         while ($row = mysqli_fetch_array($result_subject, MYSQLI_ASSOC)) {
+            $subject_code = $row["subject_code"];
             $subject_name = $row["subject_name"];
         }
         //Get Faculty Name
@@ -879,6 +880,7 @@ function showSectionsRelation($section_id)
         echo "
         <tr>
         <td data-label='ID'>$primary_id</td>
+        <td data-label='Subject Code'>$subject_code</td>
         <td data-label='Subject'>$subject_name</td>
         <td data-label='Faculty'>$firstname $lastname</td>
         <td data-label='Operation'>
