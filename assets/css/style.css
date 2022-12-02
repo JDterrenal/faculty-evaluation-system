@@ -731,7 +731,6 @@ nav li:focus {
   margin: 0 auto;
   width: 98%;
   display: flex;
-  height: 100%;
 }
 
 .columns {
@@ -936,6 +935,7 @@ nav li:focus {
 
 .question-form-middle{
   padding: 1em;
+  height: 20em;
 }
 
 .question{
