@@ -953,7 +953,7 @@ nav li:focus {
 
 .evaluation-question{
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  width: 100%;
+  width: 70%;
   margin: .5em;
   border-radius: 5px;
   border-top: 3px solid #000000;
@@ -1267,6 +1267,10 @@ footer {
   .rating-legend-box{
     display: flex;
     flex-direction: column;
+  }
+
+  .evaluation-question{
+    width: 100%;
   }
 
   /* resposive navbar sa taas */
