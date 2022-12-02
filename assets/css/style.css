@@ -913,6 +913,7 @@ nav li:focus {
   width: 30%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
+  height: 100%;
 }
 
 .question-form-top{
@@ -934,6 +935,7 @@ nav li:focus {
 
 .question-form-middle{
   padding: 1em;
+  height: 100%;
 }
 
 .question{

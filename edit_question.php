@@ -25,26 +25,27 @@ enableDelete_courses();
 	<div class= "main-container">
 		<main>
 			<div class="container-main">
-                <h1><i class="fas fa-book" id="view-info"> Manage Question</i></h1>
-                 <hr>
-				<div class="edit-question">
-					<div class="question-form">
-                        <div class="question-form-top">
-                            <p class="question-form-title">Question Form</p>
+				<div class="page-container"><h1><i class="fas fa-book" id="view-info"> Manage Question</i></h1>
+					<hr>
+                    <div class="edit-question">
+                        <div class="question-form">
+                            <div class="question-form-top">
+                                <p class="question-form-title">Question Form</p>
+                            </div>
+                            <div class="question-form-middle">
+                                <p class="label-question">Question</p>
+                                <textarea class="question"></textarea>
+                            </div>
+                            <div class="question-form-bottom">
+                                <a class='save'>Save</a>
+                                <a class='cancel'>Cancel</a>
+                            </div>
                         </div>
-                        <div class="question-form-middle">
-                            <p class="label-question">Question</p>
-                            <textarea class="question"></textarea>
-                        </div>
-                        <div class="question-form-bottom">
-                            <a class='save'>Save</a>
-                            <a class='cancel'>Cancel</a>
-                        </div>
-                    </div>
 
-                    <div class="evaluation-question">
-                    <h1>Courses</h1>
-                    <hr>
+                        <div class="evaluation-question">
+                            <h1>Courses</h1>
+                            <hr>
+                        </div>
                     </div>
 				</div>
 			</div>
