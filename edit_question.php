@@ -56,7 +56,104 @@ enableDelete_courses();
                                     <div class="rating-legend-options">2-DISAGREE</div>
                                     <div class="rating-legend-options">1-STRONGLY DISAGREE</div>
                                 </div>
-
+                                <form action="">
+                                    <label class="statement">This HTML Likert scale is easy to use.</label>
+                                    <ul class='likert'>
+                                    <li>
+                                        <input type="radio" name="likert" value="strong_agree">
+                                        <label>Strongly agree</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="likert" value="strong_agree">
+                                        <label>Agree</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="likert" value="strong_agree">
+                                        <label>Neutral</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="likert" value="disagree">
+                                        <label>Disagree</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="likert" value="strong_agree">
+                                        <label>Strongly disagree</label>
+                                    </li>
+                                    </ul>
+                                    <label class="statement">It's clear that this is a responsive design.</label>
+                                    <ul class='likert'>
+                                    <li>
+                                        <input type="radio" name="likert" value="strong_agree">
+                                        <label>Strongly agree</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="likert" value="strong_agree">
+                                        <label>Agree</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="likert" value="strong_agree">
+                                        <label>Neutral</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="likert" value="disagree">
+                                        <label>Disagree</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="likert" value="strong_agree">
+                                        <label>Strongly disagree</label>
+                                    </li>
+                                    </ul>
+                                    <label class="statement">Codepen.io is an excellent tool for prototyping.</label>
+                                    <ul class='likert'>
+                                    <li>
+                                        <input type="radio" name="likert" value="strong_agree">
+                                        <label>Strongly agree</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="likert" value="strong_agree">
+                                        <label>Agree</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="likert" value="strong_agree">
+                                        <label>Neutral</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="likert" value="disagree">
+                                        <label>Disagree</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="likert" value="strong_agree">
+                                        <label>Strongly disagree</label>
+                                    </li>
+                                    </ul>
+                                    <label class="statement">Pete Fecteau is incredibly smart and handsome.</label>
+                                    <ul class='likert'>
+                                    <li>
+                                        <input type="radio" name="likert" value="strong_agree">
+                                        <label>Strongly agree</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="likert" value="strong_agree">
+                                        <label>Agree</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="likert" value="strong_agree">
+                                        <label>Neutral</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="likert" value="disagree">
+                                        <label>Disagree</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="likert" value="strong_agree">
+                                        <label>Strongly disagree</label>
+                                    </li>
+                                    </ul>
+                                    <div class="buttons">
+                                    <button class="clear">Clear</button>
+                                    <button class="submit">Submit</button>
+                                    </div>
+                                </form>
                                 
                             </div>
                         </div>
