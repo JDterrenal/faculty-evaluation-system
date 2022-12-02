@@ -56,31 +56,29 @@ enableDelete_courses();
                                     <div class="rating-legend-options">2-DISAGREE</div>
                                     <div class="rating-legend-options">1-STRONGLY DISAGREE</div>
                                 </div>
-                                <form action="">
-                                    <label class="statement">This HTML Likert scale is easy to use.</label>
-                                    <ul class='likert'>
-                                    <li>
-                                        <input type="radio" name="likert" value="strong_agree">
-                                        <label>Strongly agree</label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" name="likert" value="strong_agree">
-                                        <label>Agree</label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" name="likert" value="strong_agree">
-                                        <label>UNCERTAIN</label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" name="likert" value="disagree">
-                                        <label>Disagree</label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" name="likert" value="strong_agree">
-                                        <label>Strongly disagree</label>
-                                    </li>
-                                    </ul>
-                                </form>
+
+                                <div class="question-container">
+                                <table class="main-table">
+								<thead>
+									<tr>
+										<th>Question</th>
+										<th>5</th>
+										<th>4</th>
+										<th>3</th>
+                                        <th>2</th>
+										<th>1</th>
+									</tr>
+								</thead>
+                                <tbody>
+                                    <td>Maliit ang tite ni uriel</td>
+                                    <td><input type="radio" name="likert" value="strong_disagree"></td>
+                                    <td><input type="radio" name="likert" value="disagree"></td>
+                                    <td><input type="radio" name="likert" value="uncertain"></td>
+                                    <td><input type="radio" name="likert" value="agree"></td>
+                                    <td><input type="radio" name="likert" value="strong_agree"></td>
+                                </tbody>
+							    </table>
+                                </div>
                                 
                             </div>
                         </div>
