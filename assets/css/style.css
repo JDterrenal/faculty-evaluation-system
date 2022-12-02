@@ -937,6 +937,10 @@ nav li:focus {
   height: 100%;
 }
 
+.question-form-bottom{
+  padding: 1em;
+}
+
 /* footer */
 .container-footer {
   margin: 0 auto;
