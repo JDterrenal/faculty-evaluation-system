@@ -956,7 +956,7 @@ nav li:focus {
   width: 70%;
   margin: .5em;
   border-radius: 5px;
-  border-top: 3ps solid #000000;
+  border-top: 3px solid #000000;
 }
 
 .evaluation-question-top{
