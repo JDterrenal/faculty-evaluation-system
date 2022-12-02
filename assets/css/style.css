@@ -1262,7 +1262,7 @@ footer {
 
   .edit-question{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
 
   /* resposive navbar sa taas */
