@@ -506,6 +506,31 @@ function editSection()
     }
 }
 
+function editSecrel()
+{
+    if (isset($_POST['editsecrel'])) {
+        include 'connection.php';
+        $edit_id = $_POST['edit_id'];
+        $edit_subject_code = $_POST['edit_subject_code'];
+        $edit_faculty_id = $_POST['edit_faculty_id'];
+
+        $fetch_subject_id = "SELECT subject_id FROM tb_subjects WHERE subject_code = '$edit_subject_code'";
+        $result = mysqli_query($conn, $fetch_subject_id);
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $subject_id = $row["subject_id"];
+        }
+
+        //Add Subject to Sections
+        $sql = "UPDATE tb_sectionsRelation SET subject_id='$subject_id', faculty_id='$edit_faculty_id' WHERE secrel_id='$edit_id'";
+        if (mysqli_query($conn, $sql)) {
+            ?><script src="/assets/js/addAlert.js"></script><?php
+        } else {
+            ?><script src="/assets/js/errorAlert.js"></script><?php
+        }
+        mysqli_close($conn);
+    }
+}
+
 //------------------------------ Deleting Records ------------------------------
 function enableDelete_students()
 {
@@ -930,7 +955,7 @@ function showSectionsRelation($section_id)
         <td data-label='Faculty'>$firstname $lastname</td>
         <td data-label='Faculty ID'>$faculty_id</td>
         <td data-label='Operation'>
-        <a class='edit edit-faculty'><i class='fas fa-edit'></i> Edit</a>
+        <a class='edit edit-secrel'><i class='fas fa-edit'></i> Edit</a>
         <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
         </td>
         </tr>

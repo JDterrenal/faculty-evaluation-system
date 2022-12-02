@@ -147,6 +147,20 @@ $(document).ready(function () {
         $("#edit-popup-background").show();
     });
 
+    //Section Relation
+    $(".edit.edit-secrel").on('click',function () {
+        let currentRow = $(this).closest("tr");
+        let col1 = currentRow.find("td:eq(0)").text();
+        let col2 = currentRow.find("td:eq(1)").text();
+        let col3 = currentRow.find("td:eq(4)").text();
+        $("#edit_id").val(col1);
+        $("#edit_subject_code").val(col2).change();
+        $("#edit_faculty_id").val(col3).change();
+
+        editBackground.style.display = "flex";
+        $("#edit-popup-background").show();
+    });
+
     // Exit Edit
     $("#ex-edit").click(function () {
         $("#edit-popup-background").hide();

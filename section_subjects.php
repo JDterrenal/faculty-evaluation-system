@@ -136,7 +136,7 @@ $section_id = $_GET["section_id"];
 							<?php cbFaculty() ?>
 						</select>
 					</div>
-					<?php editSubject() ?>
+					<?php editSecrel() ?>
 					<button type="submit" name="editsecrel" class="editbtn"><i class="fas fa-edit"></i> Edit Subject</button>
 				</div>
 			</div>
