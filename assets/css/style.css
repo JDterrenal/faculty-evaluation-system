@@ -1016,7 +1016,6 @@ nav li:focus {
 .question-container{
   padding: 1em;
   margin: 0 auto;
-  background-color: #00bfff;
 }
 
 
@@ -1451,6 +1450,44 @@ footer {
   .main-table tbody tr {
     background-color: #f3f3f3;
   }
+
+  /* responsive table */
+  .question-table thead {
+    display: none;
+  }
+
+  .question-table,
+  .question-table tbody,
+  .question-table tr,
+  .question-table td {
+    display: block;
+	
+  }
+
+  .question-table tr {
+    margin-bottom: 15px;
+  }
+
+  .question-table tbody tr td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+    min-height: 1em;
+  }
+
+  .question-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 40%;
+    padding-left: 15px;
+    text-align: left;
+  }
+
+  .question-table tbody tr {
+    background-color: #f3f3f3;
+  }
+
 
   /* user table resposive */
   .user-table th{
