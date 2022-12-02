@@ -935,7 +935,7 @@ nav li:focus {
 
 .question-form-middle{
   padding: 1em;
-  height: 40em;
+  height: 20em;
 }
 
 .question{
@@ -954,6 +954,7 @@ nav li:focus {
   width: 70%;
   background-color: #00bfff;
   margin: .5em;
+  height: 100%;
 }
 
 /* footer */
