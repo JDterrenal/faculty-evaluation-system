@@ -186,6 +186,7 @@ $(document).ready(function () {
         $("[data-label='ID Info']").html(col1);
         $("[data-label='Section Info']").html(col2);
         $("[data-label='Students Count']").html(col3);
+        $("[data-label='Operation']").html("<a href='section_subjects.php?section_id=" + col1 + "' class='add-main'><i class='fas fa-eye'></i> Manage Subjects</a>");
     });
 
     // Student

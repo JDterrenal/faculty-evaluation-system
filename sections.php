@@ -49,6 +49,10 @@ enableDelete_sections();
 										<th>Students Count</th>
 										<td data-label="Students Count"></td>
 									</tr>
+									<tr>
+										<th>Operation</th>
+										<td data-label="Operation"></td>
+									</tr>
 								<tbody>
 							</table>
 						</div>

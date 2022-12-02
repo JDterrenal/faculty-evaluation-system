@@ -851,6 +851,46 @@ function showAccounts()
     mysqli_close($conn);
 }
 
+//This shows the Sections relation in a table format.
+function showSectionsRelation($section_id)
+{
+    include 'connection.php';
+    global $count;
+    $sql = "SELECT secrel_id, subject_id, faculty_id FROM tb_sectionsRelation WHERE section_id = $section_id ORDER BY secrel_id";
+    $result = mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($result);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $primary_id = $row["secrel_id"];
+        $subject_id = $row["subject_id"];
+        $faculty_id = $row["faculty_id"];
+        //Get Subject Name
+        $sql_subject = "SELECT subject_name FROM tb_subjects WHERE subject_id = $subject_id";
+        $result_subject = mysqli_query($conn, $sql_subject);
+        while ($row = mysqli_fetch_array($result_subject, MYSQLI_ASSOC)) {
+            $subject_name = $row["subject_name"];
+        }
+        //Get Faculty Name
+        $sql_faculty = "SELECT firstname, lastname FROM tb_faculty WHERE faculty_id = $faculty_id";
+        $result_faculty = mysqli_query($conn, $sql_faculty);
+        while ($row = mysqli_fetch_array($result_faculty, MYSQLI_ASSOC)) {
+            $firstname = $row["firstname"];
+            $lastname = $row["lastname"];
+        }
+        echo "
+        <tr>
+        <td data-label='ID'>$primary_id</td>
+        <td data-label='Subject'>$subject_name</td>
+        <td data-label='Faculty'>$firstname $lastname</td>
+        <td data-label='Operation'>
+        <a class='edit edit-faculty'><i class='fas fa-edit'></i> Edit</a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
+        </td>
+        </tr>
+        ";
+    }
+    mysqli_close($conn);
+}
+
 //------------------------------ Searching Records ------------------------------
 //Search courses functionality
 function searchCourses()
