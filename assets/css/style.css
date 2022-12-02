@@ -958,6 +958,8 @@ nav li:focus {
 }
 
 .evaluation-question-top{
+  padding-left: 1em;
+  padding-right: 1em;
   display: flex;
 }
 
