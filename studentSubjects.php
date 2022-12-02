@@ -48,7 +48,6 @@ enableDelete_subjects();
 										<th>ID</th>
 										<th>Subject Code</th>
 										<th>Subject</th>
-										<th>Units</th>
 										<th>Operation</th>
 									</tr>
 								</thead>
