@@ -43,7 +43,9 @@ enableDelete_courses();
                         </div>
 
                         <div class="evaluation-question">
-                            <p class="label-question">Evaluation Questionnaire for Academic: 2021-2022 1st</p>
+                            <div class="evaluation-question-top">
+                                <p class="label-question">Evaluation Questionnaire for Academic: 2021-2022 1st</p>
+                            </div>
                             <hr>
                         </div>
                     </div>
