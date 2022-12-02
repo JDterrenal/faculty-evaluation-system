@@ -14,7 +14,6 @@ h2 {
 
 /* all inputs */
 .popup-users-middle input[type=text],
-.popup-users-middle input[type=email],
 .popup-users-middle input[type=number],
 .popup-users-middle select[name=yearlevel],
 .popup-users-middle select[name=edit_course_id],
@@ -873,6 +872,34 @@ nav li:focus {
   font-size: 1rem;
   
 }
+/* question form */
+.question-form{
+  width: 30%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+
+.question-form-top{
+  border-radius: 5px 5px 0 0;
+  background-color: #707070;
+}
+
+.question-form-title{
+  padding: 1em;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.question-form-middle{
+  background-color: #ff0707;
+}
+
+.question{
+  margin: 1em auto;
+  font-size: 1rem;
+  width: 100%;
+}
 
 /* footer */
 .container-footer {
@@ -1020,6 +1047,7 @@ footer {
   flex-direction: column;
   max-height: 40em;
   max-width: 30em;
+  min-width: 20em;
   border-radius: 6px;
   background: #ffff;
 }
@@ -1270,6 +1298,7 @@ footer {
     text-align: right;
     padding-left: 50%;
     position: relative;
+    min-height: 1em;
   }
 
   .main-table td::before {
@@ -1370,7 +1399,6 @@ footer {
     margin-top: 4em;
     height: 100%;
     max-height: 30em;
-    max-width: 20em;
   }
 
   .popup-users-middle {
