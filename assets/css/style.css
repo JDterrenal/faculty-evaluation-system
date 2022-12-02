@@ -201,7 +201,6 @@ input[type=file]::file-selector-button:hover {
   border-collapse: collapse;
   font-size: 1rem;
   border-radius: 5px 5px 0 0;
-  margin: 1em 3em;
   width: 100%;
 }
 
@@ -1017,7 +1016,8 @@ nav li:focus {
 .question-container{
   padding: 1em;
   margin: 0 auto;
-  background-color: #00bfff;
+  overflow-y: auto;
+  height: 50em;
 }
 
 
@@ -1452,6 +1452,44 @@ footer {
   .main-table tbody tr {
     background-color: #f3f3f3;
   }
+
+  /* responsive table */
+  .question-table thead {
+    display: none;
+  }
+
+  .question-table,
+  .question-table tbody,
+  .question-table tr,
+  .question-table td {
+    display: block;
+	
+  }
+
+  .question-table tr {
+    margin-bottom: 15px;
+  }
+
+  .question-table tbody tr td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+    min-height: 1em;
+  }
+
+  .question-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 40%;
+    padding-left: 15px;
+    text-align: left;
+  }
+
+  .question-table tbody tr {
+    background-color: #f3f3f3;
+  }
+
 
   /* user table resposive */
   .user-table th{

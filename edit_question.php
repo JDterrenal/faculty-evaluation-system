@@ -8,7 +8,7 @@ enableDelete_courses();
 <head>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Courses | Faculty Evaluation</title>
+  <title>Manage Question | Faculty Evaluation</title>
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="icon" href="images/logo.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -70,16 +70,17 @@ enableDelete_courses();
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <td>Maliit ang tite ni uriel</td>
-                                        <td data-label='1'><input type="radio" name="likert" value="strong_disagree"></td>
-                                        <td data-label='2'><input type="radio" name="likert" value="disagree"></td>
-                                        <td data-label='3'><input type="radio" name="likert" value="uncertain"></td>
-                                        <td data-label='4'><input type="radio" name="likert" value="agree"></td>
-                                        <td data-label='5'><input type="radio" name="likert" value="strong_agree"></td>
+                                        <tr>
+                                            <td>Maliit ang tite ni uriel</td>
+                                            <td data-label='Stongly Disagree'><input type="radio" name="likert" value="strong_disagree"></td>
+                                            <td data-label='Disagree'><input type="radio" name="likert" value="disagree"></td>
+                                            <td data-label='Uncertain'><input type="radio" name="likert" value="uncertain"></td>
+                                            <td data-label='Agree'><input type="radio" name="likert" value="agree"></td>
+                                            <td data-label='Strongly Agree'><input type="radio" name="likert" value="strong_agree"></td>
+                                        <tr>
                                     </tbody>
                                     </table>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
