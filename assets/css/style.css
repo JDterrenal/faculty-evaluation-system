@@ -1260,6 +1260,11 @@ footer {
     width: 100%;
   }
 
+  .edit-question{
+    display: flex;
+    flex-direction: row;
+  }
+
   /* resposive navbar sa taas */
   .sidebar-nav {
     width: 19rem;
@@ -1491,5 +1496,7 @@ footer {
   .popup-users-middle {
     max-height: 25em;
   }
+
+
 
 }
