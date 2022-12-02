@@ -82,7 +82,7 @@ enableDelete_subjects();
 		<div class="popup-background" id="popup-background">
 			<div class="popup-add">
 				<div class="popup-add-top">
-					<p class="popup-add-title"><i class="fas fa-plus"></i> ADD SUBJECT</p>
+					<p class="popup-add-title"><i class="fas fa-plus"></i> ADD STUDENT SUBJECT</p>
 					<i class="fas fa-times ex" id="ex-add"></i>
 				</div>
 				<div class="popup-add-middle">
@@ -90,10 +90,10 @@ enableDelete_subjects();
 						<input type="text" name="subject_code" placeholder="Subject Code" class="popup-tbx" required>
 						<p class="label1">Subject Name</p>
 						<input type="text" name="subject_name" placeholder="Subject Name" class="popup-tbx" required>
-						<p class="label1">Units</p>
-						<input type="number" name="units" placeholder="Units" class="popup-tbx" required>
+						<p class="label1">Faculty</p>
+						<input type="number" name="faculty" placeholder="Faculty" class="popup-tbx" required>
 					<?php addSubject() ?>
-					<button type="submit" name="addsubject" class="addbtn"><i class="fas fa-plus"></i> Add Subject</button>
+					<button type="submit" name="addsubject" class="addbtn"><i class="fas fa-plus"></i> Add Student Subject</button>
 				</div>
 			</div>
 		</div>
@@ -104,7 +104,7 @@ enableDelete_subjects();
 		<div class="popup-background-edit" id="edit-popup-background">
 			<div class="popup-add">
 				<div class="popup-add-top">
-					<p class="popup-add-title"><i class="fas fa-edit"></i> EDIT SUBJECT</p>
+					<p class="popup-add-title"><i class="fas fa-edit"></i> EDIT STUDENT SUBJECT</p>
 					<i class="fas fa-times ex" id="ex-edit"></i>
 				</div>
 				<div class="popup-add-middle">
@@ -115,10 +115,10 @@ enableDelete_subjects();
 						<p class="label1">Subject Name</p>
 						<input type="text" name="edit_subject_name" id="edit_subject_name" placeholder="Subject Name" class="popup-tbx" required>
 						
-						<p class="label1">Units</p>
-						<input type="number" name="edit_units" id="edit_units" placeholder="Subject Name" class="popup-tbx" required>
+						<p class="label1">Faculty</p>
+						<input type="number" name="edit_faculty" id="edit_faculty" placeholder="Student" class="popup-tbx" required>
 					<?php editSubject() ?>
-					<button type="submit" name="editsubject" class="editbtn"><i class="fas fa-edit"></i> Edit Subject</button>
+					<button type="submit" name="editsubject" class="editbtn"><i class="fas fa-edit"></i> Edit Student Subject</button>
 				</div>
 			</div>
 		</div>
