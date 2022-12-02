@@ -903,7 +903,7 @@ nav li:focus {
 .question{
   font-size: 1rem;
   width: 100%;
-  max-height: 5rem;
+  max-height: 10rem;
   height: 100%;
 }
 
