@@ -1,6 +1,7 @@
 <?php
 include './assets/php/functions.php';
 preventBack();
+$section_id = $_SESSION["section_id"];
 ?>
 
 <html>
@@ -23,7 +24,7 @@ preventBack();
 	<div class= "main-container">
 		<main>
 			<div class="container-main">
-				<div class="page-container"><h1><i class="fas fa-book-open" id="view-info"> Section Subjects</i></h1>
+				<div class="page-container"><h1><i class="fas fa-book-open" id="view-info"> Manage Subjects</i></h1>
 					<hr>
 					<div class="user-info">
 						<div class="user-content">
@@ -33,26 +34,7 @@ preventBack();
 							</div>
 						</div>
 						<div class="user-nfo-content">
-							<table class="user-table">
-								<tbody>
-									<tr>
-										<th>ID Info</th>
-										<td data-label="ID Info"></td>
-									</tr>
-									<tr>
-										<th>Section Info</th>
-										<td data-label="Section Info"></td>
-									</tr>
-									<tr>
-										<th>Students Count</th>
-										<td data-label="Students Count"></td>
-									</tr>
-									<tr>
-										<th>Operation</th>
-										<td data-label="Operation"></td>
-									</tr>
-								<tbody>
-							</table>
+							<?php loadSectionsRelation($section_id) ?>
 						</div>
 					</div>
 
