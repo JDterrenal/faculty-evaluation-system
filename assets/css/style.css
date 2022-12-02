@@ -882,7 +882,7 @@ nav li:focus {
 .question-form-top{
   border-radius: 5px 5px 0 0;
   background-color: #707070;
-  padding: .5em 1em;
+  padding: .1em 1em;
 }
 
 .question-form-title{
@@ -897,7 +897,6 @@ nav li:focus {
 }
 
 .question{
-  margin: 2 auto;
   font-size: 1rem;
   width: 100%;
 }
