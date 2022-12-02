@@ -728,7 +728,7 @@ nav li:focus {
 }
 
 .edit-question{
-  margin: 0 auto;
+  margin: 0;
   width: 98%;
   display: flex;
 }
@@ -913,7 +913,8 @@ nav li:focus {
   width: 30%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
-  max-height: 40em;
+  margin: .5em;
+  height:max-content;
 }
 
 .question-form-top{
@@ -935,12 +936,13 @@ nav li:focus {
 
 .question-form-middle{
   padding: 1em;
+  height: auto;
 }
 
 .question{
   font-size: 1rem;
   width: 100%;
-  max-height: 10rem;
+  height: 10em;
 }
 
 .question-form-bottom{
@@ -950,8 +952,35 @@ nav li:focus {
 }
 
 .evaluation-question{
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   width: 70%;
-  background-color: #00bfff;
+  margin: .5em;
+  border-radius: 5px;
+  border-top: 3px solid #000000;
+}
+
+.evaluation-question-top{
+  padding-left: 1em;
+  padding-right: 1em;
+  display: flex;
+}
+.evaluation-question-content{
+  padding: 1em;
+}
+.rating-legend-box{
+  padding: 1em;
+  border: 1px solid #d0d0d0;
+  border-left: 3px solid #000000;
+  display: flex;
+}
+
+.rating-legend-options{
+  border: 1px solid #d0d0d0;
+  border-left: 3px solid #000000;
+  margin: .5em;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: .3em;
 }
 
 /* footer */
@@ -1231,6 +1260,19 @@ footer {
     width: 100%;
   }
 
+  .edit-question{
+    display: flex;
+    flex-direction: column;
+  }
+  .rating-legend-box{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .evaluation-question{
+    width: 100%;
+  }
+
   /* resposive navbar sa taas */
   .sidebar-nav {
     width: 19rem;
@@ -1462,5 +1504,7 @@ footer {
   .popup-users-middle {
     max-height: 25em;
   }
+
+
 
 }
