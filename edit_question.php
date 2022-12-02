@@ -24,7 +24,7 @@ enableDelete_courses();
 	<!-------- main content ---------->
 	<div class= "main-container">
 		<main>
-			<div class="container-main">
+			<div class="container-editquestion">
 				<div class="page-container"><h1><i class="fas fa-book" id="view-info"> Manage Question</i></h1>
 					<hr>
 					<div class="question-form">
@@ -42,7 +42,7 @@ enableDelete_courses();
                     </div>
 
                     <div class="evaluation-question">
-                    <h1><i class="fas fa-book" id="view-info"> Courses</i></h1>
+                    <h1>Courses</h1>
                     <hr>
                     </div>
 				</div>
