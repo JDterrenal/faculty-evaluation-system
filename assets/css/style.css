@@ -913,7 +913,7 @@ nav li:focus {
   width: 30%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
-  max-height: 40em;
+  margin: .5em;
 }
 
 .question-form-top{
@@ -952,6 +952,7 @@ nav li:focus {
 .evaluation-question{
   width: 70%;
   background-color: #00bfff;
+  margin: .5em;
 }
 
 /* footer */
