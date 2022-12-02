@@ -56,6 +56,8 @@ enableDelete_courses();
                                     <div class="rating-legend-options">2-DISAGREE</div>
                                     <div class="rating-legend-options">1-STRONGLY DISAGREE</div>
                                 </div>
+
+                                
                             </div>
                         </div>
                     </div>
