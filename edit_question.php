@@ -40,11 +40,11 @@ enableDelete_courses();
                                 <a class='save'>Save</a>
                                 <a class='cancel'>Cancel</a>
                             </div>
+                        </div>
 
-                            <div class="evaluation-question">
-                                <h1>Courses</h1>
-                                <hr>
-                            </div>
+                        <div class="evaluation-question">
+                            <h1>Courses</h1>
+                            <hr>
                         </div>
                     </div>
 				</div>
