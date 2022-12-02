@@ -153,7 +153,6 @@ input[type=file]::file-selector-button:hover {
   margin: 1em 3em;
   width: 100%;
   table-layout: fixed;
-  
 }
 
 
@@ -196,6 +195,38 @@ input[type=file]::file-selector-button:hover {
 .main-table tbody tr:hover {
   background-color: #e1e1e1;
 }
+
+/* question tables */
+.question-table {
+  border-collapse: collapse;
+  font-size: 1rem;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  margin: 1em 3em;
+}
+
+.question-table thead tr {
+  background-color: #707070;
+  color: #ffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.question-table th,
+.question-table td {
+  padding: 12px 15px;
+
+}
+
+.question-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+
+}
+
+.question-table tbody tr:last-of-type {
+  border-bottom: 2px solid #707070;
+}
+
 
 /* ========== login form =========*/
 .login-container {
