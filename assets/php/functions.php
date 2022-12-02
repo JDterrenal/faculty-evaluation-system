@@ -864,9 +864,10 @@ function showSectionsRelation($section_id)
         $subject_id = $row["subject_id"];
         $faculty_id = $row["faculty_id"];
         //Get Subject Name
-        $sql_subject = "SELECT subject_name FROM tb_subjects WHERE subject_id = $subject_id";
+        $sql_subject = "SELECT subject_code, subject_name FROM tb_subjects WHERE subject_id = $subject_id";
         $result_subject = mysqli_query($conn, $sql_subject);
         while ($row = mysqli_fetch_array($result_subject, MYSQLI_ASSOC)) {
+            $subject_code = $row["subject_code"];
             $subject_name = $row["subject_name"];
         }
         //Get Faculty Name
@@ -879,6 +880,7 @@ function showSectionsRelation($section_id)
         echo "
         <tr>
         <td data-label='ID'>$primary_id</td>
+        <td data-label='Subject Code'>$subject_code</td>
         <td data-label='Subject'>$subject_name</td>
         <td data-label='Faculty'>$firstname $lastname</td>
         <td data-label='Operation'>
@@ -886,6 +888,41 @@ function showSectionsRelation($section_id)
         <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
         </td>
         </tr>
+        ";
+    }
+    mysqli_close($conn);
+}
+
+// Load Manage Data
+function loadSectionsRelation($section_id)
+{
+    include 'connection.php';
+    global $count;
+    $sql = "SELECT section_name FROM tb_sections WHERE section_id = $section_id ORDER BY section_id";
+    $result = mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($result);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $section_name = $row["section_name"];
+        $sql2 = "SELECT student_id FROM tb_students WHERE section_id = $section_id";
+        $result2 = mysqli_query($conn, $sql2);
+        $students = mysqli_num_rows($result2);
+        echo "
+        <table class='user-table'>
+        <tbody>
+            <tr>
+                <th>ID Info</th>
+                <td data-label='ID Info'>$section_id</td>
+            </tr>
+            <tr>
+                <th>Section Info</th>
+                <td data-label='Section Info'>$section_name</td>
+            </tr>
+            <tr>
+                <th>Students Count</th>
+                <td data-label='Students Count'>$students</td>
+            </tr>
+        <tbody>
+        </table>
         ";
     }
     mysqli_close($conn);
