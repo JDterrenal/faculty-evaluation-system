@@ -523,7 +523,7 @@ function editSecrel()
         //Add Subject to Sections
         $sql = "UPDATE tb_sectionsRelation SET subject_id='$subject_id', faculty_id='$edit_faculty_id' WHERE secrel_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
-            ?><script src="/assets/js/addAlert.js"></script><?php
+            ?><script src="/assets/js/editAlert.js"></script><?php
         } else {
             ?><script src="/assets/js/errorAlert.js"></script><?php
         }
