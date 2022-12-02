@@ -24,8 +24,8 @@ enableDelete_courses();
 	<!-------- main content ---------->
 	<div class= "main-container">
 		<main>
-			<div class="container-editquestion">
-				<div class="page-container"><h1><i class="fas fa-book" id="view-info"> Manage Question</i></h1>
+			<div class="container-main">
+				<div class="edit-question"><h1><i class="fas fa-book" id="view-info"> Manage Question</i></h1>
 					<hr>
 					<div class="question-form">
                         <div class="question-form-top">

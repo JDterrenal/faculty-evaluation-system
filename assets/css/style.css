@@ -717,13 +717,6 @@ nav li:focus {
   transition: 0.5s;
 }
 
-.container-editquestion {
-  margin: 0 auto;
-  width: 100%;
-  transition: 0.5s;
-  display: flex;
-}
-
 .dashboard-container {
   margin: 0 auto;
   width: 98%;
@@ -732,6 +725,12 @@ nav li:focus {
 .page-container {
   margin: 0 auto;
   width: 98%;
+}
+
+.edit-question{
+  margin: 0 auto;
+  width: 98%;
+  display: flex;
 }
 
 .columns {
