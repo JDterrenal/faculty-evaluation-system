@@ -45,6 +45,10 @@ enableDelete_sections();
 										<th>Section Info</th>
 										<td data-label="Section Info"></td>
 									</tr>
+									<tr>
+										<th>Students Count</th>
+										<td data-label="Students Count"></td>
+									</tr>
 								<tbody>
 							</table>
 						</div>
@@ -69,7 +73,8 @@ enableDelete_sections();
 								<thead>
 									<tr>
 										<th>ID</th>
-										<th>Section Name</th>
+										<th>Section</th>
+										<th>Students</th>
 										<th>Operation</th>
 									</tr>
 								</thead>

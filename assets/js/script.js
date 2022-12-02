@@ -158,8 +158,10 @@ $(document).ready(function () {
         let currentRow = $(this).closest("tr");
         let col1 = currentRow.find("td:eq(0)").text();
         let col2 = currentRow.find("td:eq(1)").text();
+        let col3 = currentRow.find("td:eq(2)").text();
         $("[data-label='ID Info']").html(col1);
         $("[data-label='Course Info']").html(col2);
+        $("[data-label='Students Count']").html(col3);
     });
 
     // Subject
@@ -180,8 +182,10 @@ $(document).ready(function () {
         let currentRow = $(this).closest("tr");
         let col1 = currentRow.find("td:eq(0)").text();
         let col2 = currentRow.find("td:eq(1)").text();
+        let col3 = currentRow.find("td:eq(2)").text();
         $("[data-label='ID Info']").html(col1);
         $("[data-label='Section Info']").html(col2);
+        $("[data-label='Students Count']").html(col3);
     });
 
     // Student
