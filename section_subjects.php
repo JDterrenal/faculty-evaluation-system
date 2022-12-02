@@ -24,9 +24,39 @@ enableDelete_subjects();
 	<div class= "main-container">
 		<main>
 			<div class="container-main">
-				<div class="page-container"><h1><i class="fas fa-book-open" id="view-info"> Student Subjects</i></h1>
+				<div class="page-container"><h1><i class="fas fa-book-open" id="view-info"> Section Subjects</i></h1>
 					<hr>
-					
+					<div class="user-info">
+						<div class="user-content">
+							<div class="user-info-title">
+									<p class="user-title"><i class="fas fa-user"></i> Information!</p>
+									<hr>
+							</div>
+						</div>
+						<div class="user-nfo-content">
+							<table class="user-table">
+								<tbody>
+									<tr>
+										<th>ID Info</th>
+										<td data-label="ID Info"></td>
+									</tr>
+									<tr>
+										<th>Section Info</th>
+										<td data-label="Section Info"></td>
+									</tr>
+									<tr>
+										<th>Students Count</th>
+										<td data-label="Students Count"></td>
+									</tr>
+									<tr>
+										<th>Operation</th>
+										<td data-label="Operation"></td>
+									</tr>
+								<tbody>
+							</table>
+						</div>
+					</div>
+
 					<div class="main-content">
 						<div class="main-search-add">
 							<div class="main-search-add-top">
