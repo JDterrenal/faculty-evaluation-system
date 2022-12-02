@@ -939,6 +939,7 @@ nav li:focus {
 
 .question-form-bottom{
   padding: 1em;
+  align-items: right;
 }
 
 /* footer */
