@@ -78,29 +78,7 @@ enableDelete_subjects();
 	<!-------- popup logout ---------->
 	<?php include './assets/php/popupLogout.php' ?>
 
-	<!--------popup add student subject ------------>
-	<form action=studentSubjects.php method=post>
-		<div class="popup-backgroundsubject" id="popup-background">
-			<div class="popup-add">
-				<div class="popup-add-top">
-					<p class="popup-add-title"><i class="fas fa-plus"></i> ADD STUDENT SUBJECT</p>
-					<i class="fas fa-times ex" id="ex-add"></i>
-				</div>
-				<div class="popup-add-middle">
-						<p class="label1">Subject Code</p>
-						<input type="text" name="subject_code" placeholder="Subject Code" class="popup-tbx" required>
-						<p class="label1">Subject Name</p>
-						<input type="text" name="subject_name" placeholder="Subject Name" class="popup-tbx" required>
-						<p class="label1">Faculty</p>
-						<input type="number" name="faculty" placeholder="Faculty" class="popup-tbx" required>
-					<?php addStudentSubject() ?>
-					<button type="submit" name="addstudentsubject" class="addbtn"><i class="fas fa-plus"></i> Add Student Subject</button>
-				</div>
-			</div>
-		</div>
-	</form>
-
-	<!--------popup edit student subject ------------>
+	<!--------popup add subject ------------>
 	<form action=subjects.php method=post>
 		<div class="popup-background" id="popup-background">
 			<div class="popup-add">
