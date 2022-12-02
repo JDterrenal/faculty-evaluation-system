@@ -69,6 +69,21 @@ input[type=file]::file-selector-button:hover {
 }
 
 /* all buttons */
+.save {
+  display: inline-block;
+  padding: .4em;
+  background-color: #33ccff;
+  text-decoration: none;
+  color: #ffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.save:hover,
+.save:focus {
+  background-color: #00bfff;
+}
+
 .view {
   display: inline-block;
   padding: .4em;
