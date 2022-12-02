@@ -1016,6 +1016,8 @@ nav li:focus {
 .question-container{
   padding: 1em;
   margin: 0 auto;
+  overflow-y: auto;
+  height: 100%;
 }
 
 
