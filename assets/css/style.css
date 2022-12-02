@@ -84,6 +84,21 @@ input[type=file]::file-selector-button:hover {
   background-color: #00bfff;
 }
 
+.cancel {
+  display: inline-block;
+  padding: .4em;
+  background-color: #ff4d4d;
+  text-decoration: none;
+  color: #ffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cancel:hover,
+.cancel:focus {
+  background-color: #ff0000;
+}
+
 .view {
   display: inline-block;
   padding: .4em;

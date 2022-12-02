@@ -37,7 +37,7 @@ enableDelete_courses();
                         </div>
                         <div class="question-form-bottom">
                             <a class='save'>Save</a>
-                            <a class='Cancel'>Cancel</a>
+                            <a class='cancel'>Cancel</a>
                         </div>
                     </div>
 				</div>
