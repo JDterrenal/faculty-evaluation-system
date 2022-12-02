@@ -348,6 +348,32 @@ function addSection()
     }
 }
 
+//Adds a new section relation in the record.
+function addSecrel()
+{
+    if (isset($_POST['addsecrel'])) {
+        include 'connection.php';
+        $section_id = $_GET['section_id'];
+        $subject_code = $_POST['subject_code'];
+        $faculty_id = $_POST['faculty_id'];
+
+        $fetch_subject_id = "SELECT subject_id FROM tb_subjects WHERE subject_code='$subject_code'";
+        $result = mysqli_query($conn, $fetch_subject_id);
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $subject_id = $row["subject_id"];
+        }
+
+        //Add Subject
+        $sql = "INSERT INTO tb_sectionsRelation (secrel_id, section_id, subject_id, faculty_id) VALUES (null, '$section_id', '$subject_id', '$faculty_id')";
+        if (mysqli_query($conn, $sql)) {
+            ?><script src="/assets/js/addAlert.js"></script><?php
+        } else {
+            ?><script src="/assets/js/errorAlert.js"></script><?php
+        }
+        mysqli_close($conn);
+    }
+}
+
 //------------------------------ Editing Records ------------------------------
 //Student Edit and Confirmation
 function editStudent()
@@ -555,6 +581,18 @@ function enableDelete_evaluations()
         $sql = "DELETE FROM tb_evaluations WHERE evaluation_id='$delete_id'";
         mysqli_query($conn, $sql) or die("Connection error!");
         header('location: evaluations.php');
+    }
+}
+
+function enableDelete_secrel()
+{
+    include 'connection.php';
+    //Delete Evaluation
+    if (isset($_GET['delete_id'])) {
+        $delete_id = $_GET['delete_id'];
+        $sql = "DELETE FROM tb_sectionsRelation WHERE secrel_id='$delete_id'";
+        mysqli_query($conn, $sql) or die("Connection error!");
+        header('location: section_subjects.php');
     }
 }
 
@@ -883,6 +921,7 @@ function showSectionsRelation($section_id)
         <td data-label='Subject Code'>$subject_code</td>
         <td data-label='Subject'>$subject_name</td>
         <td data-label='Faculty'>$firstname $lastname</td>
+        <td data-label='Faculty ID'>$faculty_id</td>
         <td data-label='Operation'>
         <a class='edit edit-faculty'><i class='fas fa-edit'></i> Edit</a>
         <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
@@ -977,6 +1016,35 @@ function cbSection()
         $section_id = $row["section_id"];
         $section_name = $row["section_name"];
         echo "<option value='$section_id'>$section_name</option>";
+    }
+    mysqli_close($conn);
+}
+
+//Subjects Combo Box
+function cbSubject()
+{
+    include 'connection.php';
+    $sql = "SELECT subject_id, subject_name FROM tb_subjects";
+    $result = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $subject_id = $row["subject_id"];
+        $subject_name = $row["subject_name"];
+        echo "<option value='$subject_id'>$subject_name</option>";
+    }
+    mysqli_close($conn);
+}
+
+//Faculty Combo Box
+function cbFaculty()
+{
+    include 'connection.php';
+    $sql = "SELECT faculty_id, firstname, lastname FROM tb_faculty";
+    $result = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $faculty_id = $row["faculty_id"]; 
+        $firstname = $row["firstname"];
+        $lastname = $row["lastname"];
+        echo "<option value='$faculty_id'>$firstname $lastname</option>";
     }
     mysqli_close($conn);
 }
