@@ -950,6 +950,10 @@ nav li:focus {
   border-radius: 0 0 5px 5px;
 }
 
+.evaluation-question{
+  width: 70%;
+}
+
 /* footer */
 .container-footer {
   margin: 0 auto;
