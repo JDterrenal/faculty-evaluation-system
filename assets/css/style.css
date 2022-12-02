@@ -203,6 +203,7 @@ input[type=file]::file-selector-button:hover {
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   margin: 1em 3em;
+  width: 100%;
 }
 
 .question-table thead tr {
@@ -1012,6 +1013,10 @@ nav li:focus {
   font-size: 1rem;
   font-weight: bold;
   padding: .3em;
+}
+
+.question-container{
+  padding: 1em;
 }
 
 
