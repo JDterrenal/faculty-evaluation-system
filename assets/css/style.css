@@ -1023,7 +1023,9 @@ nav li:focus {
   padding: 1em;
   margin: 0 auto;
   overflow-y: auto;
-  height: 50em;
+  min-height: fit-content;
+  height: auto;
+  max-height: 50em;
 }
 
 
