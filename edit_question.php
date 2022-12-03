@@ -28,15 +28,15 @@ enableDelete_courses();
 				<div class="page-container"><h1><i class="fas fa-book" id="view-info"> Manage Question</i></h1>
 					<hr>
                     <div class="edit-question">
-                        <div class="question-form">
-                            <div class="question-form-top">
-                                <p class="question-form-title">Question Form</p>
+                        <div class="form">
+                            <div class="form-top">
+                                <p class="form-title">Question Form</p>
                             </div>
-                            <div class="question-form-middle">
+                            <div class="form-middle">
                                 <p class="label-question">Question</p>
                                 <textarea class="question"></textarea>
                             </div>
-                            <div class="question-form-bottom">
+                            <div class="form-bottom">
                                 <a class='save'>Save</a>
                                 <a class='cancel'>Cancel</a>
                             </div>

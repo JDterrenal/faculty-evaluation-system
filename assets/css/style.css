@@ -769,6 +769,12 @@ nav li:focus {
   display: flex;
 }
 
+.student-evaluation{
+  margin: 0;
+  width: 98%;
+  display: flex;
+}
+
 .columns {
   display: flex;
   justify-content: space-between;
@@ -945,7 +951,7 @@ nav li:focus {
   
 }
 /* question form */
-.question-form{
+.form{
   width: 30%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
@@ -953,13 +959,13 @@ nav li:focus {
   height:max-content;
 }
 
-.question-form-top{
+.form-top{
   border-radius: 5px 5px 0 0;
   background-color: #707070;
   padding: .1em 1em;
 }
 
-.question-form-title{
+.form-title{
   color: #ffffff;
   font-weight: 700;
   font-size: 1.2rem;
@@ -970,7 +976,7 @@ nav li:focus {
   font-weight: 700;
 }
 
-.question-form-middle{
+.form-middle{
   padding: 1em;
   height: auto;
 }
@@ -981,7 +987,7 @@ nav li:focus {
   height: 10em;
 }
 
-.question-form-bottom{
+.form-bottom{
   padding: 1em;
   background-color: #e1e1e1;
   border-radius: 0 0 5px 5px;
@@ -1303,7 +1309,7 @@ footer {
 @media(max-width: 1180px) {
 
   /* responsive quesform form */
-  .question-form{
+  .form{
     width: 100%;
   }
 
@@ -1311,6 +1317,12 @@ footer {
     display: flex;
     flex-direction: column;
   }
+
+  .student-evaluation{
+    display: flex;
+    flex-direction: column;
+  }
+
   .rating-legend-box{
     display: flex;
     flex-direction: column;
