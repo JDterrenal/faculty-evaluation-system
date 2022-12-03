@@ -28,7 +28,7 @@ enableDelete_courses();
 				<div class="page-container"><h1><i class="fas fa-book" id="view-info"> Manage Question</i></h1>
 					<hr>
                     <div class="student-evaluation">
-                        <div class="question-form">
+                        <div class="form">
                            
                         </div>
 
