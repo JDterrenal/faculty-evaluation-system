@@ -29,12 +29,27 @@ enableDelete_courses();
 					<hr>
                     <div class="student-evaluation">
                         <div class="form">
-                           
+                        <div class="form-top">
+                                <p class="form-title">Faculty</p>
+                            </div>
+                            <div class="form-middle">
+                                <p class="label-question">Faculty Name</p>
+                                <p>Uriel</p>
+                                <p class="label-question">Subject Code</p>
+                                <p>ITCP_01</p>
+                                <p class="label-question">Description</p>
+                                <p>Computer Programming</p>
+                            </div>
+                            <div class="form-bottom">
+                                <a class='save'>Save</a>
+                                <a class='cancel'>Cancel</a>
+                            </div>
                         </div>
 
                         <div class="evaluation-question">
                             <div class="evaluation-question-top">
                                 <p class="label-question">Evaluation Questionnaire for Academic: 2021-2022 1st</p>
+                                <a class='save'>Save</a>
                             </div>
                             <hr>
                             <div class="evaluation-question-content">
