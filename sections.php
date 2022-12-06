@@ -98,7 +98,7 @@ enableDelete_sections();
 	
 	<!--================= popups ===================-->
 	<!-------- popup logout ---------->
-	<?php include './assets/php/popupLogout.php' ?>ss
+	<?php include './assets/php/popupLogout.php' ?>
 
 	<!--------popup add section ------------>
 	<form action="sections.php" method="post">
