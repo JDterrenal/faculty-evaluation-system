@@ -54,11 +54,11 @@ enableDelete_questions();
                             <div class="evaluation-question-content">
                                 <h1>Rating Legend</h1>
                                 <div class="rating-legend-box">
-                                    <div class="rating-legend-options">1-STRONGLY DISAGREE</div>
-                                    <div class="rating-legend-options">2-DISAGREE</div>
-                                    <div class="rating-legend-options">3-UNCERTAIN</div>
-                                    <div class="rating-legend-options">4-AGREE</div>
-                                    <div class="rating-legend-options">5-STRONGLY AGREE</div>
+                                    <div class="rating-legend-options">1 - STRONGLY DISAGREE</div>
+                                    <div class="rating-legend-options">2 - DISAGREE</div>
+                                    <div class="rating-legend-options">3 - UNCERTAIN</div>
+                                    <div class="rating-legend-options">4 - AGREE</div>
+                                    <div class="rating-legend-options">5 - STRONGLY AGREE</div>
                                 </div>
 
                                 <div class="question-container">
