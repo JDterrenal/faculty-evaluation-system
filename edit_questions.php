@@ -39,7 +39,7 @@ enableDelete_questions();
                                 </div>
                                 <div class="form-bottom">
                                     <?php addQuestion() ?>
-                                    <button type="submit" name="addquestion" class="save"> Save</button>
+                                    <button type="submit" name="addquestion" class="save">Save</button>
                                     <button id="clear" class="cancel">Cancel</button>
                                 </div>
                             </form>
@@ -93,6 +93,25 @@ enableDelete_questions();
 	<!--================= popups ===================-->
 	<!-------- popup logout ---------->
 	<?php include './assets/php/popupLogout.php' ?>
+
+    <!--------popup edit question ------------>
+	<form action="edit_questions.php" method="post">
+		<div class="popup-background-edit" id="edit-popup-background">
+			<div class="popup-add">
+				<div class="popup-add-top">
+					<p class="popup-add-title"><i class="fas fa-edit"></i> EDIT QUESTION</p>
+					<i class="fas fa-times ex" id="ex-edit"></i>
+				</div>
+				<div class="popup-add-middle">
+					<input type="hidden" name="edit_id" id="edit_id">
+					<p class="label-question">Question</p>
+                    <textarea id="edit_question" name="edit_question" class="question" required></textarea>
+					<?php editQuestion() ?>
+					<button type="submit" name="editquestion" class="editbtn"><i class="fas fa-edit"></i> Edit Question</button>
+				</div>
+			</div>
+		</div>
+	</form>
 
 	<script src="./assets/js/script.js"></script>
 	<script src="./assets/js/deleteConfirmation.js"></script>

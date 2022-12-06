@@ -393,7 +393,7 @@ function addQuestion()
 }
 
 //------------------------------ Editing Records ------------------------------
-//Student Edit and Confirmation
+// Student Edit
 function editStudent()
 {
     if (isset($_POST['editstudent'])) {
@@ -426,7 +426,7 @@ function editStudent()
     }
 }
 
-//Faculty Edit and Confirmation
+// Faculty Edit
 function editFaculty()
 {  
     if (isset($_POST['editfaculty'])) {
@@ -455,6 +455,7 @@ function editFaculty()
     }
 }
 
+// Password Edit
 function editAccount()
 {
     if (isset($_POST['editaccount'])) {
@@ -471,6 +472,7 @@ function editAccount()
     }
 }
 
+// Course Edit
 function editCourse()
 {
     if (isset($_POST['editcourse'])) {
@@ -487,7 +489,7 @@ function editCourse()
     }
 }
 
-// Edit confirmation for subject
+// Subject Edit
 function editSubject()
 {
     if (isset($_POST['editsubject'])) {
@@ -507,7 +509,7 @@ function editSubject()
     }
 }
 
-// Edit confirmation for section
+// Section Edit
 function editSection()
 {
     if (isset($_POST['editsection'])) {
@@ -524,6 +526,7 @@ function editSection()
     }
 }
 
+// Section Relation Edit
 function editSecrel()
 {
     if (isset($_POST['editsecrel'])) {
@@ -540,6 +543,23 @@ function editSecrel()
 
         //Add Subject to Sections
         $sql = "UPDATE tb_sectionsRelation SET subject_id='$subject_id', faculty_id='$edit_faculty_id' WHERE secrel_id='$edit_id'";
+        if (mysqli_query($conn, $sql)) {
+            ?><script src="/assets/js/editAlert.js"></script><?php
+        } else {
+            ?><script src="/assets/js/errorAlert.js"></script><?php
+        }
+        mysqli_close($conn);
+    }
+}
+
+// Question Edit
+function editQuestion()
+{
+    if (isset($_POST['editquestion'])) {
+        include 'connection.php';
+        $edit_id = $_POST['edit_id'];
+        $edit_question = $_POST['edit_question'];
+        $sql = "UPDATE tb_questions SET question='$edit_question' WHERE question_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/editAlert.js"></script><?php
         } else {
