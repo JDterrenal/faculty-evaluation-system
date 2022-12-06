@@ -67,6 +67,7 @@ enableDelete_courses();
                                             <th>3</th>
                                             <th>2</th>
                                             <th>1</th>
+                                            <th>operation</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -77,6 +78,7 @@ enableDelete_courses();
                                             <td data-label='Uncertain'><input type="radio" name="likert" value="uncertain"></td>
                                             <td data-label='Agree'><input type="radio" name="likert" value="agree"></td>
                                             <td data-label='Strongly Agree'><input type="radio" name="likert" value="strong_agree"></td>
+                                            <td data-label='Operation'><a class='edit'><i class='fas fa-edit'></i> Edit</a> <a class='delete'><i class='fas fa-trash'></i> Delete</a></td>
                                         <tr>
                                     </tbody>
                                     </table>
