@@ -52,7 +52,7 @@ enableDelete_courses();
                         <div class="evaluation-question">
                             <div class="evaluation-question-top">
                                 <p class="label-question">Evaluation Questionnaire for Academic: 2021-2022 1st</p>
-                                <a class='submit-eval'>Submit Evalutaion</a>
+                                <a class='submit-eval'>Submit</a>
                             </div>
                             <hr>
                             <div class="evaluation-question-content">
@@ -79,7 +79,7 @@ enableDelete_courses();
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</td>
+                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</td>
                                             <td data-label='Stongly Disagree'><input type="radio" name="likert" value="strong_disagree"></td>
                                             <td data-label='Disagree'><input type="radio" name="likert" value="disagree"></td>
                                             <td data-label='Uncertain'><input type="radio" name="likert" value="uncertain"></td>
