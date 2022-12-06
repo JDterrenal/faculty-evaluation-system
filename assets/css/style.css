@@ -1617,6 +1617,12 @@ footer {
     margin: 0;
   }
 
+  .edit span,
+  .delete span,
+  .view span{
+    display: none;
+  }
+
 
   .footer-text2 {
     display: none;

@@ -650,9 +650,9 @@ function showSubjects()
         <td data-label='Subject'>$subject_name</td>
         <td data-label='Units'>$units</td>
         <td data-label='Operation'>
-        <a href='#view-info' class='view view-subject'><i class='fas fa-eye'></i> View</a>
-        <a class='edit edit-subject'><i class='fas fa-edit'></i> Edit</a>
-        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
+        <a href='#view-info' class='view view-subject'><i class='fas fa-eye'></i><span> View</span></a>
+        <a class='edit edit-subject'><i class='fas fa-edit'></i><span> Edit</span></a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i><span> Delete</span></a>
         </td>
         </tr>
         ";
@@ -680,9 +680,9 @@ function showSections()
         <td data-label='Section'>$section_name</td>
         <td data-label='Students'>$students</td>
         <td data-label='Operation'>
-        <a href='#view-info' class='view view-section'><i class='fas fa-eye'></i> View</a>
-        <a class='edit edit-section'><i class='fas fa-edit'></i> Edit</a>
-        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
+        <a href='#view-info' class='view view-section'><i class='fas fa-eye'></i><span> View</span></a>
+        <a class='edit edit-section'><i class='fas fa-edit'></i> <span>Edit</span></a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> <span>Delete</span></a>
         </td>
         </tr>
         ";
@@ -711,8 +711,8 @@ function showEvaluations()
         <td data-label='Semester'>$semester</td>
         <td data-label='Status'>$status</td>
         <td data-label='Section ID'>$section_id</td>
-        <td data-label='Operation'><a class='edit' id='editevaluation' onclick='EditFunction()'><i class='fas fa-edit'></i> Edit</a></td>
-        <td data-label='Operation'><a href='evaluations.php?delete_evaluation_id=$evaluation_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a></td>
+        <td data-label='Operation'><a class='edit' id='editevaluation' onclick='EditFunction()'><i class='fas fa-edit'></i> <span>Edit</span></a></td>
+        <td data-label='Operation'><a href='evaluations.php?delete_evaluation_id=$evaluation_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> <span>Delete</span></a></td>
         </tr>
         ";
     }
@@ -740,8 +740,8 @@ function showFeedback()
         <th data-title='Question'>$question_id</th>
         <th data-title='Student ID'>$student_id</th>
         <th data-title='Faculty ID'>$faculty_id</th>
-        <th data-title='Edit'><a href='feedback.php?edit_feedback_id=$feedback_id' class='btn'>Edit</a></th>
-        <th data-title='Delete'><a onclick='javascript:confirmationDelete($(this));return false;' href='feedback.php?delete_feedback_id=$feedback_id' class='btn'>Delete</a></th>
+        <th data-title='Edit'><a href='feedback.php?edit_feedback_id=$feedback_id' class='btn'><span>Edit</span></a></th>
+        <th data-title='Delete'><a onclick='javascript:confirmationDelete($(this));return false;' href='feedback.php?delete_feedback_id=$feedback_id' class='btn'><span>Delete</span></a></th>
         </tr>
         ";
     }
@@ -768,9 +768,9 @@ function showCourses()
         <td data-label='Course'>$course_name</td>
         <td data-label='Students'>$students</td>
         <td data-label='Operation'>
-        <a href='#view-info' class='view view-course'><i class='fas fa-eye'></i> View</a>
-        <a class='edit edit-course'><i class='fas fa-edit'></i> Edit</a>
-        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
+        <a href='#view-info' class='view view-course'><i class='fas fa-eye'></i><span> View</span></a>
+        <a class='edit edit-course'><i class='fas fa-edit'></i> <span>Edit</span></a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i><span> Delete</span></a>
         </td>
         </tr>
         ";
@@ -806,9 +806,9 @@ function showFaculty()
         <td data-label='ADDRESS'>$address</td>
         <td data-label='PHOTO'><img src='/images/uploads/$photo' width=50px height=50px><span style='display: none;'>$photo</span></td>
         <td data-label='Operation'>
-        <a href='#view-info' class='view view-faculty'><i class='fas fa-eye'></i> View</a>
-        <a class='edit edit-faculty'><i class='fas fa-edit'></i> Edit</a>
-        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
+        <a href='#view-info' class='view view-faculty'><i class='fas fa-eye'></i><span> View</span></a>
+        <a class='edit edit-faculty'><i class='fas fa-edit'></i><span> Edit</span></a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i><span> Delete</span></a>
         </td>
         </tr>
         ";
@@ -852,9 +852,9 @@ function showStudents()
         <td data-label='COURSE ID'>$course_id</td>
         <td data-label='SECTION ID'>$section_id</td>
         <td data-label='Operation'>
-        <a href='#view-info' class='view view-student'><i class='fas fa-eye'></i> View</a>
-        <a class='edit edit-student'><i class='fas fa-edit'></i> Edit</a>
-        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
+        <a href='#view-info' class='view view-student'><i class='fas fa-eye'></i><span> View</span></a>
+        <a class='edit edit-student'><i class='fas fa-edit'></i><span> Edit</span></a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i><span> Delete</span></a>
         </td>
         </tr>
         ";
@@ -891,8 +891,8 @@ function showAccounts()
             <td data-label='Password'>$password</td>
             <td data-label='User Type'>$usertype</td>
             <td data-label='Operation'>
-            <a href='#view-info' class='view view-account'><i class='fas fa-eye'></i> View</a>
-            <a class='edit edit-account'><i class='fas fa-edit'></i> Edit</a>
+            <a href='#view-info' class='view view-account'><i class='fas fa-eye'></i> <span>View</span></a>
+            <a class='edit edit-account'><i class='fas fa-edit'></i> <span>Edit</span></a>
             </td>
             </tr>
             ";
@@ -911,8 +911,8 @@ function showAccounts()
             <td data-label='Password'>$password</td>
             <td data-label='User Type'>$usertype</td>
             <td data-label='Operation'>
-            <a href='#view-info' class='view view-account'><i class='fas fa-eye'></i> View</a>
-            <a class='edit edit-account'><i class='fas fa-edit'></i> Edit</a>
+            <a href='#view-info' class='view view-account'><i class='fas fa-eye'></i><span> View</span></a>
+            <a class='edit edit-account'><i class='fas fa-edit'></i><span> Edit</span></a>
             </td>
             </tr>
             ";
@@ -955,8 +955,8 @@ function showSectionsRelation($section_id)
         <td data-label='Faculty'>$firstname $lastname</td>
         <td data-label='Faculty ID'>$faculty_id</td>
         <td data-label='Operation'>
-        <a class='edit edit-secrel'><i class='fas fa-edit'></i> Edit</a>
-        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> Delete</a>
+        <a class='edit edit-secrel'><i class='fas fa-edit'></i><span> Edit</span></a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i><span> Delete</span></a>
         </td>
         </tr>
         ";
