@@ -101,27 +101,28 @@ preventBack();
 	<!--================= popups ===================-->
 	<!-------- popup logout ---------->
 	<?php include './assets/php/popupLogout.php' ?>
-
+	<!--------popup edit course ------------>
 	<!--------popup edit account ------------>
 	<form action=accounts.php method=post>
-		<div class="popup-background-edit" id="edit-popup-background">
-			<div class="popup-add">
-				<div class="popup-add-top">
-					<p class="popup-add-title"><i class="fas fa-edit"></i> EDIT ACCOUNTS</p>
-					<i class="fas fa-times ex" id="ex-edit"></i>
-				</div>
-				<div class="popup-add-middle">
-					<input type="hidden" name="edit_id" id="edit_id">
-					<p class="label1">Password</p>
-					<input type="password" id="edit_password" name="edit_password" placeholder="Password" class="popup-tbx">
-					<?php editAccount() ?>
-					<button type="submit" name="editaccount" class="editbtn"><i class="fas fa-edit"></i> Edit Password</button>
+			<div class="popup-background-edit" id="edit-popup-background">
+				<div class="popup-add">
+					<div class="popup-add-top">
+						<p class="popup-add-title"><i class="fas fa-edit"></i> EDIT ACCOUNTS</p>
+						<i class="fas fa-times ex" id="ex-edit"></i>
+					</div>
+					<div class="popup-add-middle">
+						<input type="hidden" name="edit_id" id="edit_id">
+						<p class="label1">Password</p>
+						<input type="password" name="edit_password" id="edit_password" placeholder="Password" class="popup-tbx">
+						<?php editAccount() ?>
+						<button type="submit" name="editaccount" class="editbtn"><i class="fas fa-edit"></i> Edit Password</button>
+					</div>
 				</div>
 			</div>
-		</div>
-	</form>
+		</form>
 	
 	<script src="./assets/js/script.js"></script>
 </body>
 
 </html>
+

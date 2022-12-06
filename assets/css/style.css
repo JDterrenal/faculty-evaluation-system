@@ -28,6 +28,8 @@ a {
 .popup-users-middle select[name=edit_status],
 .popup-users-middle select[name=course_id],
 .popup-users-middle select[name=status],
+.popup-add-middle select[name=subject_code],
+.popup-add-middle select[name=faculty_id],
 .popup-users-middle input[type=radio],
 .popup-add-middle option{
   width: 100%;
@@ -279,7 +281,7 @@ input[type=file]::file-selector-button:hover {
   margin: 0.3rem 0rem;
 }
 
-.login-items input[type=number], input[type=password]{
+.login-items input[type=number], input[name=password]{
   height: 2.7rem;
   font-size: 15px;
   border-style: hidden hidden solid;
