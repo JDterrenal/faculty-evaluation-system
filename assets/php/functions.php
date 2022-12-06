@@ -374,6 +374,24 @@ function addSecrel()
     }
 }
 
+//Adds a new question in the record.
+function addQuestion()
+{
+    if (isset($_POST['addquestion'])) {
+        include 'connection.php';
+        $question = $_POST['question'];
+
+        //Add Subject
+        $sql = "INSERT INTO tb_questions (question_id, question) VALUES (null, '$question')";
+        if (mysqli_query($conn, $sql)) {
+            ?><script src="/assets/js/addAlert.js"></script><?php
+        } else {
+            ?><script src="/assets/js/errorAlert.js"></script><?php
+        }
+        mysqli_close($conn);
+    }
+}
+
 //------------------------------ Editing Records ------------------------------
 //Student Edit and Confirmation
 function editStudent()
@@ -612,7 +630,7 @@ function enableDelete_evaluations()
 function enableDelete_secrel()
 {
     include 'connection.php';
-    //Delete Evaluation
+    //Delete Sections Relation
     if (isset($_GET['delete_id'])) {
         $delete_id = $_GET['delete_id'];
 
@@ -625,6 +643,18 @@ function enableDelete_secrel()
         $sql = "DELETE FROM tb_sectionsRelation WHERE secrel_id='$delete_id'";
         mysqli_query($conn, $sql) or die("Connection error!");
         header("location: section_subjects.php?section_id=$section_id");
+    }
+}
+
+function enableDelete_questions()
+{
+    include 'connection.php';
+    //Delete Question
+    if (isset($_GET['delete_id'])) {
+        $delete_id = $_GET['delete_id'];
+        $sql = "DELETE FROM tb_questions WHERE question_id='$delete_id'";
+        mysqli_query($conn, $sql) or die("Connection error!");
+        header('location: edit_questions.php');
     }
 }
 
@@ -650,9 +680,9 @@ function showSubjects()
         <td data-label='Subject'>$subject_name</td>
         <td data-label='Units'>$units</td>
         <td data-label='Operation'>
-        <a href='#view-info' class='view view-subject'><i class='fas fa-eye'></i><span> View</span></a>
-        <a class='edit edit-subject'><i class='fas fa-edit'></i><span> Edit</span></a>
-        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i><span> Delete</span></a>
+        <a href='#view-info' class='view view-subject'><i class='fas fa-eye'></i> <span>View</span></a>
+        <a class='edit edit-subject'><i class='fas fa-edit'></i> <span>Edit</span></a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> <span>Delete</span></a>
         </td>
         </tr>
         ";
@@ -680,7 +710,7 @@ function showSections()
         <td data-label='Section'>$section_name</td>
         <td data-label='Students'>$students</td>
         <td data-label='Operation'>
-        <a href='#view-info' class='view view-section'><i class='fas fa-eye'></i><span> View</span></a>
+        <a href='#view-info' class='view view-section'><i class='fas fa-eye'></i> <span>View</span></a>
         <a class='edit edit-section'><i class='fas fa-edit'></i> <span>Edit</span></a>
         <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> <span>Delete</span></a>
         </td>
@@ -740,8 +770,8 @@ function showFeedback()
         <th data-title='Question'>$question_id</th>
         <th data-title='Student ID'>$student_id</th>
         <th data-title='Faculty ID'>$faculty_id</th>
-        <th data-title='Edit'><a href='feedback.php?edit_feedback_id=$feedback_id' class='btn'><span>Edit</span></a></th>
-        <th data-title='Delete'><a onclick='javascript:confirmationDelete($(this));return false;' href='feedback.php?delete_feedback_id=$feedback_id' class='btn'><span>Delete</span></a></th>
+        <th data-title='Edit'><a href='feedback.php?edit_feedback_id=$feedback_id' class='btn'> <span>Edit</span></a></th>
+        <th data-title='Delete'><a onclick='javascript:confirmationDelete($(this));return false;' href='feedback.php?delete_feedback_id=$feedback_id' class='btn'> <span>Delete</span></a></th>
         </tr>
         ";
     }
@@ -768,9 +798,9 @@ function showCourses()
         <td data-label='Course'>$course_name</td>
         <td data-label='Students'>$students</td>
         <td data-label='Operation'>
-        <a href='#view-info' class='view view-course'><i class='fas fa-eye'></i><span> View</span></a>
+        <a href='#view-info' class='view view-course'><i class='fas fa-eye'></i> <span>View</span></a>
         <a class='edit edit-course'><i class='fas fa-edit'></i> <span>Edit</span></a>
-        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i><span> Delete</span></a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> <span>Delete</span></a>
         </td>
         </tr>
         ";
@@ -806,9 +836,9 @@ function showFaculty()
         <td data-label='ADDRESS'>$address</td>
         <td data-label='PHOTO'><img src='/images/uploads/$photo' width=50px height=50px><span style='display: none;'>$photo</span></td>
         <td data-label='Operation'>
-        <a href='#view-info' class='view view-faculty'><i class='fas fa-eye'></i><span> View</span></a>
-        <a class='edit edit-faculty'><i class='fas fa-edit'></i><span> Edit</span></a>
-        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i><span> Delete</span></a>
+        <a href='#view-info' class='view view-faculty'><i class='fas fa-eye'></i> <span>View</span></a>
+        <a class='edit edit-faculty'><i class='fas fa-edit'></i> <span>Edit</span></a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> <span>Delete</span></a>
         </td>
         </tr>
         ";
@@ -852,9 +882,9 @@ function showStudents()
         <td data-label='COURSE ID'>$course_id</td>
         <td data-label='SECTION ID'>$section_id</td>
         <td data-label='Operation'>
-        <a href='#view-info' class='view view-student'><i class='fas fa-eye'></i><span> View</span></a>
-        <a class='edit edit-student'><i class='fas fa-edit'></i><span> Edit</span></a>
-        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i><span> Delete</span></a>
+        <a href='#view-info' class='view view-student'><i class='fas fa-eye'></i> <span>View</span></a>
+        <a class='edit edit-student'><i class='fas fa-edit'></i> <span>Edit</span></a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> <span>Delete</span></a>
         </td>
         </tr>
         ";
@@ -955,8 +985,8 @@ function showSectionsRelation($section_id)
         <td data-label='Faculty'>$firstname $lastname</td>
         <td data-label='Faculty ID'>$faculty_id</td>
         <td data-label='Operation'>
-        <a class='edit edit-secrel'><i class='fas fa-edit'></i><span> Edit</span></a>
-        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i><span> Delete</span></a>
+        <a class='edit edit-secrel'><i class='fas fa-edit'></i> <span>Edit</span></a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> <span>Delete</span></a>
         </td>
         </tr>
         ";
@@ -996,6 +1026,36 @@ function loadSectionsRelation($section_id)
         </table>
         ";
     }
+    mysqli_close($conn);
+}
+
+//This shows all the courses that are available in a table format.
+function showEditQuestions()
+{
+    include 'connection.php';
+    global $count;
+    $sql = "SELECT question_id, question FROM tb_questions ORDER BY question_id";
+    $result = mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($result);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $primary_id = $row["question_id"];
+        $question = $row["question"];
+        echo "
+        <tr>
+            <td>$question</td>
+            <td data-label='Stongly Disagree'><input type='radio' name='question$primary_id' value='1'></td>
+            <td data-label='Disagree'><input type='radio' name='question$primary_id' value='2'></td>
+            <td data-label='Uncertain'><input type='radio' name='question$primary_id' value='3'></td>
+            <td data-label='Agree'><input type='radio' name='question$primary_id' value='4'></td>
+            <td data-label='Strongly Agree'><input type='radio' name='question$primary_id' value='5'></td>
+            <td data-label='Operation'>
+            <a class='edit edit-question'><i class='fas fa-edit'></i> <span>Edit</span></a>
+            <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> <span>Delete</span></a>
+            </td>
+        <tr>
+        ";
+    }
+    echo "There are $count records";
     mysqli_close($conn);
 }
 

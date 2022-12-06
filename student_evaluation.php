@@ -58,11 +58,11 @@ enableDelete_courses();
                             <div class="evaluation-question-content">
                                 <h1>Rating Legend</h1>
                                 <div class="rating-legend-box">
-                                    <div class="rating-legend-options">5-STRONGCLY AGREE</div>
-                                    <div class="rating-legend-options">4-AGREE</div>
-                                    <div class="rating-legend-options">3-UNCERTAIN</div>
-                                    <div class="rating-legend-options">2-DISAGREE</div>
                                     <div class="rating-legend-options">1-STRONGLY DISAGREE</div>
+                                    <div class="rating-legend-options">2-DISAGREE</div>
+                                    <div class="rating-legend-options">3-UNCERTAIN</div>
+                                    <div class="rating-legend-options">4-AGREE</div>
+                                    <div class="rating-legend-options">5-STRONGLY AGREE</div>
                                 </div>
 
                                 <div class="question-container">
@@ -70,21 +70,21 @@ enableDelete_courses();
                                     <thead>
                                         <tr>
                                             <th>Question</th>
-                                            <th>5</th>
-                                            <th>4</th>
-                                            <th>3</th>
-                                            <th>2</th>
                                             <th>1</th>
+                                            <th>2</th>
+                                            <th>3</th>
+                                            <th>4</th>
+                                            <th>5</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</td>
-                                            <td data-label='Stongly Disagree'><input type="radio" name="likert" value="strong_disagree"></td>
-                                            <td data-label='Disagree'><input type="radio" name="likert" value="disagree"></td>
-                                            <td data-label='Uncertain'><input type="radio" name="likert" value="uncertain"></td>
-                                            <td data-label='Agree'><input type="radio" name="likert" value="agree"></td>
-                                            <td data-label='Strongly Agree'><input type="radio" name="likert" value="strong_agree"></td>
+                                            <td data-label='Stongly Disagree'><input type="radio" name="likert" value="1"></td>
+                                            <td data-label='Disagree'><input type="radio" name="likert" value="2"></td>
+                                            <td data-label='Uncertain'><input type="radio" name="likert" value="3"></td>
+                                            <td data-label='Agree'><input type="radio" name="likert" value="4"></td>
+                                            <td data-label='Strongly Agree'><input type="radio" name="likert" value="5"></td>
                                         <tr>
                                     </tbody>
                                     </table>
