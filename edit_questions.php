@@ -38,6 +38,7 @@ enableDelete_questions();
                                     <textarea name="question" class="question"></textarea>
                                 </div>
                                 <div class="form-bottom">
+                                    <?php addQuestion() ?>
                                     <button type="submit" name="addquestion" class="save"> Save</button>
                                     <button id="clear" class="cancel">Cancel</button>
                                 </div>
