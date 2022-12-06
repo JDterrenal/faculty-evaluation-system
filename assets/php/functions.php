@@ -1049,7 +1049,7 @@ function showEditQuestions()
             <td data-label='Agree'><input type='radio' name='question$primary_id' value='4'></td>
             <td data-label='Strongly Agree'><input type='radio' name='question$primary_id' value='5'></td>
             <td data-label='Operation'>
-            <a class='edit edit-question'><i class='fas fa-edit'></i> <span>Edit</span></a>
+            <a class='edit edit-question-func'><i class='fas fa-edit'></i> <span>Edit</span></a>
             <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> <span>Delete</span></a>
             </td>
         <tr>
