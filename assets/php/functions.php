@@ -1055,7 +1055,6 @@ function showEditQuestions()
         <tr>
         ";
     }
-    echo "There are $count records";
     mysqli_close($conn);
 }
 

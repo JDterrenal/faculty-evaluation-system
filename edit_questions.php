@@ -28,8 +28,8 @@ enableDelete_questions();
 				<div class="page-container"><h1><i class="fas fa-book" id="view-info"> Manage Questions</i></h1>
 					<hr>
                     <div class="edit-question">
-                        <form action="edit_questions.php" method="post">
-                            <div class="form">
+                        <div class="form">
+                            <form action="edit_questions.php" method="post">
                                 <div class="form-top">
                                     <p class="form-title">Question Form</p>
                                 </div>
@@ -41,8 +41,9 @@ enableDelete_questions();
                                     <button type="submit" name="addquestion" class="save"> Save</button>
                                     <button id="clear" class="cancel">Cancel</button>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
+                        
 
                         <div class="evaluation-question">
                             <div class="evaluation-question-top">
@@ -61,20 +62,20 @@ enableDelete_questions();
 
                                 <div class="question-container">
                                     <table class="question-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Question</th>
-                                            <th>1</th>
-                                            <th>2</th>
-                                            <th>3</th>
-                                            <th>4</th>
-                                            <th>5</th>
-                                            <th>Operation</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php showEditQuestions() ?>
-                                    </tbody>
+                                        <thead>
+                                            <tr>
+                                                <th>Question</th>
+                                                <th>1</th>
+                                                <th>2</th>
+                                                <th>3</th>
+                                                <th>4</th>
+                                                <th>5</th>
+                                                <th>Operation</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php showEditQuestions() ?>
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
