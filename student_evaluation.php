@@ -25,21 +25,26 @@ enableDelete_courses();
 	<div class= "main-container">
 		<main>
 			<div class="container-main">
-				<div class="page-container"><h1><i class="fas fa-book" id="view-info"> Manage Question</i></h1>
+				<div class="page-container"><h1><i class="fas fa-book" id="view-info"> Evaluation</i></h1>
 					<hr>
                     <div class="student-evaluation">
                         <div class="form">
                         <div class="form-top">
                                 <p class="form-title">Faculty</p>
                             </div>
-                            <div class="form-middle">
-                                <p class="label-question">Faculty Name</p>
-                                <p>Uriel</p>
-                                <p class="label-question">Subject Code</p>
-                                <p>ITCP_01</p>
-                                <p class="label-question">Description</p>
-                                <p>Computer Programming</p>
-                            </div>
+                                <div class="form-middle-faculty">
+                                    <div class="left-side">
+                                        <img src="./images/uploads/standard.png" alt="" class="evaluation-faculty-picture">
+                                    </div>
+                                    <div class="right-side">
+                                        <p class="label-question">Faculty Name</p>
+                                        <p>Uriel</p>
+                                        <p class="label-question">Subject Code</p>
+                                        <p>ITCP_01</p>
+                                        <p class="label-question">Description</p>
+                                        <p>Computer Programming</p>
+                                    </div>
+                                </div>
                             <div class="form-bottom">
                             </div>
                         </div>
@@ -47,7 +52,7 @@ enableDelete_courses();
                         <div class="evaluation-question">
                             <div class="evaluation-question-top">
                                 <p class="label-question">Evaluation Questionnaire for Academic: 2021-2022 1st</p>
-                                <a class='submit-eval'>Submit</a>
+                                <a class='submit-eval'>Submit Evalutaion</a>
                             </div>
                             <hr>
                             <div class="evaluation-question-content">
