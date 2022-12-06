@@ -1,7 +1,7 @@
 <?php
 include './assets/php/functions.php';
 preventBack();
-enableDelete_courses();
+enableDelete_questions();
 ?>
 
 <html>
@@ -25,22 +25,24 @@ enableDelete_courses();
 	<div class= "main-container">
 		<main>
 			<div class="container-main">
-				<div class="page-container"><h1><i class="fas fa-book" id="view-info"> Manage Question</i></h1>
+				<div class="page-container"><h1><i class="fas fa-book" id="view-info"> Manage Questions</i></h1>
 					<hr>
                     <div class="edit-question">
-                        <div class="form">
-                            <div class="form-top">
-                                <p class="form-title">Question Form</p>
+                        <form action="edit_questions.php" method="post">
+                            <div class="form">
+                                <div class="form-top">
+                                    <p class="form-title">Question Form</p>
+                                </div>
+                                <div class="form-middle">
+                                    <p class="label-question">Question</p>
+                                    <textarea name="question" class="question"></textarea>
+                                </div>
+                                <div class="form-bottom">
+                                    <button type="submit" name="addquestion" class="save"> Save</button>
+                                    <button id="clear" class="cancel">Cancel</button>
+                                </div>
                             </div>
-                            <div class="form-middle">
-                                <p class="label-question">Question</p>
-                                <textarea class="question"></textarea>
-                            </div>
-                            <div class="form-bottom">
-                                <a class='save'>Save</a>
-                                <a class='cancel'>Cancel</a>
-                            </div>
-                        </div>
+                        </form>
 
                         <div class="evaluation-question">
                             <div class="evaluation-question-top">
@@ -50,11 +52,11 @@ enableDelete_courses();
                             <div class="evaluation-question-content">
                                 <h1>Rating Legend</h1>
                                 <div class="rating-legend-box">
-                                    <div class="rating-legend-options">5-STRONGCLY AGREE</div>
-                                    <div class="rating-legend-options">4-AGREE</div>
-                                    <div class="rating-legend-options">3-UNCERTAIN</div>
-                                    <div class="rating-legend-options">2-DISAGREE</div>
                                     <div class="rating-legend-options">1-STRONGLY DISAGREE</div>
+                                    <div class="rating-legend-options">2-DISAGREE</div>
+                                    <div class="rating-legend-options">3-UNCERTAIN</div>
+                                    <div class="rating-legend-options">4-AGREE</div>
+                                    <div class="rating-legend-options">5-STRONGLY AGREE</div>
                                 </div>
 
                                 <div class="question-container">
@@ -62,24 +64,16 @@ enableDelete_courses();
                                     <thead>
                                         <tr>
                                             <th>Question</th>
-                                            <th>5</th>
-                                            <th>4</th>
-                                            <th>3</th>
-                                            <th>2</th>
                                             <th>1</th>
-                                            <th>operation</th>
+                                            <th>2</th>
+                                            <th>3</th>
+                                            <th>4</th>
+                                            <th>5</th>
+                                            <th>Operation</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Maliit ang tite ni uriel</td>
-                                            <td data-label='Stongly Disagree'><input type="radio" name="likert" value="strong_disagree"></td>
-                                            <td data-label='Disagree'><input type="radio" name="likert" value="disagree"></td>
-                                            <td data-label='Uncertain'><input type="radio" name="likert" value="uncertain"></td>
-                                            <td data-label='Agree'><input type="radio" name="likert" value="agree"></td>
-                                            <td data-label='Strongly Agree'><input type="radio" name="likert" value="strong_agree"></td>
-                                            <td data-label='Operation'><a class='edit'><i class='fas fa-edit'></i> <span>Edit</span></a> <a class='delete'><i class='fas fa-trash'></i> <span>Delete</span></a></td>
-                                        <tr>
+                                        <?php showEditQuestions() ?>
                                     </tbody>
                                     </table>
                                 </div>
