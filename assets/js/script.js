@@ -161,6 +161,18 @@ $(document).ready(function () {
         $("#edit-popup-background").show();
     });
 
+    // Question
+    $(".edit.edit-question-func").on('click',function () {
+        let currentRow = $(this).closest("tr");
+        let col1 = currentRow.find("td:eq(0)").text();
+        let col2 = currentRow.find("td:eq(1)").text();
+        $("#edit_id").val(col1);
+        $("#edit_question").val(col2);
+
+        editBackground.style.display = "flex";
+        $("#edit-popup-background").show();
+    });
+
     // Exit Edit
     $("#ex-edit").click(function () {
         $("#edit-popup-background").hide();

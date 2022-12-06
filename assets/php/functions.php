@@ -1062,6 +1062,7 @@ function showEditQuestions()
         $question = $row["question"];
         echo "
         <tr>
+            <td style='display: none;'>$primary_id</td>
             <td>$question</td>
             <td data-label='Stongly Disagree'><input type='radio' name='question$primary_id' value='1'></td>
             <td data-label='Disagree'><input type='radio' name='question$primary_id' value='2'></td>
