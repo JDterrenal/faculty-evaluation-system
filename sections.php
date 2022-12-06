@@ -25,7 +25,7 @@ enableDelete_sections();
 	<div class= "main-container">
 		<main>
 			<div class="container-main">
-				<div class="page-container"><h1><i class="fas fa-table" id="view-info"> Section</i></h1>
+				<div class="page-container"><h1><i class="fas fa-table" id="view-info"> Sections</i></h1>
 					<hr>
 					<div class="user-info">
 						<div class="user-content">
@@ -98,7 +98,7 @@ enableDelete_sections();
 	
 	<!--================= popups ===================-->
 	<!-------- popup logout ---------->
-	<?php include './assets/php/popupLogout.php' ?>ss
+	<?php include './assets/php/popupLogout.php' ?>
 
 	<!--------popup add section ------------>
 	<form action="sections.php" method="post">
