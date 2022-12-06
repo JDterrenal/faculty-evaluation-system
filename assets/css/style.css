@@ -75,6 +75,17 @@ input[type=file]::file-selector-button:hover {
 }
 
 /* all buttons */
+.submit-eval{
+  display: inline-block;
+  padding: .4em;
+  background-color: #33ccff;
+  text-decoration: none;
+  color: #ffff;
+  font-weight: bold;
+  cursor: pointer;
+  margin: .5em;
+}
+
 .save {
   display: inline-block;
   padding: .4em;
@@ -1005,6 +1016,7 @@ nav li:focus {
   padding-left: 1em;
   padding-right: 1em;
   display: flex;
+  justify-content: space-between;
 }
 .evaluation-question-content{
   padding: 1em;
