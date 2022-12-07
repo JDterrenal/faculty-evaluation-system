@@ -72,6 +72,7 @@ enableDelete_evaluations();
 						</div>
 						<div class="main-add">
 							<a class="add-main" onclick="AddFunction()">Add Evaluation</a>
+							<a href="/edit_questions.php" class="add-main">Edit Questions</a>
 						</div>
 						<div class="main-table-container">
 							<table class="main-table">
