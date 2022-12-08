@@ -1194,7 +1194,7 @@ function availableEvaluations($section_id, $student_id)
             $firstname = $row["firstname"];
             $lastname = $row["lastname"];
         }
-        $sql_feedback = "SELECT feedback_id, answer, question_id, student_id, faculty_id, subject_id FROM tb_feedbacks WHERE faculty_id = $faculty_id AND subject_id = $subject_id AND student_id = $student_id";
+        $sql_feedback = "SELECT feedback_id, answer, question_id, student_id, faculty_id, subject_id FROM tb_feedback WHERE faculty_id = $faculty_id AND subject_id = $subject_id AND student_id = $student_id";
         $result_feedback = mysqli_query($conn, $sql_feedback);
         $count_feedback = mysqli_num_rows($result_feedback);
         if ($count_feedback != 0) {
