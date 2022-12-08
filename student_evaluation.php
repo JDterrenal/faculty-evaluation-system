@@ -41,7 +41,7 @@ $subject_id = $_GET["subject_id"];
                         </div>
 
                         <div class="evaluation-question">
-                            <form action="student_evaluation.php" method="post">
+                            <form method="post">
                                 <div class="evaluation-question-top">
                                     <p class="label-question">Evaluation Questionnaire for Academic: 2021-2022 1st</p>
                                     <button type="submit" name="submitevaluation" class="submit-eval">Submit Evalutaion</button>
@@ -56,7 +56,7 @@ $subject_id = $_GET["subject_id"];
                                         <div class="rating-legend-options">4 - AGREE</div>
                                         <div class="rating-legend-options">5 - STRONGLY AGREE</div>
                                     </div>
-
+                                    
                                     <div class="question-container">
                                         <table class="question-table">
                                             <thead>
@@ -70,7 +70,10 @@ $subject_id = $_GET["subject_id"];
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php showQuestions() ?>
+                                                <?php
+                                                submitEvaluation($student_id, $faculty_id, $subject_id);
+                                                showQuestions();
+                                                ?>
                                             </tbody>
                                         </table>
                                     </div>

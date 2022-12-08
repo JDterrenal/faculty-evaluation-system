@@ -408,11 +408,11 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
             //Submit Evaluation
             $sql = "INSERT INTO tb_feedback (feedback_id, answer, question_id, student_id, faculty_id, subject_id) VALUES (null, '$answer', $question_id, $student_id, $faculty_id, $subject_id)";
             if (mysqli_query($conn, $sql)) {
-                ?><script src="/assets/js/addAlert.js"></script><?php
             } else {
                 ?><script src="/assets/js/errorAlert.js"></script><?php
             }
         }
+        ?><script src="/assets/js/evaluationSuccess.js"></script><?php
         mysqli_close($conn);
     }
 }
