@@ -1169,7 +1169,7 @@ function showEditQuestions()
 }
 
 //This shows all the available evaluations for the students.
-function availableEvaluations($section_id)
+function availableEvaluations($section_id, $student_id)
 {
     include 'connection.php';
     global $count;
@@ -1194,17 +1194,22 @@ function availableEvaluations($section_id)
             $firstname = $row["firstname"];
             $lastname = $row["lastname"];
         }
-        echo "
-        <tr>
-        <td data-label='ID'>$primary_id</td>
-        <td data-label='Subject Code'>$subject_code</td>
-        <td data-label='Subject'>$subject_name</td>
-        <td data-label='Faculty'>$firstname $lastname</td>
-        <td data-label='Operation'>
-        <a href='student_evaluation.php?faculty_id=$faculty_id&subject_id=$subject_id' class='add-main'>Evaluate</a>
-        </td>
-        </tr>
-        ";
+        $sql_feedback = "SELECT feedback_id, answer, question_id, student_id, faculty_id, subject_id FROM tb_feedbacks WHERE faculty_id = $faculty_id AND subject_id = $subject_id AND student_id = $student_id";
+        $result_feedback = mysqli_query($conn, $sql_feedback);
+        $count_feedback = mysqli_num_rows($result_feedback);
+        if ($count_feedback != 0) {
+            echo "
+            <tr>
+            <td data-label='ID'>$primary_id</td>
+            <td data-label='Subject Code'>$subject_code</td>
+            <td data-label='Subject'>$subject_name</td>
+            <td data-label='Faculty'>$firstname $lastname</td>
+            <td data-label='Operation'>
+            <a href='student_evaluation.php?faculty_id=$faculty_id&subject_id=$subject_id' class='add-main'>Evaluate</a>
+            </td>
+            </tr>
+            ";
+        }
     }
     mysqli_close($conn);
 }

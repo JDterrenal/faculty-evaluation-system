@@ -3,6 +3,7 @@ include './assets/php/functions.php';
 preventBack();
 enableDelete_sections();
 $section_id = $_SESSION["section_id"];
+$student_id = $_SESSION['login_id'];
 ?>
 
 <html>
@@ -48,7 +49,7 @@ $section_id = $_SESSION["section_id"];
 									</tr>
 								</thead>
 								<tbody>
-									<?php availableEvaluations($section_id) ?>
+									<?php availableEvaluations($section_id, $student_id) ?>
 								</tbody>
 							</table>
 						</div>
