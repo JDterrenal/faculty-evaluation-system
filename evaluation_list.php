@@ -26,7 +26,7 @@ $section_id = $_SESSION["section_id"];
 	<div class= "main-container">
 		<main>
 			<div class="container-main">
-				<div class="page-container"><h1><i class="fas fa-table" id="view-info"> Sections</i></h1>
+				<div class="page-container"><h1><i class="fas fa-table" id="view-info"> Evaluations</i></h1>
 					<hr>
 					
 					<div class="main-content">
