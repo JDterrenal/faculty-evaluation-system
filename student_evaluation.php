@@ -3,6 +3,7 @@ include './assets/php/functions.php';
 preventBack();
 enableDelete_courses();
 $faculty_id = $_GET["faculty_id"];
+$student_id = $_SESSION['login_id'];
 $subject_id = $_GET["subject_id"];
 ?>
 
@@ -40,39 +41,41 @@ $subject_id = $_GET["subject_id"];
                         </div>
 
                         <div class="evaluation-question">
-                            <div class="evaluation-question-top">
-                                <p class="label-question">Evaluation Questionnaire for Academic: 2021-2022 1st</p>
-                                <a class='submit-eval'>Submit Evalutaion</a>
-                            </div>
-                            <hr>
-                            <div class="evaluation-question-content">
-                                <h1>Rating Legend</h1>
-                                <div class="rating-legend-box">
-                                    <div class="rating-legend-options">1-STRONGLY DISAGREE</div>
-                                    <div class="rating-legend-options">2-DISAGREE</div>
-                                    <div class="rating-legend-options">3-UNCERTAIN</div>
-                                    <div class="rating-legend-options">4-AGREE</div>
-                                    <div class="rating-legend-options">5-STRONGLY AGREE</div>
+                            <form action="student_evaluation.php" method="post">
+                                <div class="evaluation-question-top">
+                                    <p class="label-question">Evaluation Questionnaire for Academic: 2021-2022 1st</p>
+                                    <button type="submit" name="submitevaluation" class="submit-eval">Submit Evalutaion</button>
                                 </div>
+                                <hr>
+                                <div class="evaluation-question-content">
+                                    <h1>Rating Legend</h1>
+                                    <div class="rating-legend-box">
+                                        <div class="rating-legend-options">1 - STRONGLY DISAGREE</div>
+                                        <div class="rating-legend-options">2 - DISAGREE</div>
+                                        <div class="rating-legend-options">3 - UNCERTAIN</div>
+                                        <div class="rating-legend-options">4 - AGREE</div>
+                                        <div class="rating-legend-options">5 - STRONGLY AGREE</div>
+                                    </div>
 
-                                <div class="question-container">
-                                    <table class="question-table">
-                                        <thead>
-                                            <tr>
-                                                <th>Question</th>
-                                                <th>1</th>
-                                                <th>2</th>
-                                                <th>3</th>
-                                                <th>4</th>
-                                                <th>5</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php showQuestions() ?>
-                                        </tbody>
-                                    </table>
+                                    <div class="question-container">
+                                        <table class="question-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Question</th>
+                                                    <th>1</th>
+                                                    <th>2</th>
+                                                    <th>3</th>
+                                                    <th>4</th>
+                                                    <th>5</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php showQuestions() ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
 				</div>

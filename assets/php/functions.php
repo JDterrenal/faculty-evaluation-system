@@ -394,6 +394,29 @@ function addQuestion()
     }
 }
 
+//Submits the student evaluation.
+function submitEvaluation($student_id, $faculty_id, $subject_id)
+{
+    if (isset($_POST['submitevaluation'])) {
+        include 'connection.php';
+        $question_count = "SELECT question_id, question FROM tb_questions ORDER BY question_id";
+        $result = mysqli_query($conn, $question_count);
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $question_id = $row["question_id"];
+            $answer = $_POST["question$question_id"];
+
+            //Submit Evaluation
+            $sql = "INSERT INTO tb_feedback (feedback_id, answer, question_id, student_id, faculty_id, subject_id) VALUES (null, '$answer', $question_id, $student_id, $faculty_id, $subject_id)";
+            if (mysqli_query($conn, $sql)) {
+                ?><script src="/assets/js/addAlert.js"></script><?php
+            } else {
+                ?><script src="/assets/js/errorAlert.js"></script><?php
+            }
+        }
+        mysqli_close($conn);
+    }
+}
+
 //------------------------------ Editing Records ------------------------------
 // Student Edit
 function editStudent()
@@ -1104,7 +1127,7 @@ function showQuestions()
         <tr>
         <td style='display: none;'>$primary_id</td>
         <td>$question</td>
-        <td data-label='Stongly Disagree'><input type='radio' name='question$primary_id' value='1'></td>
+        <td data-label='Stongly Disagree'><input type='radio' name='question$primary_id' value='1' required></td>
         <td data-label='Disagree'><input type='radio' name='question$primary_id' value='2'></td>
         <td data-label='Uncertain'><input type='radio' name='question$primary_id' value='3'></td>
         <td data-label='Agree'><input type='radio' name='question$primary_id' value='4'></td>
