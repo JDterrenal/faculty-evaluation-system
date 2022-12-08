@@ -129,14 +129,16 @@ function fetchUserInfo($login_id, $usertype)
         $_SESSION['username'] = "Admin";
         $_SESSION['photo'] = "admin.jpg";
     } else if ($usertype == "Student") {
-        $sql = "SELECT firstname, lastname, photo FROM tb_students WHERE student_id='$login_id'";
+        $sql = "SELECT firstname, lastname, photo, section_id FROM tb_students WHERE student_id='$login_id'";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $firstname = $row["firstname"];
             $lastname = $row["lastname"];
             $photo = $row["photo"];
+            $section_id = $row["section_id"];
         }
         $_SESSION['username'] = "$firstname $lastname";
+        $_SESSION['section_id'] = "$section_id";
         $_SESSION['photo'] = "$photo";
         mysqli_close($conn);
     } else if ($usertype == "Faculty") {
@@ -1014,7 +1016,7 @@ function showSectionsRelation($section_id)
     mysqli_close($conn);
 }
 
-// Load Manage Data
+//Loads the selected section information to section subjects relationship page
 function loadSectionsRelation($section_id)
 {
     include 'connection.php';
@@ -1074,6 +1076,47 @@ function showEditQuestions()
             <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> <span>Delete</span></a>
             </td>
         <tr>
+        ";
+    }
+    mysqli_close($conn);
+}
+
+//This shows all the available evaluations for the students.
+function availableEvaluations($section_id)
+{
+    include 'connection.php';
+    global $count;
+    $sql = "SELECT secrel_id, subject_id, faculty_id FROM tb_sectionsRelation WHERE section_id = $section_id ORDER BY secrel_id";
+    $result = mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($result);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $primary_id = $row["secrel_id"];
+        $subject_id = $row["subject_id"];
+        $faculty_id = $row["faculty_id"];
+        //Get Subject Name
+        $sql_subject = "SELECT subject_code, subject_name FROM tb_subjects WHERE subject_id = $subject_id";
+        $result_subject = mysqli_query($conn, $sql_subject);
+        while ($row = mysqli_fetch_array($result_subject, MYSQLI_ASSOC)) {
+            $subject_code = $row["subject_code"];
+            $subject_name = $row["subject_name"];
+        }
+        //Get Faculty Name
+        $sql_faculty = "SELECT firstname, lastname FROM tb_faculty WHERE faculty_id = $faculty_id";
+        $result_faculty = mysqli_query($conn, $sql_faculty);
+        while ($row = mysqli_fetch_array($result_faculty, MYSQLI_ASSOC)) {
+            $firstname = $row["firstname"];
+            $lastname = $row["lastname"];
+        }
+        echo "
+        <tr>
+        <td data-label='ID'>$primary_id</td>
+        <td data-label='Subject Code'>$subject_code</td>
+        <td data-label='Subject'>$subject_name</td>
+        <td data-label='Faculty'>$firstname $lastname</td>
+        <td data-label='Operation'>
+        <a href='student_evaluation.php?faculty_id=$faculty_id' class='add-main'>Evaluate</a>
+        </td>
+        </tr>
         ";
     }
     mysqli_close($conn);

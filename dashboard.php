@@ -34,6 +34,7 @@ preventBack();
 							<div class="anouncement">
 								<p class="acad-year">Academic Year: 2021-2022</p>
 								<p class="eval-status">Evaluation Status: On-going</p>
+								<a href="./evaluations_list.php">Start Evaluation</a>
 							</div>
 						</div>
 					</div>
