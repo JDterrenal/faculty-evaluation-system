@@ -2,6 +2,7 @@
 include './assets/php/functions.php';
 preventBack();
 enableDelete_courses();
+$faculty_id = $_GET["faculty_id"];
 ?>
 
 <html>
