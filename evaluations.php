@@ -58,7 +58,6 @@ enableDelete_evaluations();
 						</div>
 					</div>
 					
-					
 					<div class="main-content">
 						<div class="main-search-add">
 							<div class="main-search-add-top">
