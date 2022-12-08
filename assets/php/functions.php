@@ -1056,12 +1056,13 @@ function loadFaculty($faculty_id, $subject_id)
 {
     include 'connection.php';
     global $count;
-    $sql = "SELECT firstname, lastname FROM tb_faculty WHERE faculty_id = $faculty_id ORDER BY faculty_id";
+    $sql = "SELECT firstname, lastname, photo FROM tb_faculty WHERE faculty_id = $faculty_id ORDER BY faculty_id";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $firstname = $row["firstname"];
         $lastname = $row["lastname"];
+        $photo = $row["photo"];
         //Get Subject Name
         $sql_subject = "SELECT subject_code, subject_name FROM tb_subjects WHERE subject_id = $subject_id";
         $result_subject = mysqli_query($conn, $sql_subject);
@@ -1072,7 +1073,7 @@ function loadFaculty($faculty_id, $subject_id)
         echo "
         <div class='form-middle-faculty'>
             <div class='left-side'>
-                <img src='./images/uploads/standard.png' alt='' class='evaluation-faculty-picture'>
+                <img src='./images/uploads/$photo' alt='' class='evaluation-faculty-picture'>
             </div>
             <div class='right-side'>
                 <p class='label-question'>Faculty Name</p>
