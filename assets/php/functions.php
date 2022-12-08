@@ -1051,7 +1051,70 @@ function loadSectionsRelation($section_id)
     mysqli_close($conn);
 }
 
-//This shows all the courses that are available in a table format.
+//Loads the faculty and subject information for the student evaluation page
+function loadFaculty($faculty_id, $subject_id)
+{
+    include 'connection.php';
+    global $count;
+    $sql = "SELECT firstname, lastname FROM tb_faculty WHERE faculty_id = $faculty_id ORDER BY faculty_id";
+    $result = mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($result);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $firstname = $row["firstname"];
+        $lastname = $row["lastname"];
+        //Get Subject Name
+        $sql_subject = "SELECT subject_code, subject_name FROM tb_subjects WHERE subject_id = $subject_id";
+        $result_subject = mysqli_query($conn, $sql_subject);
+        while ($row = mysqli_fetch_array($result_subject, MYSQLI_ASSOC)) {
+            $subject_code = $row["subject_code"];
+            $subject_name = $row["subject_name"];
+        }
+        echo "
+        <div class='form-middle-faculty'>
+            <div class='left-side'>
+                <img src='./images/uploads/standard.png' alt='' class='evaluation-faculty-picture'>
+            </div>
+            <div class='right-side'>
+                <p class='label-question'>Faculty Name</p>
+                <p>$firstname $lastname</p>
+                <p class='label-question'>Subject Code</p>
+                <p>$subject_code</p>
+                <p class='label-question'>Description</p>
+                <p>$subject_name</p>
+            </div>
+        </div>
+        ";
+    }
+    mysqli_close($conn);
+}
+
+//This shows all the questions.
+function showQuestions()
+{
+    include 'connection.php';
+    global $count;
+    $sql = "SELECT question_id, question FROM tb_questions ORDER BY question_id";
+    $result = mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($result);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $primary_id = $row["question_id"];
+        $question = $row["question"];
+        echo "
+        <tr>
+        <td style='display: none;'>$primary_id</td>
+        <td>$question</td>
+        <td data-label='Stongly Disagree'><input type='radio' name='question$primary_id' value='1'></td>
+        <td data-label='Disagree'><input type='radio' name='question$primary_id' value='2'></td>
+        <td data-label='Uncertain'><input type='radio' name='question$primary_id' value='3'></td>
+        <td data-label='Agree'><input type='radio' name='question$primary_id' value='4'></td>
+        <td data-label='Strongly Agree'><input type='radio' name='question$primary_id' value='5'></td>
+        <tr>
+        ";
+    }
+    mysqli_close($conn);
+}
+
+//This shows all the editable questions.
 function showEditQuestions()
 {
     include 'connection.php';
@@ -1064,17 +1127,17 @@ function showEditQuestions()
         $question = $row["question"];
         echo "
         <tr>
-            <td style='display: none;'>$primary_id</td>
-            <td>$question</td>
-            <td data-label='Stongly Disagree'><input type='radio' name='question$primary_id' value='1'></td>
-            <td data-label='Disagree'><input type='radio' name='question$primary_id' value='2'></td>
-            <td data-label='Uncertain'><input type='radio' name='question$primary_id' value='3'></td>
-            <td data-label='Agree'><input type='radio' name='question$primary_id' value='4'></td>
-            <td data-label='Strongly Agree'><input type='radio' name='question$primary_id' value='5'></td>
-            <td data-label='Operation'>
-            <a class='edit edit-question-func'><i class='fas fa-edit'></i> <span>Edit</span></a>
-            <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> <span>Delete</span></a>
-            </td>
+        <td style='display: none;'>$primary_id</td>
+        <td>$question</td>
+        <td data-label='Stongly Disagree'><input type='radio' name='question$primary_id' value='1'></td>
+        <td data-label='Disagree'><input type='radio' name='question$primary_id' value='2'></td>
+        <td data-label='Uncertain'><input type='radio' name='question$primary_id' value='3'></td>
+        <td data-label='Agree'><input type='radio' name='question$primary_id' value='4'></td>
+        <td data-label='Strongly Agree'><input type='radio' name='question$primary_id' value='5'></td>
+        <td data-label='Operation'>
+        <a class='edit edit-question-func'><i class='fas fa-edit'></i> <span>Edit</span></a>
+        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> <span>Delete</span></a>
+        </td>
         <tr>
         ";
     }
@@ -1114,7 +1177,7 @@ function availableEvaluations($section_id)
         <td data-label='Subject'>$subject_name</td>
         <td data-label='Faculty'>$firstname $lastname</td>
         <td data-label='Operation'>
-        <a href='student_evaluation.php?faculty_id=$faculty_id' class='add-main'>Evaluate</a>
+        <a href='student_evaluation.php?faculty_id=$faculty_id&subject_id=$subject_id' class='add-main'>Evaluate</a>
         </td>
         </tr>
         ";

@@ -3,6 +3,7 @@ include './assets/php/functions.php';
 preventBack();
 enableDelete_courses();
 $faculty_id = $_GET["faculty_id"];
+$subject_id = $_GET["subject_id"];
 ?>
 
 <html>
@@ -30,22 +31,10 @@ $faculty_id = $_GET["faculty_id"];
 					<hr>
                     <div class="student-evaluation">
                         <div class="form">
-                        <div class="form-top">
+                            <div class="form-top">
                                 <p class="form-title">Faculty</p>
                             </div>
-                                <div class="form-middle-faculty">
-                                    <div class="left-side">
-                                        <img src="./images/uploads/standard.png" alt="" class="evaluation-faculty-picture">
-                                    </div>
-                                    <div class="right-side">
-                                        <p class="label-question">Faculty Name</p>
-                                        <p>Uriel</p>
-                                        <p class="label-question">Subject Code</p>
-                                        <p>ITCP_01</p>
-                                        <p class="label-question">Description</p>
-                                        <p>Computer Programming</p>
-                                    </div>
-                                </div>
+                            <?php loadFaculty($faculty_id, $subject_id) ?>
                             <div class="form-bottom">
                             </div>
                         </div>
@@ -68,26 +57,19 @@ $faculty_id = $_GET["faculty_id"];
 
                                 <div class="question-container">
                                     <table class="question-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Question</th>
-                                            <th>1</th>
-                                            <th>2</th>
-                                            <th>3</th>
-                                            <th>4</th>
-                                            <th>5</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</td>
-                                            <td data-label='Stongly Disagree'><input type="radio" name="likert" value="1"></td>
-                                            <td data-label='Disagree'><input type="radio" name="likert" value="2"></td>
-                                            <td data-label='Uncertain'><input type="radio" name="likert" value="3"></td>
-                                            <td data-label='Agree'><input type="radio" name="likert" value="4"></td>
-                                            <td data-label='Strongly Agree'><input type="radio" name="likert" value="5"></td>
-                                        <tr>
-                                    </tbody>
+                                        <thead>
+                                            <tr>
+                                                <th>Question</th>
+                                                <th>1</th>
+                                                <th>2</th>
+                                                <th>3</th>
+                                                <th>4</th>
+                                                <th>5</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php showQuestions() ?>
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
