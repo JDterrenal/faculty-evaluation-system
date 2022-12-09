@@ -366,7 +366,7 @@ function addSecrel()
         }
 
         //Add Subject to Sections
-        $sql = "INSERT INTO tb_sectionsRelation (secrel_id, section_id, subject_id, faculty_id) VALUES (null, $section_id, $subject_id, $faculty_id)";
+        $sql = "INSERT INTO tb_sections_relation (secrel_id, section_id, subject_id, faculty_id) VALUES (null, $section_id, $subject_id, $faculty_id)";
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/addAlert.js"></script><?php
         } else {
@@ -567,7 +567,7 @@ function editSecrel()
         }
 
         //Add Subject to Sections
-        $sql = "UPDATE tb_sectionsRelation SET subject_id='$subject_id', faculty_id='$edit_faculty_id' WHERE secrel_id='$edit_id'";
+        $sql = "UPDATE tb_sections_relation SET subject_id='$subject_id', faculty_id='$edit_faculty_id' WHERE secrel_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/editAlert.js"></script><?php
         } else {
@@ -679,13 +679,13 @@ function enableDelete_secrel()
     if (isset($_GET['delete_id'])) {
         $delete_id = $_GET['delete_id'];
 
-        $sql_section_id = "SELECT section_id FROM tb_sectionsRelation WHERE secrel_id = $delete_id";
+        $sql_section_id = "SELECT section_id FROM tb_sections_relation WHERE secrel_id = $delete_id";
         $result = mysqli_query($conn, $sql_section_id);
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $section_id = $row["section_id"];
         }
         
-        $sql = "DELETE FROM tb_sectionsRelation WHERE secrel_id='$delete_id'";
+        $sql = "DELETE FROM tb_sections_relation WHERE secrel_id='$delete_id'";
         mysqli_query($conn, $sql) or die("Connection error!");
         header("location: section_subjects.php?section_id=$section_id");
     }
@@ -1001,7 +1001,7 @@ function showSectionsRelation($section_id)
 {
     include 'connection.php';
     global $count;
-    $sql = "SELECT secrel_id, subject_id, faculty_id FROM tb_sectionsRelation WHERE section_id = $section_id ORDER BY secrel_id";
+    $sql = "SELECT secrel_id, subject_id, faculty_id FROM tb_sections_relation WHERE section_id = $section_id ORDER BY secrel_id";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
@@ -1173,7 +1173,7 @@ function availableEvaluations($section_id, $student_id)
 {
     include 'connection.php';
     global $count;
-    $sql = "SELECT secrel_id, subject_id, faculty_id FROM tb_sectionsRelation WHERE section_id = $section_id ORDER BY secrel_id";
+    $sql = "SELECT secrel_id, subject_id, faculty_id FROM tb_sections_relation WHERE section_id = $section_id ORDER BY secrel_id";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
