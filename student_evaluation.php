@@ -5,6 +5,14 @@ enableDelete_courses();
 $faculty_id = $_GET["faculty_id"];
 $student_id = $_SESSION['login_id'];
 $subject_id = $_GET["subject_id"];
+
+include 'connection.php';
+$sql = "SELECT schoolyear, semester, status FROM tb_active_eval WHERE active_id='1'";
+$result = mysqli_query($conn, $sql);
+while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+    $schoolyear = $row["schoolyear"];
+    $semester = $row["semester"];
+}
 ?>
 
 <html>
@@ -43,7 +51,7 @@ $subject_id = $_GET["subject_id"];
                         <div class="evaluation-question">
                             <form method="post">
                                 <div class="evaluation-question-top">
-                                    <p class="label-question">Evaluation Questionnaire for Academic: 2021-2022 1st</p>
+                                    <p class="label-question">Evaluation Questionnaire for Academic: <?php echo "$schoolyear $semester Semester" ?></p>
                                     <button type="submit" name="submitevaluation" class="submit-eval">Submit Evalutaion</button>
                                 </div>
                                 <hr>

@@ -2,6 +2,14 @@
 include './assets/php/functions.php';
 preventBack();
 enableDelete_questions();
+
+include 'connection.php';
+$sql = "SELECT schoolyear, semester, status FROM tb_active_eval WHERE active_id='1'";
+$result = mysqli_query($conn, $sql);
+while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+    $schoolyear = $row["schoolyear"];
+    $semester = $row["semester"];
+}
 ?>
 
 <html>
@@ -48,7 +56,7 @@ enableDelete_questions();
 
                         <div class="evaluation-question">
                             <div class="evaluation-question-top">
-                                <p class="label-question">Evaluation Questionnaire for Academic: 2021-2022 1st</p>
+                                <p class="label-question">Evaluation Questionnaire for Academic: <?php echo "$schoolyear $semester" ?></p>
                             </div>
                             <hr>
                             <div class="evaluation-question-content">

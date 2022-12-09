@@ -1184,7 +1184,7 @@ function showActiveEvaluation($usertype)
 {
     include 'connection.php';
     global $count;
-    $sql = "SELECT schoolyear, semester, status FROM tb_active_eval";
+    $sql = "SELECT schoolyear, semester, status FROM tb_active_eval WHERE active_id='1'";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
