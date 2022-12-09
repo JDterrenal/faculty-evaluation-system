@@ -18,13 +18,16 @@ a {
 
 button,
 input[type=button] {
+  border: none;
   outline: none;
+  font-size: 1rem;
 }
 button::-moz-focus-inner,
 input[type=button]::-moz-focus-inner {
   border: 0;
 }
 .button:focus {
+  border: none;
   outline: none;
 }
 
