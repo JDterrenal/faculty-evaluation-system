@@ -801,6 +801,12 @@ nav li:focus {
   display: flex;
 }
 
+.student-evaluation{
+  margin: 0;
+  width: 98%;
+  display: flex;
+}
+
 .edit-eval {
   margin: 0;
   width: 98%;
