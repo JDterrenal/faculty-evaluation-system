@@ -9,7 +9,7 @@ $usertype = $_SESSION['usertype'];
 <head>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Evaluations | Faculty Evaluation</title>
+  <title>Evaluation Status | Faculty Evaluation</title>
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="icon" href="images/logo.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -28,13 +28,7 @@ $usertype = $_SESSION['usertype'];
 			<div class="container-main">
 				<div class="page-container"><h1><i class="fas fa-book"> Evaluation Status</i></h1>
 					<hr>
-					<div class="user-info">
-						<div class="user-content">
-							<div class="user-info-title">
-								<p class="user-title"><i class="fas fa-user"></i> Preview!</p>
-								<hr>
-							</div>
-						</div>
+					<div class="edit-question">
 						<div class="form">
                             <form action="evaluation_status.php" method="post">
                                 <div class="form-top">
@@ -57,10 +51,18 @@ $usertype = $_SESSION['usertype'];
                                 <div class="form-bottom">
                                     <?php editEvaluation() ?>
                                     <button type="submit" name="editevaluation" class="save">Save</button>
+									<a href="./edit_questions.php" class="cancel">Manage Questions</a>
                                 </div>
                             </form>
                         </div>
-						<?php showActiveEvaluation($usertype) ?>
+						<div class="box-container">
+							<div class="form-top">
+                                <p class="form-title">Status Preview</p>
+                            </div>
+							<div class="form-middle">
+								<?php showActiveEvaluation($usertype) ?>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

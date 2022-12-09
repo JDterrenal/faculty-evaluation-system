@@ -40,7 +40,7 @@ enableDelete_questions();
                                 <div class="form-bottom">
                                     <?php addQuestion() ?>
                                     <button type="submit" name="addquestion" class="save">Save</button>
-                                    <button id="clear" class="cancel">Cancel</button>
+                                    <a href="./evaluation_status.php" class="cancel">Cancel</a>
                                 </div>
                             </form>
                         </div>
