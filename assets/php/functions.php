@@ -167,25 +167,17 @@ function sidebarIdentify()
         <li><a href="students.php"><i class="fas fa-user i"></i><span>Students</span></a></li>
         <li><a href="faculty.php"><i class="fas fa-chalkboard-teacher i"></i><span>Faculty</span></a></li>
         <li><a href="accounts.php"><i class="fas fa-users i"></i><span>Accounts</span></a></li>
-        <li><a href="evaluations.php"><i class="fas fa-calendar-check i"></i><span>Evaluations</span></a></li>
-        <li><a href="about.php"><i class="fas fa-info-circle i"></i><span>About</span></a></li>
+        <li><a href="evaluation_status.php"><i class="fas fa-calendar-check i"></i><span>Evaluations</span></a></li>
         ';
     } else if ($_SESSION['usertype'] == 'Student') {
         echo '
         <li><a href="dashboard.php"><i class="fas fa-desktop i"></i><span>Dashboard</span></a></li>
         <li><a href="student_profile.php"><i class="fas fa-user i"></i><span>Profile</span></a></li>
-        <li><a href="student_subjects.php"><i class="fas fa-book-open i"></i><span>Subjects</span></a></li>
-        <li><a href="student_faculty.php"><i class="fas fa-chalkboard-teacher i"></i><span>Faculty</span></a></li>
-        <li><a href="about.php"><i class="fas fa-info-circle i"></i><span>About</span></a></li>
         ';
     } else if ($_SESSION['usertype'] == 'Faculty') {
         echo '
         <li><a href="dashboard.php"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
         <li><a href="faculty_profile.php"><i class="fas fa-user i"></i><span>Profile</span></a></li>
-        <li><a href="faculty_sections.php"><i class="fas fa-table i"></i><span>Sections</span></a></li>
-        <li><a href="faculty_subjects.php"><i class="fas fa-book-open i"></i><span>Subjects</span></a></li>
-        <li><a href="faculty_students.php"><i class="fas fa-users i"></i><span>Students</span></a></li>
-        <li><a href="about.php"><i class="fas fa-info-circle i"></i><span>About</span></a></li>
         ';
     }
 }
@@ -585,6 +577,26 @@ function editQuestion()
         $edit_id = $_POST['edit_id'];
         $edit_question = $_POST['edit_question'];
         $sql = "UPDATE tb_questions SET question='$edit_question' WHERE question_id='$edit_id'";
+        if (mysqli_query($conn, $sql)) {
+            ?><script src="/assets/js/editAlert.js"></script><?php
+        } else {
+            ?><script src="/assets/js/errorAlert.js"></script><?php
+        }
+        mysqli_close($conn);
+    }
+}
+
+// Evaluation Edit
+function editEvaluation()
+{
+    if (isset($_POST['editevaluation'])) {
+        include 'connection.php';
+        $yearstart = (int)$_POST['yearstart'];
+        $yearend = $yearstart+1;
+        $semester = $_POST['semester'];
+        $status = $_POST['status'];
+        
+        $sql = "UPDATE tb_active_eval SET schoolyear='$yearstart-$yearend', semester='$semester', status='$status' WHERE active_id='1'";
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/editAlert.js"></script><?php
         } else {
@@ -1179,7 +1191,7 @@ function showActiveEvaluation($usertype)
         $schoolyear = $row["schoolyear"];
         $semester = $row["semester"];
         $status = $row["status"];
-        if ($usertype == "Student" & $status == "On-going") {
+        if ($usertype == "Student" & $status == "In Progress") {
             echo "
             <div class='anouncement'>
             <p class='acad-year'>Academic Year: $schoolyear $semester Semester</p>
