@@ -265,27 +265,6 @@ function addFaculty()
     }
 }
 
-//Adds a new evaluation in the record.
-function addEvaluation()
-{
-    if (isset($_POST['addevaluation'])) {
-        include 'connection.php';
-        $schoolyear = $_POST['schoolyear'];
-        $semester = $_POST['semester'];
-        $status = $_POST['status'];
-        $section_id = $_POST['section_id'];
-
-        //Add Evaluation
-        $sql = "INSERT INTO tb_evaluations (evaluation_id, schoolyear, semester, status, section_id) VALUES (null, '$schoolyear', '$semester', '$status', '$section_id')";
-        if (mysqli_query($conn, $sql)) {
-            ?><script src="/assets/js/addAlert.js"></script><?php
-        } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
-        }
-        mysqli_close($conn);
-    }
-}
-
 //Adds a new course in the record.
 function addCourse()
 {
@@ -393,18 +372,43 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
         include 'connection.php';
         $question_count = "SELECT question_id, question FROM tb_questions ORDER BY question_id";
         $result = mysqli_query($conn, $question_count);
+        $comment = $_POST["comment"];
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $question_id = $row["question_id"];
             $answer = $_POST["question$question_id"];
 
-            //Submit Evaluation
+            //Submit individual answers for each question
             $sql = "INSERT INTO tb_feedback (feedback_id, answer, question_id, student_id, faculty_id, subject_id) VALUES (null, '$answer', $question_id, $student_id, $faculty_id, $subject_id)";
             if (mysqli_query($conn, $sql)) {
             } else {
+                $del = "DELETE FROM tb_feedback WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id";
+                mysqli_query($conn, $del) or die("Connection error!");
                 ?><script src="/assets/js/errorAlert.js"></script><?php
             }
         }
-        ?><script src="/assets/js/evaluationSuccess.js"></script><?php
+        //Fetch current school year and semester
+        $sql_sysem = "SELECT schoolyear, semester FROM tb_active_eval WHERE active_id='1'";
+        $sysemres = mysqli_query($conn, $sql_sysem);
+        while ($row = mysqli_fetch_array($sysemres, MYSQLI_ASSOC)) {
+            $schoolyear = $row["schoolyear"];
+            $semester = $row["semester"];
+        }
+        //Average rating
+        $sql_avg = "SELECT ROUND(AVG(answer),1) AS rating_avg FROM tb_feedback";
+        $avgres = mysqli_query($conn, $sql_avg);
+        while ($row = mysqli_fetch_array($avgres, MYSQLI_ASSOC)) {
+            $rating_avg = $row["rating_avg"];
+        }
+        //Submit the whole evaluation data
+        $sql2 = "INSERT INTO tb_evaluations (evaluation_id, rating_avg, comment, date, schoolyear, semester, student_id, faculty_id, subject_id) VALUES (null, '$rating_avg', '$comment', CURDATE(), '$schoolyear', '$semester', $student_id, $faculty_id, $subject_id)";
+        if (mysqli_query($conn, $sql2)) {
+            ?><script src="/assets/js/evaluationSuccess.js"></script><?php
+        } else {
+            $del = "DELETE FROM tb_feedback WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id";
+            mysqli_query($conn, $del) or die("Connection error!");
+            echo "Error: " . $sql2 . "<br>" . $conn->error;
+            ?><script src="/assets/js/errorAlert.js"></script><?php
+        }    
         mysqli_close($conn);
     }
 }
@@ -642,7 +646,6 @@ function enableDelete_subjects()
     if (isset($_GET['delete_id'])) {
         $delete_id = $_GET['delete_id'];
         $sql = "DELETE FROM tb_subjects WHERE subject_id='$delete_id'";
-
         mysqli_query($conn, $sql) or die("Connection error!");
         header('location: subjects.php');
     }
