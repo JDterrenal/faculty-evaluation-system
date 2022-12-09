@@ -1211,6 +1211,18 @@ function showActiveEvaluation($usertype)
     mysqli_close($conn);
 }
 
+function academicYear()
+{
+    include 'connection.php';
+    $sql_sysem = "SELECT schoolyear, semester FROM tb_active_eval WHERE active_id='1'";
+    $res = mysqli_query($conn, $sql_sysem);
+    while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
+        $schoolyear = $row["schoolyear"];
+        $semester = $row["semester"];
+        echo "$schoolyear $semester Semester";
+    }
+}
+
 //This shows all the available evaluations for the students.
 function availableEvaluations($section_id, $student_id)
 {

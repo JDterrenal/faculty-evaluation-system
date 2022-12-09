@@ -1,25 +1,16 @@
 <?php
 include './assets/php/functions.php';
 preventBack();
-enableDelete_courses();
 $faculty_id = $_GET["faculty_id"];
 $student_id = $_SESSION['login_id'];
 $subject_id = $_GET["subject_id"];
-
-include 'connection.php';
-$sql = "SELECT schoolyear, semester, status FROM tb_active_eval WHERE active_id='1'";
-$result = mysqli_query($conn, $sql);
-while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-    $schoolyear = $row["schoolyear"];
-    $semester = $row["semester"];
-}
 ?>
 
 <html>
 <head>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manage Question | Faculty Evaluation</title>
+  <title>Evaluation | Faculty Evaluation</title>
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="icon" href="images/logo.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -44,14 +35,13 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                                 <p class="form-title">Faculty</p>
                             </div>
                             <?php loadFaculty($faculty_id, $subject_id) ?>
-                            <div class="form-bottom">
-                            </div>
+                            <div class="form-bottom"></div>
                         </div>
 
                         <div class="evaluation-question">
                             <form method="post">
                                 <div class="evaluation-question-top">
-                                    <p class="label-question">Evaluation Questionnaire for Academic: <?php echo "$schoolyear $semester Semester" ?></p>
+                                    <p class="label-question">Evaluation Questionnaire for Academic: <?php academicYear() ?></p>
                                     <button type="submit" name="submitevaluation" class="submit-eval">Submit Evalutaion</button>
                                 </div>
                                 <hr>
@@ -102,6 +92,5 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 	<?php include './assets/php/popupLogout.php' ?>
 
 	<script src="./assets/js/script.js"></script>
-	<script src="./assets/js/deleteConfirmation.js"></script>
 </body>
 </html>
