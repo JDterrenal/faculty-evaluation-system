@@ -1,6 +1,7 @@
 <?php
 include './assets/php/functions.php';
 preventBack();
+$usertype = $_SESSION['usertype'];
 ?>
 
 <html>
@@ -31,11 +32,7 @@ preventBack();
 					<div class="columns">
 						<div class="col1">
 							<p>Welcome <?php echo $_SESSION['username'] ?>!</p>
-							<div class="anouncement">
-								<p class="acad-year">Academic Year: 2021-2022</p>
-								<p class="eval-status">Evaluation Status: On-going</p>
-								<a href="./evaluation_list.php">Start Evaluation</a>
-							</div>
+							<?php showActiveEvaluation($usertype) ?>
 						</div>
 					</div>
 					<div class="columns">

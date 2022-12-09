@@ -1168,6 +1168,37 @@ function showEditQuestions()
     mysqli_close($conn);
 }
 
+function showActiveEvaluation($usertype)
+{
+    include 'connection.php';
+    global $count;
+    $sql = "SELECT schoolyear, semester, status FROM tb_active_eval";
+    $result = mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($result);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $schoolyear = $row["schoolyear"];
+        $semester = $row["semester"];
+        $status = $row["status"];
+        if ($usertype == "Student" & $status == "On-going") {
+            echo "
+            <div class='anouncement'>
+            <p class='acad-year'>Academic Year: $schoolyear $semester Semester</p>
+            <p class='eval-status'>Evaluation Status: $status</p>
+            <a href='./evaluation_list.php'>Start Evaluation</a>
+            </div>
+            ";
+        } else {
+            echo "
+            <div class='anouncement'>
+            <p class='acad-year'>Academic Year: $schoolyear $semester Semester</p>
+            <p class='eval-status'>Evaluation Status: $status</p>
+            </div>
+            ";
+        }
+    }
+    mysqli_close($conn);
+}
+
 //This shows all the available evaluations for the students.
 function availableEvaluations($section_id, $student_id)
 {
