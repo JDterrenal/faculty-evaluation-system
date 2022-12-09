@@ -74,6 +74,8 @@ $subject_id = $_GET["subject_id"];
                                                 ?>
                                             </tbody>
                                         </table>
+                                        <p class="label-question">Do you have any suggestions or opinions? Write your feedback.</p>
+                                        <textarea name="comment" class="question"></textarea>
                                     </div>
                                 </div>
                             </form>
