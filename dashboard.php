@@ -42,7 +42,7 @@ $usertype = $_SESSION['usertype'];
 									<h1><?php echo accountsCount() ?></h1>
 									<p class="stat">Total Users</p>
 								</div>
-								<div class="col-right"><i class="fas fa-user"></i></div>
+								<div class="col-right"><i class="fas fa-users"></i></div>
 							</div>
 						</div>
 						<div class="col3">
@@ -92,26 +92,6 @@ $usertype = $_SESSION['usertype'];
 									<p class="stat">Total Faculty</p>
 								</div>
 								<div class="col-right"><i class="fas fa-chalkboard-teacher"></i></div>
-							</div>
-						</div>
-					</div>
-					<div class="columns">
-						<div class="col2">
-							<div class="stat-cont">
-								<div class="col-left">
-									<h1><?php echo accountsCount() ?></h1>
-									<p class="stat">Total Accounts</p>
-								</div>
-								<div class="col-right"><i class="fas fa-users"></i></div>
-							</div>
-						</div>
-						<div class="col3">
-							<div class="stat-cont">
-								<div class="col-left">
-									<h1><?php echo evaluationCount() ?></h1>
-									<p class="stat">Total Evaluations</p>
-								</div>
-								<div class="col-right"><i class="fas fa-calendar-check"></i></div>
 							</div>
 						</div>
 					</div>
