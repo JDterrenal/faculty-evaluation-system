@@ -24,6 +24,9 @@ button::-moz-focus-inner,
 input[type=button]::-moz-focus-inner {
   border: 0;
 }
+.button:focus {
+  outline: none;
+}
 
 /* all inputs */
 .popup-users-middle input[type=text],
