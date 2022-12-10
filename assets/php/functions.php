@@ -352,7 +352,7 @@ function addQuestion()
 {
     if (isset($_POST['addquestion'])) {
         include 'connection.php';
-        $question = $_POST['question'];
+        $question = mysqli_real_escape_string($conn, $_POST['question']);
 
         //Add Subject
         $sql = "INSERT INTO tb_questions (question_id, question) VALUES (null, '$question')";
@@ -372,13 +372,13 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
         include 'connection.php';
         $question_count = "SELECT question_id, question FROM tb_questions ORDER BY question_id";
         $result = mysqli_query($conn, $question_count);
-        $comment = $_POST["comment"];
+        $comment = mysqli_real_escape_string($conn, $_POST["comment"]);
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $question_id = $row["question_id"];
             $answer = $_POST["question$question_id"];
 
             //Submit individual answers for each question
-            $sql = "INSERT INTO tb_feedback (feedback_id, answer, date, question_id, student_id, faculty_id, subject_id) VALUES (null, '$answer', CURDATE(), $question_id, $student_id, $faculty_id, $subject_id)";
+            $sql = "INSERT INTO tb_feedback (feedback_id, answer, date, question_id, student_id, faculty_id, subject_id, evaluation_id) VALUES (null, '$answer', CURDATE(), $question_id, $student_id, $faculty_id, $subject_id, 0)";
             if (mysqli_query($conn, $sql)) {
             } else {
                 $del = "DELETE FROM tb_feedback WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id";
@@ -393,7 +393,7 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
             $schoolyear = $row["schoolyear"];
             $semester = $row["semester"];
         }
-        //Average rating
+        //Calculate average rating
         $sql_avg = "SELECT ROUND(AVG(answer),1) AS rating_avg FROM tb_feedback";
         $avgres = mysqli_query($conn, $sql_avg);
         while ($row = mysqli_fetch_array($avgres, MYSQLI_ASSOC)) {
@@ -402,9 +402,20 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
         //Submit the whole evaluation data
         $sql2 = "INSERT INTO tb_evaluations (evaluation_id, rating_avg, comment, date, schoolyear, semester, student_id, faculty_id, subject_id) VALUES (null, '$rating_avg', '$comment', CURDATE(), '$schoolyear', '$semester', $student_id, $faculty_id, $subject_id)";
         if (mysqli_query($conn, $sql2)) {
-            ?><script src="/assets/js/evaluationSuccess.js"></script><?php
+            //Get ID of latest inserted evaluation
+            $sql_latest_eval = "SELECT evaluation_id FROM tb_evaluations ORDER BY evaluation_id DESC LIMIT 1";
+            $evalres = mysqli_query($conn, $sql_latest_eval);
+            while ($row = mysqli_fetch_array($evalres, MYSQLI_ASSOC)) {
+                $evaluation_id = $row["evaluation_id"];
+            }
+            $update_feedback = "UPDATE tb_feedback SET evaluation_id='$evaluation_id' WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id AND date = CURDATE()";
+            if (mysqli_query($conn, $update_feedback)) {
+                ?><script src="/assets/js/evaluationSuccess.js"></script><?php
+            } else {
+                ?><script src="/assets/js/errorAlert.js"></script><?php
+            }
         } else {
-            $del = "DELETE FROM tb_feedback WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id";
+            $del = "DELETE FROM tb_feedback WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id AND date = CURDATE()";
             mysqli_query($conn, $del) or die("Connection error!");
             ?><script src="/assets/js/errorAlert.js"></script><?php
         }    
@@ -578,7 +589,7 @@ function editQuestion()
     if (isset($_POST['editquestion'])) {
         include 'connection.php';
         $edit_id = $_POST['edit_id'];
-        $edit_question = $_POST['edit_question'];
+        $edit_question = mysqli_real_escape_string($conn, $_POST['edit_question']);
         $sql = "UPDATE tb_questions SET question='$edit_question' WHERE question_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/editAlert.js"></script><?php
