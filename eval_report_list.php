@@ -1,7 +1,7 @@
 <?php
 include './assets/php/functions.php';
 preventBack();
-$faculty_id = $_SESSION["faculty_id"];
+$faculty_id = $_GET["faculty_id"];
 ?>
 
 <html>
