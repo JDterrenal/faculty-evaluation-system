@@ -245,6 +245,7 @@ $(document).ready(function () {
         $("[data-label='ID Info']").html(col1);
         $("[data-label='Full Name Info']").html(col2 + " " + col3);
         $("[data-label='Email Info']").html(col4);
+        $("[data-label='Operation Info']").html("<a href='eval_report_list.php?faculty_id=" + col1 + "' class='add-main'><i class='fas fa-eye'></i> Evaluation Reports</a>");
     });
 
     // Account

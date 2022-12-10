@@ -378,7 +378,7 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
             $answer = $_POST["question$question_id"];
 
             //Submit individual answers for each question
-            $sql = "INSERT INTO tb_feedback (feedback_id, answer, question_id, student_id, faculty_id, subject_id) VALUES (null, '$answer', $question_id, $student_id, $faculty_id, $subject_id)";
+            $sql = "INSERT INTO tb_feedback (feedback_id, answer, date, question_id, student_id, faculty_id, subject_id) VALUES (null, '$answer', CURDATE(), $question_id, $student_id, $faculty_id, $subject_id)";
             if (mysqli_query($conn, $sql)) {
             } else {
                 $del = "DELETE FROM tb_feedback WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id";
@@ -406,7 +406,6 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
         } else {
             $del = "DELETE FROM tb_feedback WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id";
             mysqli_query($conn, $del) or die("Connection error!");
-            echo "Error: " . $sql2 . "<br>" . $conn->error;
             ?><script src="/assets/js/errorAlert.js"></script><?php
         }    
         mysqli_close($conn);
@@ -1268,6 +1267,44 @@ function availableEvaluations($section_id, $student_id)
             </tr>
             ";
         }
+    }
+    mysqli_close($conn);
+}
+
+//This shows all the evaluation reports for the facuklty.
+function facultyEvaluationReports($faculty_id)
+{
+    include 'connection.php';
+    global $count;
+    $sql = "SELECT evaluation_id, rating_avg, date, schoolyear, semester, subject_id FROM tb_evaluations WHERE faculty_id = $faculty_id ORDER BY date DESC";
+    $result = mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($result);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $primary_id = $row["evaluation_id"];
+        $rating_avg = $row["rating_avg"];
+        $date = $row["date"];
+        $schoolyear = $row["schoolyear"];
+        $semester = $row["semester"];
+        $subject_id = $row["subject_id"];
+        //Get Subject Name
+        $sql_subject = "SELECT subject_name FROM tb_subjects WHERE subject_id = $subject_id";
+        $result_subject = mysqli_query($conn, $sql_subject);
+        while ($row = mysqli_fetch_array($result_subject, MYSQLI_ASSOC)) {
+            $subject_name = $row["subject_name"];
+        }
+        echo "
+        <tr>
+        <td data-label='ID'>$primary_id</td>
+        <td data-label='Subject'>$subject_name</td>
+        <td data-label='School Year'>$schoolyear</td>
+        <td data-label='Semester'>$semester</td>
+        <td data-label='Rating'>$rating_avg</td>
+        <td data-label='Date'>$date</td>
+        <td data-label='Operation'>
+        <a href='evaluation_report.php?evaluation_id=$primary_id' class='view'><i class='fas fa-eye'></i><span> View</span></a>
+        </td>
+        </tr>
+        ";
     }
     mysqli_close($conn);
 }
