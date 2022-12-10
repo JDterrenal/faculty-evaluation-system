@@ -21,7 +21,6 @@ $faculty_id = $_GET["faculty_id"];
 	<?php include './assets/php/navigation.php' ?>
 	
 	<!-------- main content ---------->
-
 	<div class= "main-container">
 		<main>
 			<div class="container-main">
