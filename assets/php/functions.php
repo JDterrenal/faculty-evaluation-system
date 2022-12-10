@@ -188,13 +188,13 @@ function addStudent()
 {
     if (isset($_POST['addstudent'])) {
         include 'connection.php';
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
+        $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
+        $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
         $email = $_POST['email'];
         $gender = $_POST['gender'];
         $yearlevel = $_POST['yearlevel'];
         $contact_no = $_POST['contact_no'];
-        $address = $_POST['address'];
+        $address = mysqli_real_escape_string($conn, $_POST['address']);
         $status = $_POST['status'];
         $course = $_POST['course_id'];
         $section = $_POST['section_id'];
@@ -231,12 +231,12 @@ function addFaculty()
 {
     if (isset($_POST['addfaculty'])) {
         include 'connection.php';
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
+        $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
+        $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
         $email = $_POST['email'];
         $gender = $_POST['gender'];
         $contact_no = $_POST['contact_no'];
-        $address = $_POST['address'];
+        $address = mysqli_real_escape_string($conn, $_POST['address']);
 
         if ($_FILES['photo'] == UPLOAD_ERR_NO_FILE) {
             $photo = 'standard.png';
@@ -270,7 +270,7 @@ function addCourse()
 {
     if (isset($_POST['addcourse'])) {
         include 'connection.php';
-        $course_name = $_POST['course_name'];
+        $course_name = mysqli_real_escape_string($conn, $_POST['course_name']);
 
         //Add Course
         $sql = "INSERT INTO tb_courses (course_id, course_name) VALUES (null, '$course_name')";
@@ -289,7 +289,7 @@ function addSubject()
     if (isset($_POST['addsubject'])) {
         include 'connection.php';
         $subject_code = $_POST['subject_code'];
-        $subject_name = $_POST['subject_name'];
+        $subject_name = mysqli_real_escape_string($conn, $_POST['subject_name']);
         $units = $_POST['units'];
 
         //Add Subject
@@ -408,6 +408,7 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
             while ($row = mysqli_fetch_array($evalres, MYSQLI_ASSOC)) {
                 $evaluation_id = $row["evaluation_id"];
             }
+            //Set the latest evaluation ID to feedback
             $update_feedback = "UPDATE tb_feedback SET evaluation_id='$evaluation_id' WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id AND date = CURDATE()";
             if (mysqli_query($conn, $update_feedback)) {
                 ?><script src="/assets/js/evaluationSuccess.js"></script><?php
@@ -430,13 +431,13 @@ function editStudent()
     if (isset($_POST['editstudent'])) {
         include 'connection.php';
         $edit_id = $_POST['edit_id'];
-        $edit_firstname = $_POST['edit_firstname'];
-        $edit_lastname = $_POST['edit_lastname'];
+        $edit_firstname = mysqli_real_escape_string($conn, $_POST['edit_firstname']);
+        $edit_lastname = mysqli_real_escape_string($conn, $_POST['edit_lastname']);
         $edit_email = $_POST['edit_email'];
         $edit_gender = $_POST['edit_gender'];
         $edit_yearlevel = $_POST['edit_yearlevel'];
         $edit_contact_no = $_POST['edit_contact_no'];
-        $edit_address = $_POST['edit_address'];
+        $edit_address = mysqli_real_escape_string($conn, $_POST['edit_address']);
         $edit_status = $_POST['edit_status'];
         $edit_course_id = $_POST['edit_course_id'];
         $edit_section_id = $_POST['edit_section_id'];
@@ -463,12 +464,12 @@ function editFaculty()
     if (isset($_POST['editfaculty'])) {
         include 'connection.php';
         $edit_id = $_POST['edit_id'];
-        $edit_firstname = $_POST['edit_firstname'];
-        $edit_lastname = $_POST['edit_lastname'];
+        $edit_firstname = mysqli_real_escape_string($conn, $_POST['edit_firstname']);
+        $edit_lastname = mysqli_real_escape_string($conn, $_POST['edit_lastname']);
         $edit_email = $_POST['edit_email'];
         $edit_gender = $_POST['edit_gender'];
         $edit_contact_no = $_POST['edit_contact_no'];
-        $edit_address = $_POST['edit_address'];
+        $edit_address = mysqli_real_escape_string($conn, $_POST['edit_address']);
         $edit_photo = null;
         
         if ($_FILES['edit_photo'] == UPLOAD_ERR_NO_FILE) {
@@ -509,7 +510,7 @@ function editCourse()
     if (isset($_POST['editcourse'])) {
         include 'connection.php';
         $edit_id = $_POST['edit_id'];
-        $edit_course_name = $_POST['edit_course_name'];
+        $edit_course_name = mysqli_real_escape_string($conn, $_POST['edit_course_name']);
         $sql = "UPDATE tb_courses SET course_name='$edit_course_name' WHERE course_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
             ?><script src="/assets/js/editAlert.js"></script><?php
@@ -527,7 +528,7 @@ function editSubject()
         include 'connection.php';
         $edit_id = $_POST['edit_id'];
         $edit_subject_code = $_POST['edit_subject_code'];
-        $edit_subject_name = $_POST['edit_subject_name'];
+        $edit_subject_name = mysqli_real_escape_string($conn, $_POST['edit_subject_name']);
         $edit_units = $_POST['edit_units'];
         
         $sql = "UPDATE tb_subjects SET subject_code='$edit_subject_code', subject_name='$edit_subject_name', units='$edit_units' WHERE subject_id='$edit_id'";
