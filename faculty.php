@@ -53,6 +53,10 @@ enableDelete_faculty();
 										<th>Email Info</th>
 										<td data-label="Email Info"></td>
 									</tr>
+									<tr>
+										<th>Operation Info</th>
+										<td data-label="Operation Info"></td>
+									</tr>
 								<tbody>
 							</table>
 						</div>
