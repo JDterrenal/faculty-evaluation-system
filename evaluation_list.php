@@ -1,7 +1,6 @@
 <?php
 include './assets/php/functions.php';
 preventBack();
-enableDelete_sections();
 $section_id = $_SESSION["section_id"];
 $student_id = $_SESSION['login_id'];
 ?>
@@ -67,6 +66,5 @@ $student_id = $_SESSION['login_id'];
 	<?php include './assets/php/popupLogout.php' ?>
 	
 	<script src="./assets/js/script.js"></script>
-	<script src="./assets/js/deleteConfirmation.js"></script>
 </body>
 </html>
