@@ -1244,28 +1244,28 @@ function availableEvaluations($section_id, $student_id)
     $sql = "SELECT secrel_id, subject_id, faculty_id FROM tb_sections_relation WHERE section_id = $section_id ORDER BY secrel_id";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
-    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $primary_id = $row["secrel_id"];
-        $subject_id = $row["subject_id"];
-        $faculty_id = $row["faculty_id"];
-        //Get Subject Name
-        $sql_subject = "SELECT subject_code, subject_name FROM tb_subjects WHERE subject_id = $subject_id";
-        $result_subject = mysqli_query($conn, $sql_subject);
-        while ($row = mysqli_fetch_array($result_subject, MYSQLI_ASSOC)) {
-            $subject_code = $row["subject_code"];
-            $subject_name = $row["subject_name"];
-        }
-        //Get Faculty Name
-        $sql_faculty = "SELECT firstname, lastname FROM tb_faculty WHERE faculty_id = $faculty_id";
-        $result_faculty = mysqli_query($conn, $sql_faculty);
-        while ($row = mysqli_fetch_array($result_faculty, MYSQLI_ASSOC)) {
-            $firstname = $row["firstname"];
-            $lastname = $row["lastname"];
-        }
-        $sql_feedback = "SELECT feedback_id, answer, question_id, student_id, faculty_id, subject_id FROM tb_feedback WHERE faculty_id = $faculty_id AND subject_id = $subject_id AND student_id = $student_id";
-        $result_feedback = mysqli_query($conn, $sql_feedback);
-        $count_feedback = mysqli_num_rows($result_feedback);
-        if ($count != 0) {
+    if ($count != 0) {
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $primary_id = $row["secrel_id"];
+            $subject_id = $row["subject_id"];
+            $faculty_id = $row["faculty_id"];
+            //Get Subject Name
+            $sql_subject = "SELECT subject_code, subject_name FROM tb_subjects WHERE subject_id = $subject_id";
+            $result_subject = mysqli_query($conn, $sql_subject);
+            while ($row = mysqli_fetch_array($result_subject, MYSQLI_ASSOC)) {
+                $subject_code = $row["subject_code"];
+                $subject_name = $row["subject_name"];
+            }
+            //Get Faculty Name
+            $sql_faculty = "SELECT firstname, lastname FROM tb_faculty WHERE faculty_id = $faculty_id";
+            $result_faculty = mysqli_query($conn, $sql_faculty);
+            while ($row = mysqli_fetch_array($result_faculty, MYSQLI_ASSOC)) {
+                $firstname = $row["firstname"];
+                $lastname = $row["lastname"];
+            }
+            $sql_feedback = "SELECT feedback_id, answer, question_id, student_id, faculty_id, subject_id FROM tb_feedback WHERE faculty_id = $faculty_id AND subject_id = $subject_id AND student_id = $student_id";
+            $result_feedback = mysqli_query($conn, $sql_feedback);
+            $count_feedback = mysqli_num_rows($result_feedback);
             if ($count_feedback == 0) {
                 echo "
                 <tr>
@@ -1278,12 +1278,12 @@ function availableEvaluations($section_id, $student_id)
                 </td>
                 </tr>
                 ";
-            }
-        } else {
-            echo "There are no evaluations available.";
-        }
-        
+            } 
+        }   
+    } else {
+        echo "There are no evaluations available.";
     }
+    
     mysqli_close($conn);
 }
 
@@ -1294,20 +1294,20 @@ function facultyEvaluationReports($faculty_id)
     $sql = "SELECT evaluation_id, rating_avg, date, schoolyear, semester, subject_id FROM tb_evaluations WHERE faculty_id = $faculty_id ORDER BY date DESC";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
-    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $primary_id = $row["evaluation_id"];
-        $rating_avg = $row["rating_avg"];
-        $date = $row["date"];
-        $schoolyear = $row["schoolyear"];
-        $semester = $row["semester"];
-        $subject_id = $row["subject_id"];
-        //Get Subject Name
-        $sql_subject = "SELECT subject_name FROM tb_subjects WHERE subject_id = $subject_id";
-        $result_subject = mysqli_query($conn, $sql_subject);
-        while ($row = mysqli_fetch_array($result_subject, MYSQLI_ASSOC)) {
-            $subject_name = $row["subject_name"];
-        }
-        if ($count != 0) {
+    if ($count != 0) {
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $primary_id = $row["evaluation_id"];
+            $rating_avg = $row["rating_avg"];
+            $date = $row["date"];
+            $schoolyear = $row["schoolyear"];
+            $semester = $row["semester"];
+            $subject_id = $row["subject_id"];
+            //Get Subject Name
+            $sql_subject = "SELECT subject_name FROM tb_subjects WHERE subject_id = $subject_id";
+            $result_subject = mysqli_query($conn, $sql_subject);
+            while ($row = mysqli_fetch_array($result_subject, MYSQLI_ASSOC)) {
+                $subject_name = $row["subject_name"];
+            }
             echo "
             <tr>
             <td data-label='ID'>$primary_id</td>
@@ -1321,10 +1321,11 @@ function facultyEvaluationReports($faculty_id)
             </td>
             </tr>
             ";
-        } else {
-            echo "There are no evaluation reports.";
         }
+    } else {
+        echo "There are no evaluation reports.";
     }
+
     mysqli_close($conn);
 }
 
