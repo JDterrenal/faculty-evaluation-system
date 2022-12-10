@@ -1244,43 +1244,44 @@ function availableEvaluations($section_id, $student_id)
     $sql = "SELECT secrel_id, subject_id, faculty_id FROM tb_sections_relation WHERE section_id = $section_id ORDER BY secrel_id";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
-    if ($count != 0) {
-        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            $primary_id = $row["secrel_id"];
-            $subject_id = $row["subject_id"];
-            $faculty_id = $row["faculty_id"];
-            //Get Subject Name
-            $sql_subject = "SELECT subject_code, subject_name FROM tb_subjects WHERE subject_id = $subject_id";
-            $result_subject = mysqli_query($conn, $sql_subject);
-            while ($row = mysqli_fetch_array($result_subject, MYSQLI_ASSOC)) {
-                $subject_code = $row["subject_code"];
-                $subject_name = $row["subject_name"];
-            }
-            //Get Faculty Name
-            $sql_faculty = "SELECT firstname, lastname FROM tb_faculty WHERE faculty_id = $faculty_id";
-            $result_faculty = mysqli_query($conn, $sql_faculty);
-            while ($row = mysqli_fetch_array($result_faculty, MYSQLI_ASSOC)) {
-                $firstname = $row["firstname"];
-                $lastname = $row["lastname"];
-            }
-            $sql_feedback = "SELECT feedback_id, answer, question_id, student_id, faculty_id, subject_id FROM tb_feedback WHERE faculty_id = $faculty_id AND subject_id = $subject_id AND student_id = $student_id";
-            $result_feedback = mysqli_query($conn, $sql_feedback);
-            $count_feedback = mysqli_num_rows($result_feedback);
-            if ($count_feedback == 0) {
-                echo "
-                <tr>
-                <td data-label='ID'>$primary_id</td>
-                <td data-label='Subject Code'>$subject_code</td>
-                <td data-label='Subject'>$subject_name</td>
-                <td data-label='Faculty'>$firstname $lastname</td>
-                <td data-label='Operation'>
-                <a href='student_evaluation.php?faculty_id=$faculty_id&subject_id=$subject_id' class='add-main'>Evaluate</a>
-                </td>
-                </tr>
-                ";
-            } 
-        }   
-    } else {
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $primary_id = $row["secrel_id"];
+        $subject_id = $row["subject_id"];
+        $faculty_id = $row["faculty_id"];
+        //Get Subject Name
+        $sql_subject = "SELECT subject_code, subject_name FROM tb_subjects WHERE subject_id = $subject_id";
+        $result_subject = mysqli_query($conn, $sql_subject);
+        while ($row = mysqli_fetch_array($result_subject, MYSQLI_ASSOC)) {
+            $subject_code = $row["subject_code"];
+            $subject_name = $row["subject_name"];
+        }
+        //Get Faculty Name
+        $sql_faculty = "SELECT firstname, lastname FROM tb_faculty WHERE faculty_id = $faculty_id";
+        $result_faculty = mysqli_query($conn, $sql_faculty);
+        while ($row = mysqli_fetch_array($result_faculty, MYSQLI_ASSOC)) {
+            $firstname = $row["firstname"];
+            $lastname = $row["lastname"];
+        }
+        $sql_feedback = "SELECT feedback_id, answer, question_id, student_id, faculty_id, subject_id FROM tb_feedback WHERE faculty_id = $faculty_id AND subject_id = $subject_id AND student_id = $student_id";
+        $result_feedback = mysqli_query($conn, $sql_feedback);
+        $count_feedback = mysqli_num_rows($result_feedback);
+        if ($count_feedback == 0) {
+            echo "
+            <tr>
+            <td data-label='ID'>$primary_id</td>
+            <td data-label='Subject Code'>$subject_code</td>
+            <td data-label='Subject'>$subject_name</td>
+            <td data-label='Faculty'>$firstname $lastname</td>
+            <td data-label='Operation'>
+            <a href='student_evaluation.php?faculty_id=$faculty_id&subject_id=$subject_id' class='add-main'>Evaluate</a>
+            </td>
+            </tr>
+            ";
+        } else {
+            $finished_evaluations++;
+        }
+    }
+    if (($count-$finished_evaluations) == 0) {
         echo "
         <tr>
         <td colspan='5'>There are no evaluations available.</td>
