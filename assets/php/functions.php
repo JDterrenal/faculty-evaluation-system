@@ -1281,7 +1281,11 @@ function availableEvaluations($section_id, $student_id)
             } 
         }   
     } else {
-        echo "There are no evaluations available.";
+        echo "
+        <tr>
+        <td colspan='5'>There are no evaluations available.</td>
+        </tr>
+        ";
     }
     
     mysqli_close($conn);
@@ -1323,7 +1327,11 @@ function facultyEvaluationReports($faculty_id)
             ";
         }
     } else {
-        echo "There are no evaluation reports.";
+        echo "
+        <tr>
+        <td colspan='7'>There are no evaluation reports.</td>
+        </tr>
+        ";
     }
 
     mysqli_close($conn);

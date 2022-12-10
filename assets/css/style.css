@@ -31,6 +31,12 @@ input[type=button]::-moz-focus-inner {
   outline: none;
 }
 
+/* empty message design for tables */
+td[colspan='7'],
+td[colspan='5'] {
+  text-align: center;
+}
+
 /* all inputs */
 .popup-users-middle input[type=text],
 .popup-users-middle input[type=email],
