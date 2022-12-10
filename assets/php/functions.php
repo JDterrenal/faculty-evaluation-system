@@ -1241,7 +1241,6 @@ function academicYear()
 function availableEvaluations($section_id, $student_id)
 {
     include 'connection.php';
-    global $count;
     $sql = "SELECT secrel_id, subject_id, faculty_id FROM tb_sections_relation WHERE section_id = $section_id ORDER BY secrel_id";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
@@ -1266,19 +1265,24 @@ function availableEvaluations($section_id, $student_id)
         $sql_feedback = "SELECT feedback_id, answer, question_id, student_id, faculty_id, subject_id FROM tb_feedback WHERE faculty_id = $faculty_id AND subject_id = $subject_id AND student_id = $student_id";
         $result_feedback = mysqli_query($conn, $sql_feedback);
         $count_feedback = mysqli_num_rows($result_feedback);
-        if ($count_feedback == 0) {
-            echo "
-            <tr>
-            <td data-label='ID'>$primary_id</td>
-            <td data-label='Subject Code'>$subject_code</td>
-            <td data-label='Subject'>$subject_name</td>
-            <td data-label='Faculty'>$firstname $lastname</td>
-            <td data-label='Operation'>
-            <a href='student_evaluation.php?faculty_id=$faculty_id&subject_id=$subject_id' class='add-main'>Evaluate</a>
-            </td>
-            </tr>
-            ";
+        if ($count != 0) {
+            if ($count_feedback == 0) {
+                echo "
+                <tr>
+                <td data-label='ID'>$primary_id</td>
+                <td data-label='Subject Code'>$subject_code</td>
+                <td data-label='Subject'>$subject_name</td>
+                <td data-label='Faculty'>$firstname $lastname</td>
+                <td data-label='Operation'>
+                <a href='student_evaluation.php?faculty_id=$faculty_id&subject_id=$subject_id' class='add-main'>Evaluate</a>
+                </td>
+                </tr>
+                ";
+            }
+        } else {
+            echo "There are no evaluations available.";
         }
+        
     }
     mysqli_close($conn);
 }
@@ -1287,7 +1291,6 @@ function availableEvaluations($section_id, $student_id)
 function facultyEvaluationReports($faculty_id)
 {
     include 'connection.php';
-    global $count;
     $sql = "SELECT evaluation_id, rating_avg, date, schoolyear, semester, subject_id FROM tb_evaluations WHERE faculty_id = $faculty_id ORDER BY date DESC";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
@@ -1304,19 +1307,23 @@ function facultyEvaluationReports($faculty_id)
         while ($row = mysqli_fetch_array($result_subject, MYSQLI_ASSOC)) {
             $subject_name = $row["subject_name"];
         }
-        echo "
-        <tr>
-        <td data-label='ID'>$primary_id</td>
-        <td data-label='Subject'>$subject_name</td>
-        <td data-label='School Year'>$schoolyear</td>
-        <td data-label='Semester'>$semester</td>
-        <td data-label='Rating'>$rating_avg</td>
-        <td data-label='Date'>$date</td>
-        <td data-label='Operation'>
-        <a href='evaluation_report.php?evaluation_id=$primary_id' class='view'><i class='fas fa-eye'></i><span> View</span></a>
-        </td>
-        </tr>
-        ";
+        if ($count != 0) {
+            echo "
+            <tr>
+            <td data-label='ID'>$primary_id</td>
+            <td data-label='Subject'>$subject_name</td>
+            <td data-label='School Year'>$schoolyear</td>
+            <td data-label='Semester'>$semester</td>
+            <td data-label='Rating'>$rating_avg</td>
+            <td data-label='Date'>$date</td>
+            <td data-label='Operation'>
+            <a href='evaluation_report.php?evaluation_id=$primary_id' class='view'><i class='fas fa-eye'></i><span> View</span></a>
+            </td>
+            </tr>
+            ";
+        } else {
+            echo "There are no evaluation reports.";
+        }
     }
     mysqli_close($conn);
 }
