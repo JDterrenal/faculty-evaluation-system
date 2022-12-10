@@ -1450,3 +1450,53 @@ function accountsCount()
     echo "$count";
     mysqli_close($conn);
 }
+
+//Sentiment Analysis
+function getSentiment($comment)
+{
+    include 'connection.php';
+
+    // Remove punctuation and make the string lowercase
+    $comment = preg_replace('/[^a-z]+/i', '', $comment);
+    $comment = strtolower($comment);
+
+    // Load a list of positive and negative words
+    $positive_words = array();
+    $negative_words = array();
+    $sql_positive = "SELECT term FROM tb_terms WHERE term_type = 'positive'";
+    $result_positive = mysqli_query($conn, $sql_positive);
+    while ($row = mysqli_fetch_array($result_positive, MYSQLI_ASSOC)) {
+        $positive_words[] = $row['term'];
+    }
+    $sql_negative = "SELECT term FROM tb_terms WHERE term_type = 'negative'";
+    $result_negative = mysqli_query($conn, $sql_negative);
+    while ($row = mysqli_fetch_array($result_negative, MYSQLI_ASSOC)) {
+        $negative_words[] = $row['term'];
+    }
+
+    // Split the text into an array of words
+    $words = explode(' ', $comment);
+
+    // Count the number of positive and negative words
+    $positive_count = 0;
+    $negative_count = 0;
+    foreach ($words as $word) {
+        // If the word is in the positive words list, increment the sentiment
+        if (in_array($word, $positive_words)) {
+            $positive_count++;
+        }
+        // If the word is in the negative words list, decrement the sentiment
+        if (in_array($word, $negative_words)) {
+            $negative_count++;
+        }
+    }
+
+    // Calculate the overall sentiment
+    if ($positive_count > $negative_count) {
+        return 'Positive';
+    } else if ($positive_count < $negative_count) {
+        return 'Negative';
+    } else {
+        return 'Neutral';
+    }
+}
