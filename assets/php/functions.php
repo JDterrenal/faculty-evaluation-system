@@ -1451,7 +1451,7 @@ function accountsCount()
     mysqli_close($conn);
 }
 
-//Sentiment Analysis
+//Sentiment Analysis Functionality
 function getSentiment($comment)
 {
     include 'connection.php';
@@ -1460,7 +1460,7 @@ function getSentiment($comment)
     $comment = preg_replace('/[^a-z]+/i', '', $comment);
     $comment = strtolower($comment);
 
-    // Load a list of positive and negative words
+    // Load a list of positive and negative words using database
     $positive_words = array();
     $negative_words = array();
     $sql_positive = "SELECT term FROM tb_terms WHERE term_type = 'positive'";
@@ -1474,18 +1474,16 @@ function getSentiment($comment)
         $negative_words[] = $row['term'];
     }
 
-    // Split the text into an array of words
+    // Split the comment into an array of words
     $words = explode(' ', $comment);
 
     // Count the number of positive and negative words
     $positive_count = 0;
     $negative_count = 0;
     foreach ($words as $word) {
-        // If the word is in the positive words list, increment the sentiment
         if (in_array($word, $positive_words)) {
             $positive_count++;
         }
-        // If the word is in the negative words list, decrement the sentiment
         if (in_array($word, $negative_words)) {
             $negative_count++;
         }
