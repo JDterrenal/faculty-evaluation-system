@@ -1571,7 +1571,6 @@ function accountsCount()
 // Fetch Sentiment
 function getSentiment($comment, $evaluation_id)
 {
-    global $sentiment_score;
     include 'connection.php';
 
     // Format the comment
@@ -1620,6 +1619,7 @@ function getSentiment($comment, $evaluation_id)
     // Update Sentiment Data
     $update_sentiment = "UPDATE tb_sentiment SET positive_count=$positive_count, negative_count=$negative_count, sentiment_score=$sentiment_score, analysis='$analysis' WHERE evaluation_id = $evaluation_id";
     mysqli_query($conn, $update_sentiment);
+    mysqli_close($conn);
 }
 
 //This shows all the sections that are available in a table format.
