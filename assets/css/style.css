@@ -59,6 +59,8 @@ td[colspan='5'] {
 .popup-users-middle select[name=course_id],
 .popup-users-middle select[name=status],
 .popup-add-middle select[name=subject_code],
+.popup-add-middle select[name=edit_subject_code],
+.popup-add-middle select[name=edit_faculty_id],
 .popup-add-middle select[name=faculty_id],
 .popup-users-middle input[type=radio],
 .popup-add-middle option{
@@ -302,6 +304,7 @@ input[type=file]::file-selector-button:hover {
   border-radius: 5px 5px 0 0;
   width: 100%;
   margin: .5em;
+  height: max-content;
 }
 
 .question-table tbody tr td:nth-child(1){
@@ -327,6 +330,42 @@ input[type=file]::file-selector-button:hover {
 }
 
 .question-table tbody tr:last-of-type {
+  border-bottom: 2px solid #707070;
+}
+
+/* words tables */
+.table-words {
+  border-collapse: collapse;
+  font-size: 1rem;
+  border-radius: 5px 5px 0 0;
+  width: 100%;
+  margin: .5em;
+  height: max-content;
+}
+
+.table-words tbody tr td:nth-child(1){
+  display: none;
+}
+
+.table-words thead tr {
+  background-color: #707070;
+  color: #ffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.table-words th,
+.table-words td {
+  padding: 12px 15px;
+
+}
+
+.table-words tbody tr {
+  border-bottom: 1px solid #dddddd;
+
+}
+
+.table-words tbody tr:last-of-type {
   border-bottom: 2px solid #707070;
 }
 
@@ -1094,7 +1133,6 @@ nav li:focus {
 }
 
 .comment-box{
-  display: flex;
   padding: 2.6em;
   flex-wrap: wrap;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -1243,6 +1281,10 @@ footer {
   padding: .5em;
 }
 
+.container-table-words{
+  width: 100%;
+  margin: .5em;
+}
 /* ========== popups =========*/
 .popup-logout {
   height: 100%;
@@ -1834,6 +1876,31 @@ footer {
     max-height: 10rem;
   }
 
+  .sentiment-analysis{
+    display: flex;
+    flex-direction: column;
+  }
 
+  .comment-box{
+    width: 98%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .SentimentAnalyzed{
+    width: 98%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sentiment-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container-table-words{
+    height: 40em;
+    overflow-y: auto;
+  }
 
 }

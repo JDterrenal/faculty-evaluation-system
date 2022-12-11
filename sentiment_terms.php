@@ -45,41 +45,47 @@ $usertype = $_SESSION['usertype'];
                         </form>
                     </div>
                     <div class="sentiment-container">
-                        <table class="question-table">
-                            <thead>
-                                <tr>
-                                    <th>Positive Words</th>
-                                    <th>Operation</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php displayPositive() ?>
-                            </tbody>
-                        </table>
+                        <div class="container-table-words">
+                            <table class="table-words">
+                                <thead>
+                                    <tr>
+                                        <th>Positive Words</th>
+                                        <th>Operation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php displayPositive() ?>
+                                </tbody>
+                            </table>
+                        </div>
 
-                        <table class="question-table">
-                            <thead>
-                                <tr>
-                                    <th>Negative Words</th>
-                                    <th>Operation</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php displayNegative() ?>
-                            </tbody>
-                        </table>
+                        <div class="container-table-words">
+                            <table class="table-words">
+                                <thead>
+                                    <tr>
+                                        <th>Negative Words</th>
+                                        <th>Operation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php displayNegative() ?>
+                                </tbody>
+                            </table>
+                        </div>
 
-                        <table class="question-table">
-                            <thead>
-                                <tr>
-                                    <th>Neutral Words</th>
-                                    <th>Operation</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php displayNeutral() ?>
-                            </tbody>
-                        </table>
+                        <div class="container-table-words">
+                            <table class="table-words">
+                                <thead>
+                                    <tr>
+                                        <th>Neutral Words</th>
+                                        <th>Operation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php displayNeutral() ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
