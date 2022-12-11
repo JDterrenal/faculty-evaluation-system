@@ -1094,7 +1094,6 @@ nav li:focus {
 }
 
 .comment-box{
-  display: flex;
   padding: 2.6em;
   flex-wrap: wrap;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -1834,6 +1833,21 @@ footer {
     max-height: 10rem;
   }
 
+  .sentiment-analysis{
+    display: flex;
+    flex-direction: column;
+  }
 
+  .comment-box{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .SentimentAnalyzed{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
 
 }

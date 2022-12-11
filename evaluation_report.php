@@ -1,15 +1,7 @@
 <?php
 include './assets/php/functions.php';
-include './assets/php/connection.php';
 preventBack();
 $evaluation_id = $_GET["evaluation_id"];
-$sql_comment = "SELECT comment FROM tb_evaluations WHERE evaluation_id = $evaluation_id";
-$result_comment = mysqli_query($conn, $sql_comment);
-while ($row = mysqli_fetch_array($result_comment, MYSQLI_ASSOC)) {
-    $comment = $row["comment"];
-}
-mysqli_close($conn);
-getSentiment($comment, $evaluation_id);
 ?>
 
 <html>
@@ -61,17 +53,17 @@ getSentiment($comment, $evaluation_id);
                     <div class="main-content">
                         <div class="main-search-add">
                             <div class="main-search-add-top">
-                                <p class="main-search-add-title"><i class="fas fa-search"></i> Sentiment Analysis!</p>
+                                <p class="main-search-add-title"> Sentiment Analysis!</p>
                                 <hr>
                             </div>
                         </div>
                         <div class="sentiment-analysis">
                             <div class="comment-box">
-                                <p class="main-search-add-title"><i class="fas fa-search"></i> Comment!</p>
+                                <p class="main-search-add-title"> Comment!</p>
                                 <div class="comment">qweqeqweqweqeqweqweq </div>
                             </div>
                             <div class="SentimentAnalyzed">
-                                <p class="main-search-add-title"><i class="fas fa-search"></i> Sentiment Analysis!</p>
+                                <p class="main-search-add-title"> Sentiment Analysis!</p>
                                 <div class="comment-box-right">
                                     <div class="comment">qweqeqweqweqeqweqweq </div>
                                 </div>
