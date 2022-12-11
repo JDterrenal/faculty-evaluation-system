@@ -59,6 +59,8 @@ td[colspan='5'] {
 .popup-users-middle select[name=course_id],
 .popup-users-middle select[name=status],
 .popup-add-middle select[name=subject_code],
+.popup-add-middle select[name=edit_subject_code],
+.popup-add-middle select[name=edit_faculty_id],
 .popup-add-middle select[name=faculty_id],
 .popup-users-middle input[type=radio],
 .popup-add-middle option{
