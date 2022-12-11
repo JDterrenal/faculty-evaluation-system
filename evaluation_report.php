@@ -57,14 +57,36 @@ $evaluation_id = $_GET["evaluation_id"];
                                 <hr>
                             </div>
                         </div>
-                        <div class="sentiment analysis">
+                        <div class="sentiment-analysis">
                             <div class="comment-box">
                                 <div class="comment">qweqeqweqweqeqweqweq </div>
                             </div>
                             <div class="SentimentAnalyzed">
-                                <div class="comment-box">
+                                <div class="comment-box-right">
                                     <div class="comment">qweqeqweqweqeqweqweq </div>
-                                </div>                            
+                                </div>
+                                <div class="container-sentiment-table">
+                                    <table class="sentiment-table">
+                                        <tbody>
+                                            <tr>
+                                                <th>Neutral</th>
+                                                <td data-label="Neutral"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Positive</th>
+                                                <td data-label="Positive"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Negative</th>
+                                                <td data-label="Negative"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Result</th>
+                                                <td data-label="Result"></td>
+                                            </tr>
+                                        <tbody>
+                                    </table>
+                                </div>                    
                             </div>
                         </div>
                         <?php printSentiment($evaluation_id); ?>

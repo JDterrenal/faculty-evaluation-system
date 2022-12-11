@@ -509,6 +509,44 @@ input::-webkit-inner-spin-button {
   border-bottom: 2px solid #707070;
 }
 
+/* sentiment table */
+
+.sentiment-table {
+  border-collapse: collapse;
+  font-size: 1rem;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  width: 100%;
+
+}
+
+.sentiment-table tbody tr th {
+  border: 1px solid #d0d0d0;
+}
+
+.sentiment-table tbody tr td {
+  border: 1px solid #d0d0d0;
+}
+
+.sentiment-table tbody tr {
+  background-color: #ffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.sentiment-table th,
+.sentiment-table td {
+  padding: 12px 15px;
+}
+
+.sentiment-tabletbody tr:nth-of-type(odd) {
+  background-color: f3f3f3;
+}
+
+.sentiment-table tbody tr:last-of-type {
+  border-bottom: 2px solid #707070;
+}
+
 /* All text disign */
 
 .username {
@@ -1040,11 +1078,19 @@ nav li:focus {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
+.sentiment-analysis{
+  display: flex;
+}
+
 .SentimentAnalyzed{
   padding: 2.6em;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   width: 50%;
   margin: .5em;
+}
+
+.container-sentiment-table{
+  margin: 0 auto;
 }
 
 .comment-box{
@@ -1057,6 +1103,10 @@ nav li:focus {
 }
 
 .comment-box > * {
+  flex: 1 1 100%;
+}
+
+.comment-box-right > * {
   flex: 1 1 100%;
 }
 .comment {
@@ -1679,6 +1729,28 @@ footer {
   }
 
   .user-table tbody tr {
+    background-color: #f3f3f3;
+  }
+
+   /* sentiment table resposive */
+   .sentiment-table th{
+    display: none;
+  }
+  .sentiment-table tr {
+    margin-bottom: 15px;
+  }
+
+  .sentiment-table tbody tr td {
+    text-align: right;
+    position: relative;
+  }
+
+  .sentiment-table td::before {
+    content: attr(data-label);
+    float: left;
+  }
+
+  .sentiment-table tbody tr {
     background-color: #f3f3f3;
   }
 
