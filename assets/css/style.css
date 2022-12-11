@@ -1279,6 +1279,10 @@ footer {
   padding: .5em;
 }
 
+.container-table-words{
+  width: 100%;
+  margin: .5em;
+}
 /* ========== popups =========*/
 .popup-logout {
   height: 100%;
@@ -1890,6 +1894,11 @@ footer {
   .sentiment-container{
     display: flex;
     flex-direction: column;
+  }
+
+  .container-table-words{
+    height: 40em;
+    overflow-y: auto;
   }
 
 }
