@@ -36,36 +36,6 @@ $(document).ready(function () {
         $("#popup-background").hide();
     });
 
-    /* === Live Search === */
-    // Live Student Search
-    $("#student_search").keyup(function () {
-        const input = $(this).val();
-        $.ajax({
-            url: "./assets/php/searchStudent.php",
-            method: "POST",
-            data: {
-                input: input
-            },
-
-            success: function (data) {
-                $("#student_results").html(data);
-            }
-        });
-    });
-    //Load Student Data On Load
-    const input = $(this).val();
-    $.ajax({
-        url: "./assets/php/searchStudent.php",
-        method: "POST",
-        data: {
-            input: input
-        },
-
-        success: function (data) {
-            $("#student_results").html(data);
-        }
-    });
-
     /* === Specific Edit === */
     // Course
     $(".edit.edit-course").on('click', function () {
@@ -102,30 +72,6 @@ $(document).ready(function () {
         let col2 = currentRow.find("td:eq(1)").text();
         $("#edit_id").val(col1);
         $("#edit_section_name").val(col2);
-
-        editBackground.style.display = "flex";
-        $("#edit-popup-background").show();
-    });
-
-    //Faculty
-    $(".edit.edit-faculty").on('click', function () {
-        let currentRow = $(this).closest("tr");
-        let col1 = currentRow.find("td:eq(0)").text();
-        let col2 = currentRow.find("td:eq(1)").text();
-        let col3 = currentRow.find("td:eq(2)").text();
-        let col4 = currentRow.find("td:eq(3)").text();
-        let col5 = currentRow.find("td:eq(4)").text();
-        let col6 = currentRow.find("td:eq(5)").text();
-        let col7 = currentRow.find("td:eq(6)").text();
-        let col8 = currentRow.find("td:eq(7)").text();
-        $("#edit_id").val(col1);
-        $("#edit_firstname").val(col2);
-        $("#edit_lastname").val(col3);
-        $("#edit_email").val(col4);
-        $("#" + col5).prop('checked', true)
-        $("#edit_contact_no").val(col6);
-        $("#edit_address").val(col7);
-        $("#edit_photo_output").prop("src", "./images/uploads/" + col8);
 
         editBackground.style.display = "flex";
         $("#edit-popup-background").show();
@@ -211,23 +157,6 @@ $(document).ready(function () {
         $("[data-label='Operation Info']").html("<a href='section_subjects.php?section_id=" + col1 + "' class='add-main'><i class='fas fa-eye'></i> Manage Subjects</a>");
     });
 
-
-
-    // Faculty
-    $(".view.view-faculty").on('click', function () {
-        let currentRow = $(this).closest("tr");
-        let col1 = currentRow.find("td:eq(0)").text();
-        let col2 = currentRow.find("td:eq(1)").text();
-        let col3 = currentRow.find("td:eq(2)").text();
-        let col4 = currentRow.find("td:eq(3)").text();
-        let col5 = currentRow.find("td:eq(7)").text();
-        $("[data-label='Photo Info']").html("<img src='./images/uploads/" + col5 + "' alt='' class='profile-side-pop'>");
-        $("[data-label='ID Info']").html(col1);
-        $("[data-label='Full Name Info']").html(col2 + " " + col3);
-        $("[data-label='Email Info']").html(col4);
-        $("[data-label='Operation Info']").html("<a href='eval_report_list.php?faculty_id=" + col1 + "' class='add-main'><i class='fas fa-eye'></i> Evaluation Reports</a>");
-    });
-
     // Account
     $(".view.view-account").on('click', function () {
         let currentRow = $(this).closest("tr");
@@ -252,7 +181,7 @@ function LogOutFunction() {
     }
 }
 
-
+// === Student ===
 // Edit Student
 function editStudent(anchor) {
     let currentRow = $(anchor).closest("tr");
@@ -301,4 +230,44 @@ function viewStudent(anchor) {
     $("[data-label='Year Level Info']").html(col6);
     $("[data-label='Course ID Info']").html(col11);
     $("[data-label='Section ID Info']").html(col12);
+}
+
+// === Faculty ===
+// Edit Faculty
+function editFaculty(anchor) {
+    let currentRow = $(anchor).closest("tr");
+    let col1 = currentRow.find("td:eq(0)").text();
+    let col2 = currentRow.find("td:eq(1)").text();
+    let col3 = currentRow.find("td:eq(2)").text();
+    let col4 = currentRow.find("td:eq(3)").text();
+    let col5 = currentRow.find("td:eq(4)").text();
+    let col6 = currentRow.find("td:eq(5)").text();
+    let col7 = currentRow.find("td:eq(6)").text();
+    let col8 = currentRow.find("td:eq(7)").text();
+    $("#edit_id").val(col1);
+    $("#edit_firstname").val(col2);
+    $("#edit_lastname").val(col3);
+    $("#edit_email").val(col4);
+    $("#" + col5).prop('checked', true)
+    $("#edit_contact_no").val(col6);
+    $("#edit_address").val(col7);
+    $("#edit_photo_output").prop("src", "./images/uploads/" + col8);
+
+    editBackground.style.display = "flex";
+    $("#edit-popup-background").show();
+}
+
+// View Faculty
+function viewFaculty(anchor) {
+    let currentRow = $(anchor).closest("tr");
+    let col1 = currentRow.find("td:eq(0)").text();
+    let col2 = currentRow.find("td:eq(1)").text();
+    let col3 = currentRow.find("td:eq(2)").text();
+    let col4 = currentRow.find("td:eq(3)").text();
+    let col5 = currentRow.find("td:eq(7)").text();
+    $("[data-label='Photo Info']").html("<img src='./images/uploads/" + col5 + "' alt='' class='profile-side-pop'>");
+    $("[data-label='ID Info']").html(col1);
+    $("[data-label='Full Name Info']").html(col2 + " " + col3);
+    $("[data-label='Email Info']").html(col4);
+    $("[data-label='Operation Info']").html("<a href='eval_report_list.php?faculty_id=" + col1 + "' class='add-main'><i class='fas fa-eye'></i> Evaluation Reports</a>");
 }

@@ -903,44 +903,6 @@ function showCourses()
     mysqli_close($conn);
 }
 
-//This shows all the faculty staff in a table format.
-function showFaculty()
-{
-    include 'connection.php';
-    global $count;
-    $sql = "SELECT faculty_id, firstname, lastname, email, gender, contact_no, address, photo FROM tb_faculty ORDER BY faculty_id";
-    $result = mysqli_query($conn, $sql);
-    $count = mysqli_num_rows($result);
-    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $primary_id = $row["faculty_id"];
-        $firstname = $row["firstname"];
-        $lastname = $row["lastname"];
-        $email = $row["email"];
-        $gender = $row["gender"];
-        $contact_no = $row["contact_no"];
-        $address = $row["address"];
-        $photo = $row["photo"];
-        echo "
-        <tr>
-        <td data-label='ID'>$primary_id</td>
-        <td data-label='FIRST NAME'>$firstname</td>
-        <td data-label='LAST NAME'>$lastname</td>
-        <td data-label='EMAIL'>$email</td>
-        <td data-label='GENDER'>$gender</td>
-        <td data-label='CONTACT NO.'>$contact_no</td>
-        <td data-label='ADDRESS'>$address</td>
-        <td data-label='PHOTO'><img src='/images/uploads/$photo' width=50px height=50px><span style='display: none;'>$photo</span></td>
-        <td data-label='Operation'>
-        <a href='#view-info' class='view view-faculty'><i class='fas fa-eye'></i> <span>View</span></a>
-        <a class='edit edit-faculty'><i class='fas fa-edit'></i> <span>Edit</span></a>
-        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> <span>Delete</span></a>
-        </td>
-        </tr>
-        ";
-    }
-    mysqli_close($conn);
-}
-
 //This shows all the accounts in the database.
 function showAccounts()
 {
