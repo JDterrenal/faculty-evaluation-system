@@ -45,7 +45,7 @@ $usertype = $_SESSION['usertype'];
                         </form>
                     </div>
                     <div class="sentiment-container">
-                        <table class="question-table">
+                        <table class="table-words">
                             <thead>
                                 <tr>
                                     <th>Positive Words</th>
@@ -57,7 +57,7 @@ $usertype = $_SESSION['usertype'];
                             </tbody>
                         </table>
 
-                        <table class="question-table">
+                        <table class="table-words">
                             <thead>
                                 <tr>
                                     <th>Negative Words</th>
@@ -69,7 +69,7 @@ $usertype = $_SESSION['usertype'];
                             </tbody>
                         </table>
 
-                        <table class="question-table">
+                        <table class="table-words">
                             <thead>
                                 <tr>
                                     <th>Neutral Words</th>

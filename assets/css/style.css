@@ -302,6 +302,7 @@ input[type=file]::file-selector-button:hover {
   border-radius: 5px 5px 0 0;
   width: 100%;
   margin: .5em;
+  height: max-content;
 }
 
 .question-table tbody tr td:nth-child(1){
@@ -327,6 +328,42 @@ input[type=file]::file-selector-button:hover {
 }
 
 .question-table tbody tr:last-of-type {
+  border-bottom: 2px solid #707070;
+}
+
+/* words tables */
+.table-words {
+  border-collapse: collapse;
+  font-size: 1rem;
+  border-radius: 5px 5px 0 0;
+  width: 100%;
+  margin: .5em;
+  height: max-content;
+}
+
+.table-words tbody tr td:nth-child(1){
+  display: none;
+}
+
+.table-words thead tr {
+  background-color: #707070;
+  color: #ffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.table-words th,
+.table-words td {
+  padding: 12px 15px;
+
+}
+
+.table-words tbody tr {
+  border-bottom: 1px solid #dddddd;
+
+}
+
+.table-words tbody tr:last-of-type {
   border-bottom: 2px solid #707070;
 }
 
@@ -1839,15 +1876,20 @@ footer {
   }
 
   .comment-box{
-    width: 100%;
+    width: 98%;
     margin: 0;
     padding: 0;
   }
 
   .SentimentAnalyzed{
-    width: 100%;
+    width: 98%;
     margin: 0;
     padding: 0;
+  }
+
+  .sentiment-container{
+    display: flex;
+    flex-direction: column;
   }
 
 }
