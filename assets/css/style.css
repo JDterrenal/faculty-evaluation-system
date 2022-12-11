@@ -38,6 +38,15 @@ td[colspan='5'] {
 }
 
 /* all inputs */
+.form-middle input[name=yearstart],
+.form-middle select[name=semester],
+.form-middle select[name=status]{
+  width: 100%;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: .5em;
+}
+
 .popup-users-middle input[type=text],
 .popup-users-middle input[type=email],
 .popup-users-middle input[type=number],
@@ -1038,7 +1047,6 @@ nav li:focus {
 
 .form-bottom{
   padding: 1em;
-  background-color: #e1e1e1;
   border-radius: 0 0 5px 5px;
 }
 
