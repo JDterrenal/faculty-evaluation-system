@@ -77,7 +77,7 @@ enableDelete_students();
 						</div>
 						<div class="main-search1">
 							<a><i class="fas fa-search"></i></a>
-							<input type="text" id="student_search" placeholder="Search" class="main-search">
+							<input type="text" id="search_records" placeholder="Search" class="main-search">
 						</div>
 						<div class="main-add">
 							<a class="add-main" id="add-button">Add Student</a>
@@ -101,7 +101,7 @@ enableDelete_students();
 										<th>Operation</th>
 									</tr>
 								</thead>
-								<tbody id="student_results">
+								<tbody id="search_results">
 								</tbody>
 							</table>
 						</div>
@@ -311,6 +311,37 @@ enableDelete_students();
 		</div>
 	</form>
 
+	<script>
+		// Loads the data and enables search functionality
+		$(document).ready(function () {
+			$("#search_records").keyup(function() {
+				const input = $(this).val();
+				$.ajax({
+					url: "./assets/php/searchStudent.php",
+					method: "POST",
+					data: {
+						input: input
+					},
+
+					success: function(data) {
+						$("#search_results").html(data);
+					}
+				});
+			});
+			const input = $(this).val();
+			$.ajax({
+				url: "./assets/php/searchStudent.php",
+				method: "POST",
+				data: {
+					input: input
+				},
+
+				success: function(data) {
+					$("#search_results").html(data);
+				}
+			});
+		});
+	</script>
 	<script src="./assets/js/script.js"></script>
 	<script src="./assets/js/deleteConfirmation.js"></script>
 </body>
