@@ -168,6 +168,21 @@ input[type=file]::file-selector-button:hover {
   background-color: #00bfff;
 }
 
+.neutral{
+  display: inline-block;
+  padding: .4em;
+  background-color: #707070;
+  text-decoration: none;
+  color: #ffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.neutral:hover,
+.neutral:focus {
+  background-color: #d0d0d0;
+}
+
 .delete {
   display: inline-block;
   padding: .4em;
@@ -180,6 +195,21 @@ input[type=file]::file-selector-button:hover {
 
 .delete:hover,
 .delete:focus {
+  background-color: #ff0000;
+}
+
+.negative{
+  display: inline-block;
+  padding: .4em;
+  background-color: #ff4d4d;
+  text-decoration: none;
+  color: #ffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.negative:hover,
+.negative:focus {
   background-color: #ff0000;
 }
 
@@ -197,6 +227,23 @@ input[type=file]::file-selector-button:hover {
 .edit:focus {
   background-color: #00ff00;
 }
+
+.positive{
+  display: inline-block;
+  padding: .4em;
+  background-color: #4dff4d;
+  text-decoration: none;
+  color: #ffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.positive:hover,
+.positive:focus {
+  background-color: #00ff00;
+}
+
+
 
 /* all tables */
 .main-table {

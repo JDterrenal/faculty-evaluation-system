@@ -28,7 +28,7 @@ $usertype = $_SESSION['usertype'];
 			<div class="container-main">
                 <div class="page-container"><h1><i class="fas fa-book"> Manage Sentiment Terms</i></h1>
                      <hr>
-                    <div class="question-container">
+                    <div class="sentiment-container">
                         <table class="question-table">
                             <thead>
                                 <tr>
@@ -40,7 +40,7 @@ $usertype = $_SESSION['usertype'];
                                 <tr>
                                     <td>tits</td>
                                     <td>tits</td>
-                                    <td>asd</td>
+                                    <td><a class='negative'><i class='fas fa-minus'></i><span> Negative</span></a> <a class='neutral'><i class='fas fa-genderless'></i><span> Neutral</span></a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -48,7 +48,7 @@ $usertype = $_SESSION['usertype'];
                         <table class="question-table">
                             <thead>
                                 <tr>
-                                    <th>Positive Words</th>
+                                    <th>Negative Words</th>
                                     <th>Operation</th>
                                 </tr>
                             </thead>
@@ -56,7 +56,7 @@ $usertype = $_SESSION['usertype'];
                                 <tr>
                                     <td>tits</td>
                                     <td>tits</td>
-                                    <td>dasd</td>
+                                    <td><a class='positive'><i class='fas fa-plus'></i><span> Positive</span></a> <a class='neutral'><i class='fas fa-genderless'></i><span> Neutral</span></a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -64,7 +64,7 @@ $usertype = $_SESSION['usertype'];
                         <table class="question-table">
                             <thead>
                                 <tr>
-                                    <th>Positive Words</th>
+                                    <th>Neutral Words</th>
                                     <th>Operation</th>
                                 </tr>
                             </thead>
@@ -72,7 +72,7 @@ $usertype = $_SESSION['usertype'];
                                 <tr>
                                     <td>tits</td>
                                     <td>tits</td>
-                                    <td>asda</td>
+                                    <td><a class='negative'><i class='fas fa-minus'></i><span> Negative</span></a> <a class='positive'><i class='fas fa-plus'></i><span> Positive</span></a></td>
                                 </tr>
                             </tbody>
                         </table>
