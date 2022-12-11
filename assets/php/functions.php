@@ -168,7 +168,7 @@ function sidebarIdentify()
         <li><a href="faculty.php"><i class="fas fa-chalkboard-teacher i"></i><span>Faculty</span></a></li>
         <li><a href="accounts.php"><i class="fas fa-users i"></i><span>Accounts</span></a></li>
         <li><a href="evaluation_status.php"><i class="fas fa-calendar-check i"></i><span>Evaluations</span></a></li>
-        <li><a href="sentiment_term.php"><i class="fas fa fa-commenting-o i"></i><span>Sentiment Terms</span></a></li>
+        <li><a href="sentiment_terms.php"><i class="fas fa-comment i"></i><span>Sentiment Terms</span></a></li>
         ';
     } else if ($_SESSION['usertype'] == 'Student') {
         echo '
