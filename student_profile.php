@@ -40,6 +40,30 @@ $student_id = $_SESSION["login_id"];
 					</div>
 				</div>
 			</div>
+
+			<div class="main-content">
+				<div class="main-search-add">
+					<div class="main-search-add-top">
+						<p class="main-search-add-title"><i class="fas fa-search"></i> Subjects!</p>
+						<hr>
+					</div>
+				</div>
+				<div class="main-table-container">
+					<table class="main-table">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Subject Code</th>
+								<th>Subject</th>
+								<th>Faculty</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php studentSubjects($student_id) ?>
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</main>
 
 		<!-------- footer ---------->

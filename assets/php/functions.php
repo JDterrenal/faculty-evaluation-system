@@ -1889,14 +1889,12 @@ function neutralTags($comment)
 }
 
 //------------------ Profile Functionalities ----------------------
-//This shows all the students in a table format.
+//This shows the student information in their profile.
 function showStudentProfile($student_id)
 {
     include 'connection.php';
-    global $count;
     $sql = "SELECT student_id, firstname, lastname, email, gender, yearlevel, contact_no, address, status, photo, course_id, section_id FROM tb_students WHERE student_id = $student_id";
     $result = mysqli_query($conn, $sql);
-    $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $primary_id = $row["student_id"];
         $firstname = $row["firstname"];
@@ -1917,7 +1915,7 @@ function showStudentProfile($student_id)
             $course_name = $row["course_name"];
         }
         //Get Section Name
-        $sql_section = "SELECT section_name FROM tb_section WHERE section_id = $section_id";
+        $sql_section = "SELECT section_name FROM tb_sections WHERE section_id = $section_id";
         $result_section = mysqli_query($conn, $sql_section);
         while ($row = mysqli_fetch_array($result_section, MYSQLI_ASSOC)) {
             $section_name = $row["section_name"];
@@ -1925,7 +1923,7 @@ function showStudentProfile($student_id)
         echo "
         <tbody>
             <tr>
-                <td rowspan='4' scope='row' style='text-align: center; padding-left: 5px;'><img src='./images/uploads/$photo' class='student-picture'></td>
+                <td rowspan='10' scope='row' style='text-align: center; padding-left: 5px;'><img src='./images/uploads/$photo' class='student-picture'></td>
                 <th>Full Name</th>
                 <td data-label='Full Name'>$firstname $lastname</td>
             </tr>
@@ -1943,29 +1941,70 @@ function showStudentProfile($student_id)
             </tr>
             <tr>
                 <th>Contact No.</th>
-                <td data-label='Email'>$contact_no</td>
+                <td data-label='Contact No.'>$contact_no</td>
             </tr>
             <tr>
                 <th>Year Level</th>
-                <td data-label='Email'>$yearlevel</td>
+                <td data-label='Year Level'>$yearlevel</td>
             </tr>
             <tr>
                 <th>Address</th>
-                <td data-label='Email'>$address</td>
+                <td data-label='Address'>$address</td>
             </tr>
             <tr>
                 <th>Status</th>
-                <td data-label='Email'>$status</td>
+                <td data-label='Status'>$status</td>
             </tr>
             <tr>
                 <th>Course</th>
-                <td data-label='Email'>$course_name</td>
+                <td data-label='Course'>$course_name</td>
             </tr>
             <tr>
                 <th>Section</th>
-                <td data-label='Email'>$section_name</td>
+                <td data-label='Section'>$section_name</td>
             </tr>
         <tbody>
+        ";
+    }
+    mysqli_close($conn);
+}
+
+//This shows the subjects that the student is currently enrolled.
+function studentSubjects($student_id) {
+    include 'connection.php';
+    //Get Section Name
+    $sql_student = "SELECT section_id FROM tb_sections WHERE student_id = $student_id";
+    $result_student = mysqli_query($conn, $sql_student);
+    while ($row = mysqli_fetch_array($result_student, MYSQLI_ASSOC)) {
+        $section_id = $row["section_id"];
+    }
+    $sql = "SELECT secrel_id, subject_id, faculty_id FROM tb_sections_relation WHERE section_id = $section_id ORDER BY secrel_id";
+    $result = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $primary_id = $row["secrel_id"];
+        $subject_id = $row["subject_id"];
+        $faculty_id = $row["faculty_id"];
+        //Get Subject Name
+        $sql_subject = "SELECT subject_code, subject_name FROM tb_subjects WHERE subject_id = $subject_id";
+        $result_subject = mysqli_query($conn, $sql_subject);
+        while ($row = mysqli_fetch_array($result_subject, MYSQLI_ASSOC)) {
+            $subject_code = $row["subject_code"];
+            $subject_name = $row["subject_name"];
+        }
+        //Get Faculty Name
+        $sql_faculty = "SELECT firstname, lastname FROM tb_faculty WHERE faculty_id = $faculty_id";
+        $result_faculty = mysqli_query($conn, $sql_faculty);
+        while ($row = mysqli_fetch_array($result_faculty, MYSQLI_ASSOC)) {
+            $firstname = $row["firstname"];
+            $lastname = $row["lastname"];
+        }
+        echo "
+        <tr>
+        <td data-label='ID'>$primary_id</td>
+        <td data-label='Subject Code'>$subject_code</td>
+        <td data-label='Subject'>$subject_name</td>
+        <td data-label='Faculty'>$firstname $lastname</td>
+        </tr>
         ";
     }
     mysqli_close($conn);
