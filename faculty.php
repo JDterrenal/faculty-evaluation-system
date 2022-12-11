@@ -91,7 +91,7 @@ enableDelete_faculty();
                                         <th>Operation</th>
 									</tr>
 								</thead>
-								<tbody>
+								<tbody id="faculty_results">
 									<?php showFaculty() ?>
 								</tbody>
 							</table>

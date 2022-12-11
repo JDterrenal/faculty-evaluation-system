@@ -5,26 +5,29 @@ enableDelete_students();
 ?>
 
 <html>
+
 <head>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Students | Faculty Evaluation</title>
-  <link rel="icon" href="images/logo.png" type="image/x-icon" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-  <link rel="stylesheet" href="./assets/css/style.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Students | Faculty Evaluation</title>
+	<link rel="icon" href="images/logo.png" type="image/x-icon" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+	<link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
 	<!------ navigation and side bar ------->
 	<?php include './assets/php/navigation.php' ?>
-	
+
 	<!-------- main content ---------->
-	<div class= "main-container">
+	<div class="main-container">
 		<main>
 			<div class="container-main">
-				<div class="page-container"><h1><i class="fas fa-table" id="view-info"> Students</i></h1>
+				<div class="page-container">
+					<h1><i class="fas fa-table" id="view-info"> Students</i></h1>
 					<hr>
 					<div class="user-info">
 						<div class="user-content">
@@ -64,7 +67,7 @@ enableDelete_students();
 							</table>
 						</div>
 					</div>
-					
+
 					<div class="main-content">
 						<div class="main-search-add">
 							<div class="main-search-add-top">
@@ -74,7 +77,7 @@ enableDelete_students();
 						</div>
 						<div class="main-search1">
 							<a><i class="fas fa-search"></i></a>
-							<input type="text" placeholder="Search" class="main-search">
+							<input type="text" id="student_search" placeholder="Search" class="main-search">
 						</div>
 						<div class="main-add">
 							<a class="add-main" id="add-button">Add Student</a>
@@ -85,21 +88,20 @@ enableDelete_students();
 									<tr>
 										<th>ID</th>
 										<th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Email</th>
-                                        <th>Gender</th>
-                                        <th>Year Level</th>
-                                        <th>Contact Number</th>
-                                        <th>Address</th>
-                                        <th>Status</th>
-                                        <th>Photo</th>
-                                        <th>Course ID</th>
+										<th>Last Name</th>
+										<th>Email</th>
+										<th>Gender</th>
+										<th>Year Level</th>
+										<th>Contact Number</th>
+										<th>Address</th>
+										<th>Status</th>
+										<th>Photo</th>
+										<th>Course ID</th>
 										<th>Section ID</th>
-                                        <th>Operation</th>
+										<th>Operation</th>
 									</tr>
 								</thead>
-								<tbody>
-									<?php showStudents() ?>
+								<tbody id="student_results">
 								</tbody>
 							</table>
 						</div>
@@ -111,7 +113,7 @@ enableDelete_students();
 		<!-------- footer ---------->
 		<?php include './assets/php/footer.php' ?>
 	</div>
-	
+
 	<!--================= popups ===================-->
 	<!-------- popup logout ---------->
 	<?php include './assets/php/popupLogout.php' ?>
@@ -141,7 +143,7 @@ enableDelete_students();
 							<input type="text" name="lastname" placeholder="Last Name" required>
 						</div>
 					</div>
-                  	<div class="boxx">
+					<div class="boxx">
 						<p class="P">Gender</p>
 						<div class="userscon1">
 							<input type="radio" id="add_male" name="gender" value="Male" required><label for="add_male">Male</label>
@@ -170,11 +172,11 @@ enableDelete_students();
 						<p class="P">Year Level</p>
 						<div class="userscon">
 							<select name="yearlevel" required>
-								<option value = "1">1st Year</option>
-								<option value = "2">2nd Year</option>
-								<option value = "3">3rd Year</option>
-								<option value = "4">4th Year</option>
-								<option value = "5">5th Year</option>
+								<option value="1">1st Year</option>
+								<option value="2">2nd Year</option>
+								<option value="3">3rd Year</option>
+								<option value="4">4th Year</option>
+								<option value="5">5th Year</option>
 							</select>
 						</div>
 					</div>
@@ -198,8 +200,8 @@ enableDelete_students();
 						<p class="P">Status</p>
 						<div class="userscon">
 							<select name="status" required>
-								<option value = "Enrolled">Enrolled</option>
-								<option value = "Not Enrolled">Not Enrolled</option>
+								<option value="Enrolled">Enrolled</option>
+								<option value="Not Enrolled">Not Enrolled</option>
 							</select>
 						</div>
 					</div>
@@ -238,7 +240,7 @@ enableDelete_students();
 							<input type="text" id="edit_lastname" name="edit_lastname" placeholder="Last name" required>
 						</div>
 					</div>
-                  	<div class="boxx">
+					<div class="boxx">
 						<p class="P">Gender</p>
 						<div class="userscon1">
 							<input type="radio" id="Male" name="edit_gender" value="Male" required><label for="Male">Male</label>
@@ -267,11 +269,11 @@ enableDelete_students();
 						<p class="P">Year Level</p>
 						<div class="userscon">
 							<select id="edit_yearlevel" name="edit_yearlevel" required>
-								<option value = "1">1st Year</option>
-								<option value = "2">2nd Year</option>
-								<option value = "3">3rd Year</option>
-								<option value = "4">4th Year</option>
-								<option value = "5">5th Year</option>
+								<option value="1">1st Year</option>
+								<option value="2">2nd Year</option>
+								<option value="3">3rd Year</option>
+								<option value="4">4th Year</option>
+								<option value="5">5th Year</option>
 							</select>
 						</div>
 					</div>
@@ -295,8 +297,8 @@ enableDelete_students();
 						<p class="P">Status</p>
 						<div class="userscon">
 							<select id="edit_status" name="edit_status" required>
-								<option value = "Enrolled">Enrolled</option>
-								<option value = "Not Enrolled">Not Enrolled</option>
+								<option value="Enrolled">Enrolled</option>
+								<option value="Not Enrolled">Not Enrolled</option>
 							</select>
 						</div>
 					</div>
@@ -308,8 +310,9 @@ enableDelete_students();
 			</div>
 		</div>
 	</form>
-	
+
 	<script src="./assets/js/script.js"></script>
 	<script src="./assets/js/deleteConfirmation.js"></script>
 </body>
+
 </html>

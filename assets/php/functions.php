@@ -941,52 +941,6 @@ function showFaculty()
     mysqli_close($conn);
 }
 
-//This shows all the students in a table format.
-function showStudents()
-{
-    include 'connection.php';
-    global $count;
-    $sql = "SELECT student_id, firstname, lastname, email, gender, yearlevel, contact_no, address, status, photo, course_id, section_id FROM tb_students ORDER BY student_id";
-    $result = mysqli_query($conn, $sql);
-    $count = mysqli_num_rows($result);
-    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $primary_id = $row["student_id"];
-        $firstname = $row["firstname"];
-        $lastname = $row["lastname"];
-        $email = $row["email"];
-        $gender = $row["gender"];
-        $yearlevel = $row["yearlevel"];
-        $contact_no = $row["contact_no"];
-        $address = $row["address"];
-        $status = $row["status"];
-        $photo = $row["photo"];
-        $course_id = $row["course_id"];
-        $section_id = $row["section_id"];
-        echo "
-        <tr>
-        <td data-label='ID'>$primary_id</td>
-        <td data-label='FIRST NAME'>$firstname</td>
-        <td data-label='LAST NAME'>$lastname</td>
-        <td data-label='EMAIL'>$email</td>
-        <td data-label='GENDER'>$gender</td>
-        <td data-label='YEAR LEVEL'>$yearlevel</td>
-        <td data-label='CONTACT NO.'>$contact_no</td>
-        <td data-label='ADDRESS'>$address</td>
-        <td data-label='STATUS'>$status</td>
-        <td data-label='PHOTO'><img src='/images/uploads/$photo' alt='' width=50px height=50px><span style='display: none;'>$photo</span></td>
-        <td data-label='COURSE ID'>$course_id</td>
-        <td data-label='SECTION ID'>$section_id</td>
-        <td data-label='Operation'>
-        <a href='#view-info' class='view view-student'><i class='fas fa-eye'></i> <span>View</span></a>
-        <a class='edit edit-student'><i class='fas fa-edit'></i> <span>Edit</span></a>
-        <a href='?delete_id=$primary_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> <span>Delete</span></a>
-        </td>
-        </tr>
-        ";
-    }
-    mysqli_close($conn);
-}
-
 //This shows all the accounts in the database.
 function showAccounts()
 {
