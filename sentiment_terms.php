@@ -26,8 +26,57 @@ $usertype = $_SESSION['usertype'];
 	<div class="main-container">
 		<main>
 			<div class="container-main">
-                <div class="page-container"><h1><i class="fas fa-book"> Evaluation Status</i></h1>
-                        <hr>
+                <div class="page-container"><h1><i class="fas fa-book"> Manage Sentiment Terms</i></h1>
+                     <hr>
+                    <div class="question-container">
+                        <table class="question-table">
+                            <thead>
+                                <tr>
+                                    <th>Positive Words</th>
+                                    <th>Operation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>tits</td>
+                                    <td>tits</td>
+                                    <td>asd</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="question-table">
+                            <thead>
+                                <tr>
+                                    <th>Positive Words</th>
+                                    <th>Operation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>tits</td>
+                                    <td>tits</td>
+                                    <td>dasd</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="question-table">
+                            <thead>
+                                <tr>
+                                    <th>Positive Words</th>
+                                    <th>Operation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>tits</td>
+                                    <td>tits</td>
+                                    <td>asda</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>     
                 </div>
 			</div>
 		</main>

@@ -254,6 +254,7 @@ input[type=file]::file-selector-button:hover {
   font-size: 1rem;
   border-radius: 5px 5px 0 0;
   width: 100%;
+  margin: .5em;
 }
 
 .question-table tbody tr td:nth-child(1){
@@ -1113,6 +1114,10 @@ nav li:focus {
   max-height: 50em;
 }
 
+.sentiment-container{
+  display: flex;
+  margin: 0 auto;
+}
 
 
 /* footer */
