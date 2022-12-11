@@ -1817,6 +1817,8 @@ function positiveTags($comment)
             border-radius: 1em;
             margin: 0.3em;
             padding: 0.5em;
+            display: inline-block;
+            width: auto;
             '>
             $word
             </span>";
@@ -1846,6 +1848,8 @@ function negativeTags($comment)
             border-radius: 1em;
             margin: 0.3em;
             padding: 0.5em;
+            display: inline-block;
+            width: auto;
             '>
             $word
             </span>";
@@ -1875,6 +1879,8 @@ function neutralTags($comment)
             border-radius: 1em;
             margin: 0.3em;
             padding: 0.5em;
+            display: inline-block;
+            width: auto;
             '>
             $word
             </span>";
