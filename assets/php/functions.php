@@ -793,35 +793,6 @@ function showSections()
     mysqli_close($conn);
 }
 
-//This shows all the evaluations that are available in a table format.
-function showEvaluations()
-{
-    include 'connection.php';
-    global $count;
-    $sql = "SELECT evaluation_id, schoolyear, semester, status, section_id FROM tb_evaluations ORDER BY evaluation_id";
-    $result = mysqli_query($conn, $sql);
-    $count = mysqli_num_rows($result);
-    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $evaluation_id = $row["evaluation_id"];
-        $schoolyear = $row["schoolyear"];
-        $semester = $row["semester"];
-        $status = $row["status"];
-        $section_id = $row["section_id"];
-        echo "
-        <tr>
-        <td data-label='ID'>$evaluation_id</td>
-        <td data-label='School Year'>$schoolyear</td>
-        <td data-label='Semester'>$semester</td>
-        <td data-label='Status'>$status</td>
-        <td data-label='Section ID'>$section_id</td>
-        <td data-label='Operation'><a class='edit' id='editevaluation' onclick='EditFunction()'><i class='fas fa-edit'></i> <span>Edit</span></a></td>
-        <td data-label='Operation'><a href='evaluations.php?delete_evaluation_id=$evaluation_id' class='delete' onclick='javascript:confirmationDelete($(this));return false;'><i class='fas fa-trash'></i> <span>Delete</span></a></td>
-        </tr>
-        ";
-    }
-    mysqli_close($conn);
-}
-
 //This shows all the feedbacks of the students in a table format.
 function showFeedback()
 {
@@ -1594,17 +1565,31 @@ function getSentiment($comment)
     }
 }
 
+//This shows all the sections that are available in a table format.
+function showSentiment($evaluation_id)
+{
+    include 'connection.php';
+    $sql = "SELECT comment, date FROM tb_evaluations WHERE evaluation_id = $evaluation_id";
+    $result = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $comment = $row["comment"];
+        $date = $row["date"];
+        echo "
+        ";
+    }
+    mysqli_close($conn);
+}
+
 // Insert comment words into database
 function insertTerms ($comment) {
     include 'connection.php';
 
     // Format the comment and separate each word
-    $comment = preg_replace('/[^a-z]+/i', '', $comment);
     $comment = strtolower($comment);
     $words = explode(' ', $comment);
 
     foreach ($words as $word) {
         $sql = "INSERT INTO tb_terms (term, value, term_type) VALUES ('$word', 0, 'neutral')";
-        if (mysqli_query($conn, $sql)) {}
+        mysqli_query($conn, $sql);
     }
 }
