@@ -1639,35 +1639,20 @@ function printSentiment($evaluation_id)
             $sentiment_score = $row["sentiment_score"];
             $analysis = $row["analysis"];
         }
-        
-        // Change color of texts based on the sentiment analysis
-        $positive_words = array();
-        $negative_words = array();
-        $sql_positive = "SELECT term FROM tb_terms WHERE term_type = 'positive'";
-        $result_positive = mysqli_query($conn, $sql_positive);
-        while ($row = mysqli_fetch_array($result_positive, MYSQLI_ASSOC)) {
-            $positive_words[] = $row['term'];
-        }
-        $sql_negative = "SELECT term FROM tb_terms WHERE term_type = 'negative'";
-        $result_negative = mysqli_query($conn, $sql_negative);
-        while ($row = mysqli_fetch_array($result_negative, MYSQLI_ASSOC)) {
-            $negative_words[] = $row['term'];
-        }
-        if (preg_match("/\b" . $positive_words . "\b/i", $comment)) {
-            $comment = preg_replace("/\b" . $positive_words . "\b/i", "<span style='color: green;'>$positive_words</span>", $comment);
-        }
-        if (preg_match("/\b" . $positive_words . "\b/i", $comment)) {
-            $comment = preg_replace("/\b" . $positive_words . "\b/i", "<span style='color: green;'>$positive_words</span>", $comment);
-        }
+
         echo "
         <div class='sentiment-analysis'>
             <div class='comment-box'>
-                <p class='main-search-add-title'><i class='fas fa-search'></i> Comment!</p>
-                <p>$date</p>
-                <div class='comment'>$comment</div>
+                <p class='main-search-add-title'><i class='fas fa-search'></i> Terminologies!</p>
+                <p><b>Positive Words</b></p>
+                "; positiveTags($comment); echo "
+                <p><b>Negative Words</b></p>
+                "; negativeTags($comment); echo "
+                <p><b>Neutral Words</b></p>
+                "; neutralTags($comment); echo "
             </div>
             <div class='SentimentAnalyzed'>
-                <p class='main-search-add-title'><i class='fas fa-search'></i> Sentiment Analysis!</p>
+                <p class='main-search-add-title'><i class='fas fa-search'></i> Sentiment!</p>
                 <div class='comment-box-right'>
                     <div class='comment'>$comment</div>
                 </div>
@@ -1806,6 +1791,93 @@ function addSentiment()
             } else {
                 ?><script src="/assets/js/errorAlert.js"></script><?php
             }
+        }
+    }
+}
+
+function positiveTags($comment)
+{
+    include 'connection.php';
+    $senti_comment = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $comment);
+    $senti_comment = strtolower($senti_comment);
+
+    $positive_words = array();
+    $sql_positive = "SELECT term FROM tb_terms WHERE term_type = 'positive'";
+    $result_positive = mysqli_query($conn, $sql_positive);
+    while ($row = mysqli_fetch_array($result_positive, MYSQLI_ASSOC)) {
+        $positive_words[] = $row['term'];
+    }
+
+    $words = explode(' ', $senti_comment);
+    foreach ($words as $word) {
+        if (in_array($word, $positive_words)) {
+            echo "<span style='
+            background-color: green;
+            color: white;
+            border-radius: 1em;
+            margin: 0.3em;
+            padding: 0.5em;
+            '>
+            $word
+            </span>";
+        }
+    }
+}
+
+function negativeTags($comment)
+{
+    include 'connection.php';
+    $senti_comment = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $comment);
+    $senti_comment = strtolower($senti_comment);
+
+    $negative_words = array();
+    $sql_negative = "SELECT term FROM tb_terms WHERE term_type = 'negative'";
+    $result_negative = mysqli_query($conn, $sql_negative);
+    while ($row = mysqli_fetch_array($result_negative, MYSQLI_ASSOC)) {
+        $negative_words[] = $row['term'];
+    }
+
+    $words = explode(' ', $senti_comment);
+    foreach ($words as $word) {
+        if (in_array($word, $negative_words)) {
+            echo "<span style='
+            background-color: red;
+            color: white;
+            border-radius: 1em;
+            margin: 0.3em;
+            padding: 0.5em;
+            '>
+            $word
+            </span>";
+        }
+    }
+}
+
+function neutralTags($comment)
+{
+    include 'connection.php';
+    $senti_comment = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $comment);
+    $senti_comment = strtolower($senti_comment);
+
+    $neutral_words = array();
+    $sql_neutral = "SELECT term FROM tb_terms WHERE term_type = 'neutral'";
+    $result_neutral = mysqli_query($conn, $sql_neutral);
+    while ($row = mysqli_fetch_array($result_neutral, MYSQLI_ASSOC)) {
+        $neutral_words[] = $row['term'];
+    }
+
+    $words = explode(' ', $senti_comment);
+    foreach ($words as $word) {
+        if (in_array($word, $neutral_words)) {
+            echo "<span style='
+            background-color: gray;
+            color: white;
+            border-radius: 1em;
+            margin: 0.3em;
+            padding: 0.5em;
+            '>
+            $word
+            </span>";
         }
     }
 }
