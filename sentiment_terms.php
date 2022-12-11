@@ -37,11 +37,7 @@ $usertype = $_SESSION['usertype'];
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>tits</td>
-                                    <td>tits</td>
-                                    <td><a class='negative'><i class='fas fa-minus'></i><span> Negative</span></a> <a class='neutral'><i class='fas fa-genderless'></i><span> Neutral</span></a></td>
-                                </tr>
+                                <?php displayPositive() ?>
                             </tbody>
                         </table>
 
@@ -53,11 +49,7 @@ $usertype = $_SESSION['usertype'];
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>tits</td>
-                                    <td>tits</td>
-                                    <td><a class='positive'><i class='fas fa-plus'></i><span> Positive</span></a> <a class='neutral'><i class='fas fa-genderless'></i><span> Neutral</span></a></td>
-                                </tr>
+                                <?php displayNegative() ?>
                             </tbody>
                         </table>
 
@@ -69,11 +61,7 @@ $usertype = $_SESSION['usertype'];
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>tits</td>
-                                    <td>tits</td>
-                                    <td><a class='negative'><i class='fas fa-minus'></i><span> Negative</span></a> <a class='positive'><i class='fas fa-plus'></i><span> Positive</span></a></td>
-                                </tr>
+                                <?php displayNeutral() ?>
                             </tbody>
                         </table>
                     </div>     
