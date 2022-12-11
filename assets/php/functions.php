@@ -1639,33 +1639,60 @@ function printSentiment($evaluation_id)
             $sentiment_score = $row["sentiment_score"];
             $analysis = $row["analysis"];
         }
+        
+        // Change color of texts based on the sentiment analysis
+        $positive_words = array();
+        $negative_words = array();
+        $sql_positive = "SELECT term FROM tb_terms WHERE term_type = 'positive'";
+        $result_positive = mysqli_query($conn, $sql_positive);
+        while ($row = mysqli_fetch_array($result_positive, MYSQLI_ASSOC)) {
+            $positive_words[] = $row['term'];
+        }
+        $sql_negative = "SELECT term FROM tb_terms WHERE term_type = 'negative'";
+        $result_negative = mysqli_query($conn, $sql_negative);
+        while ($row = mysqli_fetch_array($result_negative, MYSQLI_ASSOC)) {
+            $negative_words[] = $row['term'];
+        }
+        if (preg_match("/\b" . $positive_words . "\b/i", $comment)) {
+            $comment = preg_replace("/\b" . $positive_words . "\b/i", "<span style='color: green;'>$positive_words</span>", $comment);
+        }
+        if (preg_match("/\b" . $positive_words . "\b/i", $comment)) {
+            $comment = preg_replace("/\b" . $positive_words . "\b/i", "<span style='color: green;'>$positive_words</span>", $comment);
+        }
         echo "
-        <div class='flex-container'>
-            <div class='content-box'>
+        <div class='sentiment-analysis'>
+            <div class='comment-box'>
+                <p class='main-search-add-title'><i class='fas fa-search'></i> Comment!</p>
                 <p>$date</p>
-                <span class='sentiment-comment'>$comment</span>
+                <div class='comment'>$comment</div>
             </div>
-            <div class='content-box'>
-                <table class='user-table'>
-                    <tbody>
-                        <tr>
-                            <th>Positive Words</th>
-                            <td data-label='Positive Words'>$positive_count</td>
-                        </tr>
-                        <tr>
-                            <th>Negative Words</th>
-                            <td data-label='Negative Words'>$negative_count</td>
-                        </tr>
-                        <tr>
-                            <th>Sentiment Score</th>
-                            <td data-label='Sentiment Score'>$sentiment_score</td>
-                        </tr>
-                        <tr>
-                            <th>Analysis</th>
-                            <td data-label='Analysis'>$analysis</td>
-                        </tr>
-                    <tbody>
-                </table>
+            <div class='SentimentAnalyzed'>
+                <p class='main-search-add-title'><i class='fas fa-search'></i> Sentiment Analysis!</p>
+                <div class='comment-box-right'>
+                    <div class='comment'>$comment</div>
+                </div>
+                <div class='container-sentiment-table'>
+                    <table class='sentiment-table'>
+                        <tbody>
+                            <tr>
+                                <th>Positive</th>
+                                <td data-label='Positive'>$positive_count</td>
+                            </tr>
+                            <tr>
+                                <th>Negative</th>
+                                <td data-label='Negative'>$negative_count</td>
+                            </tr>
+                            <tr>
+                                <th>Sentiment</th>
+                                <td data-label='Sentiment'>$sentiment_score</td>
+                            </tr>
+                            <tr>
+                                <th>Analysis</th>
+                                <td data-label='Analysis'>$analysis</td>
+                            </tr>
+                        <tbody>
+                    </table>
+                </div>                    
             </div>
         </div>
         ";
