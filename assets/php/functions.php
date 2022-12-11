@@ -394,7 +394,7 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
             $semester = $row["semester"];
         }
         //Calculate average rating
-        $sql_avg = "SELECT ROUND(AVG(answer),1) AS rating_avg FROM tb_feedback";
+        $sql_avg = "SELECT ROUND(AVG(answer),1) AS rating_avg FROM tb_feedback WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id AND date = CURDATE()";
         $avgres = mysqli_query($conn, $sql_avg);
         while ($row = mysqli_fetch_array($avgres, MYSQLI_ASSOC)) {
             $rating_avg = $row["rating_avg"];

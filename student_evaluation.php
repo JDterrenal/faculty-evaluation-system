@@ -1,14 +1,16 @@
 <?php
 include './assets/php/functions.php';
 preventBack();
-enableDelete_courses();
+$faculty_id = $_GET["faculty_id"];
+$student_id = $_SESSION['login_id'];
+$subject_id = $_GET["subject_id"];
 ?>
 
 <html>
 <head>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manage Question | Faculty Evaluation</title>
+  <title>Evaluation | Faculty Evaluation</title>
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="icon" href="images/logo.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -29,67 +31,54 @@ enableDelete_courses();
 					<hr>
                     <div class="student-evaluation">
                         <div class="form">
-                        <div class="form-top">
+                            <div class="form-top">
                                 <p class="form-title">Faculty</p>
                             </div>
-                                <div class="form-middle-faculty">
-                                    <div class="left-side">
-                                        <img src="./images/uploads/standard.png" alt="" class="evaluation-faculty-picture">
-                                    </div>
-                                    <div class="right-side">
-                                        <p class="label-question">Faculty Name</p>
-                                        <p>Uriel</p>
-                                        <p class="label-question">Subject Code</p>
-                                        <p>ITCP_01</p>
-                                        <p class="label-question">Description</p>
-                                        <p>Computer Programming</p>
-                                    </div>
-                                </div>
-                            <div class="form-bottom">
-                        </div>
+                            <?php loadFaculty($faculty_id, $subject_id) ?>
+                            <div class="form-bottom"></div>
                         </div>
 
                         <div class="evaluation-question">
-                            <div class="evaluation-question-top">
-                                <p class="label-question">Evaluation Questionnaire for Academic: 2021-2022 1st</p>
-                                <a class='submit-eval'>Submit Evalutaion</a>
-                            </div>
-                            <hr>
-                            <div class="evaluation-question-content">
-                                <h1>Rating Legend</h1>
-                                <div class="rating-legend-box">
-                                    <div class="rating-legend-options">1-STRONGLY DISAGREE</div>
-                                    <div class="rating-legend-options">2-DISAGREE</div>
-                                    <div class="rating-legend-options">3-UNCERTAIN</div>
-                                    <div class="rating-legend-options">4-AGREE</div>
-                                    <div class="rating-legend-options">5-STRONGLY AGREE</div>
+                            <form method="post">
+                                <div class="evaluation-question-top">
+                                    <p class="label-question">Evaluation Questionnaire for Academic: <?php academicYear() ?></p>
+                                    <button type="submit" name="submitevaluation" class="submit-eval">Submit Evalutaion</button>
                                 </div>
-
-                                <div class="question-container">
-                                    <table class="question-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Question</th>
-                                            <th>1</th>
-                                            <th>2</th>
-                                            <th>3</th>
-                                            <th>4</th>
-                                            <th>5</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</td>
-                                            <td data-label='Stongly Disagree'><input type="radio" name="likert" value="1"></td>
-                                            <td data-label='Disagree'><input type="radio" name="likert" value="2"></td>
-                                            <td data-label='Uncertain'><input type="radio" name="likert" value="3"></td>
-                                            <td data-label='Agree'><input type="radio" name="likert" value="4"></td>
-                                            <td data-label='Strongly Agree'><input type="radio" name="likert" value="5"></td>
-                                        <tr>
-                                    </tbody>
-                                    </table>
+                                <hr>
+                                <div class="evaluation-question-content">
+                                    <h1>Rating Legend</h1>
+                                    <div class="rating-legend-box">
+                                        <div class="rating-legend-options">1 - STRONGLY DISAGREE</div>
+                                        <div class="rating-legend-options">2 - DISAGREE</div>
+                                        <div class="rating-legend-options">3 - UNCERTAIN</div>
+                                        <div class="rating-legend-options">4 - AGREE</div>
+                                        <div class="rating-legend-options">5 - STRONGLY AGREE</div>
+                                    </div>
+                                    
+                                    <div class="question-container">
+                                        <table class="question-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Question</th>
+                                                    <th>1</th>
+                                                    <th>2</th>
+                                                    <th>3</th>
+                                                    <th>4</th>
+                                                    <th>5</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                submitEvaluation($student_id, $faculty_id, $subject_id);
+                                                showQuestions();
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                        <p class="label-question">Do you have any suggestions or opinions? Write your feedback.</p>
+                                        <textarea name="comment" class="question"></textarea>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
 				</div>
@@ -105,6 +94,5 @@ enableDelete_courses();
 	<?php include './assets/php/popupLogout.php' ?>
 
 	<script src="./assets/js/script.js"></script>
-	<script src="./assets/js/deleteConfirmation.js"></script>
 </body>
 </html>
