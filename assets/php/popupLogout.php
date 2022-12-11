@@ -4,11 +4,6 @@
         <p class="popup-name"><?php echo $_SESSION['username'] ?></p>
         <p class="popup-student-number"><?php echo $_SESSION['login_id'] ?></p>
     </div>
-    <div class="popup-logout-middle">
-        <a href="#" class="popup-middle1">qwe</a>
-        <a href="#" class="popup-middle2">qwe</a>
-        <a href="#" class="popup-middle3">qwe</a>
-    </div>
     <div class="popup-logout-last">
         <a href="./assets/php/directProfile.php" class="popup-profile-button">Profile</a>
         <a href="?logout=true" class="popup-profile-logout">Sign out</a>
