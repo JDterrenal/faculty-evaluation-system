@@ -1887,3 +1887,86 @@ function neutralTags($comment)
         }
     }
 }
+
+//------------------ Profile Functionalities ----------------------
+//This shows all the students in a table format.
+function showStudentProfile($student_id)
+{
+    include 'connection.php';
+    global $count;
+    $sql = "SELECT student_id, firstname, lastname, email, gender, yearlevel, contact_no, address, status, photo, course_id, section_id FROM tb_students WHERE student_id = $student_id";
+    $result = mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($result);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $primary_id = $row["student_id"];
+        $firstname = $row["firstname"];
+        $lastname = $row["lastname"];
+        $email = $row["email"];
+        $gender = $row["gender"];
+        $yearlevel = $row["yearlevel"];
+        $contact_no = $row["contact_no"];
+        $address = $row["address"];
+        $status = $row["status"];
+        $photo = $row["photo"];
+        $course_id = $row["course_id"];
+        $section_id = $row["section_id"];
+        //Get Course Name
+        $sql_course = "SELECT course_name FROM tb_courses WHERE course_id = $course_id";
+        $result_course = mysqli_query($conn, $sql_course);
+        while ($row = mysqli_fetch_array($result_course, MYSQLI_ASSOC)) {
+            $course_name = $row["course_name"];
+        }
+        //Get Section Name
+        $sql_section = "SELECT section_name FROM tb_section WHERE section_id = $section_id";
+        $result_section = mysqli_query($conn, $sql_section);
+        while ($row = mysqli_fetch_array($result_section, MYSQLI_ASSOC)) {
+            $section_name = $row["section_name"];
+        }
+        echo "
+        <tbody>
+            <tr>
+                <td rowspan='4' scope='row' style='text-align: center; padding-left: 5px;'><img src='./images/uploads/$photo' class='student-picture'></td>
+                <th>Full Name</th>
+                <td data-label='Full Name'>$firstname $lastname</td>
+            </tr>
+            <tr>
+                <th>Student ID</th>
+                <td data-label='Student ID'>$primary_id</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td data-label='Gender'>$gender</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td data-label='Email'>$email</td>
+            </tr>
+            <tr>
+                <th>Contact No.</th>
+                <td data-label='Email'>$contact_no</td>
+            </tr>
+            <tr>
+                <th>Year Level</th>
+                <td data-label='Email'>$yearlevel</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td data-label='Email'>$address</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td data-label='Email'>$status</td>
+            </tr>
+            <tr>
+                <th>Course</th>
+                <td data-label='Email'>$course_name</td>
+            </tr>
+            <tr>
+                <th>Section</th>
+                <td data-label='Email'>$section_name</td>
+            </tr>
+        <tbody>
+        ";
+    }
+    mysqli_close($conn);
+}

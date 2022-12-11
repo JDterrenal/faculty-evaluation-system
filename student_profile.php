@@ -1,6 +1,7 @@
 <?php
 include './assets/php/functions.php';
 preventBack();
+$student_id = $_SESSION["login_id"];
 ?>
 
 <html>
@@ -33,110 +34,7 @@ preventBack();
 						</div>
 						<div class="user-nfo-content">
 							<table class="user-table">
-								<tbody>
-									<tr>
-                                        <td rowspan="4" scope="row" style="text-align: center; padding-left: 5px;"><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" class="student-picture"></td>
-										<th>Name</th>
-										<td data-label="First Name">John Derick ramos Terrenal</td>
-									</tr>
-									<tr>
-										<th>Last Name</th>
-										<td data-label="Last Name">john Derick ramos Terrenal</td>
-									</tr>
-									<tr>
-										<th>Gender</th>
-										<td data-label="Gender">MMMALE</td>
-									</tr>
-									<tr>
-										<th>Student No.</th>
-										<td data-label="Student No.">20201125646</td>
-									</tr>
-								<tbody>
-							</table>
-						</div>
-					</div>
-
-                    <div class="user-info">
-						<div class="user-content">
-							<div class="user-info-title">
-									<p class="user-title"><i class="fas fa-user"></i> Accademic Information!</p>
-									<hr>
-							</div>
-						</div>
-						<div class="user-nfo-content">
-							<table class="user-table">
-								<tbody>
-									<tr>
-										<th>Status</th>
-										<td data-label="Status">Tite</td>
-									</tr>
-									<tr>
-										<th>Year Level</th>
-										<td data-label="Year Level">Tite</td>
-									</tr>
-									<tr>
-										<th>Course</th>
-										<td data-label="Course">Tite</td>
-									</tr>
-									<tr>
-										<th>Section</th>
-										<td data-label="Section">Tite</td>
-									</tr>
-								<tbody>
-							</table>
-						</div>
-					</div>
-
-                    <div class="user-info">
-						<div class="user-content">
-							<div class="user-info-title">
-									<p class="user-title"><i class="fas fa-user"></i> Contact Information!</p>
-									<hr>
-							</div>
-						</div>
-						<div class="user-nfo-content">
-							<table class="user-table">
-								<tbody>
-									<tr>
-										<th>Email</th>
-										<td data-label="Email">Tite</td>
-									</tr>
-									<tr>
-										<th>Contact No.</th>
-										<td data-label="Contact No.">Tite</td>
-									</tr>
-									<tr>
-										<th>Address</th>
-										<td data-label="Address">Tite</td>
-									</tr>
-								<tbody>
-							</table>
-						</div>
-					</div>
-
-                    <div class="user-info">
-						<div class="user-content">
-							<div class="user-info-title">
-									<p class="user-title"><i class="fas fa-user"></i> Contact Information!</p>
-									<hr>
-							</div>
-						</div>
-						<div class="user-nfo-content">
-							<table class="user-table">
-								<tbody>
-									<tr>
-										<th>Email</th>
-										<td data-label="Email">Tite</td>
-									</tr>
-									<tr>
-										<th>Contact No.</th>
-										<td data-label="Contact No.">Tite</td>
-									</tr>
-									<tr>
-										<th>Address</th>
-										<td data-label="Address">Tite</td>
-									</tr>
-								<tbody>
+								<?php showStudentProfile($student_id) ?>
 							</table>
 						</div>
 					</div>
@@ -151,7 +49,6 @@ preventBack();
 	<!--================= popups ===================-->
 	<!-------- popup logout ---------->
 	<?php include './assets/php/popupLogout.php' ?>
-
 	<script src="./assets/js/script.js"></script>
 </body>
 </html>
