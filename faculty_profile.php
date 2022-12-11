@@ -1,13 +1,14 @@
 <?php
 include './assets/php/functions.php';
 preventBack();
+$faculty_id = $_SESSION["login_id"];
 ?>
 
 <html>
 <head>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Students | Faculty Evaluation</title>
+  <title>Profile | Faculty Evaluation</title>
   <link rel="icon" href="images/logo.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
@@ -22,79 +23,46 @@ preventBack();
 	<div class= "main-container">
 		<main>
 			<div class="container-main">
-				<div class="page-container"><h1><i class="fas fa-table"> Students Profile</i></h1>
+				<div class="page-container"><h1><i class="fas fa-table"> Faculty Profile</i></h1>
 					<hr>
 					<div class="user-info">
 						<div class="user-content">
 							<div class="user-info-title">
-									<p class="user-title"><i class="fas fa-user"></i> Student Information!</p>
+									<p class="user-title"><i class="fas fa-user"></i> Faculty Information!</p>
 									<hr>
 							</div>
 						</div>
 						<div class="user-nfo-content">
 							<table class="user-table">
-								<tbody>
-									<tr>
-                                        <td rowspan="3" scope="row" style="text-align: center; padding-left: 5px;"><img src="./images/uploads/<?php echo $_SESSION['photo'] ?>" class="student-picture"></td>
-										<th>Name</th>
-										<td data-label="First Name">John Derick ramos Terrenal</td>
-									</tr>
-									<tr>
-										<th>Last Name</th>
-										<td data-label="Last Name">john Derick ramos Terrenal</td>
-									</tr>
-									<tr>
-										<th>Gender</th>
-										<td data-label="Gender">MMMALE</td>
-									</tr>
-								<tbody>
+								<?php showFacultyProfile($faculty_id) ?>
 							</table>
 						</div>
 					</div>
-
-                    <div class="user-info">
-						<div class="user-content">
-							<div class="user-info-title">
-									<p class="user-title"><i class="fas fa-user"></i> Contact Information!</p>
-									<hr>
+					<div class="main-content">
+						<div class="main-search-add">
+							<div class="main-search-add-top">
+								<p class="main-search-add-title"><i class="fas fa-search"></i> Evaluations!</p>
+								<hr>
 							</div>
 						</div>
-						<div class="user-nfo-content">
-							<table class="user-table">
+						<div class="main-table-container">
+							<table class="main-table">
+								<thead>
+									<tr>
+										<th>ID</th>
+                                        <th>Subject</th>
+										<th>School Year</th>
+										<th>Semester</th>
+										<th>Rating</th>
+                                        <th>Date</th>
+                                        <th>Operation</th>
+									</tr>
+								</thead>
 								<tbody>
-									<tr>
-										<th>Email</th>
-										<td data-label="Email">Tite</td>
-									</tr>
-									<tr>
-										<th>Contact No.</th>
-										<td data-label="Contact No.">Tite</td>
-									</tr>
-									<tr>
-										<th>Address</th>
-										<td data-label="Address">Tite</td>
-									</tr>
-								<tbody>
+									<?php facultyEvaluationReports($faculty_id) ?>
+								</tbody>
 							</table>
 						</div>
-					</div>
-
-                    <div class="user-info">
-						<div class="user-content">
-							<div class="user-info-title">
-									<p class="user-title"><i class="fas fa-user"></i> FeedBacks!</p>
-									<hr>
-							</div>
-						</div>
-						<div class="comment-box">
-                            <div class="comment">qweqeqweqweqeqweqweq </div>
-                            <div class="comment">qweqeqweqweqeqweqweq </div>
-                            <div class="comment">qweqeqweqweqeqweqweq </div>
-                            <div class="comment">qweqeqweqweqeqweqweq </div>
-							<div class="comment">qweqeqweqweqeqweqweq </div>
-							<div class="comment">qweqeqweqweqeqweqweq </div>
-							<div class="comment">qweqeqweqweqeqweqweq </div>
-                        </div>
 					</div>
 				</div>
 			</div>

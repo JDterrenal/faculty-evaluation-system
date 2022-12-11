@@ -2009,3 +2009,51 @@ function studentSubjects($student_id) {
     }
     mysqli_close($conn);
 }
+
+//This shows the student information in their profile.
+function showFacultyProfile($faculty_id)
+{
+    include 'connection.php';
+    $sql = "SELECT faculty_id, firstname, lastname, email, gender, contact_no, address, photo FROM tb_faculty WHERE faculty_id = $faculty_id";
+    $result = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $primary_id = $row["faculty_id"];
+        $firstname = $row["firstname"];
+        $lastname = $row["lastname"];
+        $email = $row["email"];
+        $gender = $row["gender"];
+        $contact_no = $row["contact_no"];
+        $address = $row["address"];
+        $photo = $row["photo"];
+        echo "
+        <tbody>
+            <tr>
+                <td rowspan='10' scope='row' style='text-align: center; padding-left: 5px;'><img src='./images/uploads/$photo' class='student-picture'></td>
+                <th>Full Name</th>
+                <td data-label='Full Name'>$firstname $lastname</td>
+            </tr>
+            <tr>
+                <th>Faculty ID</th>
+                <td data-label='Faculty ID'>$primary_id</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td data-label='Gender'>$gender</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td data-label='Email'>$email</td>
+            </tr>
+            <tr>
+                <th>Contact No.</th>
+                <td data-label='Contact No.'>$contact_no</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td data-label='Address'>$address</td>
+            </tr>
+        <tbody>
+        ";
+    }
+    mysqli_close($conn);
+}
