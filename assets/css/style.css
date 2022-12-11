@@ -1575,7 +1575,12 @@ footer {
     position: relative;
     min-height: 1em;
   }
+
   .question-table tbody tr td:nth-child(1){
+    display: none;
+  }
+
+  .question-table tbody tr td:nth-child(2){
     background-color: #707070;
     color: #ffffff;
     padding-left: .5em;
