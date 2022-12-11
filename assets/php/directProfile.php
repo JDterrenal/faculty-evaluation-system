@@ -1,10 +1,10 @@
 <?php
 $usertype = $_SESSION["usertype"];
-if ($usertype = "Admin") {
+if ($usertype == "Admin") {
     header('Location: /dashboard.php');
-} else if ($usertype = "Student") {
+} else if ($usertype == "Student") {
     header('Location: /student_profile.php');
-} else if ($usertype = "Faculty") {
+} else if ($usertype == "Faculty") {
     header('Location: /faculty_profile.php');
 }
 
