@@ -30,7 +30,7 @@ $usertype = $_SESSION['usertype'];
                     <h1><i class="fas fa-book"> Manage Sentiment Terms</i></h1>
                     <hr>
                     <div class="form">
-                        <form action="edit_questions.php" method="post">
+                        <form action="sentiment_terms.php" method="post">
                             <div class="form-top">
                                 <p class="form-title">Sentiment Terms</p>
                             </div>
