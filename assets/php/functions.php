@@ -1972,8 +1972,8 @@ function showStudentProfile($student_id)
 //This shows the subjects that the student is currently enrolled.
 function studentSubjects($student_id) {
     include 'connection.php';
-    //Get Section Name
-    $sql_student = "SELECT section_id FROM tb_sections WHERE student_id = $student_id";
+    //Get Section ID
+    $sql_student = "SELECT section_id FROM tb_students WHERE student_id = $student_id";
     $result_student = mysqli_query($conn, $sql_student);
     while ($row = mysqli_fetch_array($result_student, MYSQLI_ASSOC)) {
         $section_id = $row["section_id"];
