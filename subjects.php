@@ -66,7 +66,7 @@ enableDelete_subjects();
 						</div>
 						<div class="main-search1">
 							<a><i class="fas fa-search"></i></a>
-							<input type="text" placeholder="Search" class="main-search">
+							<input type="text" id="search_records" placeholder="Search" class="main-search">
 						</div>
 						<div class="main-add">
 							<a class="add-main" id="add-button">Add Subject</a>
@@ -82,8 +82,7 @@ enableDelete_subjects();
 										<th>Operation</th>
 									</tr>
 								</thead>
-								<tbody>
-									<?php showSubjects() ?>
+								<tbody id="search_results">
 								</tbody>
 							</table>
 						</div>
@@ -147,6 +146,37 @@ enableDelete_subjects();
 		</div>
 	</form>
 	
+	<script>
+		// Loads the data and enables search functionality
+		$(document).ready(function () {
+			$("#search_records").keyup(function() {
+				const input = $(this).val();
+				$.ajax({
+					url: "./assets/php/searchSubject.php",
+					method: "POST",
+					data: {
+						input: input
+					},
+
+					success: function(data) {
+						$("#search_results").html(data);
+					}
+				});
+			});
+			const input = $(this).val();
+			$.ajax({
+				url: "./assets/php/searchSubject.php",
+				method: "POST",
+				data: {
+					input: input
+				},
+
+				success: function(data) {
+					$("#search_results").html(data);
+				}
+			});
+		});
+	</script>
 	<script src="./assets/js/script.js"></script>
 	<script src="./assets/js/deleteConfirmation.js"></script>
 </body>

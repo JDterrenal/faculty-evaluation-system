@@ -71,7 +71,7 @@ preventBack();
 						</div>
 						<div class="main-search1">
 							<a><i class="fas fa-search"></i></a>
-							<input type="text" placeholder="Search" class="main-search">
+							<input type="text" id="search_records" placeholder="Search" class="main-search">
 						</div>
 						<div class="main-table-container">
 							<table class="main-table">
@@ -85,8 +85,7 @@ preventBack();
 										<th>Operation</th>
 									</tr>
 								</thead>
-								<tbody>
-									<?php showAccounts() ?>
+								<tbody id="search_results">
 								</tbody>
 							</table>
 						</div>
@@ -101,28 +100,57 @@ preventBack();
 	<!--================= popups ===================-->
 	<!-------- popup logout ---------->
 	<?php include './assets/php/popupLogout.php' ?>
-	<!--------popup edit course ------------>
 	<!--------popup edit account ------------>
 	<form action=accounts.php method=post>
-			<div class="popup-background-edit" id="edit-popup-background">
-				<div class="popup-add">
-					<div class="popup-add-top">
-						<p class="popup-add-title"><i class="fas fa-edit"></i> EDIT ACCOUNTS</p>
-						<i class="fas fa-times ex" id="ex-edit"></i>
-					</div>
-					<div class="popup-add-middle">
-						<input type="hidden" name="edit_id" id="edit_id">
-						<p class="label1">Password</p>
-						<input type="password" name="edit_password" id="edit_password" placeholder="Password" class="popup-tbx">
-						<?php editAccount() ?>
-						<button type="submit" name="editaccount" class="editbtn"><i class="fas fa-edit"></i> Edit Password</button>
-					</div>
+		<div class="popup-background-edit" id="edit-popup-background">
+			<div class="popup-add">
+				<div class="popup-add-top">
+					<p class="popup-add-title"><i class="fas fa-edit"></i> EDIT ACCOUNTS</p>
+					<i class="fas fa-times ex" id="ex-edit"></i>
+				</div>
+				<div class="popup-add-middle">
+					<input type="hidden" name="edit_id" id="edit_id">
+					<p class="label1">Password</p>
+					<input type="password" name="edit_password" id="edit_password" placeholder="Password" class="popup-tbx">
+					<?php editAccount() ?>
+					<button type="submit" name="editaccount" class="editbtn"><i class="fas fa-edit"></i> Edit Password</button>
 				</div>
 			</div>
-		</form>
-	
+		</div>
+	</form>
+
+	<script>
+		// Loads the data and enables search functionality
+		$(document).ready(function() {
+			$("#search_records").keyup(function() {
+				const input = $(this).val();
+				$.ajax({
+					url: "./assets/php/searchAccount.php",
+					method: "POST",
+					data: {
+						input: input
+					},
+
+					success: function(data) {
+						$("#search_results").html(data);
+					}
+				});
+			});
+			const input = $(this).val();
+			$.ajax({
+				url: "./assets/php/searchAccount.php",
+				method: "POST",
+				data: {
+					input: input
+				},
+
+				success: function(data) {
+					$("#search_results").html(data);
+				}
+			});
+		});
+	</script>
 	<script src="./assets/js/script.js"></script>
 </body>
 
 </html>
-
