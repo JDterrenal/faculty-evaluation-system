@@ -1,7 +1,15 @@
 <?php
 include './assets/php/functions.php';
+include './assets/php/connection.php';
 preventBack();
 $evaluation_id = $_GET["evaluation_id"];
+$sql_comment = "SELECT comment FROM tb_evaluations WHERE evaluation_id = $evaluation_id";
+$result_comment = mysqli_query($conn, $sql_comment);
+while ($row = mysqli_fetch_array($result_comment, MYSQLI_ASSOC)) {
+    $comment = $row["comment"];
+}
+mysqli_close($conn);
+getSentiment($comment, $evaluation_id);
 ?>
 
 <html>
