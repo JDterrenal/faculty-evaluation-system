@@ -177,7 +177,7 @@ function sidebarIdentify()
         ';
     } else if ($_SESSION['usertype'] == 'Faculty') {
         echo '
-        <li><a href="dashboard.php"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
+        <li><a href="dashboard.php"><i class="fas fa-desktop i"></i><span>Dashboard</span></a></li>
         <li><a href="faculty_profile.php"><i class="fas fa-user i"></i><span>Profile</span></a></li>
         ';
     }
