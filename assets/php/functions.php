@@ -1673,11 +1673,12 @@ function printSentiment($evaluation_id)
 }
 
 // Insert comment words into database
-function insertTerms ($comment) {
+function insertTerms($comment)
+{
     include 'connection.php';
 
     // Format the comment and separate each word
-    $comment = preg_replace('/[^a-zA-Z0-9_ -]/s','',$comment);
+    $comment = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $comment);
     $comment = strtolower($comment);
     $words = explode(' ', $comment);
 
@@ -1685,4 +1686,77 @@ function insertTerms ($comment) {
         $sql = "INSERT INTO tb_terms (term, value, term_type) VALUES ('$word', 0, 'neutral')";
         mysqli_query($conn, $sql);
     }
+}
+
+// Show positive words
+function displayPositive()
+{
+    include 'connection.php';
+    global $count;
+    $sql = "SELECT term_id, term FROM tb_terms WHERE term_type = 'positive' ORDER BY term";
+    $result = mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($result);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $primary_id = $row["term_id"];
+        $term = $row["term"];
+        echo "
+        <tr>
+        <td>$primary_id</td>
+        <td>$term</td>
+        <td>
+        <a href='/assets/php/toNegative.php?term_id=$primary_id' class='negative'><i class='fas fa-minus'></i><span> Negative</span></a>
+        <a href='/assets/php/toNeutral.php?term_id=$primary_id' class='neutral'><i class='fas fa-genderless'></i><span> Neutral</span></a>
+        </td>
+        </tr>
+        ";
+    }
+    mysqli_close($conn);
+}
+
+function displayNegative()
+{
+    include 'connection.php';
+    global $count;
+    $sql = "SELECT term_id, term FROM tb_terms WHERE term_type = 'negative' ORDER BY term";
+    $result = mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($result);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $primary_id = $row["term_id"];
+        $term = $row["term"];
+        echo "
+        <tr>
+        <td>$primary_id</td>
+        <td>$term</td>
+        <td>
+        <a href='/assets/php/toPositive.php?term_id=$primary_id' class='positive'><i class='fas fa-plus'></i><span> Positive</span></a>
+        <a href='/assets/php/toNeutral.php?term_id=$primary_id' class='neutral'><i class='fas fa-genderless'></i><span> Neutral</span></a>
+        </td>
+        </tr>
+        ";
+    }
+    mysqli_close($conn);
+}
+
+function displayNeutral()
+{
+    include 'connection.php';
+    global $count;
+    $sql = "SELECT term_id, term FROM tb_terms WHERE term_type = 'neutral' ORDER BY term";
+    $result = mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($result);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $primary_id = $row["term_id"];
+        $term = $row["term"];
+        echo "
+        <tr>
+        <td>$primary_id</td>
+        <td>$term</td>
+        <td>
+        <a href='/assets/php/toPositive.php?term_id=$primary_id' class='positive'><i class='fas fa-plus'></i><span> Positive</span></a>
+        <a href='/assets/php/toNegative.php?term_id=$primary_id' class='negative'><i class='fas fa-minus'></i><span> Negative</span></a>
+        </td>
+        </tr>
+        ";
+    }
+    mysqli_close($conn);
 }
