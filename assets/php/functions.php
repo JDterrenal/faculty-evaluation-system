@@ -1599,12 +1599,11 @@ function insertTerms ($comment) {
     include 'connection.php';
 
     // Format the comment and separate each word
-    $comment = preg_replace('/[^a-z]+/i', '', $comment);
     $comment = strtolower($comment);
     $words = explode(' ', $comment);
 
     foreach ($words as $word) {
         $sql = "INSERT INTO tb_terms (term, value, term_type) VALUES ('$word', 0, 'neutral')";
-        if (mysqli_query($conn, $sql)) {}
+        mysqli_query($conn, $sql);
     }
 }
