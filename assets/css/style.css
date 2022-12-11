@@ -1040,14 +1040,24 @@ nav li:focus {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
+.SentimentAnalyzed{
+  padding: 2.6em;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  width: 50%;
+  margin: .5em;
+}
+
 .comment-box{
   display: flex;
   padding: 2.6em;
   flex-wrap: wrap;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  width: 50%;
+  margin: .5em;
 }
 
 .comment-box > * {
-  flex: 1 1 20%;
+  flex: 1 1 100%;
 }
 .comment {
   margin: .5em;

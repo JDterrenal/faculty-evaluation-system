@@ -57,6 +57,16 @@ $evaluation_id = $_GET["evaluation_id"];
                                 <hr>
                             </div>
                         </div>
+                        <div class="sentiment analysis">
+                            <div class="comment-box">
+                                <div class="comment">qweqeqweqweqeqweqweq </div>
+                            </div>
+                            <div class="SentimentAnalyzed">
+                                <div class="comment-box">
+                                    <div class="comment">qweqeqweqweqeqweqweq </div>
+                                </div>                            
+                            </div>
+                        </div>
                         <?php printSentiment($evaluation_id); ?>
                     </div>
                 </div>
