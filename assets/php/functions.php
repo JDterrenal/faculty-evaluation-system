@@ -365,6 +365,21 @@ function addQuestion()
     }
 }
 
+function evaluationValidationDelete($student_id, $faculty_id, $subject_id) {
+    include 'connection.php';
+    $del = "DELETE FROM tb_feedback WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id AND date = CURDATE()";
+    if (mysqli_query($conn, $del)) {
+    } else {
+        ?><script src="/assets/js/errorAlert.js"></script><?php
+    }
+    $del2 = "DELETE FROM tb_evaluation WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id AND date = CURDATE()";
+    if (mysqli_query($conn, $del2)) {
+    } else {
+        ?><script src="/assets/js/errorAlert.js"></script><?php
+    }
+    mysqli_close($conn);
+}
+
 //Submits the student evaluation.
 function submitEvaluation($student_id, $faculty_id, $subject_id)
 {
@@ -376,13 +391,11 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $question_id = $row["question_id"];
             $answer = $_POST["question$question_id"];
-
             //Submit individual answers for each question
-            $sql = "INSERT INTO tb_feedback (feedback_id, answer, date, question_id, student_id, faculty_id, subject_id) VALUES (null, '$answer', CURDATE(), $question_id, $student_id, $faculty_id, $subject_id)";
+            $sql = "INSERT INTO tb_feedback (feedback_id, answer, date, question_id, student_id, faculty_id, subject_id, evaluation_id) VALUES (null, '$answer', CURDATE(), $question_id, $student_id, $faculty_id, $subject_id, 0)";
             if (mysqli_query($conn, $sql)) {
             } else {
-                $del = "DELETE FROM tb_feedback WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id";
-                mysqli_query($conn, $del) or die("Connection error!");
+                evaluationValidationDelete($student_id, $faculty_id, $subject_id);
                 ?><script src="/assets/js/errorAlert.js"></script><?php
             }
         }
@@ -413,25 +426,22 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
             $update_feedback = "UPDATE tb_feedback SET evaluation_id='$evaluation_id' WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id AND date = CURDATE()";
             if (mysqli_query($conn, $update_feedback)) {
                 insertTerms($comment);
-                $sql_sentiment = "INSERT INTO tb_sentiment (evaluation_id) VALUES ($evaluation_id)";
+                $sql_sentiment = "INSERT INTO tb_sentiment (positive_count, negative_count, sentiment_score, analysis, evaluation_id) VALUES (0, 0, 0, 'Neutral', $evaluation_id)";
                 if (mysqli_query($conn, $sql_sentiment)) {
                     getSentiment($comment, $evaluation_id);
                     ?><script src="/assets/js/evaluationSuccess.js"></script><?php
                 } else {
-                    $del = "DELETE FROM tb_feedback WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id AND date = CURDATE()";
-                    mysqli_query($conn, $del) or die("Connection error!");
-                    $del2 = "DELETE FROM tb_evaluation WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id AND date = CURDATE()";
-                    mysqli_query($conn, $del2) or die("Connection error!");
+                    evaluationValidationDelete($student_id, $faculty_id, $subject_id);
                     ?><script src="/assets/js/errorAlert.js"></script><?php
                 }
             } else {
+                evaluationValidationDelete($student_id, $faculty_id, $subject_id);
                 ?><script src="/assets/js/errorAlert.js"></script><?php
             }
         } else {
-            $del = "DELETE FROM tb_feedback WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id AND date = CURDATE()";
-            mysqli_query($conn, $del) or die("Connection error!");
+            evaluationValidationDelete($student_id, $faculty_id, $subject_id);
             ?><script src="/assets/js/errorAlert.js"></script><?php
-        }    
+        }
         mysqli_close($conn);
     }
 }
@@ -642,8 +652,14 @@ function enableDelete_students()
         $delete_id = $_GET['delete_id'];
         $sql = "DELETE FROM tb_students WHERE student_id='$delete_id'";
         $sql2 = "DELETE FROM tb_login WHERE student_id='$delete_id'";
-        mysqli_query($conn, $sql) or die("Connection error!");
-        mysqli_query($conn, $sql2) or die("Connection error!");
+        if (mysqli_query($conn, $sql)) {
+        } else {
+            ?><script src="/assets/js/errorAlert.js"></script><?php
+        }
+        if (mysqli_query($conn, $sql2)) {
+        } else {
+            ?><script src="/assets/js/errorAlert.js"></script><?php
+        }
         header('location: students.php');
     }
 }
@@ -656,8 +672,14 @@ function enableDelete_faculty()
         $delete_id = $_GET['delete_id'];
         $sql = "DELETE FROM tb_faculty WHERE faculty_id='$delete_id'";
         $sql2 = "DELETE FROM tb_login WHERE faculty_id='$delete_id'";
-        mysqli_query($conn, $sql) or die("Connection error!");
-        mysqli_query($conn, $sql2) or die("Connection error!");
+        if (mysqli_query($conn, $sql)) {
+        } else {
+            ?><script src="/assets/js/errorAlert.js"></script><?php
+        }
+        if (mysqli_query($conn, $sql2)) {
+        } else {
+            ?><script src="/assets/js/errorAlert.js"></script><?php
+        }
         header('location: faculty.php');
     }
 }
@@ -669,7 +691,10 @@ function enableDelete_subjects()
     if (isset($_GET['delete_id'])) {
         $delete_id = $_GET['delete_id'];
         $sql = "DELETE FROM tb_subjects WHERE subject_id='$delete_id'";
-        mysqli_query($conn, $sql) or die("Connection error!");
+        if (mysqli_query($conn, $sql)) {
+        } else {
+            ?><script src="/assets/js/errorAlert.js"></script><?php
+        }
         header('location: subjects.php');
     }
 }
@@ -681,7 +706,10 @@ function enableDelete_sections()
     if (isset($_GET['delete_id'])) {
         $delete_id = $_GET['delete_id'];
         $sql = "DELETE FROM tb_sections WHERE section_id='$delete_id'";
-        mysqli_query($conn, $sql) or die("Connection error!");
+        if (mysqli_query($conn, $sql)) {
+        } else {
+            ?><script src="/assets/js/errorAlert.js"></script><?php
+        }
         header('location: sections.php');
     }
 }
@@ -693,7 +721,10 @@ function enableDelete_courses()
     if (isset($_GET['delete_id'])) {
         $delete_id = $_GET['delete_id'];
         $sql = "DELETE FROM tb_courses WHERE course_id='$delete_id'";
-        mysqli_query($conn, $sql) or die("Connection error!");
+        if (mysqli_query($conn, $sql)) {
+        } else {
+            ?><script src="/assets/js/errorAlert.js"></script><?php
+        }
         header('Location: courses.php');
     }
 }
@@ -705,7 +736,10 @@ function enableDelete_evaluations()
     if (isset($_GET['delete_id'])) {
         $delete_id = $_GET['delete_id'];
         $sql = "DELETE FROM tb_evaluations WHERE evaluation_id='$delete_id'";
-        mysqli_query($conn, $sql) or die("Connection error!");
+        if (mysqli_query($conn, $sql)) {
+        } else {
+            ?><script src="/assets/js/errorAlert.js"></script><?php
+        }
         header('location: evaluations.php');
     }
 }
@@ -724,7 +758,10 @@ function enableDelete_secrel()
         }
         
         $sql = "DELETE FROM tb_sections_relation WHERE secrel_id='$delete_id'";
-        mysqli_query($conn, $sql) or die("Connection error!");
+        if (mysqli_query($conn, $sql)) {
+        } else {
+            ?><script src="/assets/js/errorAlert.js"></script><?php
+        }
         header("location: section_subjects.php?section_id=$section_id");
     }
 }
@@ -736,7 +773,10 @@ function enableDelete_questions()
     if (isset($_GET['delete_id'])) {
         $delete_id = $_GET['delete_id'];
         $sql = "DELETE FROM tb_questions WHERE question_id='$delete_id'";
-        mysqli_query($conn, $sql) or die("Connection error!");
+        if (mysqli_query($conn, $sql)) {
+        } else {
+            ?><script src="/assets/js/errorAlert.js"></script><?php
+        }
         header('location: edit_questions.php');
     }
 }
@@ -1533,7 +1573,8 @@ function getSentiment($comment, $evaluation_id)
     global $sentiment_score;
     include 'connection.php';
 
-    // Make the string lowercase
+    // Format the comment
+    $comment = preg_replace('/[^a-zA-Z0-9_ -]/s','',$comment);
     $comment = strtolower($comment);
 
     // Load a list of positive and negative words using database
@@ -1619,8 +1660,8 @@ function printSentiment($evaluation_id)
                             <td data-label='Sentiment Score'>$sentiment_score</td>
                         </tr>
                         <tr>
-                            <th>Analyisis</th>
-                            <td data-label='Analyisis'>$analysis</td>
+                            <th>Analysis</th>
+                            <td data-label='Analysis'>$analysis</td>
                         </tr>
                     <tbody>
                 </table>
@@ -1635,6 +1676,7 @@ function insertTerms ($comment) {
     include 'connection.php';
 
     // Format the comment and separate each word
+    $comment = preg_replace('/[^a-zA-Z0-9_ -]/s','',$comment);
     $comment = strtolower($comment);
     $words = explode(' ', $comment);
 
