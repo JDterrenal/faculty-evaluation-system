@@ -1760,3 +1760,25 @@ function displayNeutral()
     }
     mysqli_close($conn);
 }
+
+//Adds sentiment terms.
+function addSentiment()
+{
+    if (isset($_POST['addsentiment'])) {
+        include 'connection.php';
+        $comment = mysqli_real_escape_string($conn, $_POST['comment']);
+
+        // Format the comment and separate each word
+        $comment = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $comment);
+        $comment = strtolower($comment);
+        $words = explode(' ', $comment);
+
+        foreach ($words as $word) {
+            $sql = "INSERT INTO tb_terms (term, value, term_type) VALUES ('$word', 0, 'neutral')";
+            if (mysqli_query($conn, $sql)) {
+            } else {
+                ?><script src="/assets/js/errorAlert.js"></script><?php
+            }
+        }
+    }
+}
