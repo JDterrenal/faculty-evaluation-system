@@ -1381,7 +1381,7 @@ function showQuestions_ER($evaluation_id)
         <td>$primary_id</td>
         <td>$question</td>
         <td data-label='Answer'>$answer</td>
-        <tr>
+        </tr>
         ";
     }
     mysqli_close($conn);
