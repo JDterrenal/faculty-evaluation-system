@@ -59,9 +59,11 @@ $evaluation_id = $_GET["evaluation_id"];
                         </div>
                         <div class="sentiment-analysis">
                             <div class="comment-box">
+                                <p class="main-search-add-title"><i class="fas fa-search"></i> Comment!</p>
                                 <div class="comment">qweqeqweqweqeqweqweq </div>
                             </div>
                             <div class="SentimentAnalyzed">
+                                <p class="main-search-add-title"><i class="fas fa-search"></i> Sentiment Analysis!</p>
                                 <div class="comment-box-right">
                                     <div class="comment">qweqeqweqweqeqweqweq </div>
                                 </div>

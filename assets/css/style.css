@@ -1085,7 +1085,7 @@ nav li:focus {
 .SentimentAnalyzed{
   padding: 2.6em;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  width: 50%;
+  width: 60%;
   margin: .5em;
 }
 
@@ -1098,7 +1098,7 @@ nav li:focus {
   padding: 2.6em;
   flex-wrap: wrap;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  width: 50%;
+  width: 40%;
   margin: .5em;
 }
 
