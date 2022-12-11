@@ -402,15 +402,17 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
         //Submit the whole evaluation data
         $sql2 = "INSERT INTO tb_evaluations (evaluation_id, rating_avg, comment, date, schoolyear, semester, student_id, faculty_id, subject_id) VALUES (null, '$rating_avg', '$comment', CURDATE(), '$schoolyear', '$semester', $student_id, $faculty_id, $subject_id)";
         if (mysqli_query($conn, $sql2)) {
-            //Get ID of latest inserted evaluation
-            $sql_latest_eval = "SELECT evaluation_id FROM tb_evaluations ORDER BY evaluation_id DESC LIMIT 1";
+            //Get ID and comment of latest inserted evaluation
+            $sql_latest_eval = "SELECT evaluation_id, comment FROM tb_evaluations ORDER BY evaluation_id DESC LIMIT 1";
             $evalres = mysqli_query($conn, $sql_latest_eval);
             while ($row = mysqli_fetch_array($evalres, MYSQLI_ASSOC)) {
                 $evaluation_id = $row["evaluation_id"];
+                $comment = $row["comment"];
             }
             //Set the latest evaluation ID to feedback
             $update_feedback = "UPDATE tb_feedback SET evaluation_id='$evaluation_id' WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id AND date = CURDATE()";
             if (mysqli_query($conn, $update_feedback)) {
+                insertTerms($comment);
                 ?><script src="/assets/js/evaluationSuccess.js"></script><?php
             } else {
                 ?><script src="/assets/js/errorAlert.js"></script><?php
@@ -1543,7 +1545,8 @@ function accountsCount()
     mysqli_close($conn);
 }
 
-//Sentiment Analysis Functionality
+//--------------------Sentiment Analysis Functionality---------------------
+// Fetch Sentiment
 function getSentiment($comment)
 {
     include 'connection.php';
@@ -1588,5 +1591,20 @@ function getSentiment($comment)
         return 'Negative';
     } else {
         return 'Neutral';
+    }
+}
+
+// Insert comment words into database
+function insertTerms ($comment) {
+    include 'connection.php';
+
+    // Format the comment and separate each word
+    $comment = preg_replace('/[^a-z]+/i', '', $comment);
+    $comment = strtolower($comment);
+    $words = explode(' ', $comment);
+
+    foreach ($words as $word) {
+        $sql = "INSERT INTO tb_terms (term, value, term_type) VALUES ('$word', 0, 'neutral')";
+        if (mysqli_query($conn, $sql)) {}
     }
 }
