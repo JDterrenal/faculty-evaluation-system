@@ -1350,11 +1350,12 @@ function showQuestions_ER($evaluation_id)
         $question = $row["question"];
         $sql_answer = "SELECT answer FROM tb_feedback WHERE question_id = $primary_id AND evaluation_id = $evaluation_id";
         $result_answer = mysqli_query($conn, $sql_answer);
-        while ($row = mysqli_fetch_array($result_answer, MYSQLI_ASSOC)) {
-            $answer = $row["answer"];
+        while ($row_answer = mysqli_fetch_array($result_answer, MYSQLI_ASSOC)) {
+            $answer = $row_answer["answer"];
         }
         echo "
         <tr>
+        <td>$primary_id</td>
         <td>$question</td>
         <td data-label='Answer'>$answer</td>
         <tr>
