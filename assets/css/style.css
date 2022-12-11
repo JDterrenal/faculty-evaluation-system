@@ -238,8 +238,6 @@ input[type=file]::file-selector-button:hover {
 
 .main-table tbody tr:nth-of-type(even) {
   background-color: f3f3f3;
-  font-weight: bold;
-  color: #707070;
 }
 
 .main-table tbody tr:last-of-type {
@@ -256,6 +254,10 @@ input[type=file]::file-selector-button:hover {
   font-size: 1rem;
   border-radius: 5px 5px 0 0;
   width: 100%;
+}
+
+.question-table tbody tr td:nth-child(1){
+  display: none;
 }
 
 .question-table thead tr {
@@ -411,8 +413,6 @@ input::-webkit-inner-spin-button {
 
 .student-table tbody tr:nth-of-type(even) {
   background-color: f3f3f3;
-  font-weight: bold;
-  color: #707070;
 }
 
 .student-table tbody tr:last-of-type {
@@ -455,8 +455,6 @@ input::-webkit-inner-spin-button {
 
 .user-table tbody tr:nth-of-type(odd) {
   background-color: f3f3f3;
-  font-weight: bold;
-  color: #707070;
 }
 
 .user-table tbody tr:last-of-type {
@@ -730,7 +728,10 @@ nav p img {
 }
 
 .student-picture{
-  max-width: 10em;
+  max-width: 20rem;
+  max-height: 20rem;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
 
 }
@@ -1574,10 +1575,6 @@ footer {
     padding-left: 50%;
     position: relative;
     min-height: 1em;
-  }
-
-  .question-table tbody tr td:nth-child(1){
-    display: none;
   }
 
   .question-table tbody tr td:nth-child(2){
