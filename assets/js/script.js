@@ -37,58 +37,6 @@ $(document).ready(function () {
     });
 
     /* === Specific Edit === */
-    // Course
-    $(".edit.edit-course").on('click', function () {
-        let currentRow = $(this).closest("tr");
-        let col1 = currentRow.find("td:eq(0)").text();
-        let col2 = currentRow.find("td:eq(1)").text();
-        $("#edit_id").val(col1);
-        $("#edit_course_name").val(col2);
-
-        editBackground.style.display = "flex";
-        $("#edit-popup-background").show();
-    });
-
-    //Subject
-    $(".edit.edit-subject").on('click', function () {
-        let currentRow = $(this).closest("tr");
-        let col1 = currentRow.find("td:eq(0)").text();
-        let col2 = currentRow.find("td:eq(1)").text();
-        let col3 = currentRow.find("td:eq(2)").text();
-        let col4 = currentRow.find("td:eq(3)").text();
-        $("#edit_id").val(col1);
-        $("#edit_subject_code").val(col2);
-        $("#edit_subject_name").val(col3);
-        $("#edit_units").val(col4);
-
-        editBackground.style.display = "flex";
-        $("#edit-popup-background").show();
-    });
-
-    //Section
-    $(".edit.edit-section").on('click', function () {
-        let currentRow = $(this).closest("tr");
-        let col1 = currentRow.find("td:eq(0)").text();
-        let col2 = currentRow.find("td:eq(1)").text();
-        $("#edit_id").val(col1);
-        $("#edit_section_name").val(col2);
-
-        editBackground.style.display = "flex";
-        $("#edit-popup-background").show();
-    });
-
-    //Account
-    $(".edit.edit-account").on('click', function () {
-        let currentRow = $(this).closest("tr");
-        let col1 = currentRow.find("td:eq(0)").text();
-        let col2 = currentRow.find("td:eq(3)").text();
-        $("#edit_id").val(col1);
-        $("#edit_password").val(col2);
-
-        editBackground.style.display = "flex";
-        $("#edit-popup-background").show();
-    });
-
     //Section Relation
     $(".edit.edit-secrel").on('click', function () {
         let currentRow = $(this).closest("tr");
@@ -119,58 +67,6 @@ $(document).ready(function () {
     $("#ex-edit").click(function () {
         $("#edit-popup-background").hide();
     });
-
-    /* === Specific View === */
-    // Course
-    $(".view.view-course").on('click', function () {
-        let currentRow = $(this).closest("tr");
-        let col1 = currentRow.find("td:eq(0)").text();
-        let col2 = currentRow.find("td:eq(1)").text();
-        let col3 = currentRow.find("td:eq(2)").text();
-        $("[data-label='ID Info']").html(col1);
-        $("[data-label='Course Info']").html(col2);
-        $("[data-label='Students Count']").html(col3);
-    });
-
-    // Subject
-    $(".view.view-subject").on('click', function () {
-        let currentRow = $(this).closest("tr");
-        let col1 = currentRow.find("td:eq(0)").text();
-        let col2 = currentRow.find("td:eq(1)").text();
-        let col3 = currentRow.find("td:eq(2)").text();
-        let col4 = currentRow.find("td:eq(3)").text();
-        $("[data-label='ID Info']").html(col1);
-        $("[data-label='Subject Code Info']").html(col2);
-        $("[data-label='Subject Info']").html(col3);
-        $("[data-label='Units Info']").html(col4);
-    });
-
-    // Section
-    $(".view.view-section").on('click', function () {
-        let currentRow = $(this).closest("tr");
-        let col1 = currentRow.find("td:eq(0)").text();
-        let col2 = currentRow.find("td:eq(1)").text();
-        let col3 = currentRow.find("td:eq(2)").text();
-        $("[data-label='ID Info']").html(col1);
-        $("[data-label='Section Info']").html(col2);
-        $("[data-label='Students Count']").html(col3);
-        $("[data-label='Operation Info']").html("<a href='section_subjects.php?section_id=" + col1 + "' class='add-main'><i class='fas fa-eye'></i> Manage Subjects</a>");
-    });
-
-    // Account
-    $(".view.view-account").on('click', function () {
-        let currentRow = $(this).closest("tr");
-        let col1 = currentRow.find("td:eq(0)").text();
-        let col2 = currentRow.find("td:eq(1)").text();
-        let col3 = currentRow.find("td:eq(2)").text();
-        let col4 = currentRow.find("td:eq(3)").text();
-        let col5 = currentRow.find("td:eq(4)").text();
-        $("[data-label='Login ID Info']").html(col1);
-        $("[data-label='User ID Info']").html(col2);
-        $("[data-label='Full Name Info']").html(col3);
-        $("[data-label='Password Info']").html(col4);
-        $("[data-label='User Type Info']").html(col5);
-    });
 });
 
 function LogOutFunction() {
@@ -181,8 +77,7 @@ function LogOutFunction() {
     }
 }
 
-// === Student ===
-// Edit Student
+// === Edit and View Student ===
 function editStudent(anchor) {
     let currentRow = $(anchor).closest("tr");
     let col1 = currentRow.find("td:eq(0)").text();
@@ -214,7 +109,6 @@ function editStudent(anchor) {
     $("#edit-popup-background").show();
 }
 
-// View Student
 function viewStudent(anchor) {
     let currentRow = $(anchor).closest("tr");
     let col1 = currentRow.find("td:eq(0)").text();
@@ -232,8 +126,7 @@ function viewStudent(anchor) {
     $("[data-label='Section ID Info']").html(col12);
 }
 
-// === Faculty ===
-// Edit Faculty
+// === Edit and View Faculty ===
 function editFaculty(anchor) {
     let currentRow = $(anchor).closest("tr");
     let col1 = currentRow.find("td:eq(0)").text();
@@ -257,7 +150,6 @@ function editFaculty(anchor) {
     $("#edit-popup-background").show();
 }
 
-// View Faculty
 function viewFaculty(anchor) {
     let currentRow = $(anchor).closest("tr");
     let col1 = currentRow.find("td:eq(0)").text();
@@ -270,4 +162,103 @@ function viewFaculty(anchor) {
     $("[data-label='Full Name Info']").html(col2 + " " + col3);
     $("[data-label='Email Info']").html(col4);
     $("[data-label='Operation Info']").html("<a href='eval_report_list.php?faculty_id=" + col1 + "' class='add-main'><i class='fas fa-eye'></i> Evaluation Reports</a>");
+}
+
+// === Edit and View Account ===
+function editAccount(anchor) {
+    let currentRow = $(anchor).closest("tr");
+    let col1 = currentRow.find("td:eq(0)").text();
+    let col2 = currentRow.find("td:eq(3)").text();
+    $("#edit_id").val(col1);
+    $("#edit_password").val(col2);
+
+    editBackground.style.display = "flex";
+    $("#edit-popup-background").show();
+}
+
+function viewAccount(anchor) {
+    let currentRow = $(anchor).closest("tr");
+    let col1 = currentRow.find("td:eq(0)").text();
+    let col2 = currentRow.find("td:eq(1)").text();
+    let col3 = currentRow.find("td:eq(2)").text();
+    let col4 = currentRow.find("td:eq(3)").text();
+    let col5 = currentRow.find("td:eq(4)").text();
+    $("[data-label='Login ID Info']").html(col1);
+    $("[data-label='User ID Info']").html(col2);
+    $("[data-label='Full Name Info']").html(col3);
+    $("[data-label='Password Info']").html(col4);
+    $("[data-label='User Type Info']").html(col5);
+}
+
+// === Edit and View Course ===
+function editCourse(anchor) {
+    let currentRow = $(anchor).closest("tr");
+    let col1 = currentRow.find("td:eq(0)").text();
+    let col2 = currentRow.find("td:eq(1)").text();
+    $("#edit_id").val(col1);
+    $("#edit_course_name").val(col2);
+
+    editBackground.style.display = "flex";
+    $("#edit-popup-background").show();
+}
+
+function viewCourse(anchor) {
+    let currentRow = $(anchor).closest("tr");
+    let col1 = currentRow.find("td:eq(0)").text();
+    let col2 = currentRow.find("td:eq(1)").text();
+    let col3 = currentRow.find("td:eq(2)").text();
+    $("[data-label='ID Info']").html(col1);
+    $("[data-label='Course Info']").html(col2);
+    $("[data-label='Students Count']").html(col3);
+}
+
+// === Edit and View Subject ===
+function editSubject(anchor) {
+    let currentRow = $(anchor).closest("tr");
+    let col1 = currentRow.find("td:eq(0)").text();
+    let col2 = currentRow.find("td:eq(1)").text();
+    let col3 = currentRow.find("td:eq(2)").text();
+    let col4 = currentRow.find("td:eq(3)").text();
+    $("#edit_id").val(col1);
+    $("#edit_subject_code").val(col2);
+    $("#edit_subject_name").val(col3);
+    $("#edit_units").val(col4);
+
+    editBackground.style.display = "flex";
+    $("#edit-popup-background").show();
+}
+
+function viewSubject(anchor) {
+    let currentRow = $(anchor).closest("tr");
+    let col1 = currentRow.find("td:eq(0)").text();
+    let col2 = currentRow.find("td:eq(1)").text();
+    let col3 = currentRow.find("td:eq(2)").text();
+    let col4 = currentRow.find("td:eq(3)").text();
+    $("[data-label='ID Info']").html(col1);
+    $("[data-label='Subject Code Info']").html(col2);
+    $("[data-label='Subject Info']").html(col3);
+    $("[data-label='Units Info']").html(col4);
+}
+
+// === Edit and View Section ===
+function editSection(anchor) {
+    let currentRow = $(anchor).closest("tr");
+    let col1 = currentRow.find("td:eq(0)").text();
+    let col2 = currentRow.find("td:eq(1)").text();
+    $("#edit_id").val(col1);
+    $("#edit_section_name").val(col2);
+
+    editBackground.style.display = "flex";
+    $("#edit-popup-background").show();
+}
+
+function viewSection(anchor) {
+    let currentRow = $(anchor).closest("tr");
+    let col1 = currentRow.find("td:eq(0)").text();
+    let col2 = currentRow.find("td:eq(1)").text();
+    let col3 = currentRow.find("td:eq(2)").text();
+    $("[data-label='ID Info']").html(col1);
+    $("[data-label='Section Info']").html(col2);
+    $("[data-label='Students Count']").html(col3);
+    $("[data-label='Operation Info']").html("<a href='section_subjects.php?section_id=" + col1 + "' class='add-main'><i class='fas fa-eye'></i> Manage Subjects</a>");
 }
