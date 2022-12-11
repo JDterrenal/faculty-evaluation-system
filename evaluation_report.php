@@ -57,9 +57,7 @@ $evaluation_id = $_GET["evaluation_id"];
                                 <hr>
                             </div>
                         </div>
-                        <div class="question-container">
-                            
-                        </div>
+                        <?php printSentiment($evaluation_id); ?>
                     </div>
                 </div>
             </div>

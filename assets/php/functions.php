@@ -378,7 +378,7 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
             $answer = $_POST["question$question_id"];
 
             //Submit individual answers for each question
-            $sql = "INSERT INTO tb_feedback (feedback_id, answer, date, question_id, student_id, faculty_id, subject_id, evaluation_id) VALUES (null, '$answer', CURDATE(), $question_id, $student_id, $faculty_id, $subject_id, 0)";
+            $sql = "INSERT INTO tb_feedback (feedback_id, answer, date, question_id, student_id, faculty_id, subject_id) VALUES (null, '$answer', CURDATE(), $question_id, $student_id, $faculty_id, $subject_id)";
             if (mysqli_query($conn, $sql)) {
             } else {
                 $del = "DELETE FROM tb_feedback WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id";
@@ -413,7 +413,17 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
             $update_feedback = "UPDATE tb_feedback SET evaluation_id='$evaluation_id' WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id AND date = CURDATE()";
             if (mysqli_query($conn, $update_feedback)) {
                 insertTerms($comment);
-                ?><script src="/assets/js/evaluationSuccess.js"></script><?php
+                $sql_sentiment = "INSERT INTO tb_sentiment (evaluation_id) VALUES ($evaluation_id)";
+                if (mysqli_query($conn, $sql_sentiment)) {
+                    getSentiment($comment, $evaluation_id);
+                    ?><script src="/assets/js/evaluationSuccess.js"></script><?php
+                } else {
+                    $del = "DELETE FROM tb_feedback WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id AND date = CURDATE()";
+                    mysqli_query($conn, $del) or die("Connection error!");
+                    $del2 = "DELETE FROM tb_evaluation WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id AND date = CURDATE()";
+                    mysqli_query($conn, $del2) or die("Connection error!");
+                    ?><script src="/assets/js/errorAlert.js"></script><?php
+                }
             } else {
                 ?><script src="/assets/js/errorAlert.js"></script><?php
             }
@@ -1518,12 +1528,12 @@ function accountsCount()
 
 //--------------------Sentiment Analysis Functionality---------------------
 // Fetch Sentiment
-function getSentiment($comment)
+function getSentiment($comment, $evaluation_id)
 {
+    global $sentiment_score;
     include 'connection.php';
 
-    // Remove punctuation and make the string lowercase
-    $comment = preg_replace('/[^a-z]+/i', '', $comment);
+    // Make the string lowercase
     $comment = strtolower($comment);
 
     // Load a list of positive and negative words using database
@@ -1554,19 +1564,24 @@ function getSentiment($comment)
             $negative_count++;
         }
     }
+    $sentiment_score = $positive_count - $negative_count;
 
     // Calculate the overall sentiment
     if ($positive_count > $negative_count) {
-        return 'Positive';
+        $analysis = "Positive";
     } else if ($positive_count < $negative_count) {
-        return 'Negative';
+        $analysis = "Negative";
     } else {
-        return 'Neutral';
+        $analysis = "Neutral";
     }
+
+    // Update Sentiment Data
+    $update_sentiment = "UPDATE tb_sentiment SET positive_count=$positive_count, negative_count=$negative_count, sentiment_score=$sentiment_score, analysis='$analysis' WHERE evaluation_id = $evaluation_id";
+    mysqli_query($conn, $update_sentiment);
 }
 
 //This shows all the sections that are available in a table format.
-function showSentiment($evaluation_id)
+function printSentiment($evaluation_id)
 {
     include 'connection.php';
     $sql = "SELECT comment, date FROM tb_evaluations WHERE evaluation_id = $evaluation_id";
@@ -1574,10 +1589,45 @@ function showSentiment($evaluation_id)
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $comment = $row["comment"];
         $date = $row["date"];
+        $sql_sentiment = "SELECT positive_count, negative_count, sentiment_score, analysis FROM tb_sentiment WHERE evaluation_id = $evaluation_id";
+        $result_sentiment = mysqli_query($conn, $sql_sentiment);
+        while ($row = mysqli_fetch_array($result_sentiment, MYSQLI_ASSOC)) {
+            $positive_count = $row["positive_count"];
+            $negative_count = $row["negative_count"];
+            $sentiment_score = $row["sentiment_score"];
+            $analysis = $row["analysis"];
+        }
         echo "
+        <div class='flex-container'>
+            <div class='content-box'>
+                <p>$date</p>
+                <span class='sentiment-comment'>$comment</span>
+            </div>
+            <div class='content-box'>
+                <table class='user-table'>
+                    <tbody>
+                        <tr>
+                            <th>Positive Words</th>
+                            <td data-label='Positive Words'>$positive_count</td>
+                        </tr>
+                        <tr>
+                            <th>Negative Words</th>
+                            <td data-label='Negative Words'>$negative_count</td>
+                        </tr>
+                        <tr>
+                            <th>Sentiment Score</th>
+                            <td data-label='Sentiment Score'>$sentiment_score</td>
+                        </tr>
+                        <tr>
+                            <th>Analyisis</th>
+                            <td data-label='Analyisis'>$analysis</td>
+                        </tr>
+                    <tbody>
+                </table>
+            </div>
+        </div>
         ";
     }
-    mysqli_close($conn);
 }
 
 // Insert comment words into database
