@@ -44,7 +44,6 @@ enableDelete_questions();
                                 </div>
                             </form>
                         </div>
-                        
 
                         <div class="evaluation-question">
                             <div class="evaluation-question-top">
