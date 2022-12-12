@@ -1266,10 +1266,13 @@ nav li:focus {
 }
 
 .about-panel{
-  width: 60%;
+  width: 40%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
   padding: .5em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 .question-container{
@@ -1459,6 +1462,19 @@ footer {
   max-height: 4em;
   height: 100%;
   align-items: center;
+}
+
+.credit-name{
+  margin-left: 1em;
+  font-size: 1.3em;
+  font-weight: 1000;
+}
+
+.credit-role{
+  margin-left: 1em;
+  font-size: 1.3em;
+  font-weight: 400;
+  margin-top: -1em;
 }
 
 .popup-add-title {
