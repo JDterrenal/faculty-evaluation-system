@@ -1125,6 +1125,57 @@ function showQuestions_ER($evaluation_id)
     mysqli_close($conn);
 }
 
+function showStatus($evaluation_id)
+{
+    include 'connection.php';
+    $sql = "SELECT rating_avg, date, schoolyear, semester FROM tb_evaluation WHERE evaluation_id = $evaluation_id";
+    $result = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $rating_avg = $row["rating_avg"];
+        $schoolyear = $row["schoolyear"];
+        $semester = $row["semester"];
+        $date = $row["date"];
+        if ($rating_avg == 5) {
+            $rating = "Perfect";
+        }
+        else if ($rating_avg < 5 && $rating_avg >= 4) {
+            $rating = "Very Good";
+        }
+        else if ($rating_avg <= 3.9 && $rating_avg > 3) {
+            $rating = "Good";
+        }
+        else if ($rating_avg <= 2.9 && $rating_avg > 2) {
+            $rating = "Bad";
+        }
+        else if ($rating_avg <= 1.9 && $rating_avg >= 1) {
+            $rating = "Very Bad";
+        }
+        echo "
+        <tr>
+            <th>Average</th>
+            <td data-label='Average'>$rating_avg</td>
+        </tr>
+        <tr>
+            <th>Rating</th>
+            <td data-label='Rating'>$rating</td>
+        </tr>
+        <tr>
+            <th>School Yr.</th>
+            <td data-label='School Yr.'>$schoolyear</td>
+        </tr>
+        <tr>
+            <th>Semester</th>
+            <td data-label='Semester'>$semester</td>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <td data-label='Date'>$date</td>
+        </tr>
+        ";
+    }
+    mysqli_close($conn);
+}
+
 //------------------------------ Searching Records ------------------------------
 //Search courses functionality
 function searchCourses()
