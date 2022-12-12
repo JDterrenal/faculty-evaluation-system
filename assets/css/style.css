@@ -623,6 +623,9 @@ input::-webkit-inner-spin-button {
   text-align: left;
   width: 40%;
   margin: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-quote{
