@@ -1333,18 +1333,6 @@ function evaluationCount()
     mysqli_close($conn);
 }
 
-//Feedback Count
-function feedbackCount()
-{
-    include 'connection.php';
-    global $count;
-    $sql = "SELECT feedback_id, question1, comment, rating, login_id FROM tb_feedback WHERE student_id = $student_id ORDER BY feedback_id";
-    $result = mysqli_query($conn, $sql);
-    $count = mysqli_num_rows($result);
-    echo "$count";
-    mysqli_close($conn);
-}
-
 //Course Count
 function courseCount()
 {
