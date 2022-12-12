@@ -28,7 +28,6 @@ $student_id = $_SESSION['login_id'];
 			<div class="container-main">
 				<div class="page-container"><h1><i class="fas fa-table" id="view-info"> Evaluations</i></h1>
 					<hr>
-					
 					<div class="main-content">
 						<div class="main-search-add">
 							<div class="main-search-add-top">
