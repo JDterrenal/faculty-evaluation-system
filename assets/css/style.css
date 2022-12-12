@@ -1257,6 +1257,21 @@ nav li:focus {
   padding: .3em;
 }
 
+.about-container{
+  width: 100%;
+  padding: 1em;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.about-panel{
+  width: 60%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  padding: .5em;
+}
+
 .question-container{
   padding: 1em;
   margin: 0 auto;
