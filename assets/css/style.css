@@ -1259,7 +1259,6 @@ nav li:focus {
 
 .about-container{
   width: 100%;
-  padding: 1em;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -1467,7 +1466,7 @@ footer {
 .credit-name{
   margin-left: 1em;
   font-size: 1.3em;
-  font-weight: 1000;
+  font-weight: 700;
 }
 
 .credit-role{
@@ -1955,5 +1954,10 @@ footer {
   .stats-container{
     width: 90%;
   }
+
+  .about-panel{
+    width: 100%;
+  }
+
 
 }
