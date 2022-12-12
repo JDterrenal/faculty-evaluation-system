@@ -26,7 +26,7 @@ $usertype = $_SESSION['usertype'];
 	<div class= "main-container">
 		<main>
 			<div class="container-main">
-				<div class="page-container"><h1><i class="fas fa-book"> Evaluation Status</i></h1>
+				<div class="page-container"><h1><i class="fas fa-calendar-check"> Evaluation Status</i></h1>
 					<hr>
 					<div class="edit-question">
 						<div class="form">

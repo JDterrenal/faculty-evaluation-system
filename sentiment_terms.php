@@ -27,7 +27,7 @@ $usertype = $_SESSION['usertype'];
         <main>
             <div class="container-main">
                 <div class="page-container">
-                    <h1><i class="fas fa-book"> Manage Sentiment Terms</i></h1>
+                    <h1><i class="fas fa-comment"> Manage Sentiment Terms</i></h1>
                     <hr>
                     <div class="form">
                         <form action="sentiment_terms.php" method="post">

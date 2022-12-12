@@ -27,7 +27,7 @@ enableDelete_students();
 		<main>
 			<div class="container-main">
 				<div class="page-container">
-					<h1><i class="fas fa-table" id="view-info"> Students</i></h1>
+					<h1><i class="fas fa-user" id="view-info"> Students</i></h1>
 					<hr>
 					<div class="user-info">
 						<div class="user-content">

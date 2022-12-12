@@ -26,7 +26,7 @@ preventBack();
 		<main>
 			<div class="container-main">
 				<div class="page-container">
-					<h1><i class="fas fa-book-open" id="view-info"> Accounts</i></h1>
+					<h1><i class="fas fa-users" id="view-info"> Accounts</i></h1>
 					<hr>
 					<div class="user-info">
 						<div class="user-content">
