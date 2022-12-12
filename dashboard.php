@@ -95,6 +95,7 @@ $usertype = $_SESSION['usertype'];
 							</div>
 						</div>
 					</div>
+					<?php adminDashboard() ?>
 				</div>
 			</div>
 		</main>

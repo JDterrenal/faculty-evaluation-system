@@ -183,6 +183,42 @@ function sidebarIdentify()
     }
 }
 
+//Show extra statistics in dashboard for admin
+function adminDashboard() {
+    if ($_SESSION['usertype'] == "Admin") {
+        include 'connection.php';
+        $sql_evaluation = "SELECT evaluation_id FROM tb_evaluation ORDER BY evaluation_id";
+        $result_evaluation = mysqli_query($conn, $sql_evaluation);
+        $count_evaluation = mysqli_num_rows($result_evaluation);
+        $sql_terms = "SELECT evaluation_id FROM tb_evaluation ORDER BY evaluation_id";
+        $result_terms = mysqli_query($conn, $sql_terms);
+        $count_terms = mysqli_num_rows($result_terms);
+        echo "
+        <div class='columns'>
+            <div class='col2'>
+                <div class='stat-cont'>
+                    <div class='col-left'>
+                        <h1>$count_evaluation</h1>
+                        <p class='stat'>Total Evaluations</p>
+                    </div>
+                    <div class='col-right'><i class='fas fa-user'></i></div>
+                </div>
+            </div>
+            <div class='col3'>
+                <div class='stat-cont'>
+                    <div class='col-left'>
+                        <h1>$count_terms</h1>
+                        <p class='stat'>Total Faculty</p>
+                    </div>
+                    <div class='col-right'><i class='fas fa-chalkboard-teacher'></i></div>
+                </div>
+            </div>
+        </div>
+        ";
+        mysqli_close($conn);
+    }
+}
+
 //------------------------------ Adding Records ------------------------------
 //Adds a new student in the record.
 function addStudent()
