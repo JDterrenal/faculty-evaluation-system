@@ -11,7 +11,7 @@ autoLogin();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Login | Faculty Evaluation System</title>
+    <title>Sign In | Faculty Evaluation System</title>
     <link rel="icon" type="image/png" href="/images/systems-plus-computer-college-logo.png">
 </head>
 
@@ -21,7 +21,7 @@ autoLogin();
             <div class="login-box">
                 <div class="login-content">
                     <div class="login-header">
-                        <h2>Login</h2>
+                        <h2>Sign In</h2>
                     </div>
                     <div class="login-items">
                         <label for="login_id">User ID</label>
@@ -33,10 +33,10 @@ autoLogin();
                         <?php login() ?>
                     </div>
                     <div class="login-items marg-b">
-                        <button type="submit" name="login" value="Login">Login</button>
+                        <button type="submit" name="login" value="Login">Sign In</button>
                     </div>
                     <div class="login-type">
-                        <label for="usertype">Login As</label>
+                        <label for="usertype">Sign In As</label>
                         <select name="usertype" id="usertype">
                             <option value="Student">Student</option>
                             <option value="Faculty">Faculty</option>
