@@ -99,6 +99,37 @@ $usertype = $_SESSION['usertype'];
     <!-------- popup logout ---------->
     <?php include './assets/php/popupLogout.php' ?>
 
+    <script>
+		// Loads the data and enables search functionality
+		$(document).ready(function() {
+			$("#search_records").keyup(function() {
+				const input = $(this).val();
+				$.ajax({
+					url: "./assets/php/searchAccount.php",
+					method: "POST",
+					data: {
+						input: input
+					},
+
+					success: function(data) {
+						$("#search_results").html(data);
+					}
+				});
+			});
+			const input = $(this).val();
+			$.ajax({
+				url: "./assets/php/searchAccount.php",
+				method: "POST",
+				data: {
+					input: input
+				},
+
+				success: function(data) {
+					$("#search_results").html(data);
+				}
+			});
+		});
+	</script>
     <script src="./assets/js/script.js"></script>
 </body>
 

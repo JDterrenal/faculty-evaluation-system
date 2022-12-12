@@ -28,8 +28,8 @@ $faculty_id = $_SESSION["login_id"];
 					<div class="user-info">
 						<div class="user-content">
 							<div class="user-info-title">
-									<p class="user-title"><i class="fas fa-user"></i> Faculty Information!</p>
-									<hr>
+								<p class="user-title"><i class="fas fa-user"></i> Faculty Information!</p>
+								<hr>
 							</div>
 						</div>
 						<div class="user-nfo-content">
