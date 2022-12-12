@@ -1105,16 +1105,12 @@ function facultyEvaluationReports($faculty_id)
 function showQuestions_ER($evaluation_id)
 {
     include 'connection.php';
-    $sql = "SELECT question_id, question FROM tb_questions ORDER BY question_id";
+    $sql = "SELECT question, question_id, answer FROM tb_feedback WHERE evaluation_id = $evaluation_id ORDER BY question_id";
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $primary_id = $row["question_id"];
         $question = $row["question"];
-        $sql_answer = "SELECT answer FROM tb_feedback WHERE question_id = $primary_id AND evaluation_id = $evaluation_id";
-        $result_answer = mysqli_query($conn, $sql_answer);
-        while ($row_answer = mysqli_fetch_array($result_answer, MYSQLI_ASSOC)) {
-            $answer = $row_answer["answer"];
-        }
+        $answer = $row["answer"];
         echo "
         <tr>
         <td>$primary_id</td>
