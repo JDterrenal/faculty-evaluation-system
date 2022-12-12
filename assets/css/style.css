@@ -1131,7 +1131,7 @@ nav li:focus {
 .stats-container{
   padding: 1em;
   margin: .5em;
-  width: 100%;
+  width: 50%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -1265,17 +1265,11 @@ nav li:focus {
   height: auto;
   max-height: 50em;
   margin: .5em;
-  width: 100%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .question-stats-container{
-  padding: 1em;
-  margin: 0 auto;
-  min-height: fit-content;
-  height: auto;
   display: flex;
-  background-color: #00ff00;
 }
 
 .sentiment-container{
@@ -1933,6 +1927,7 @@ footer {
 
   .stats-container{
     margin: 0%;
+    width: 90%;
   }
 
 }
