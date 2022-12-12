@@ -174,6 +174,7 @@ function sidebarIdentify()
         echo '
         <li><a href="dashboard.php"><i class="fas fa-desktop i"></i><span>Dashboard</span></a></li>
         <li><a href="student_profile.php"><i class="fas fa-user i"></i><span>Profile</span></a></li>
+        <li><a href="student_profile.php"><i class="fas fa-sign-out-alt i"></i><span>Logout</span></a></li>
         ';
     } else if ($_SESSION['usertype'] == 'Faculty') {
         echo '
