@@ -60,12 +60,12 @@ getSentiment($comment, $evaluation_id);
                                 </table>
                             </div>
                             <div class="stats-container">
-                            <p class="main-search-add-title"><i class="fas fa-search"></i> Status!</p>
-                            <table class='sentiment-table'>
-                                <tbody>
-                                    <?php showStatus($evaluation_id) ?>
-                                <tbody>
-                            </table>
+                                <p class="main-search-add-title"><i class="fas fa-search"></i> Status!</p>
+                                <table class='sentiment-table'>
+                                    <tbody>
+                                        <?php showStatus($evaluation_id) ?>
+                                    <tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
