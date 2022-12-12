@@ -1260,7 +1260,7 @@ nav li:focus {
 .question-container{
   padding: 1em;
   margin: 0 auto;
-  overflow-y: auto;
+  overflow-y: scroll;
   min-height: fit-content;
   height: auto;
   max-height: 50em;
@@ -1272,11 +1272,10 @@ nav li:focus {
 .question-stats-container{
   padding: 1em;
   margin: 0 auto;
-  overflow-y: auto;
   min-height: fit-content;
   height: auto;
-  max-height: 50em;
   display: flex;
+  background-color: #00ff00;
 }
 
 .sentiment-container{
@@ -1921,6 +1920,19 @@ footer {
   .container-table-words{
     height: 40em;
     overflow-y: auto;
+  }
+
+  .question-stats-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .question-container{
+    margin: 0%;
+  }
+
+  .stats-container{
+    margin: 0%;
   }
 
 }
