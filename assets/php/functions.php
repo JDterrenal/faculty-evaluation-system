@@ -391,9 +391,10 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
         $comment = mysqli_real_escape_string($conn, $_POST["comment"]);
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $question_id = $row["question_id"];
+            $question = $row["question"];
             $answer = $_POST["question$question_id"];
             //Submit individual answers for each question
-            $sql = "INSERT INTO tb_feedback (feedback_id, answer, date, question_id, student_id, faculty_id, subject_id, evaluation_id) VALUES (null, '$answer', CURDATE(), $question_id, $student_id, $faculty_id, $subject_id, 0)";
+            $sql = "INSERT INTO tb_feedback (feedback_id, answer, date, question, question_id, student_id, faculty_id, subject_id, evaluation_id) VALUES (null, '$answer', CURDATE(), $question, $question_id, $student_id, $faculty_id, $subject_id, 0)";
             if (mysqli_query($conn, $sql)) {
             } else {
                 evaluationValidationDelete($student_id, $faculty_id, $subject_id);
@@ -1128,7 +1129,7 @@ function showQuestions_ER($evaluation_id)
 function showStatus($evaluation_id)
 {
     include 'connection.php';
-    $sql = "SELECT rating_avg, date, schoolyear, semester FROM tb_evaluation WHERE evaluation_id = $evaluation_id";
+    $sql = "SELECT rating_avg, date, schoolyear, semester FROM tb_evaluations WHERE evaluation_id = $evaluation_id";
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $rating_avg = $row["rating_avg"];
