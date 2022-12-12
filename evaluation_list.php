@@ -1,5 +1,6 @@
 <?php
 include './assets/php/functions.php';
+include './assets/php/validationAdmin.php';
 preventBack();
 $section_id = $_SESSION["section_id"];
 $student_id = $_SESSION['login_id'];

@@ -1,5 +1,6 @@
 <?php
 include './assets/php/functions.php';
+include './assets/php/validationAdmin.php';
 preventBack();
 enableDelete_questions();
 ?>

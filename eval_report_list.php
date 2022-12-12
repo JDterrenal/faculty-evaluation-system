@@ -1,5 +1,6 @@
 <?php
 include './assets/php/functions.php';
+include './assets/php/validationAdmin.php';
 preventBack();
 $faculty_id = $_GET["faculty_id"];
 ?>
