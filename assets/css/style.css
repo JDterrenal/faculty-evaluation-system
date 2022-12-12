@@ -1270,7 +1270,6 @@ nav li:focus {
 
 .question-stats-container{
   display: flex;
-  background-color: #00ff00;
 }
 
 .sentiment-container{
@@ -1928,7 +1927,7 @@ footer {
 
   .stats-container{
     margin: 0%;
-    width: 100%;
+    width: 90%;
   }
 
 }
