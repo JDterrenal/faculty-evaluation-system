@@ -22,6 +22,7 @@ getSentiment($comment, $evaluation_id);
     <link rel="icon" type="image/png" href="/images/systems-plus-computer-college-logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -67,6 +68,7 @@ getSentiment($comment, $evaluation_id);
                                         <?php showStatus($evaluation_id) ?>
                                     <tbody>
                                 </table>
+                                <canvas id="questionChart" width="100%" height="35rem"></canvas>
                             </div>
                         </div>
                     </div>
@@ -91,6 +93,27 @@ getSentiment($comment, $evaluation_id);
     <!-------- popup logout ---------->
     <?php include './assets/php/popupLogout.php' ?>
 
+    <script>
+        // Use ajax to retrieve the data from the PHP script
+        const url = new URL(document.URL);
+        const eval_id = url.searchParams.get("evaluation_id");
+        $.ajax({
+            url: './assets/php/questionData.php?evaluation_id=' + eval_id + '',
+            dataType: 'json',
+            success: function(response) {
+                const chart = new Chart(document.getElementById('questionChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: response.data.labels,
+                        datasets: [{
+                            label: 'Answers',
+                            data: response.data.answers
+                        }]
+                    }
+                });
+            }
+        });
+    </script>
     <script src="./assets/js/script.js"></script>
 </body>
 
