@@ -375,19 +375,22 @@ input[type=file]::file-selector-button:hover {
 
 
 /* ========== login form =========*/
+
+
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background-image: linear-gradient(to bottom right, #ffffff, #e9e9e9);
+  padding: 1em;
 }
 
 .login-box {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 0.3rem;
   width: 100%;
-  max-width: 24rem;
+  max-width: 35rem;
   margin: 1rem;
   background-color: #FFF;
 }
@@ -612,11 +615,34 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
 }
 
+.login-left{
+  width: 40%;
+  margin: 1.5em;
+}
+
+.login-right{
+  text-align: left;
+  width: 40%;
+  margin: 1.5em;
+}
+
+.login-quote{
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-top: -2em;
+}
+
 .sidebar-name1 {
-  font-weight: 1000;
+  font-weight: 400;
   font-size: 1.4rem;
   margin-right: 1rem;
   margin-left: 1.5rem;
+}
+
+.login-title{
+  font-weight: 1000;
+  font-size: 4rem;
+  margin-right: 1rem;
 }
 
 .popup-name {
@@ -1960,6 +1986,13 @@ footer {
   }
 
   .about-panel{
+    width: 100%;
+  }
+
+  .login-left{
+    display: none;
+  }
+  .login-right{
     width: 100%;
   }
 
