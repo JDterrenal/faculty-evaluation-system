@@ -9,7 +9,7 @@ $student_id = $_SESSION["login_id"];
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile | Faculty Evaluation</title>
-  <link rel="icon" href="images/logo.png" type="image/x-icon" />
+  <link rel="icon" type="image/png" href="/images/systems-plus-computer-college-logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
   <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>

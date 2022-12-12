@@ -9,6 +9,7 @@ enableDelete_courses();
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Courses | Faculty Evaluation</title>
+  <link rel="icon" type="image/png" href="/images/systems-plus-computer-college-logo.png">
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="icon" href="images/logo.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
