@@ -32,25 +32,25 @@ $usertype = $_SESSION['usertype'];
 					<hr>
 					<div class="about-container">
                         <div class="about-panel">
-                            <div class="credit1">
-                                <p class="credit-name">Clifford Chand</p>
-                                <p class="credit-role">di ko alam</p>
+							<div class="credit1">
+                                <p class="credit-name">Erick Uriel Bartolome</p>
+                                <p class="credit-role">Assistant Developer</p>
                             </div>
                             <div class="credit1">
-                                <p class="credit-name">Erick Uriel Bartolome</p>
-                                <p class="credit-role">di ko alam</p>
+                                <p class="credit-name">Clifford Randall Chan</p>
+                                <p class="credit-role">Assistant Personel</p>
                             </div>
                             <div class="credit1">
                                 <p class="credit-name">Alexander Macenas</p>
-                                <p class="credit-role">di ko alam</p>
+                                <p class="credit-role">Database Architect</p>
                             </div>
                             <div class="credit1">
                                 <p class="credit-name">Jan Reynald Pangilinan</p>
-                                <p class="credit-role">di ko alam</p>
+                                <p class="credit-role">Back-end Developer</p>
                             </div>
                             <div class="credit1">
                                 <p class="credit-name">John Derick Terrenal</p>
-                                <p class="credit-role">di ko alam</p>
+                                <p class="credit-role">Front-end Developer</p>
                             </div>
                         </div>
                     </div>
