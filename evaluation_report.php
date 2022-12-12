@@ -55,37 +55,17 @@ getSentiment($comment, $evaluation_id);
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php showQuestions_ER($evaluation_id); ?>
+                                        <?php showQuestions_ER($evaluation_id) ?>
                                     </tbody>
                                 </table>
                             </div>
-
                             <div class="stats-container">
                                 <p class="main-search-add-title"><i class="fas fa-search"></i> Status!</p>
-                                    <table class='sentiment-table'>
-                                        <tbody>
-                                            <tr>
-                                                <th>Average</th>
-                                                <td data-label='Average'>qwe</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Rating</th>
-                                                <td data-label='Rating'>qwe</td>
-                                            </tr>
-                                            <tr>
-                                                <th>School Yr.</th>
-                                                <td data-label='School Yr.'>qwe</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Semester</th>
-                                                <td data-label='Semester'>qwe</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Date</th>
-                                                <td data-label='Date'>qwe</td>
-                                            </tr>
-                                        <tbody>
-                                    </table>
+                                <table class='sentiment-table'>
+                                    <tbody>
+                                        <?php showStatus($evaluation_id) ?>
+                                    <tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -96,7 +76,7 @@ getSentiment($comment, $evaluation_id);
                                 <hr>
                             </div>
                         </div>
-                        <?php printSentiment($evaluation_id); ?>
+                        <?php printSentiment($evaluation_id) ?>
                     </div>
                 </div>
             </div>
