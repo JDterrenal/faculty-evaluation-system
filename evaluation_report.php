@@ -1,5 +1,6 @@
 <?php
 include './assets/php/functions.php';
+include './assets/php/validationAdmin.php';
 include './assets/php/connection.php';
 preventBack();
 $evaluation_id = $_GET["evaluation_id"];

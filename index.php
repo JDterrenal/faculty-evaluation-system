@@ -36,7 +36,7 @@ autoLogin();
                         <button type="submit" name="login" value="Login">Sign In</button>
                     </div>
                     <div class="login-type">
-                        <label for="usertype">Sign In As</label>
+                        <label for="usertype">Sign In as</label>
                         <select name="usertype" id="usertype">
                             <option value="Student">Student</option>
                             <option value="Faculty">Faculty</option>
