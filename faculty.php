@@ -110,7 +110,6 @@ enableDelete_faculty();
 	<?php include './assets/php/popupLogout.php' ?>
 
 	<!--------popup add ------------>
-
 	<form action="faculty.php" method="post" enctype="multipart/form-data">
 		<div class="popup-background" id="popup-background">
 			<div class="popup-users">
