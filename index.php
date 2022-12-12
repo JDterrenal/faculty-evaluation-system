@@ -12,6 +12,7 @@ autoLogin();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Login | Faculty Evaluation System</title>
+    <link rel="icon" type="image/png" href="/images/systems-plus-computer-college-logo.png">
 </head>
 
 <body>

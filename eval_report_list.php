@@ -9,7 +9,7 @@ $faculty_id = $_GET["faculty_id"];
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Evaluations | Faculty Evaluation</title>
-  <link rel="icon" href="images/logo.png" type="image/x-icon" />
+  <link rel="icon" type="image/png" href="/images/systems-plus-computer-college-logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -26,7 +26,6 @@ $faculty_id = $_GET["faculty_id"];
 			<div class="container-main">
 				<div class="page-container"><h1><i class="fas fa-table" id="view-info"> Evaluations</i></h1>
 					<hr>
-					
 					<div class="main-content">
 						<div class="main-search-add">
 							<div class="main-search-add-top">
