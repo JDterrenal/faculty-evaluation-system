@@ -42,11 +42,6 @@ $usertype = $_SESSION['usertype'];
                             <div class="credit1">
                                 <p class="credit-name">Clifford Randall Chan</p>
                                 <p class="credit-role">Assistant Personel</p>
-							</div>
-							
-                            <div class="credit1">
-                                <p class="credit-name">Clifford Randall Chan</p>
-                                <p class="credit-role">Assistant Personel</p>
                             </div>
                             <div class="credit1">
                                 <p class="credit-name">Alexander Macenas</p>
