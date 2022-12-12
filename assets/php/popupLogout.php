@@ -6,6 +6,6 @@
     </div>
     <div class="popup-logout-last">
         <a href="./assets/php/directProfile.php" class="popup-profile-button">Profile</a>
-        <a href="?logout=true" class="popup-profile-logout">Sign out</a>
+        <a href="?logout=true" class="popup-profile-logout">Sign Out</a>
     </div>
 </div>
