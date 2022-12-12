@@ -1991,8 +1991,19 @@ footer {
 
   .login-left{
     display: none;
+    margin: 0;
   }
   .login-right{
+    width: 90%;
+    margin: 0%;
+  }
+
+  .login-container {
+    padding: 0%;
+  }
+
+  .login-box{
+    margin: 0;
     width: 100%;
   }
 

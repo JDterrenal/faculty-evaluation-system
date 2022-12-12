@@ -19,7 +19,7 @@ autoLogin();
     <form action=index.php method=post>
         <div class="login-container">
             <div class="login-left">
-                <p class="login-title">Harvard College</p>
+                <p class="login-title">Harvard Caloocan</p>
                 <p class="login-quote">Education is the passport to the future, for tomorrow belongs to those who prepare for it today</p>
             </div>
 
