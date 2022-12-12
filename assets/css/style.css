@@ -1921,12 +1921,7 @@ footer {
     flex-direction: column;
   }
 
-  .question-container{
-    margin: 0%;
-  }
-
   .stats-container{
-    margin: 0%;
     width: 90%;
   }
 
