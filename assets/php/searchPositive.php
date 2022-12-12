@@ -27,6 +27,7 @@ if(isset($_POST['input'])) {
     if (($count) == 0) {
         echo "
         <tr>
+        <td></td>
         <td colspan='2'>There are no records.</td>
         </tr>
         ";
