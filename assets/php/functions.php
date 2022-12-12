@@ -1128,7 +1128,7 @@ function showQuestions_ER($evaluation_id)
 function showStatus($evaluation_id)
 {
     include 'connection.php';
-    $sql = "SELECT rating_avg, date, schoolyear, semester FROM tb_evaluation WHERE evaluation_id = $evaluation_id";
+    $sql = "SELECT rating_avg, date, schoolyear, semester FROM tb_evaluations WHERE evaluation_id = $evaluation_id";
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $rating_avg = $row["rating_avg"];
