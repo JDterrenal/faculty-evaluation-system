@@ -1128,6 +1128,13 @@ nav li:focus {
   margin: .5em;
 }
 
+.stats-container{
+  padding: 1em;
+  margin: .5em;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
 .container-sentiment-table{
   margin: 0 auto;
 }
@@ -1257,6 +1264,19 @@ nav li:focus {
   min-height: fit-content;
   height: auto;
   max-height: 50em;
+  margin: .5em;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.question-stats-container{
+  padding: 1em;
+  margin: 0 auto;
+  overflow-y: auto;
+  min-height: fit-content;
+  height: auto;
+  max-height: 50em;
+  display: flex;
 }
 
 .sentiment-container{
