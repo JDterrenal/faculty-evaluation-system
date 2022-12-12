@@ -1,9 +1,8 @@
 # Faculty Evaluation System
 
 ## Description
-Faculty Evaluation System is our final project for Systems
-
-Integration and Architecture and the project is completely open source.
+Faculty Evaluation System is our final project for Systems Integration and Architecture.
+The project is completely open source here in GitHub.
 
 ## Development Team
 - **Bartolome, Erick Uriel** - Assistant Developer Chan
