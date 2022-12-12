@@ -432,7 +432,7 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
         $comment = mysqli_real_escape_string($conn, $_POST["comment"]);
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $question_id = $row["question_id"];
-            $question = $row["question"];
+            $question = mysqli_real_escape_string($conn, $row["question"]);
             $answer = $_POST["question$question_id"];
             //Submit individual answers for each question
             $sql = "INSERT INTO tb_feedback (feedback_id, answer, date, question, question_id, student_id, faculty_id, subject_id, evaluation_id) VALUES (null, '$answer', CURDATE(), $question, $question_id, $student_id, $faculty_id, $subject_id, 0)";
