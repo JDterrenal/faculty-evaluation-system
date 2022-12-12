@@ -41,7 +41,7 @@ $usertype = $_SESSION['usertype'];
                             </div>
                             <div class="credit1">
                                 <p class="credit-name">Clifford Randall Chan</p>
-                                <p class="credit-role">Assistant Personel</p>
+                                <p class="credit-role">Assistant Personnel</p>
                             </div>
                             <div class="credit1">
                                 <p class="credit-name">Alexander Macenas</p>
