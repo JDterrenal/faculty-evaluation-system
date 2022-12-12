@@ -44,7 +44,10 @@ $usertype = $_SESSION['usertype'];
                             </div>
                         </form>
                     </div>
-                    <input type="text" id="search_records" placeholder="Search" class="main-search">
+                    <div class="main-search1">
+						<a><i class="fas fa-search"></i></a>
+                        <input type="text" id="search_records" placeholder="Search" class="main-search">
+                    </div>
                     <div class="sentiment-container">
                         <div class="container-table-words">
                             <table class="table-words">
