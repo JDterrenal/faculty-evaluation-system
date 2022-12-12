@@ -187,10 +187,10 @@ function sidebarIdentify()
 function adminDashboard() {
     if ($_SESSION['usertype'] == "Admin") {
         include 'connection.php';
-        $sql_evaluation = "SELECT evaluation_id FROM tb_evaluation ORDER BY evaluation_id";
+        $sql_evaluation = "SELECT evaluation_id FROM tb_evaluations ORDER BY evaluation_id";
         $result_evaluation = mysqli_query($conn, $sql_evaluation);
         $count_evaluation = mysqli_num_rows($result_evaluation);
-        $sql_terms = "SELECT evaluation_id FROM tb_evaluation ORDER BY evaluation_id";
+        $sql_terms = "SELECT term_id FROM tb_terms ORDER BY term_id";
         $result_terms = mysqli_query($conn, $sql_terms);
         $count_terms = mysqli_num_rows($result_terms);
         echo "
