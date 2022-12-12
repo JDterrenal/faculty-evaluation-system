@@ -1794,8 +1794,8 @@ function showFacultyProfile($faculty_id)
                 <td data-label='Address'>$address</td>
             </tr>
             <tr>
-                <th>Address</th>
-                <td data-label='Statistics'><a class='add-main' id='add-button'>Add Faculty</a></td>
+                <th>Statistics</th>
+                <td data-label='Statistics'><a class='add-main' id='add-button'>View Statistics</a></td>
             </tr>
         <tbody>
         ";
@@ -1810,7 +1810,7 @@ function showFacultyStatistics($faculty_id) {
     while ($row = mysqli_fetch_array($result_avg, MYSQLI_ASSOC)) {
         $evaluation_id = $row["evaluation_id"];
         $rating_avg = $row["overall_rating"];
-        $sql_sentiment = "SELECT positive_count, negative_count, sentiment_score FROM tb_evaluations WHERE evaluation_id = $evaluation_id";
+        $sql_sentiment = "SELECT positive_count, negative_count, sentiment_score FROM tb_sentiment WHERE evaluation_id = $evaluation_id";
         $result_sentiment = mysqli_query($conn, $sql_sentiment);
         while ($row = mysqli_fetch_array($result_sentiment, MYSQLI_ASSOC)) {
             $positive_count = $row["positive_count"];
