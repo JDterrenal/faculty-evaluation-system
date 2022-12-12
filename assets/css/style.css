@@ -1259,7 +1259,6 @@ nav li:focus {
 
 .about-container{
   width: 100%;
-  padding: 1em;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -1954,6 +1953,10 @@ footer {
 
   .stats-container{
     width: 90%;
+  }
+
+  .about-container{
+    width: 100%;
   }
 
 }
