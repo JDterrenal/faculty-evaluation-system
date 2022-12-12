@@ -44,6 +44,7 @@ $usertype = $_SESSION['usertype'];
                             </div>
                         </form>
                     </div>
+                    <input type="text" id="search_records" placeholder="Search" class="main-search">
                     <div class="sentiment-container">
                         <div class="container-table-words">
                             <table class="table-words">
@@ -53,12 +54,10 @@ $usertype = $_SESSION['usertype'];
                                         <th>Operation</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <?php displayPositive() ?>
+                                <tbody id="positive_results">
                                 </tbody>
                             </table>
                         </div>
-
                         <div class="container-table-words">
                             <table class="table-words">
                                 <thead>
@@ -67,12 +66,10 @@ $usertype = $_SESSION['usertype'];
                                         <th>Operation</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <?php displayNegative() ?>
+                                <tbody id="negative_results">
                                 </tbody>
                             </table>
                         </div>
-
                         <div class="container-table-words">
                             <table class="table-words">
                                 <thead>
@@ -81,8 +78,7 @@ $usertype = $_SESSION['usertype'];
                                         <th>Operation</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <?php displayNeutral() ?>
+                                <tbody id="neutral_results">
                                 </tbody>
                             </table>
                         </div>
@@ -100,36 +96,80 @@ $usertype = $_SESSION['usertype'];
     <?php include './assets/php/popupLogout.php' ?>
 
     <script>
-		// Loads the data and enables search functionality
-		$(document).ready(function() {
-			$("#search_records").keyup(function() {
-				const input = $(this).val();
-				$.ajax({
-					url: "./assets/php/searchAccount.php",
-					method: "POST",
-					data: {
-						input: input
-					},
+        // Loads the data and enables search functionality
+        $(document).ready(function() {
+            $("#search_records").keyup(function() {
+                const input = $(this).val();
+                $.ajax({
+                    url: "./assets/php/searchPositive.php",
+                    method: "POST",
+                    data: {
+                        input: input
+                    },
 
-					success: function(data) {
-						$("#search_results").html(data);
-					}
-				});
-			});
-			const input = $(this).val();
-			$.ajax({
-				url: "./assets/php/searchAccount.php",
-				method: "POST",
-				data: {
-					input: input
-				},
+                    success: function(data) {
+                        $("#positive_results").html(data);
+                    }
+                });
+                $.ajax({
+                    url: "./assets/php/searchNegative.php",
+                    method: "POST",
+                    data: {
+                        input: input
+                    },
 
-				success: function(data) {
-					$("#search_results").html(data);
-				}
-			});
-		});
-	</script>
+                    success: function(data) {
+                        $("#negative_results").html(data);
+                    }
+                });
+                $.ajax({
+                    url: "./assets/php/searchNeutral.php",
+                    method: "POST",
+                    data: {
+                        input: input
+                    },
+
+                    success: function(data) {
+                        $("#neutral_results").html(data);
+                    }
+                });
+            });
+            const input = $(this).val();
+            $.ajax({
+                url: "./assets/php/searchPositive.php",
+                method: "POST",
+                data: {
+                    input: input
+                },
+
+                success: function(data) {
+                    $("#positive_results").html(data);
+                }
+            });
+            $.ajax({
+                url: "./assets/php/searchNegative.php",
+                method: "POST",
+                data: {
+                    input: input
+                },
+
+                success: function(data) {
+                    $("#negative_results").html(data);
+                }
+            });
+            $.ajax({
+                url: "./assets/php/searchNeutral.php",
+                method: "POST",
+                data: {
+                    input: input
+                },
+
+                success: function(data) {
+                    $("#neutral_results").html(data);
+                }
+            });
+        });
+    </script>
     <script src="./assets/js/script.js"></script>
 </body>
 
