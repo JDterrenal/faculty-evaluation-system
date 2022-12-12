@@ -1269,8 +1269,6 @@ nav li:focus {
 }
 
 .question-stats-container{
-  padding: 1em;
-  margin: .5em;
   display: flex;
 }
 
@@ -1923,12 +1921,7 @@ footer {
     flex-direction: column;
   }
 
-  .question-container{
-    margin: 0%;
-  }
-
   .stats-container{
-    margin: 0%;
     width: 90%;
   }
 
