@@ -169,16 +169,21 @@ function sidebarIdentify()
         <li><a href="accounts.php"><i class="fas fa-users i"></i><span>Accounts</span></a></li>
         <li><a href="evaluation_status.php"><i class="fas fa-calendar-check i"></i><span>Evaluations</span></a></li>
         <li><a href="sentiment_terms.php"><i class="fas fa-comment i"></i><span>Sentiment Terms</span></a></li>
+        <li><a href="?logout=true"><i class="fas fa-sign-out i"></i><span>Sign Out</span></a></li>
         ';
     } else if ($_SESSION['usertype'] == 'Student') {
         echo '
         <li><a href="dashboard.php"><i class="fas fa-desktop i"></i><span>Dashboard</span></a></li>
         <li><a href="student_profile.php"><i class="fas fa-user i"></i><span>Profile</span></a></li>
+        <li><a href="about.php"><i class="fas fa-info-circle i"></i><span>About</span></a></li>
+        <li><a href="?logout=true"><i class="fas fa-sign-out i"></i><span>Sign Out</span></a></li>
         ';
     } else if ($_SESSION['usertype'] == 'Faculty') {
         echo '
         <li><a href="dashboard.php"><i class="fas fa-desktop i"></i><span>Dashboard</span></a></li>
         <li><a href="faculty_profile.php"><i class="fas fa-user i"></i><span>Profile</span></a></li>
+        <li><a href="about.php"><i class="fas fa-info-circle i"></i><span>About</span></a></li>
+        <li><a href="?logout=true"><i class="fas fa-sign-out i"></i><span>Sign Out</span></a></li>
         ';
     }
 }
