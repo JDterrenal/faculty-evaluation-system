@@ -1793,7 +1793,79 @@ function showFacultyProfile($faculty_id)
                 <th>Address</th>
                 <td data-label='Address'>$address</td>
             </tr>
+            <tr>
+                <th>Address</th>
+                <td data-label='Statistics'><a class='add-main' id='add-button'>Add Faculty</a></td>
+            </tr>
         <tbody>
+        ";
+    }
+    mysqli_close($conn);
+}
+
+function showFacultyStatistics($faculty_id) {
+    include 'connection.php';
+    $sql_avg = "SELECT evaluation_id, ROUND(AVG(rating_avg),1) AS overall_rating FROM tb_evaluations WHERE faculty_id = $faculty_id";
+    $result_avg = mysqli_query($conn, $sql_avg);
+    while ($row = mysqli_fetch_array($result_avg, MYSQLI_ASSOC)) {
+        $evaluation_id = $row["evaluation_id"];
+        $rating_avg = $row["overall_rating"];
+        $sql_sentiment = "SELECT positive_count, negative_count, sentiment_score FROM tb_evaluations WHERE evaluation_id = $evaluation_id";
+        $result_sentiment = mysqli_query($conn, $sql_sentiment);
+        while ($row = mysqli_fetch_array($result_sentiment, MYSQLI_ASSOC)) {
+            $positive_count = $row["positive_count"];
+            $negative_count = $row["negative_count"];
+            $sentiment_score = $row["sentiment_score"];
+        }
+        // Calculate the overall rating
+        if ($rating_avg == 5) {
+            $rating = "Perfect";
+        }
+        else if ($rating_avg < 5 && $rating_avg >= 4) {
+            $rating = "Very Good";
+        }
+        else if ($rating_avg <= 3.9 && $rating_avg > 3) {
+            $rating = "Good";
+        }
+        else if ($rating_avg <= 2.9 && $rating_avg > 2) {
+            $rating = "Bad";
+        }
+        else if ($rating_avg <= 1.9 && $rating_avg >= 1) {
+            $rating = "Very Bad";
+        }
+        // Calculate the overall sentiment
+        if ($positive_count > $negative_count) {
+            $analysis = "Positive";
+        } else if ($positive_count < $negative_count) {
+            $analysis = "Negative";
+        } else {
+            $analysis = "Neutral";
+        }
+        echo "
+        <tr>
+            <th>Average</th>
+            <td data-label='Average'>$rating_avg</td>
+        </tr>
+        <tr>
+            <th>Rating</th>
+            <td data-label='Rating'>$rating</td>
+        </tr>
+        <tr>
+            <th>Positive</th>
+            <td data-label='Positive'>$positive_count</td>
+        </tr>
+        <tr>
+            <th>Negative</th>
+            <td data-label='Negative'>$negative_count</td>
+        </tr>
+        <tr>
+            <th>Sentiment Score</th>
+            <td data-label='Sentiment Score'>$sentiment_score</td>
+        </tr>
+        <tr>
+            <th>Overall Sentiment</th>
+            <td data-label='Overall Sentiment'>$analysis</td>
+        </tr>
         ";
     }
     mysqli_close($conn);
