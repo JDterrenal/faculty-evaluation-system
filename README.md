@@ -6,7 +6,7 @@ The project is completely open source here in GitHub.
 
 ## Development Team
 - **Bartolome, Erick Uriel** - Assistant Developer Chan
-- **Clifford Randall** - Assistant Personnel Macenas
+- **Clifford Randall** - Assistant Personnel
 - **Macenas, Alexander** - Database Architect
 - **Pangilinan, Jan Reynald** - Backend Developer
 - **Terrenal, John Derick** - Frontend Developer
