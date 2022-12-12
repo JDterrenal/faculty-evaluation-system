@@ -6,6 +6,11 @@ body {
   font-family: arial;
 }
 
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
 h1,
 h2 {
   margin: 0;
@@ -1082,7 +1087,7 @@ nav li:focus {
 
 .main-add {
   margin: 1.5em 3.5em;
-
+  display: inline-block;
 }
 
 .add-main {
