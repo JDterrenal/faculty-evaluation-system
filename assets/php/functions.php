@@ -208,7 +208,7 @@ function adminDashboard() {
                 <div class='stat-cont'>
                     <div class='col-left'>
                         <h1>$count_terms</h1>
-                        <p class='stat'>Total Faculty</p>
+                        <p class='stat'>Total Terminologies</p>
                     </div>
                     <div class='col-right'><i class='fas fa-chalkboard-teacher'></i></div>
                 </div>
