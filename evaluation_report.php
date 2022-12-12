@@ -68,7 +68,7 @@ getSentiment($comment, $evaluation_id);
                                         <?php showStatus($evaluation_id) ?>
                                     <tbody>
                                 </table>
-                                <canvas id="questionChart" width="100%" height="35rem"></canvas>
+                                <canvas id="questionChart" width="100%" height="40rem"></canvas>
                             </div>
                         </div>
                     </div>
