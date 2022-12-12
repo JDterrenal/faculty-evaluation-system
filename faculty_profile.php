@@ -79,15 +79,15 @@ $faculty_id = $_SESSION["login_id"];
 	<!-------- popup logout ---------->
 	<?php include './assets/php/popupLogout.php' ?>
 
-	<!-------- sentiment ---------->
+	<!-------- sentiment statistics ---------->
 	<form action="faculty.php" method="post" enctype="multipart/form-data">
 		<div class="popup-background" id="popup-background">
-			<div class="popup-users">
+			<div class="popup-add">
 				<div class="popup-add-top">
 					<p class="popup-add-title"><i class="fas fa-plus"></i> Statistics</p>
 					<i class="fas fa-times ex" id="ex-add"></i>
 				</div>
-				<div class="popup-users-middle">
+				<div class="popup-add-middle">
 					<table class='sentiment-table'>
 						<tbody>
 							<?php showFacultyStatistics($faculty_id) ?>
