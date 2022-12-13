@@ -1444,7 +1444,6 @@ function printSentiment($evaluation_id)
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $comment = $row["comment"];
-        $date = $row["date"];
         $sql_sentiment = "SELECT positive_count, negative_count, sentiment_score, analysis FROM tb_sentiment WHERE evaluation_id = $evaluation_id";
         $result_sentiment = mysqli_query($conn, $sql_sentiment);
         while ($row = mysqli_fetch_array($result_sentiment, MYSQLI_ASSOC)) {
@@ -1805,17 +1804,22 @@ function showFacultyProfile($faculty_id)
 
 function showFacultyStatistics($faculty_id) {
     include 'connection.php';
-    $sql_avg = "SELECT evaluation_id, ROUND(AVG(rating_avg),1) AS overall_rating FROM tb_evaluations WHERE faculty_id = $faculty_id";
+    $sql_avg = "SELECT ROUND(AVG(rating_avg),1) AS overall_rating FROM tb_evaluations WHERE faculty_id = $faculty_id";
     $result_avg = mysqli_query($conn, $sql_avg);
     while ($row = mysqli_fetch_array($result_avg, MYSQLI_ASSOC)) {
-        $evaluation_id = $row["evaluation_id"];
         $rating_avg = $row["overall_rating"];
-        $sql_sentiment = "SELECT positive_count, negative_count, sentiment_score FROM tb_sentiment WHERE evaluation_id = $evaluation_id";
+        $sql_sentiment =
+        "SELECT SUM(positive_count) AS positive_sum,
+        SUM(negative_count) AS negative_sum,
+        SUM(sentiment_score) AS sentiment_sum
+        FROM tb_sentiment INNER JOIN tb_evaluations
+        ON tb_sentiment.evaluation_id = tb_evaluations.evaluation_id
+        WHERE tb_evaluations.faculty_id = $faculty_id";
         $result_sentiment = mysqli_query($conn, $sql_sentiment);
         while ($row = mysqli_fetch_array($result_sentiment, MYSQLI_ASSOC)) {
-            $positive_count = $row["positive_count"];
-            $negative_count = $row["negative_count"];
-            $sentiment_score = $row["sentiment_score"];
+            $positive_count = $row["positive_sum"];
+            $negative_count = $row["negative_sum"];
+            $sentiment_score = $row["sentiment_sum"];
         }
         // Calculate the overall rating
         if ($rating_avg == 5) {
