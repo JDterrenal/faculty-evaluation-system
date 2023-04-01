@@ -189,7 +189,8 @@ function sidebarIdentify()
 }
 
 //Show extra statistics in dashboard for admin
-function adminDashboard() {
+function adminDashboard()
+{
     if ($_SESSION['usertype'] == "Admin") {
         include 'connection.php';
         $sql_evaluation = "SELECT evaluation_id FROM tb_evaluations ORDER BY evaluation_id";
@@ -240,7 +241,7 @@ function addStudent()
         $status = $_POST['status'];
         $course = $_POST['course_id'];
         $section = $_POST['section_id'];
-        
+
         if ($_FILES['photo'] == UPLOAD_ERR_NO_FILE) {
             $photo = 'standard.png';
         } else {
@@ -257,12 +258,15 @@ function addStudent()
             }
             $sql3 = "INSERT INTO tb_login (login_id, student_id, faculty_id, password, usertype) VALUES (null, $sid_value, null, '$lastname$contact_no', 'Student')";
             if (mysqli_query($conn, $sql3)) {
-                ?><script src="/assets/js/addAlert.js"></script><?php
+?><script src="/assets/js/addAlert.js"></script>
+            <?php
             } else {
-                ?><script src="/assets/js/errorAlert.js"></script><?php
+            ?><script src="/assets/js/errorAlert.js"></script>
+            <?php
             }
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+            ?><script src="/assets/js/errorAlert.js"></script>
+            <?php
         }
         mysqli_close($conn);
     }
@@ -296,12 +300,15 @@ function addFaculty()
             }
             $sql3 = "INSERT INTO tb_login (login_id, student_id, faculty_id, password, usertype) VALUES (null, null, $fid_value, '$lastname$contact_no', 'Faculty')";
             if (mysqli_query($conn, $sql3)) {
-                ?><script src="/assets/js/addAlert.js"></script><?php
+            ?><script src="/assets/js/addAlert.js"></script>
+            <?php
             } else {
-                ?><script src="/assets/js/errorAlert.js"></script><?php
+            ?><script src="/assets/js/errorAlert.js"></script>
+            <?php
             }
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+            ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         mysqli_close($conn);
     }
@@ -317,9 +324,11 @@ function addCourse()
         //Add Course
         $sql = "INSERT INTO tb_courses (course_id, course_name) VALUES (null, '$course_name')";
         if (mysqli_query($conn, $sql)) {
-            ?><script src="/assets/js/addAlert.js"></script><?php
+        ?><script src="/assets/js/addAlert.js"></script>
+        <?php
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         mysqli_close($conn);
     }
@@ -337,9 +346,11 @@ function addSubject()
         //Add Subject
         $sql = "INSERT INTO tb_subjects (subject_id, subject_code, subject_name, units) VALUES (null, '$subject_code', '$subject_name', '$units')";
         if (mysqli_query($conn, $sql)) {
-            ?><script src="/assets/js/addAlert.js"></script><?php
+        ?><script src="/assets/js/addAlert.js"></script>
+        <?php
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         mysqli_close($conn);
     }
@@ -355,9 +366,11 @@ function addSection()
         //Add Section
         $sql = "INSERT INTO tb_sections (section_id, section_name) VALUES (null, '$section_name')";
         if (mysqli_query($conn, $sql)) {
-            ?><script src="/assets/js/addAlert.js"></script><?php
+        ?><script src="/assets/js/addAlert.js"></script>
+        <?php
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         mysqli_close($conn);
     }
@@ -381,9 +394,11 @@ function addSecrel()
         //Add Subject to Sections
         $sql = "INSERT INTO tb_sections_relation (secrel_id, section_id, subject_id, faculty_id) VALUES (null, $section_id, $subject_id, $faculty_id)";
         if (mysqli_query($conn, $sql)) {
-            ?><script src="/assets/js/addAlert.js"></script><?php
+        ?><script src="/assets/js/addAlert.js"></script>
+        <?php
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         mysqli_close($conn);
     }
@@ -399,25 +414,30 @@ function addQuestion()
         //Add Subject
         $sql = "INSERT INTO tb_questions (question_id, question) VALUES (null, '$question')";
         if (mysqli_query($conn, $sql)) {
-            ?><script src="/assets/js/addAlert.js"></script><?php
+        ?><script src="/assets/js/addAlert.js"></script>
+        <?php
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         mysqli_close($conn);
     }
 }
 
-function evaluationValidationDelete($student_id, $faculty_id, $subject_id) {
+function evaluationValidationDelete($student_id, $faculty_id, $subject_id)
+{
     include 'connection.php';
     $del = "DELETE FROM tb_feedback WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id AND date = CURDATE()";
     if (mysqli_query($conn, $del)) {
     } else {
-        ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+    <?php
     }
     $del2 = "DELETE FROM tb_evaluation WHERE student_id = $student_id AND faculty_id = $faculty_id AND subject_id = $subject_id AND date = CURDATE()";
     if (mysqli_query($conn, $del2)) {
     } else {
-        ?><script src="/assets/js/errorAlert.js"></script><?php
+    ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
     }
     mysqli_close($conn);
 }
@@ -439,7 +459,8 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
             if (mysqli_query($conn, $sql)) {
             } else {
                 evaluationValidationDelete($student_id, $faculty_id, $subject_id);
-                ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+                <?php
             }
         }
         //Fetch current school year and semester
@@ -472,18 +493,22 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
                 $sql_sentiment = "INSERT INTO tb_sentiment (positive_count, negative_count, sentiment_score, analysis, evaluation_id) VALUES (0, 0, 0, 'Neutral', $evaluation_id)";
                 if (mysqli_query($conn, $sql_sentiment)) {
                     getSentiment($comment, $evaluation_id);
-                    ?><script src="/assets/js/evaluationSuccess.js"></script><?php
+                ?><script src="/assets/js/evaluationSuccess.js"></script>
+                <?php
                 } else {
                     evaluationValidationDelete($student_id, $faculty_id, $subject_id);
-                    ?><script src="/assets/js/errorAlert.js"></script><?php
+                ?><script src="/assets/js/errorAlert.js"></script>
+                <?php
                 }
             } else {
                 evaluationValidationDelete($student_id, $faculty_id, $subject_id);
-                ?><script src="/assets/js/errorAlert.js"></script><?php
+                ?><script src="/assets/js/errorAlert.js"></script>
+            <?php
             }
         } else {
             evaluationValidationDelete($student_id, $faculty_id, $subject_id);
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+            ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         mysqli_close($conn);
     }
@@ -515,9 +540,11 @@ function editStudent()
             $sql = "UPDATE tb_students SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', yearlevel='$edit_yearlevel', contact_no='$edit_contact_no', address='$edit_address', status='$edit_status', photo='$edit_photo', course_id='$edit_course_id', section_id='$edit_section_id' WHERE student_id='$edit_id'";
         }
         if (mysqli_query($conn, $sql)) {
-            ?><script src="/assets/js/editAlert.js"></script><?php
+        ?><script src="/assets/js/editAlert.js"></script>
+        <?php
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         mysqli_close($conn);
     }
@@ -525,7 +552,7 @@ function editStudent()
 
 // Faculty Edit
 function editFaculty()
-{  
+{
     if (isset($_POST['editfaculty'])) {
         include 'connection.php';
         $edit_id = $_POST['edit_id'];
@@ -536,7 +563,7 @@ function editFaculty()
         $edit_contact_no = $_POST['edit_contact_no'];
         $edit_address = mysqli_real_escape_string($conn, $_POST['edit_address']);
         $edit_photo = null;
-        
+
         if ($_FILES['edit_photo'] == UPLOAD_ERR_NO_FILE) {
             $sql = "UPDATE tb_faculty SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', contact_no='$edit_contact_no', address='$edit_address' WHERE faculty_id='$edit_id'";
         } else {
@@ -544,9 +571,11 @@ function editFaculty()
             $sql = "UPDATE tb_faculty SET firstname='$edit_firstname', lastname='$edit_lastname', email='$edit_email', gender='$edit_gender', contact_no='$edit_contact_no', address='$edit_address', photo='$edit_photo' WHERE faculty_id='$edit_id'";
         }
         if (mysqli_query($conn, $sql)) {
-            ?><script src="/assets/js/editAlert.js"></script><?php
+        ?><script src="/assets/js/editAlert.js"></script>
+        <?php
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         mysqli_close($conn);
     }
@@ -561,9 +590,11 @@ function editAccount()
         $edit_password = $_POST['edit_password'];
         $sql = "UPDATE tb_login SET password='$edit_password' WHERE login_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
-            ?><script src="/assets/js/editAlert.js"></script><?php
+        ?><script src="/assets/js/editAlert.js"></script>
+        <?php
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         mysqli_close($conn);
     }
@@ -578,9 +609,11 @@ function editCourse()
         $edit_course_name = mysqli_real_escape_string($conn, $_POST['edit_course_name']);
         $sql = "UPDATE tb_courses SET course_name='$edit_course_name' WHERE course_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
-            ?><script src="/assets/js/editAlert.js"></script><?php
+        ?><script src="/assets/js/editAlert.js"></script>
+        <?php
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         mysqli_close($conn);
     }
@@ -595,12 +628,14 @@ function editSubject()
         $edit_subject_code = $_POST['edit_subject_code'];
         $edit_subject_name = mysqli_real_escape_string($conn, $_POST['edit_subject_name']);
         $edit_units = $_POST['edit_units'];
-        
+
         $sql = "UPDATE tb_subjects SET subject_code='$edit_subject_code', subject_name='$edit_subject_name', units='$edit_units' WHERE subject_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
-            ?><script src="/assets/js/editAlert.js"></script><?php
+        ?><script src="/assets/js/editAlert.js"></script>
+        <?php
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         mysqli_close($conn);
     }
@@ -615,9 +650,11 @@ function editSection()
         $edit_section_name = $_POST['edit_section_name'];
         $sql = "UPDATE tb_sections SET section_name='$edit_section_name' WHERE section_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
-            ?><script src="/assets/js/editAlert.js"></script><?php
+        ?><script src="/assets/js/editAlert.js"></script>
+        <?php
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         mysqli_close($conn);
     }
@@ -641,9 +678,11 @@ function editSecrel()
         //Add Subject to Sections
         $sql = "UPDATE tb_sections_relation SET subject_id='$subject_id', faculty_id='$edit_faculty_id' WHERE secrel_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
-            ?><script src="/assets/js/editAlert.js"></script><?php
+        ?><script src="/assets/js/editAlert.js"></script>
+        <?php
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         mysqli_close($conn);
     }
@@ -658,9 +697,11 @@ function editQuestion()
         $edit_question = mysqli_real_escape_string($conn, $_POST['edit_question']);
         $sql = "UPDATE tb_questions SET question='$edit_question' WHERE question_id='$edit_id'";
         if (mysqli_query($conn, $sql)) {
-            ?><script src="/assets/js/editAlert.js"></script><?php
+        ?><script src="/assets/js/editAlert.js"></script>
+        <?php
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         mysqli_close($conn);
     }
@@ -672,15 +713,17 @@ function editEvaluation()
     if (isset($_POST['editevaluation'])) {
         include 'connection.php';
         $yearstart = (int)$_POST['yearstart'];
-        $yearend = $yearstart+1;
+        $yearend = $yearstart + 1;
         $semester = $_POST['semester'];
         $status = $_POST['status'];
-        
+
         $sql = "UPDATE tb_active_eval SET schoolyear='$yearstart-$yearend', semester='$semester', status='$status' WHERE active_id='1'";
         if (mysqli_query($conn, $sql)) {
-            ?><script src="/assets/js/editAlert.js"></script><?php
+        ?><script src="/assets/js/editAlert.js"></script>
+        <?php
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         mysqli_close($conn);
     }
@@ -697,11 +740,13 @@ function enableDelete_students()
         $sql2 = "DELETE FROM tb_login WHERE student_id='$delete_id'";
         if (mysqli_query($conn, $sql)) {
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         if (mysqli_query($conn, $sql2)) {
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         header('location: students.php');
     }
@@ -717,11 +762,13 @@ function enableDelete_faculty()
         $sql2 = "DELETE FROM tb_login WHERE faculty_id='$delete_id'";
         if (mysqli_query($conn, $sql)) {
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         if (mysqli_query($conn, $sql2)) {
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         header('location: faculty.php');
     }
@@ -736,7 +783,8 @@ function enableDelete_subjects()
         $sql = "DELETE FROM tb_subjects WHERE subject_id='$delete_id'";
         if (mysqli_query($conn, $sql)) {
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         header('location: subjects.php');
     }
@@ -751,7 +799,8 @@ function enableDelete_sections()
         $sql = "DELETE FROM tb_sections WHERE section_id='$delete_id'";
         if (mysqli_query($conn, $sql)) {
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         header('location: sections.php');
     }
@@ -766,7 +815,8 @@ function enableDelete_courses()
         $sql = "DELETE FROM tb_courses WHERE course_id='$delete_id'";
         if (mysqli_query($conn, $sql)) {
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         header('Location: courses.php');
     }
@@ -781,7 +831,8 @@ function enableDelete_evaluations()
         $sql = "DELETE FROM tb_evaluations WHERE evaluation_id='$delete_id'";
         if (mysqli_query($conn, $sql)) {
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         header('location: evaluations.php');
     }
@@ -799,11 +850,12 @@ function enableDelete_secrel()
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $section_id = $row["section_id"];
         }
-        
+
         $sql = "DELETE FROM tb_sections_relation WHERE secrel_id='$delete_id'";
         if (mysqli_query($conn, $sql)) {
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+        <?php
         }
         header("location: section_subjects.php?section_id=$section_id");
     }
@@ -818,7 +870,8 @@ function enableDelete_questions()
         $sql = "DELETE FROM tb_questions WHERE question_id='$delete_id'";
         if (mysqli_query($conn, $sql)) {
         } else {
-            ?><script src="/assets/js/errorAlert.js"></script><?php
+        ?><script src="/assets/js/errorAlert.js"></script>
+            <?php
         }
         header('location: edit_questions.php');
     }
@@ -1084,14 +1137,14 @@ function availableEvaluations($section_id, $student_id)
             $finished_evaluations++;
         }
     }
-    if (($count-$finished_evaluations) == 0) {
+    if (($count - $finished_evaluations) == 0) {
         echo "
         <tr>
         <td colspan='5'>There are no evaluations available.</td>
         </tr>
         ";
     }
-    
+
     mysqli_close($conn);
 }
 
@@ -1174,18 +1227,14 @@ function showStatus($evaluation_id)
         $semester = $row["semester"];
         $date = $row["date"];
         if ($rating_avg == 5) {
-            $rating = "Perfect";
-        }
-        else if ($rating_avg < 5 && $rating_avg >= 4) {
             $rating = "Very Good";
-        }
-        else if ($rating_avg <= 3.9 && $rating_avg > 3) {
+        } else if ($rating_avg < 5 && $rating_avg >= 4) {
             $rating = "Good";
-        }
-        else if ($rating_avg <= 2.9 && $rating_avg > 2) {
+        } else if ($rating_avg <= 3.9 && $rating_avg > 3) {
+            $rating = "Alright";
+        } else if ($rating_avg <= 2.9 && $rating_avg > 2) {
             $rating = "Bad";
-        }
-        else if ($rating_avg <= 1.9 && $rating_avg >= 1) {
+        } else if ($rating_avg <= 1.9 && $rating_avg >= 1) {
             $rating = "Very Bad";
         }
         echo "
@@ -1288,7 +1337,7 @@ function cbFaculty()
     $sql = "SELECT faculty_id, firstname, lastname FROM tb_faculty";
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $faculty_id = $row["faculty_id"]; 
+        $faculty_id = $row["faculty_id"];
         $firstname = $row["firstname"];
         $lastname = $row["lastname"];
         echo "<option value='$faculty_id'>$firstname $lastname</option>";
@@ -1388,7 +1437,7 @@ function getSentiment($comment, $evaluation_id)
     include 'connection.php';
 
     // Format the comment
-    $comment = preg_replace('/[^a-zA-Z0-9_ -]/s','',$comment);
+    $comment = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $comment);
     $comment = strtolower($comment);
 
     // Load a list of positive and negative words using database
@@ -1458,11 +1507,17 @@ function printSentiment($evaluation_id)
             <div class='comment-box'>
                 <p class='main-search-add-title'><i class='fas fa-search'></i> Terminologies!</p>
                 <p><b>Positive Words</b></p>
-                "; positiveTags($comment); echo "
+                ";
+        positiveTags($comment);
+        echo "
                 <p><b>Negative Words</b></p>
-                "; negativeTags($comment); echo "
+                ";
+        negativeTags($comment);
+        echo "
                 <p><b>Neutral Words</b></p>
-                "; neutralTags($comment); echo "
+                ";
+        neutralTags($comment);
+        echo "
             </div>
             <div class='SentimentAnalyzed'>
                 <p class='main-search-add-title'><i class='fas fa-search'></i> Sentiment!</p>
@@ -1529,7 +1584,8 @@ function addSentiment()
             $sql = "INSERT INTO tb_terms (term, value, term_type) VALUES ('$word', 0, 'neutral')";
             if (mysqli_query($conn, $sql)) {
             } else {
-                ?><script src="/assets/js/errorAlert.js"></script><?php
+            ?><script src="/assets/js/errorAlert.js"></script>
+<?php
             }
         }
     }
@@ -1710,7 +1766,8 @@ function showStudentProfile($student_id)
 }
 
 //This shows the subjects that the student is currently enrolled.
-function studentSubjects($student_id) {
+function studentSubjects($student_id)
+{
     include 'connection.php';
     //Get Section ID
     $sql_student = "SELECT section_id FROM tb_students WHERE student_id = $student_id";
@@ -1802,14 +1859,15 @@ function showFacultyProfile($faculty_id)
     mysqli_close($conn);
 }
 
-function showFacultyStatistics($faculty_id) {
+function showFacultyStatistics($faculty_id)
+{
     include 'connection.php';
     $sql_avg = "SELECT ROUND(AVG(rating_avg),1) AS overall_rating FROM tb_evaluations WHERE faculty_id = $faculty_id";
     $result_avg = mysqli_query($conn, $sql_avg);
     while ($row = mysqli_fetch_array($result_avg, MYSQLI_ASSOC)) {
         $rating_avg = $row["overall_rating"];
         $sql_sentiment =
-        "SELECT SUM(positive_count) AS positive_sum,
+            "SELECT SUM(positive_count) AS positive_sum,
         SUM(negative_count) AS negative_sum,
         SUM(sentiment_score) AS sentiment_sum
         FROM tb_sentiment INNER JOIN tb_evaluations
@@ -1824,17 +1882,13 @@ function showFacultyStatistics($faculty_id) {
         // Calculate the overall rating
         if ($rating_avg == 5) {
             $rating = "Perfect";
-        }
-        else if ($rating_avg < 5 && $rating_avg >= 4) {
+        } else if ($rating_avg < 5 && $rating_avg >= 4) {
             $rating = "Very Good";
-        }
-        else if ($rating_avg <= 3.9 && $rating_avg > 3) {
+        } else if ($rating_avg <= 3.9 && $rating_avg > 3) {
             $rating = "Good";
-        }
-        else if ($rating_avg <= 2.9 && $rating_avg > 2) {
+        } else if ($rating_avg <= 2.9 && $rating_avg > 2) {
             $rating = "Bad";
-        }
-        else if ($rating_avg <= 1.9 && $rating_avg >= 1) {
+        } else if ($rating_avg <= 1.9 && $rating_avg >= 1) {
             $rating = "Very Bad";
         }
         // Calculate the overall sentiment
