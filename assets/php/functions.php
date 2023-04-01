@@ -447,6 +447,7 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
 {
     if (isset($_POST['submitevaluation'])) {
         include 'connection.php';
+        mysqli_query($conn, "SET foreign_key_checks = 0");
         $question_count = "SELECT question_id, question FROM tb_questions ORDER BY question_id";
         $result = mysqli_query($conn, $question_count);
         $comment = mysqli_real_escape_string($conn, $_POST["comment"]);
@@ -510,6 +511,7 @@ function submitEvaluation($student_id, $faculty_id, $subject_id)
             ?><script src="/assets/js/errorAlert.js"></script>
         <?php
         }
+        mysqli_query($conn, "SET foreign_key_checks = 1");
         mysqli_close($conn);
     }
 }
