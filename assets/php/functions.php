@@ -175,14 +175,12 @@ function sidebarIdentify()
         echo '
         <li><a href="dashboard.php"><i class="fas fa-desktop i"></i><span>Dashboard</span></a></li>
         <li><a href="student_profile.php"><i class="fas fa-user i"></i><span>Profile</span></a></li>
-        <li><a href="about.php"><i class="fas fa-info-circle i"></i><span>About</span></a></li>
         <li><a href="?logout=true"><i class="fas fa-sign-out-alt i"></i><span>Sign Out</span></a></li>
         ';
     } else if ($_SESSION['usertype'] == 'Faculty') {
         echo '
         <li><a href="dashboard.php"><i class="fas fa-desktop i"></i><span>Dashboard</span></a></li>
         <li><a href="faculty_profile.php"><i class="fas fa-user i"></i><span>Profile</span></a></li>
-        <li><a href="about.php"><i class="fas fa-info-circle i"></i><span>About</span></a></li>
         <li><a href="?logout=true"><i class="fas fa-sign-out-alt i"></i><span>Sign Out</span></a></li>
         ';
     }
@@ -262,6 +260,59 @@ function addStudent()
             <?php
             } else {
             ?><script src="/assets/js/errorAlert.js"></script>
+            <?php
+            }
+        } else {
+            ?><script src="/assets/js/errorAlert.js"></script>
+            <?php
+        }
+        mysqli_close($conn);
+    }
+}
+
+//Adds a new student in the record.
+function addStudentWCode()
+{
+    if (isset($_POST['addstudent'])) {
+        include 'connection.php';
+        $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
+        $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
+        $email = $_POST['email'];
+        $gender = $_POST['gender'];
+        $yearlevel = $_POST['yearlevel'];
+        $contact_no = $_POST['contact_no'];
+        $address = mysqli_real_escape_string($conn, $_POST['address']);
+        $status = $_POST['status'];
+        $course = $_POST['course_id'];
+        $section = $_POST['section_id'];
+        $reg_code = $_POST['reg_code'];
+        $reg_conf = "$lastname$contact_no";
+
+        if ($_FILES['photo'] == UPLOAD_ERR_NO_FILE) {
+            $photo = 'standard.png';
+        } else {
+            include './assets/php/uploadPhoto_add.php';
+        }
+
+        //Add Student
+        if ($reg_code == $reg_conf) {
+            $sql = "INSERT INTO tb_students (student_id, firstname, lastname, email, gender, yearlevel, contact_no, address, status, photo, course_id, section_id) VALUES (null, '$firstname', '$lastname', '$email', '$gender', '$yearlevel', $contact_no, '$address', '$status', '$photo', '$course', '$section')";
+            if (mysqli_query($conn, $sql)) {
+                $sql2 = "SELECT student_id FROM tb_students ORDER BY student_id DESC LIMIT 1;";
+                $result = mysqli_query($conn, $sql2);
+                while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    $sid_value = $row["student_id"];
+                }
+                $sql3 = "INSERT INTO tb_login (login_id, student_id, faculty_id, password, usertype) VALUES (null, $sid_value, null, '$lastname$contact_no', 'Student')";
+                if (mysqli_query($conn, $sql3)) {
+            ?><script src="/assets/js/addAlert.js"></script>
+                <?php
+                } else {
+                ?><script src="/assets/js/errorAlert.js"></script>
+                <?php
+                }
+            } else {
+                ?><script src="/assets/js/errorAlert.js"></script>
             <?php
             }
         } else {
