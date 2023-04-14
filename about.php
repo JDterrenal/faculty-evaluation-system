@@ -31,32 +31,10 @@ $usertype = $_SESSION['usertype'];
 					<h1><i class="fas fa-info-circle" id="view-info"> About</i></h1>
 					<hr>
 					<div class="about-container">
-                        <div class="about-panel">
-                            <div class="credit1">
-                                <h1>Development Team</h1>
-                            </div>
-							<div class="credit1">
-                                <p class="credit-name">Erick Uriel Bartolome</p>
-                                <p class="credit-role">Assistant Developer</p>
-                            </div>
-                            <div class="credit1">
-                                <p class="credit-name">Clifford Randall Chan</p>
-                                <p class="credit-role">Assistant Personnel</p>
-                            </div>
-                            <div class="credit1">
-                                <p class="credit-name">Alexander Macenas</p>
-                                <p class="credit-role">Database Architect</p>
-                            </div>
-                            <div class="credit1">
-                                <p class="credit-name">Jan Reynald Pangilinan</p>
-                                <p class="credit-role">Back-end Developer</p>
-                            </div>
-                            <div class="credit1">
-                                <p class="credit-name">John Derick Terrenal</p>
-                                <p class="credit-role">Front-end Developer</p>
-                            </div>
-                        </div>
-                    </div>
+						<div class="about-panel">
+							Systems Plus Computer College Caloocan Faculty Evaluation System with Sentiment Analysis
+						</div>
+					</div>
 				</div>
 			</div>
 		</main>
